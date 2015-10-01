@@ -15,12 +15,31 @@ The font maps were written by several people, including
 and are now maintained in the tug.org subversion repository:
   https://git.gitorious.org/tlptexlive/jfontmaps.git
 
+Free versus non-free
+====================
+Due to the requirements that TeX Live includes only support for free
+software, this package is split into two parts:
+* jfontmaps : which contains most of the files and scripts, as well
+	as support files for free fonts
+* jfontmaps-nonfree : only the support (map) files for non-free fonts
+
+The package `jfontmaps' (this package) is available in TeX Live,
+while the package `jfontmaps-nonfree` is *NOT* available directly from the
+TeX Live package mirrors, but can be installed from the tlptexlive
+repository, by executing the following commands:
+	tlmgr repository add http://www.tug.org/~preining/tlptexlive tlptexlive
+	tlmgr pinning add tlptexlive jfontmaps-nonfree
+	tlmgr install jfontmaps-nonfree
+After that updates for the jfontmaps packages will be automatically
+installed.
+
+
 Families, support, and necessary font files
 ===========================================
 This package does *not* ship any of the fonts mentioned, but only
 map files for dvipdfmx. You have to obtain the fonts separately.
 For ipa and ipaex the respective fonts a shipped in TeX Live
-and are available for free.
+and are available for free. All other fonts are non-free.
 
 If in the following tables some fonts are marked with 
 	'(<= "...")
@@ -139,7 +158,7 @@ All the (c)map files are under Public Domain.
 The (deprecated) file updmap-otf.sh and the (in perl rewritten version)
 kanji-config-updmap.pl are licensed under the following terms:
   Copyright 2004-2006 by KOBAYASHI Taizo
-  Copyright 2011-2014 by PREINING Norbert
+  Copyright 2011-2015 by PREINING Norbert
 Licensed under the GPL version 3 or any later version, 
 see the file for details.
 
