@@ -75,7 +75,8 @@ my %representatives = (
   "ipa"           => "ipam.ttf",
   "ipaex"         => "ipaexm.ttf",
   "ms"            => "msgothic.ttc",
-  "yu-win"        => "yumin.ttf",
+  "yu-win"        => "yugothic.ttf",
+  "yu-win10"      => "YuGothM.ttc",
   "yu-osx"        => "YuMin-Medium.otf",
 );
 my %available;
