@@ -7,11 +7,12 @@ The files contained in this package contains font maps for dvipdfmx to
 make various Japanese fonts available for (u)ptex and related programs
 and formats.
 
-The font maps were written by several people, including
+The font maps were written by several people, including (in alphabetic order)
   Hironori Kitagawa
-  Takuji Tanaka
-  Saito Shuzaburo
   Norbert Preining
+  Saito Shuzaburo
+  Takuji Tanaka
+  Hironobu Yamashita
 and are now maintained in the github.com git repository:
   https://github.com/texjporg/jfontmaps
 
