@@ -39,6 +39,10 @@ X ms - MS Mincho and MS Gothic, shipped with Windows
     msmincho.ttc
     msgothic.ttc
 
+X ms-osx - MS Mincho and MS Gothic, shipped with Office for Mac
+    MS-Mincho.ttc      (<= "MS Mincho.ttf")
+    MS-Gothic.ttf      (<= "MS Gothic.ttf")
+
 4 yu-win - Yu Mincho and Yu Gothic fonts by Jiyu-koubou LTD.,
        bundled with Win 8.1.
     yumin.ttf
