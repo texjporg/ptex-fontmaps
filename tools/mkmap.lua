@@ -131,7 +131,7 @@ local foundry = {
       {'6nm'}, -- Pr6N
    },
    ['hiragino'] = {
-      ml='HiraMin?-W2.otf',
+      ml='HiraMin?-W2.otf', -- OSX にはない
       mr='HiraMin?-W3.otf',
       mb='HiraMin?-W6.otf',
       gr='HiraKaku?-W3.otf',
@@ -142,7 +142,7 @@ local foundry = {
       {'X','Xn'},  -- Pro and ProN
    },
    ['hiragino-elcapitan'] = {
-      ml= 'HiraMin?-W2.otf', -- OSX にはない
+      ml= '#1-HiraginoSerif-W3.ttc %!PS HiraMin?-W3', -- ここは OTC を使おう
       mr= '#1-HiraginoSerif-W3.ttc %!PS HiraMin?-W3',
       mb= '#1-HiraginoSerif-W6.ttc %!PS HiraMin?-W6',
       gr= '#3-HiraginoSans-W3.ttc  %!PS HiraKaku?-W3',
@@ -151,6 +151,17 @@ local foundry = {
       ge= '#2+HiraginoSans-W8.ttc  %!PS HiraKaku?-W8',
       mgr='#0+HiraginoSansR-W4.ttc %!PS HiraMaru?-W4',
       {'X','Xn'},  -- Pro and ProN
+   },
+   ['toppanbunkyu-sierra'] = {
+      ml= 'ToppanBunkyuMincho-Regular.otf %!PS ToppanBunkyuMinchoPr6N-Regular',
+      mr= 'ToppanBunkyuMincho-Regular.otf %!PS ToppanBunkyuMinchoPr6N-Regular',
+      mb= 'ToppanBunkyuMidashiMincho-ExtraBold.otf %!PS ToppanBunkyuMidashiMinchoStdN-ExtraBold',
+      gr= ':1:ToppanBunkyuGothic.ttc %!PS ToppanBunkyuGothicPr6N-Regular',
+      gru=':0:ToppanBunkyuGothic.ttc %!PS ToppanBunkyuGothicPr6N-DB',
+      gb= ':0:ToppanBunkyuGothic.ttc %!PS ToppanBunkyuGothicPr6N-DB',
+      ge= 'ToppanBunkyuMidashiGothic-ExtraBold.otf %!PS ToppanBunkyuMidashiGothicStdN-ExtraBold',
+      mgr=':1:ToppanBunkyuGothic.ttc %!PS ToppanBunkyuGothicPr6N-Regular',
+      {''},
    },
 }
 
@@ -350,6 +361,7 @@ hiramin-w6-v Identity-V $mb
 hirakaku-w3-v Identity-V $gr
 hirakaku-w6-v Identity-V $gb
 hiramaru-w4-v Identity-V $mgr
+
 ]])
 	       for i,v in pairs(v2) do
 		  v = (v:gsub ('$(%w+)', foundry[fd])):gsub('?', ret_suffix(fd,s,''))

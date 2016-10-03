@@ -1,0 +1,80 @@
+
+% TEXT, 90JIS
+hminl-h	H	ToppanBunkyuMincho-Regular.otf %!PS ToppanBunkyuMinchoPr6N-Regular
+hminl-v	V	ToppanBunkyuMincho-Regular.otf %!PS ToppanBunkyuMinchoPr6N-Regular
+hminr-h	H	ToppanBunkyuMincho-Regular.otf %!PS ToppanBunkyuMinchoPr6N-Regular
+hminr-v	V	ToppanBunkyuMincho-Regular.otf %!PS ToppanBunkyuMinchoPr6N-Regular
+hminb-h	H	ToppanBunkyuMidashiMincho-ExtraBold.otf %!PS ToppanBunkyuMidashiMinchoStdN-ExtraBold
+hminb-v	V	ToppanBunkyuMidashiMincho-ExtraBold.otf %!PS ToppanBunkyuMidashiMinchoStdN-ExtraBold
+hgothr-h	H	:1:ToppanBunkyuGothic.ttc %!PS ToppanBunkyuGothicPr6N-Regular
+hgothr-v	V	:1:ToppanBunkyuGothic.ttc %!PS ToppanBunkyuGothicPr6N-Regular
+hgothb-h	H	:0:ToppanBunkyuGothic.ttc %!PS ToppanBunkyuGothicPr6N-DB
+hgothb-v	V	:0:ToppanBunkyuGothic.ttc %!PS ToppanBunkyuGothicPr6N-DB
+hgotheb-h	H	ToppanBunkyuMidashiGothic-ExtraBold.otf %!PS ToppanBunkyuMidashiGothicStdN-ExtraBold
+hgotheb-v	V	ToppanBunkyuMidashiGothic-ExtraBold.otf %!PS ToppanBunkyuMidashiGothicStdN-ExtraBold
+hmgothr-h	H	:1:ToppanBunkyuGothic.ttc %!PS ToppanBunkyuGothicPr6N-Regular
+hmgothr-v	V	:1:ToppanBunkyuGothic.ttc %!PS ToppanBunkyuGothicPr6N-Regular
+
+% TEXT, JIS04
+hminln-h	H	ToppanBunkyuMincho-Regular.otf %!PS ToppanBunkyuMinchoPr6N-Regular
+hminln-v	V	ToppanBunkyuMincho-Regular.otf %!PS ToppanBunkyuMinchoPr6N-Regular
+hminrn-h	H	ToppanBunkyuMincho-Regular.otf %!PS ToppanBunkyuMinchoPr6N-Regular
+hminrn-v	V	ToppanBunkyuMincho-Regular.otf %!PS ToppanBunkyuMinchoPr6N-Regular
+hminbn-h	H	ToppanBunkyuMidashiMincho-ExtraBold.otf %!PS ToppanBunkyuMidashiMinchoStdN-ExtraBold
+hminbn-v	V	ToppanBunkyuMidashiMincho-ExtraBold.otf %!PS ToppanBunkyuMidashiMinchoStdN-ExtraBold
+hgothrn-h	H	:1:ToppanBunkyuGothic.ttc %!PS ToppanBunkyuGothicPr6N-Regular
+hgothrn-v	V	:1:ToppanBunkyuGothic.ttc %!PS ToppanBunkyuGothicPr6N-Regular
+hgothbn-h	H	:0:ToppanBunkyuGothic.ttc %!PS ToppanBunkyuGothicPr6N-DB
+hgothbn-v	V	:0:ToppanBunkyuGothic.ttc %!PS ToppanBunkyuGothicPr6N-DB
+hgothebn-h	H	ToppanBunkyuMidashiGothic-ExtraBold.otf %!PS ToppanBunkyuMidashiGothicStdN-ExtraBold
+hgothebn-v	V	ToppanBunkyuMidashiGothic-ExtraBold.otf %!PS ToppanBunkyuMidashiGothicStdN-ExtraBold
+hmgothrn-h	H	:1:ToppanBunkyuGothic.ttc %!PS ToppanBunkyuGothicPr6N-Regular
+hmgothrn-v	V	:1:ToppanBunkyuGothic.ttc %!PS ToppanBunkyuGothicPr6N-Regular
+
+% CID
+otf-cjml-h	Identity-H	ToppanBunkyuMincho-Regular.otf %!PS ToppanBunkyuMinchoPr6N-Regular
+otf-cjml-v	Identity-V	ToppanBunkyuMincho-Regular.otf %!PS ToppanBunkyuMinchoPr6N-Regular
+otf-cjmr-h	Identity-H	ToppanBunkyuMincho-Regular.otf %!PS ToppanBunkyuMinchoPr6N-Regular
+otf-cjmr-v	Identity-V	ToppanBunkyuMincho-Regular.otf %!PS ToppanBunkyuMinchoPr6N-Regular
+otf-cjmb-h	Identity-H	ToppanBunkyuMidashiMincho-ExtraBold.otf %!PS ToppanBunkyuMidashiMinchoStdN-ExtraBold
+otf-cjmb-v	Identity-V	ToppanBunkyuMidashiMincho-ExtraBold.otf %!PS ToppanBunkyuMidashiMinchoStdN-ExtraBold
+otf-cjgr-h	Identity-H	:1:ToppanBunkyuGothic.ttc %!PS ToppanBunkyuGothicPr6N-Regular
+otf-cjgr-v	Identity-V	:1:ToppanBunkyuGothic.ttc %!PS ToppanBunkyuGothicPr6N-Regular
+otf-cjgb-h	Identity-H	:0:ToppanBunkyuGothic.ttc %!PS ToppanBunkyuGothicPr6N-DB
+otf-cjgb-v	Identity-V	:0:ToppanBunkyuGothic.ttc %!PS ToppanBunkyuGothicPr6N-DB
+otf-cjge-h	Identity-H	ToppanBunkyuMidashiGothic-ExtraBold.otf %!PS ToppanBunkyuMidashiGothicStdN-ExtraBold
+otf-cjge-v	Identity-V	ToppanBunkyuMidashiGothic-ExtraBold.otf %!PS ToppanBunkyuMidashiGothicStdN-ExtraBold
+otf-cjmgr-h	Identity-H	:1:ToppanBunkyuGothic.ttc %!PS ToppanBunkyuGothicPr6N-Regular
+otf-cjmgr-v	Identity-V	:1:ToppanBunkyuGothic.ttc %!PS ToppanBunkyuGothicPr6N-Regular
+
+% Unicode 90JIS
+otf-ujml-h	UniJIS-UTF16-H	ToppanBunkyuMincho-Regular.otf %!PS ToppanBunkyuMinchoPr6N-Regular
+otf-ujml-v	UniJIS-UTF16-V	ToppanBunkyuMincho-Regular.otf %!PS ToppanBunkyuMinchoPr6N-Regular
+otf-ujmr-h	UniJIS-UTF16-H	ToppanBunkyuMincho-Regular.otf %!PS ToppanBunkyuMinchoPr6N-Regular
+otf-ujmr-v	UniJIS-UTF16-V	ToppanBunkyuMincho-Regular.otf %!PS ToppanBunkyuMinchoPr6N-Regular
+otf-ujmb-h	UniJIS-UTF16-H	ToppanBunkyuMidashiMincho-ExtraBold.otf %!PS ToppanBunkyuMidashiMinchoStdN-ExtraBold
+otf-ujmb-v	UniJIS-UTF16-V	ToppanBunkyuMidashiMincho-ExtraBold.otf %!PS ToppanBunkyuMidashiMinchoStdN-ExtraBold
+otf-ujgr-h	UniJIS-UTF16-H	:1:ToppanBunkyuGothic.ttc %!PS ToppanBunkyuGothicPr6N-Regular
+otf-ujgr-v	UniJIS-UTF16-V	:1:ToppanBunkyuGothic.ttc %!PS ToppanBunkyuGothicPr6N-Regular
+otf-ujgb-h	UniJIS-UTF16-H	:0:ToppanBunkyuGothic.ttc %!PS ToppanBunkyuGothicPr6N-DB
+otf-ujgb-v	UniJIS-UTF16-V	:0:ToppanBunkyuGothic.ttc %!PS ToppanBunkyuGothicPr6N-DB
+otf-ujge-h	UniJIS-UTF16-H	ToppanBunkyuMidashiGothic-ExtraBold.otf %!PS ToppanBunkyuMidashiGothicStdN-ExtraBold
+otf-ujge-v	UniJIS-UTF16-V	ToppanBunkyuMidashiGothic-ExtraBold.otf %!PS ToppanBunkyuMidashiGothicStdN-ExtraBold
+otf-ujmgr-h	UniJIS-UTF16-H	:1:ToppanBunkyuGothic.ttc %!PS ToppanBunkyuGothicPr6N-Regular
+otf-ujmgr-v	UniJIS-UTF16-V	:1:ToppanBunkyuGothic.ttc %!PS ToppanBunkyuGothicPr6N-Regular
+
+% Unicode JIS04
+otf-ujmln-h	UniJIS2004-UTF16-H	ToppanBunkyuMincho-Regular.otf %!PS ToppanBunkyuMinchoPr6N-Regular
+otf-ujmln-v	UniJIS2004-UTF16-V	ToppanBunkyuMincho-Regular.otf %!PS ToppanBunkyuMinchoPr6N-Regular
+otf-ujmrn-h	UniJIS2004-UTF16-H	ToppanBunkyuMincho-Regular.otf %!PS ToppanBunkyuMinchoPr6N-Regular
+otf-ujmrn-v	UniJIS2004-UTF16-V	ToppanBunkyuMincho-Regular.otf %!PS ToppanBunkyuMinchoPr6N-Regular
+otf-ujmbn-h	UniJIS2004-UTF16-H	ToppanBunkyuMidashiMincho-ExtraBold.otf %!PS ToppanBunkyuMidashiMinchoStdN-ExtraBold
+otf-ujmbn-v	UniJIS2004-UTF16-V	ToppanBunkyuMidashiMincho-ExtraBold.otf %!PS ToppanBunkyuMidashiMinchoStdN-ExtraBold
+otf-ujgrn-h	UniJIS2004-UTF16-H	:1:ToppanBunkyuGothic.ttc %!PS ToppanBunkyuGothicPr6N-Regular
+otf-ujgrn-v	UniJIS2004-UTF16-V	:1:ToppanBunkyuGothic.ttc %!PS ToppanBunkyuGothicPr6N-Regular
+otf-ujgbn-h	UniJIS2004-UTF16-H	:0:ToppanBunkyuGothic.ttc %!PS ToppanBunkyuGothicPr6N-DB
+otf-ujgbn-v	UniJIS2004-UTF16-V	:0:ToppanBunkyuGothic.ttc %!PS ToppanBunkyuGothicPr6N-DB
+otf-ujgen-h	UniJIS2004-UTF16-H	ToppanBunkyuMidashiGothic-ExtraBold.otf %!PS ToppanBunkyuMidashiGothicStdN-ExtraBold
+otf-ujgen-v	UniJIS2004-UTF16-V	ToppanBunkyuMidashiGothic-ExtraBold.otf %!PS ToppanBunkyuMidashiGothicStdN-ExtraBold
+otf-ujmgrn-h	UniJIS2004-UTF16-H	:1:ToppanBunkyuGothic.ttc %!PS ToppanBunkyuGothicPr6N-Regular
+otf-ujmgrn-v	UniJIS2004-UTF16-V	:1:ToppanBunkyuGothic.ttc %!PS ToppanBunkyuGothicPr6N-Regular
