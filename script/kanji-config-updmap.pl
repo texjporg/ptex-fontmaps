@@ -5,7 +5,7 @@
 # formerly known as updmap-setup-kanji
 #
 # Copyright 2004-2006 by KOBAYASHI R. Taizo for the shell version (updmap-otf)
-# Copyright 2011-2015 by PREINING Norbert
+# Copyright 2011-2016 by PREINING Norbert
 #
 # This file is licensed under GPL version 3 or any later version.
 # For copyright statements see end of file.
@@ -67,6 +67,7 @@ my %representatives = (
   "hiragino-pron" => "HiraMinProN-W3.otf",
   "hiragino-elcapitan" => "HiraginoSerif-W3.ttc",
   "hiragino-elcapitan-pron" => "HiraginoSerif-W3.ttc",
+  "toppanbunkyu-sierra" => "ToppanBunkyuGothic.ttc",
   "morisawa"      => "A-OTF-RyuminPro-Light.otf",
   "morisawa-pr6n" => "A-OTF-RyuminPr6N-Light.otf",
   "kozuka"        => "KozMinPro-Regular.otf",
@@ -75,7 +76,9 @@ my %representatives = (
   "ipa"           => "ipam.ttf",
   "ipaex"         => "ipaexm.ttf",
   "ms"            => "msgothic.ttc",
-  "yu-win"        => "yumin.ttf",
+  "ms-osx"        => "MS-Gothic.ttf",
+  "yu-win"        => "yugothib.ttf",
+  "yu-win10"      => "YuGothB.ttc",
   "yu-osx"        => "YuMin-Medium.otf",
 );
 my %available;
@@ -114,7 +117,8 @@ sub Usage {
      auto:       embed one of the following supported font families
                  automatically:
                    hiragino, hiragino-pron, hiragino-elcapitan,
-                   hiragino-elcapitan-pron, morisawa, morisawa-pr6n,
+                   hiragino-elcapitan-pron, toppanbunkyu-sierra,
+                   morisawa, morisawa-pr6n,
                    kozuka, kozuka-pr6, kozuka-pr6n, ipaex, ipa, ms, 
                    yu-osx, yu-win, yu-win10
                  and fall back to not embedding any font if none of them
@@ -247,7 +251,7 @@ sub SetupReplacement {
         for my $i (qw/
             morisawa-pr6n yu-osx kozuka-pr6n kozuka-pr6
             hiragino-pron hiragino-elcapitan-pron hiragino
-            hiragino-elcapitan
+            hiragino-elcapitan toppanbunkyu-sierra
             morisawa kozuka yu-win yu-win10 ipaex ipa ms/) {
           if ($available{$i}) {
             return SetupMapFile($i);

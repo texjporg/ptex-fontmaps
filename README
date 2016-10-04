@@ -7,13 +7,14 @@ The files contained in this package contains font maps for dvipdfmx to
 make various Japanese fonts available for (u)ptex and related programs
 and formats.
 
-The font maps were written by several people, including
+The font maps were written by several people, including (in alphabetic order)
   Hironori Kitagawa
-  Takuji Tanaka
-  Saito Shuzaburo
   Norbert Preining
-and are now maintained in the tug.org subversion repository:
-  https://git.gitorious.org/tlptexlive/jfontmaps.git
+  Saito Shuzaburo
+  Takuji Tanaka
+  Hironobu Yamashita
+and are now maintained in the github.com git repository:
+  https://github.com/texjporg/jfontmaps
 
 Free versus non-free
 ====================
@@ -58,6 +59,10 @@ X ms - MS Mincho and MS Gothic, shipped with Windows
     msmincho.ttc
     msgothic.ttc
 
+X ms-osx - MS Mincho and MS Gothic, shipped with Office for Mac
+    MS-Mincho.ttf      (<= "MS Mincho.ttf")
+    MS-Gothic.ttf      (<= "MS Gothic.ttf")
+
 4 yu-win - Yu Mincho and Yu Gothic fonts by Jiyu-koubou LTD.,
        bundled with Win 8.1.
     yumin.ttf
@@ -76,7 +81,7 @@ X ms - MS Mincho and MS Gothic, shipped with Windows
     YuGothB.ttc
 
 O yu-osx - Yu Mincho and Yu Gothic fonts by Jiyu-koubou LTD.,
-       bundled with OSX 10.9.
+       bundled with OSX 10.9 and 10.10.
     YuGo-Bold.otf      (<= "Yu Gothic Bold.otf")
     YuGo-Medium.otf    (<= "Yu Gothic Medium.otf")
     YuMin-Demibold.otf (<= "Yu Mincho Demibold.otf")
@@ -93,7 +98,7 @@ O yu-osx - Yu Mincho and Yu Gothic fonts by Jiyu-koubou LTD.,
 
 
 O? hiragino - Hiragino fonts by Dainippon Screen Mfg. Co., Ltd.
-	bundled with Mac OS X 10.5 or later, 
+	bundled with Mac OS X 10.5--10.10, 
 	or Japanese word processor Ichitaro 2012 Premium/Super-premium editions
     HiraMinPro-W2.otf   (<= "ヒラギノ明朝 Pro W2.otf")
     HiraMinPro-W3.otf   (<= "ヒラギノ明朝 Pro W3.otf")
@@ -110,14 +115,20 @@ O hiragino-pron - see above
 
 O hiragino-elcapitan-pron
 O hiragino-elcapitan
-	bundled with Mac OS X 10.11 El Capitan
+	bundled with Mac OS X 10.11 El Capitan or later
     HiraginoSansR-W4.ttc (<= "ヒラギノ丸ゴ ProN W4.ttc")
     HiraginoSans-W3.ttc  (<= "ヒラギノ角ゴシック W3.ttc")
     HiraginoSans-W6.ttc  (<= "ヒラギノ角ゴシック W6.ttc")
     HiraginoSans-W8.ttc  (<= "ヒラギノ角ゴシック W8.ttc")
     HiraginoSerif-W3.ttc (<= "ヒラギノ明朝 ProN W3.ttc")
     HiraginoSerif-W6.ttc (<= "ヒラギノ明朝 ProN W6.ttc")
-    HiraMinProN-W2.otf   (<= "ヒラギノ明朝 ProN W2.otf")
+
+O toppanbunkyu-sierra
+	bundled with macOS 10.12 Sierra
+    ToppanBunkyuMincho-Regular.otf
+    ToppanBunkyuMidashiMincho-ExtraBold.otf
+    ToppanBunkyuGothic.ttc
+    ToppanBunkyuMidashiGothic-ExtraBold.otf
 
 P kozuka - by Adobe Systems, bundled with Adobe's software
     KozMinPro-Light.otf
@@ -158,7 +169,7 @@ All the (c)map files are under Public Domain.
 The (deprecated) file updmap-otf.sh and the (in perl rewritten version)
 kanji-config-updmap.pl are licensed under the following terms:
   Copyright 2004-2006 by KOBAYASHI Taizo
-  Copyright 2011-2015 by PREINING Norbert
+  Copyright 2011-2016 by PREINING Norbert
 Licensed under the GPL version 3 or any later version, 
 see the file for details.
 

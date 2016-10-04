@@ -1,7 +1,7 @@
 
 % TEXT, 90JIS
-uphminl-h	UniJIS-UTF16-H	HiraMinProN-W2.otf
-uphminl-v	UniJIS-UTF16-V	HiraMinProN-W2.otf
+uphminl-h	UniJIS-UTF16-H	:0:HiraginoSerif-W3.ttc %!PS HiraMinProN-W3
+uphminl-v	UniJIS-UTF16-V	:0:HiraginoSerif-W3.ttc %!PS HiraMinProN-W3
 uphminr-h	UniJIS-UTF16-H	:0:HiraginoSerif-W3.ttc %!PS HiraMinProN-W3
 uphminr-v	UniJIS-UTF16-V	:0:HiraginoSerif-W3.ttc %!PS HiraMinProN-W3
 uphminb-h	UniJIS-UTF16-H	:0:HiraginoSerif-W6.ttc %!PS HiraMinProN-W6
@@ -16,8 +16,8 @@ uphmgothr-h	UniJIS-UTF16-H	:1:HiraginoSansR-W4.ttc %!PS HiraMaruProN-W4
 uphmgothr-v	UniJIS-UTF16-V	:1:HiraginoSansR-W4.ttc %!PS HiraMaruProN-W4
 
 % TEXT, JIS04
-uphminln-h	UniJIS2004-UTF16-H	HiraMinProN-W2.otf
-uphminln-v	UniJIS2004-UTF16-V	HiraMinProN-W2.otf
+uphminln-h	UniJIS2004-UTF16-H	:0:HiraginoSerif-W3.ttc %!PS HiraMinProN-W3
+uphminln-v	UniJIS2004-UTF16-V	:0:HiraginoSerif-W3.ttc %!PS HiraMinProN-W3
 uphminrn-h	UniJIS2004-UTF16-H	:0:HiraginoSerif-W3.ttc %!PS HiraMinProN-W3
 uphminrn-v	UniJIS2004-UTF16-V	:0:HiraginoSerif-W3.ttc %!PS HiraMinProN-W3
 uphminbn-h	UniJIS2004-UTF16-H	:0:HiraginoSerif-W6.ttc %!PS HiraMinProN-W6

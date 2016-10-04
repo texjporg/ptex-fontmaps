@@ -14,68 +14,85 @@ local foundry = {
       {'n'},
    },
    ['ms']   = {
-      noncid = true, 
-      ml=':0:msmincho.ttc', mr=':0:msmincho.ttc', mb=':0:msmincho.ttc',
-      gr=':0:msgothic.ttc', gru=':0:msgothic.ttc', gb=':0:msgothic.ttc', ge=':0:msgothic.ttc',
+      noncid = true,
+      ml=':0:msmincho.ttc',
+      mr=':0:msmincho.ttc',
+      mb=':0:msmincho.ttc',
+      gr=':0:msgothic.ttc',
+      gru=':0:msgothic.ttc',
+      gb=':0:msgothic.ttc',
+      ge=':0:msgothic.ttc',
       mgr=':0:msgothic.ttc',
       {''},
    },
+   ['ms-osx']   = {
+      noncid = true,
+      ml='MS-Mincho.ttf',
+      mr='MS-Mincho.ttf',
+      mb='MS-Mincho.ttf',
+      gr='MS-Gothic.ttf',
+      gru='MS-Gothic.ttf',
+      gb='MS-Gothic.ttf',
+      ge='MS-Gothic.ttf',
+      mgr='MS-Gothic.ttf',
+      {''},
+   },
    ['yu-win']   = {
-      noncid = true, 
-      ml='yuminl.ttf %!PS YuMincho-Light', 
-      mr='yumin.ttf %!PS YuMincho-Regular', 
+      noncid = true,
+      ml='yuminl.ttf %!PS YuMincho-Light',
+      mr='yumin.ttf %!PS YuMincho-Regular',
       mb='yumindb.ttf %!PS YuMincho-DemiBold',
-      gr='yugothic.ttf %!PS YuGothic-Regular', 
-      gru='yugothic.ttf %!PS YuGothic-Regular', 
-      gb='yugothib.ttf %!PS YuGothic-Bold', 
+      gr='yugothic.ttf %!PS YuGothic-Regular',
+      gru='yugothic.ttf %!PS YuGothic-Regular',
+      gb='yugothib.ttf %!PS YuGothic-Bold',
       ge='yugothib.ttf %!PS YuGothic-Bold',
       mgr='yugothib.ttf %!PS YuGothic-Bold',
-      {''}, 
-   }, 
+      {''},
+   },
    ['yu-win10']   = {
-      noncid = true, 
-      ml='yuminl.ttf %!PS YuMincho-Light', 
-      mr='yumin.ttf %!PS YuMincho-Regular', 
+      noncid = true,
+      ml='yuminl.ttf %!PS YuMincho-Light',
+      mr='yumin.ttf %!PS YuMincho-Regular',
       mb='yumindb.ttf %!PS YuMincho-DemiBold',
-      gr=':0:YuGothR.ttc %!PS YuGothic-Regular', 
-      gru=':0:YuGothM.ttc %!PS YuGothic-Medium', 
-      gb=':0:YuGothB.ttc %!PS YuGothic-Bold', 
+      gr=':0:YuGothR.ttc %!PS YuGothic-Regular',
+      gru=':0:YuGothM.ttc %!PS YuGothic-Medium',
+      gb=':0:YuGothB.ttc %!PS YuGothic-Bold',
       ge=':0:YuGothB.ttc %!PS YuGothic-Bold',
       mgr=':0:YuGothB.ttc %!PS YuGothic-Bold',
-      {''}, 
-   }, 
+      {''},
+   },
    ['yu-osx']   = {
-      noncid = false, 
-      ml='YuMin-Medium.otf', 
-      mr='YuMin-Medium.otf', 
-      mb='YuMin-Demibold.otf', 
-      gr='YuGo-Medium.otf', 
-      gru='YuGo-Medium.otf', 
-      gb='YuGo-Bold.otf', 
-      ge='YuGo-Bold.otf', 
-      mgr='YuGo-Bold.otf', 
-      {''}, 
+      noncid = false,
+      ml='YuMin-Medium.otf',
+      mr='YuMin-Medium.otf',
+      mb='YuMin-Demibold.otf',
+      gr='YuGo-Medium.otf',
+      gru='YuGo-Medium.otf',
+      gb='YuGo-Bold.otf',
+      ge='YuGo-Bold.otf',
+      mgr='YuGo-Bold.otf',
+      {''},
    },
    ['ipa']   = {
-      noncid = true, 
-      ml='ipam.ttf %!PS IPAMincho', 
-      mr='ipam.ttf %!PS IPAMincho', 
+      noncid = true,
+      ml='ipam.ttf %!PS IPAMincho',
+      mr='ipam.ttf %!PS IPAMincho',
       mb='ipam.ttf %!PS IPAMincho',
-      gr='ipag.ttf %!PS IPAGothic', 
-      gru='ipag.ttf %!PS IPAGothic', 
-      gb='ipag.ttf %!PS IPAGothic', 
+      gr='ipag.ttf %!PS IPAGothic',
+      gru='ipag.ttf %!PS IPAGothic',
+      gb='ipag.ttf %!PS IPAGothic',
       ge='ipag.ttf %!PS IPAGothic',
       mgr='ipag.ttf %!PS IPAGothic',
       {''},
    },
    ['ipaex']   = {
-      noncid = true, 
-      ml='ipaexm.ttf %!PS IPAexMincho', 
-      mr='ipaexm.ttf %!PS IPAexMincho', 
+      noncid = true,
+      ml='ipaexm.ttf %!PS IPAexMincho',
+      mr='ipaexm.ttf %!PS IPAexMincho',
       mb='ipaexm.ttf %!PS IPAexMincho',
-      gr='ipaexg.ttf %!PS IPAexGothic', 
-      gru='ipaexg.ttf %!PS IPAexGothic', 
-      gb='ipaexg.ttf %!PS IPAexGothic', 
+      gr='ipaexg.ttf %!PS IPAexGothic',
+      gru='ipaexg.ttf %!PS IPAexGothic',
+      gb='ipaexg.ttf %!PS IPAexGothic',
       ge='ipaexg.ttf %!PS IPAexGothic',
       mgr='ipaexg.ttf %!PS IPAexGothic',
       {''},
@@ -85,7 +102,7 @@ local foundry = {
       mr='KozMin?-Regular.otf',
       mb='KozMin?-Bold.otf',
       gr='KozGo?-Regular.otf',
-      gru='KozGo?-Medium.otf', 
+      gru='KozGo?-Medium.otf',
       gb='KozGo?-Bold.otf',
       ge='KozGo?-Heavy.otf',
       mgr='KozGo?-Heavy.otf',
@@ -114,7 +131,7 @@ local foundry = {
       {'6nm'}, -- Pr6N
    },
    ['hiragino'] = {
-      ml='HiraMin?-W2.otf',
+      ml='HiraMin?-W2.otf', -- OSX にはない
       mr='HiraMin?-W3.otf',
       mb='HiraMin?-W6.otf',
       gr='HiraKaku?-W3.otf',
@@ -125,7 +142,7 @@ local foundry = {
       {'X','Xn'},  -- Pro and ProN
    },
    ['hiragino-elcapitan'] = {
-      ml= 'HiraMin?-W2.otf', -- OSX にはない
+      ml= '#1-HiraginoSerif-W3.ttc %!PS HiraMin?-W3', -- ここは OTC を使おう
       mr= '#1-HiraginoSerif-W3.ttc %!PS HiraMin?-W3',
       mb= '#1-HiraginoSerif-W6.ttc %!PS HiraMin?-W6',
       gr= '#3-HiraginoSans-W3.ttc  %!PS HiraKaku?-W3',
@@ -134,6 +151,17 @@ local foundry = {
       ge= '#2+HiraginoSans-W8.ttc  %!PS HiraKaku?-W8',
       mgr='#0+HiraginoSansR-W4.ttc %!PS HiraMaru?-W4',
       {'X','Xn'},  -- Pro and ProN
+   },
+   ['toppanbunkyu-sierra'] = {
+      ml= 'ToppanBunkyuMincho-Regular.otf %!PS ToppanBunkyuMinchoPr6N-Regular',
+      mr= 'ToppanBunkyuMincho-Regular.otf %!PS ToppanBunkyuMinchoPr6N-Regular',
+      mb= 'ToppanBunkyuMidashiMincho-ExtraBold.otf %!PS ToppanBunkyuMidashiMinchoStdN-ExtraBold',
+      gr= ':1:ToppanBunkyuGothic.ttc %!PS ToppanBunkyuGothicPr6N-Regular',
+      gru=':0:ToppanBunkyuGothic.ttc %!PS ToppanBunkyuGothicPr6N-DB',
+      gb= ':0:ToppanBunkyuGothic.ttc %!PS ToppanBunkyuGothicPr6N-DB',
+      ge= 'ToppanBunkyuMidashiGothic-ExtraBold.otf %!PS ToppanBunkyuMidashiGothicStdN-ExtraBold',
+      mgr=':1:ToppanBunkyuGothic.ttc %!PS ToppanBunkyuGothicPr6N-Regular',
+      {''},
    },
 }
 
@@ -235,7 +263,7 @@ local maps = {
       {'uphgothb-#', 'UniJIS-UTF16-#', 'gb'},
       {'uphgotheb-#','UniJIS-UTF16-#', 'ge'},
       {'uphmgothr-#','UniJIS-UTF16-#', 'mgr'},
-      '% TEXT, JIS04', 
+      '% TEXT, JIS04',
       {'uphminln-#',  'UniJIS2004-UTF16-#', 'ml'},
       {'uphminrn-#',  'UniJIS2004-UTF16-#', 'mr'},
       {'uphminbn-#',  'UniJIS2004-UTF16-#', 'mb'},
@@ -257,7 +285,7 @@ function string.explode(s, sep)
 end
 
 local function ret_suffix(fd, s, fa)
-   if fd=='kozuka' and s=='6'  then 
+   if fd=='kozuka' and s=='6'  then
       return 'ProVI' -- 小塚だけ特別
    elseif fd:match('hiragino') then
       if string.match(s, jis2004_flag) then
@@ -333,6 +361,7 @@ hiramin-w6-v Identity-V $mb
 hirakaku-w3-v Identity-V $gr
 hirakaku-w6-v Identity-V $gb
 hiramaru-w4-v Identity-V $mgr
+
 ]])
 	       for i,v in pairs(v2) do
 		  v = (v:gsub ('$(%w+)', foundry[fd])):gsub('?', ret_suffix(fd,s,''))
