@@ -1,0 +1,12 @@
+
+% CID
+otf-ckmr-h	Identity-H	:0:batang.ttc/AK12
+otf-ckmr-v	Identity-V	:0:batang.ttc/AK12
+otf-ckgr-h	Identity-H	:2:gulim.ttc/AK12
+otf-ckgr-v	Identity-V	:2:gulim.ttc/AK12
+
+% Unicode
+otf-ukmr-h	UniKS-UCS2-H	:0:batang.ttc
+otf-ukmr-v	UniKS-UCS2-V	:0:batang.ttc
+otf-ukgr-h	UniKS-UCS2-H	:2:gulim.ttc
+otf-ukgr-v	UniKS-UCS2-V	:2:gulim.ttc
