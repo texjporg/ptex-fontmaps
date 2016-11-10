@@ -1,0 +1,8 @@
+*~
+*.ttc
+*.aux
+*.dvi
+*.log
+*.tfm
+*.vf
+examples/*.pdf

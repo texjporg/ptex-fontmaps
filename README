@@ -1,0 +1,159 @@
+ckfontmaps
+==========
+
+Current release: $VER$
+
+The files contained in this package contains font maps for dvipdfmx to
+make various Chinese/Korean fonts available for (u)ptex and related programs
+and formats.
+
+The font maps were written by several people, including (in alphabetic order)
+  Hironori Kitagawa
+  Norbert Preining
+  Saito Shuzaburo
+  Takuji Tanaka
+  Hironobu Yamashita
+and are now maintained in the github.com git repository:
+  https://github.com/texjporg/ckfontmaps
+
+Families, support, and necessary font files
+===========================================
+This package does *not* ship any of the fonts mentioned, but only
+map files for dvipdfmx. You have to obtain the fonts separately.
+For baekmuk and unfonts (Korean), the respective fonts a shipped in TeX Live
+and are available for free.
+
+If in the following tables some fonts are marked with 
+	'(<= "...")
+it means that the fonts are originally named as in given within
+the parenthesis, but need to be renamed to the name given first.
+
+Simplified Chinese
+==================
+
+Traditional Chinese
+===================
+
+
+Korean
+======
+
+* noEmbed - no embedding is done at all, fonts are selected by the viewer
+    (no font needed for dvipdfmx)
+
+* ms - MS Mincho and MS Gothic, shipped with Windows
+    msmincho.ttc
+    msgothic.ttc
+
+* ms-osx - MS Mincho and MS Gothic, shipped with Office for Mac
+    MS-Mincho.ttf      (<= "MS Mincho.ttf")
+    MS-Gothic.ttf      (<= "MS Gothic.ttf")
+
+* yu-win - Yu Mincho and Yu Gothic fonts by Jiyu-koubou LTD.,
+       bundled with Win 8.1.
+    yumin.ttf
+    yuminl.ttf
+    yumindb.ttf
+    yugothic.ttf
+    yugothib.ttf
+
+* yu-win10 - Yu Mincho and Yu Gothic fonts by Jiyu-koubou LTD.,
+       bundled with Win 10.
+    yumin.ttf
+    yuminl.ttf
+    yumindb.ttf
+    YuGothR.ttc
+    YuGothM.ttc
+    YuGothB.ttc
+
+* yu-osx - Yu Mincho and Yu Gothic fonts by Jiyu-koubou LTD.,
+       bundled with OSX 10.9 and 10.10.
+    YuGo-Bold.otf      (<= "Yu Gothic Bold.otf")
+    YuGo-Medium.otf    (<= "Yu Gothic Medium.otf")
+    YuMin-Demibold.otf (<= "Yu Mincho Demibold.otf")
+    YuMin-Medium.otf   (<= "Yu Mincho Medium.otf")
+
+* ipa - IPA fonts from Information-technology Promotion Agency
+    ipam.ttf
+    ipag.ttf
+
+* ipaex - IPAex fonts from Information-technology Promotion Agency
+    ipaexm.ttf
+    ipaexg.ttf
+
+* hiragino - Hiragino fonts by Dainippon Screen Mfg. Co., Ltd.
+	bundled with Mac OS X 10.5--10.10, 
+	or Japanese word processor Ichitaro 2012 Premium/Super-premium editions
+    HiraMinPro-W2.otf   (<= "ヒラギノ明朝 Pro W2.otf")
+    HiraMinPro-W3.otf   (<= "ヒラギノ明朝 Pro W3.otf")
+    HiraMinPro-W6.otf   (<= "ヒラギノ明朝 Pro W6.otf")
+    HiraKakuPro-W3.otf  (<= "ヒラギノ角ゴ Pro W3.otf")
+    HiraKakuPro-W6.otf  (<= "ヒラギノ角ゴ Pro W6.otf")
+    HiraKakuStd-W8.otf  (<= "ヒラギノ角ゴ Std W8.otf")
+    HiraMaruPro-W4.otf  (<= "ヒラギノ丸ゴ Pro W4.otf")
+
+    If you use Mac OSX, you must create symlink
+
+* hiragino-pron - see above
+    same with ProN/StdN instead of Pro/Std
+
+* hiragino-elcapitan-pron
+* hiragino-elcapitan
+	bundled with Mac OS X 10.11 El Capitan or later
+    HiraginoSansR-W4.ttc (<= "ヒラギノ丸ゴ ProN W4.ttc")
+    HiraginoSans-W3.ttc  (<= "ヒラギノ角ゴシック W3.ttc")
+    HiraginoSans-W6.ttc  (<= "ヒラギノ角ゴシック W6.ttc")
+    HiraginoSans-W8.ttc  (<= "ヒラギノ角ゴシック W8.ttc")
+    HiraginoSerif-W3.ttc (<= "ヒラギノ明朝 ProN W3.ttc")
+    HiraginoSerif-W6.ttc (<= "ヒラギノ明朝 ProN W6.ttc")
+
+* toppanbunkyu-sierra
+	bundled with macOS 10.12 Sierra
+    ToppanBunkyuMincho-Regular.otf
+    ToppanBunkyuMidashiMincho-ExtraBold.otf
+    ToppanBunkyuGothic.ttc
+    ToppanBunkyuMidashiGothic-ExtraBold.otf
+
+* kozuka - by Adobe Systems, bundled with Adobe's software
+    KozMinPro-Light.otf
+    KozMinPro-Regular.otf
+    KozMinPro-Bold.otf
+    KozGoPro-Light.otf
+    KozGoPro-Medium.otf
+    KozGoPro-Bold.otf
+    KozGoPro-Heavy.otf
+
+* kozuka-pr6n - see above
+    same with Pr6N instead of Pro
+
+* kozuka-pr6 - see above
+    same with ProVI instead of Pro
+
+* morisawa - by Morisawa Inc.
+    A-OTF-FutoGoB101Pro-Bold.otf
+    A-OTF-FutoMinA101Pro-Bold.otf
+    A-OTF-GothicBBBPro-Medium.otf
+    A-OTF-Jun101Pro-Light.otf
+    A-OTF-MidashiGoPro-MB31.otf
+    A-OTF-RyuminPro-Light.otf
+
+* morisawa-pr6n - see above
+    A-OTF-FutoGoB101Pr6N-Bold.otf
+    A-OTF-FutoMinA101Pr6N-Bold.otf
+    A-OTF-GothicBBBPr6N-Medium.otf
+    A-OTF-ShinMGoPr6N-Light.otf
+    A-OTF-MidashiGoPr6N-MB31.otf
+    A-OTF-RyuminPr6N-Light.otf
+
+
+Copyright/License
+=================
+All the (c)map files are under Public Domain.
+
+The bundle is licensed under the following terms:
+  Copyright 2004-2006 by KOBAYASHI Taizo
+  Copyright 2011-2016 by PREINING Norbert
+  Copyright 2016-     by Japanese TeX Development Community
+Licensed under the GPL version 3 or any later version, 
+see the file for details.
+
