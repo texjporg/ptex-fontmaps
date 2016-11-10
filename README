@@ -34,12 +34,15 @@ Simplified Chinese
 Traditional Chinese
 ===================
 
-
 Korean
 ======
 
 * noEmbed - no embedding is done at all, fonts are selected by the viewer
     (no font needed for dvipdfmx)
+
+
+----- ここから下は jfontmaps のものをそのままコピーしただけ -----
+
 
 * ms - MS Mincho and MS Gothic, shipped with Windows
     msmincho.ttc
