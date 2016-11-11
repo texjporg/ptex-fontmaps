@@ -13,16 +13,22 @@ local foundry = {
       gr='AdobeHeitiStd-Regular.otf',
       {''},
    },
---   ['arphic']   = {  -- gr がサンセリフになっていないので作らない
---      noncid = true,
---      mr='gbsn00lp.ttf %!PS BousungEG-Light-GB',
---      gr='gkai00mp.ttf %!PS GBZenKai-Medium',
---      {''},
---   },
+   ['arphic']   = {  -- gr がサンセリフになっていない
+      noncid = true,
+      mr='gbsn00lp.ttf %!PS BousungEG-Light-GB',
+      gr='gkai00mp.ttf %!PS GBZenKai-Medium',
+      {''},
+   },
    ['ms']   = {
       noncid = true,
       mr=':0:simsun.ttc',  -- SimSun
       gr='simhei.ttf',     -- SimHei
+      {''},
+   },
+   ['sinotype']   = {
+      noncid = true,
+      mr='STSong.ttf',
+      gr='STHeiti.ttf',
       {''},
    },
 }

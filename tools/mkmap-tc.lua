@@ -13,16 +13,22 @@ local foundry = {
       gr='AdobeFanHeitiStd-Bold.otf',
       {''},
    },
---   ['arphic']   = {  -- gr がサンセリフになっていないので作らない
---      noncid = true,
---      mr='bsmi00lp.ttf %!PS ShanHeiSun-Light',
---      gr='bkai00mp.ttf %!PS ZenKai-Medium',
---      {''},
---   },
+   ['arphic']   = {  -- gr がサンセリフになっていない
+      noncid = true,
+      mr='bsmi00lp.ttf %!PS ShanHeiSun-Light',
+      gr='bkai00mp.ttf %!PS ZenKai-Medium',
+      {''},
+   },
    ['ms']   = {
       noncid = true,
       mr=':0:mingliu.ttc',  -- MingLiU
-      gr='MSMHei.ttf',      -- MicrosoftMHei ほかに見当たらなかったのでとりあえず
+      gr='MSMHei.ttf',      -- MicrosoftMHei ほかに見当たらなかったので
+      {''},
+   },
+   ['dynacomware']   = {
+      noncid = true,
+      mr='LiSongPro.ttf',
+      gr='LiHeiPro.ttf',
       {''},
    },
 }
