@@ -43,6 +43,13 @@ local foundry = {
       mgr='AppleGothic.ttf',
       {''},
    },
+   ['solaris']   = {
+      noncid = true,
+      mr='h2mjsm.ttf %!PS Myeongjo',
+      gr='h2gtrm.ttf %!PS Gothic',
+      mgr='h2drrm.ttf %!PS RoundedGothic',
+      {''},
+   },
 }
 
 local suffix = {
