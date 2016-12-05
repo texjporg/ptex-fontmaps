@@ -2321,9 +2321,9 @@ Explanation of the OPTION names for --showoptions, --showoption, --setoption:
     Whether maps for pxdvi (Japanese-patched xdvi) are under updmap's control.
   kanjiEmbed            (any string)
   kanjiVariant          (any string)
-  scEmbed              (any string)
-  tcEmbed              (any string)
-  koEmbed              (any string)
+  scEmbed               (any string)
+  tcEmbed               (any string)
+  koEmbed               (any string)
     See below.
   LW35                  URWkb,URW,ADOBEkb,ADOBE  (default URWkb)
     Adapt the font and file names of the standard 35 PostScript fonts.
