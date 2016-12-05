@@ -144,6 +144,18 @@ my %settings = (
     type     => "any",
     default  => "",
   },
+  scEmbed            => {
+    type     => "any",
+    default  => "noEmbed",
+  },
+  tcEmbed            => {
+    type     => "any",
+    default  => "noEmbed",
+  },
+  koEmbed            => {
+    type     => "any",
+    default  => "noEmbed",
+  },
 );
 
 &main();
@@ -997,6 +1009,9 @@ sub mkMaps {
   my ($pxdviUse, $pxdviUse_origin) = get_cfg('pxdviUse');
   my ($kanjiEmbed, $kanjiEmbed_origin) = get_cfg('kanjiEmbed');
   my ($kanjiVariant, $kanjiVariant_origin) = get_cfg('kanjiVariant');
+  my ($scEmbed, $scEmbed_origin) = get_cfg('scEmbed');
+  my ($tcEmbed, $tcEmbed_origin) = get_cfg('tcEmbed');
+  my ($koEmbed, $koEmbed_origin) = get_cfg('koEmbed');
 
   # pxdvi is optional, and off by default.  Don't create the output
   # directory unless we are going to put something there.
@@ -1018,6 +1033,12 @@ sub mkMaps {
          .      "$kanjiEmbed ($kanjiEmbed_origin)"
          . "\n  kanjiVariant replacement string  : "
          .      "$kanjiVariant ($kanjiVariant_origin)"
+         . "\n  scEmbed replacement string    : "
+         .      "$scEmbed ($scEmbed_origin)"
+         . "\n  tcEmbed replacement string    : "
+         .      "$tcEmbed ($tcEmbed_origin)"
+         . "\n  koEmbed replacement string    : "
+         .      "$koEmbed ($koEmbed_origin)"
          . "\n  create a mapfile for pxdvi       : "
          .      "$pxdviUse ($pxdviUse_origin)"
          . "\n\n");
@@ -1864,6 +1885,9 @@ sub merge_settings_replace_kanji {
   #
   my ($kanjiEmbed, $kanjiEmbed_origin) = get_cfg('kanjiEmbed');
   my ($kanjiVariant, $kanjiVariant_origin) = get_cfg('kanjiVariant');
+  my ($scEmbed, $scEmbed_origin) = get_cfg('scEmbed');
+  my ($tcEmbed, $tcEmbed_origin) = get_cfg('tcEmbed');
+  my ($koEmbed, $koEmbed_origin) = get_cfg('koEmbed');
   #
   # go through all map files and check that the text is properly replaced
   # after the replacement check that the generated map file actually
@@ -1889,6 +1913,54 @@ sub merge_settings_replace_kanji {
         }
         # in any case delete the @kanji...@ entry line, such a map will
         # never exist
+        delete $alldata->{'updmap'}{$l}{'maps'}{$m};
+      } elsif ($m =~ m/\@scEmbed@/) {
+        my $newm = $m;
+        $newm =~ s/\@scEmbed@/$scEmbed/;
+        if (locateMap($newm)) {
+          # now we have to update various linked items
+          $alldata->{'updmap'}{$l}{'maps'}{$newm}{'type'} =
+            $alldata->{'updmap'}{$l}{'maps'}{$m}{'type'};
+          $alldata->{'updmap'}{$l}{'maps'}{$newm}{'status'} =
+            $alldata->{'updmap'}{$l}{'maps'}{$m}{'status'};
+          $alldata->{'updmap'}{$l}{'maps'}{$newm}{'line'} =
+            $alldata->{'updmap'}{$l}{'maps'}{$m}{'line'};
+          $alldata->{'updmap'}{$l}{'maps'}{$newm}{'original'} = $m;
+        } else {
+          print_warning("generated map $newm (from $m) does not exists, not activating it!\n");
+        }
+        delete $alldata->{'updmap'}{$l}{'maps'}{$m};
+      } elsif ($m =~ m/\@tcEmbed@/) {
+        my $newm = $m;
+        $newm =~ s/\@tcEmbed@/$tcEmbed/;
+        if (locateMap($newm)) {
+          # now we have to update various linked items
+          $alldata->{'updmap'}{$l}{'maps'}{$newm}{'type'} =
+            $alldata->{'updmap'}{$l}{'maps'}{$m}{'type'};
+          $alldata->{'updmap'}{$l}{'maps'}{$newm}{'status'} =
+            $alldata->{'updmap'}{$l}{'maps'}{$m}{'status'};
+          $alldata->{'updmap'}{$l}{'maps'}{$newm}{'line'} =
+            $alldata->{'updmap'}{$l}{'maps'}{$m}{'line'};
+          $alldata->{'updmap'}{$l}{'maps'}{$newm}{'original'} = $m;
+        } else {
+          print_warning("generated map $newm (from $m) does not exists, not activating it!\n");
+        }
+        delete $alldata->{'updmap'}{$l}{'maps'}{$m};
+      } elsif ($m =~ m/\@koEmbed@/) {
+        my $newm = $m;
+        $newm =~ s/\@koEmbed@/$koEmbed/;
+        if (locateMap($newm)) {
+          # now we have to update various linked items
+          $alldata->{'updmap'}{$l}{'maps'}{$newm}{'type'} =
+            $alldata->{'updmap'}{$l}{'maps'}{$m}{'type'};
+          $alldata->{'updmap'}{$l}{'maps'}{$newm}{'status'} =
+            $alldata->{'updmap'}{$l}{'maps'}{$m}{'status'};
+          $alldata->{'updmap'}{$l}{'maps'}{$newm}{'line'} =
+            $alldata->{'updmap'}{$l}{'maps'}{$m}{'line'};
+          $alldata->{'updmap'}{$l}{'maps'}{$newm}{'original'} = $m;
+        } else {
+          print_warning("generated map $newm (from $m) does not exists, not activating it!\n");
+        }
         delete $alldata->{'updmap'}{$l}{'maps'}{$m};
       }
     }
@@ -2292,6 +2364,9 @@ Explanation of the OPTION names for --showoptions, --showoption, --setoption:
     Whether maps for pxdvi (Japanese-patched xdvi) are under updmap's control.
   kanjiEmbed            (any string)
   kanjiVariant          (any string)
+  scEmbed              (any string)
+  tcEmbed              (any string)
+  koEmbed              (any string)
     See below.
   LW35                  URWkb,URW,ADOBEkb,ADOBE  (default URWkb)
     Adapt the font and file names of the standard 35 PostScript fonts.
@@ -2311,7 +2386,9 @@ Explanation of the OPTION names for --showoptions, --showoption, --setoption:
   in the map lines.  If a map contains the string \@kanjiEmbed\@, then
   this will be replaced by the value of that option; similarly for
   kanjiVariant.  In this way, users of Japanese TeX can select different
-  fonts to be included in the final output.
+  fonts to be included in the final output.  The counterpart for
+  Simplified Chinese, Traditional Chinese and Korean fonts are
+  scEmbed, tcEmbed and koEmbed respectively.
 
 Explanation of trees and files normally used:
 
