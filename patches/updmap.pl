@@ -1895,10 +1895,15 @@ sub merge_settings_replace_kanji {
   #
   for my $l (@l) {
     for my $m (keys %{$alldata->{'updmap'}{$l}{'maps'}}) {
-      if ($m =~ m/\@kanjiEmbed@/ || $m =~ m/\@kanjiVariant@/) {
-        my $newm = $m;
-        $newm =~ s/\@kanjiEmbed@/$kanjiEmbed/;
-        $newm =~ s/\@kanjiVariant@/$kanjiVariant/;
+      my $newm = $m;
+      # do all kinds of substitutions
+      $newm =~ s/\@kanjiEmbed@/$kanjiEmbed/;
+      $newm =~ s/\@kanjiVariant@/$kanjiVariant/;
+      $newm =~ s/\@scEmbed@/$scEmbed/;
+      $newm =~ s/\@tcEmbed@/$tcEmbed/;
+      $newm =~ s/\@koEmbed@/$koEmbed/;
+      if ($newm ne $m) {
+        # something was substituted
         if (locateMap($newm)) {
           # now we have to update various linked items
           $alldata->{'updmap'}{$l}{'maps'}{$newm}{'type'} =
@@ -1913,54 +1918,6 @@ sub merge_settings_replace_kanji {
         }
         # in any case delete the @kanji...@ entry line, such a map will
         # never exist
-        delete $alldata->{'updmap'}{$l}{'maps'}{$m};
-      } elsif ($m =~ m/\@scEmbed@/) {
-        my $newm = $m;
-        $newm =~ s/\@scEmbed@/$scEmbed/;
-        if (locateMap($newm)) {
-          # now we have to update various linked items
-          $alldata->{'updmap'}{$l}{'maps'}{$newm}{'type'} =
-            $alldata->{'updmap'}{$l}{'maps'}{$m}{'type'};
-          $alldata->{'updmap'}{$l}{'maps'}{$newm}{'status'} =
-            $alldata->{'updmap'}{$l}{'maps'}{$m}{'status'};
-          $alldata->{'updmap'}{$l}{'maps'}{$newm}{'line'} =
-            $alldata->{'updmap'}{$l}{'maps'}{$m}{'line'};
-          $alldata->{'updmap'}{$l}{'maps'}{$newm}{'original'} = $m;
-        } else {
-          print_warning("generated map $newm (from $m) does not exists, not activating it!\n");
-        }
-        delete $alldata->{'updmap'}{$l}{'maps'}{$m};
-      } elsif ($m =~ m/\@tcEmbed@/) {
-        my $newm = $m;
-        $newm =~ s/\@tcEmbed@/$tcEmbed/;
-        if (locateMap($newm)) {
-          # now we have to update various linked items
-          $alldata->{'updmap'}{$l}{'maps'}{$newm}{'type'} =
-            $alldata->{'updmap'}{$l}{'maps'}{$m}{'type'};
-          $alldata->{'updmap'}{$l}{'maps'}{$newm}{'status'} =
-            $alldata->{'updmap'}{$l}{'maps'}{$m}{'status'};
-          $alldata->{'updmap'}{$l}{'maps'}{$newm}{'line'} =
-            $alldata->{'updmap'}{$l}{'maps'}{$m}{'line'};
-          $alldata->{'updmap'}{$l}{'maps'}{$newm}{'original'} = $m;
-        } else {
-          print_warning("generated map $newm (from $m) does not exists, not activating it!\n");
-        }
-        delete $alldata->{'updmap'}{$l}{'maps'}{$m};
-      } elsif ($m =~ m/\@koEmbed@/) {
-        my $newm = $m;
-        $newm =~ s/\@koEmbed@/$koEmbed/;
-        if (locateMap($newm)) {
-          # now we have to update various linked items
-          $alldata->{'updmap'}{$l}{'maps'}{$newm}{'type'} =
-            $alldata->{'updmap'}{$l}{'maps'}{$m}{'type'};
-          $alldata->{'updmap'}{$l}{'maps'}{$newm}{'status'} =
-            $alldata->{'updmap'}{$l}{'maps'}{$m}{'status'};
-          $alldata->{'updmap'}{$l}{'maps'}{$newm}{'line'} =
-            $alldata->{'updmap'}{$l}{'maps'}{$m}{'line'};
-          $alldata->{'updmap'}{$l}{'maps'}{$newm}{'original'} = $m;
-        } else {
-          print_warning("generated map $newm (from $m) does not exists, not activating it!\n");
-        }
         delete $alldata->{'updmap'}{$l}{'maps'}{$m};
       }
     }
