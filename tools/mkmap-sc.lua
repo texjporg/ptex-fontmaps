@@ -19,6 +19,18 @@ local foundry = {
       gr='gkai00mp.ttf %!PS GBZenKai-Medium',
       {''},
    },
+   ['cjkunifonts']   = {  -- gr がサンセリフになっていない
+      noncid = true,
+      mr=':0:uming.ttc',   -- UMingCN
+      gr=':0:ukai.ttc',    -- UKaiCN
+      {''},
+   },
+   ['cjkunifonts-ttf']   = {  -- gr がサンセリフになっていない
+      noncid = true,
+      mr='uming.ttf',      -- ShanHeiSun-Uni(-Adobe-GB1)
+      gr='ukai.ttf',       -- ZenKai-Uni(-Adobe-GB1)
+      {''},
+   },
    ['ms']   = {
       noncid = true,
       mr=':0:simsun.ttc',  -- SimSun

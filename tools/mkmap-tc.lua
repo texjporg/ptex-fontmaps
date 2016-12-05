@@ -19,6 +19,18 @@ local foundry = {
       gr='bkai00mp.ttf %!PS ZenKai-Medium',
       {''},
    },
+   ['cjkunifonts']   = {  -- gr がサンセリフになっていない
+      noncid = true,
+      mr=':2:uming.ttc',   -- UMingTW
+      gr=':2:ukai.ttc',    -- UKaiTW
+      {''},
+   },
+   ['cjkunifonts-ttf']   = {  -- gr がサンセリフになっていない
+      noncid = true,
+      mr='uming.ttf',      -- ShanHeiSun-Uni
+      gr='ukai.ttf',       -- ZenKai-Uni
+      {''},
+   },
    ['ms']   = {
       noncid = true,
       mr=':0:mingliu.ttc',  -- MingLiU

@@ -1,0 +1,12 @@
+
+% CID
+otf-ccmr-h	Identity-H	:0:uming.ttc/AG14
+otf-ccmr-v	Identity-V	:0:uming.ttc/AG14
+otf-ccgr-h	Identity-H	:0:ukai.ttc/AG14
+otf-ccgr-v	Identity-V	:0:ukai.ttc/AG14
+
+% Unicode
+otf-ucmr-h	UniGB-UCS2-H	:0:uming.ttc
+otf-ucmr-v	UniGB-UCS2-V	:0:uming.ttc
+otf-ucgr-h	UniGB-UCS2-H	:0:ukai.ttc
+otf-ucgr-v	UniGB-UCS2-V	:0:ukai.ttc
