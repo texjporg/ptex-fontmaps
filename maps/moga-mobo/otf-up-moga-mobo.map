@@ -1,0 +1,32 @@
+
+% TEXT, 90JIS
+uphminl-h	UniJIS-UTF16-H	:3:mogam.ttc
+uphminl-v	UniJIS-UTF16-V	:3:mogam.ttc
+uphminr-h	UniJIS-UTF16-H	:3:mogam.ttc
+uphminr-v	UniJIS-UTF16-V	:3:mogam.ttc
+uphminb-h	UniJIS-UTF16-H	:3:mogamb.ttc
+uphminb-v	UniJIS-UTF16-V	:3:mogamb.ttc
+uphgothr-h	UniJIS-UTF16-H	:3:mogag.ttc
+uphgothr-v	UniJIS-UTF16-V	:3:mogag.ttc
+uphgothb-h	UniJIS-UTF16-H	:3:mogagb.ttc
+uphgothb-v	UniJIS-UTF16-V	:3:mogagb.ttc
+uphgotheb-h	UniJIS-UTF16-H	:3:mogagb.ttcc
+uphgotheb-v	UniJIS-UTF16-V	:3:mogagb.ttcc
+uphmgothr-h	UniJIS-UTF16-H	:3:mobog.ttc
+uphmgothr-v	UniJIS-UTF16-V	:3:mobog.ttc
+
+% TEXT, JIS04
+uphminln-h	UniJIS2004-UTF16-H	:0:mogam.ttc
+uphminln-v	UniJIS2004-UTF16-V	:0:mogam.ttc
+uphminrn-h	UniJIS2004-UTF16-H	:0:mogam.ttc
+uphminrn-v	UniJIS2004-UTF16-V	:0:mogam.ttc
+uphminbn-h	UniJIS2004-UTF16-H	:0:mogamb.ttc
+uphminbn-v	UniJIS2004-UTF16-V	:0:mogamb.ttc
+uphgothrn-h	UniJIS2004-UTF16-H	:0:mogag.ttc
+uphgothrn-v	UniJIS2004-UTF16-V	:0:mogag.ttc
+uphgothbn-h	UniJIS2004-UTF16-H	:0:mogagb.ttc
+uphgothbn-v	UniJIS2004-UTF16-V	:0:mogagb.ttc
+uphgothebn-h	UniJIS2004-UTF16-H	:0:mogagb.ttcc
+uphgothebn-v	UniJIS2004-UTF16-V	:0:mogagb.ttcc
+uphmgothrn-h	UniJIS2004-UTF16-H	:0:mobog.ttc
+uphmgothrn-v	UniJIS2004-UTF16-V	:0:mobog.ttc
