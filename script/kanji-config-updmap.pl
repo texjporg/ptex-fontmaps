@@ -76,6 +76,7 @@ my %representatives = (
   "ipa"           => "ipam.ttf",
   "ipaex"         => "ipaexm.ttf",
   "moga-mobo"     => "mogam.ttc",
+  "ume"           => "ume-tmo3.ttf",
   "ms"            => "msgothic.ttc",
   "ms-osx"        => "MS-Gothic.ttf",
   "yu-win"        => "yugothib.ttf",
@@ -122,7 +123,7 @@ sub Usage {
                    hiragino-elcapitan-pron, toppanbunkyu-sierra,
                    morisawa, morisawa-pr6n,
                    kozuka, kozuka-pr6n, kozuka-pr6,
-                   ipa, ipaex, moga-mobo,
+                   ipa, ipaex, moga-mobo, ume,
                    ms, ms-osx,
                    yu-win, yu-win10, yu-osx,
                    canon
@@ -260,7 +261,8 @@ sub SetupReplacement {
             kozuka-pr6n kozuka-pr6 kozuka
             toppanbunkyu-sierra
             yu-osx yu-win10 yu-win10 canon
-            ms ms-osx moga-mobo ipa ipaex/) {
+            ms ms-osx moga-mobo ume
+            ipa ipaex/) {
           if ($available{$i}) {
             return SetupMapFile($i);
           }

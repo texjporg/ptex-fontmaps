@@ -123,6 +123,18 @@ local foundry = {
       mgrn=':0:mobog.ttc',
       {''},
    },
+   ['ume']   = {
+      noncid = true,
+      ml='ume-tmo3.ttf %!PS Ume-Mincho',
+      mr='ume-tmo3.ttf %!PS Ume-Mincho',
+      mb='ume-tmo3.ttf %!PS Ume-Mincho',
+      gr='ume-tgo4.ttf %!PS Ume-Gothic',
+      gru='ume-tgo5.ttf %!PS Ume-Gothic-O5',
+      gb='ume-tgo5.ttf %!PS Ume-Gothic-O5',
+      ge='ume-tgo5.ttf %!PS Ume-Gothic-O5',
+      mgr='ume-tgo4.ttf %!PS Ume-Gothic',
+      {''},
+   },
    ['canon']   = {
       noncid = true,
       ml=':0:FGCCHMW3.TTC',
