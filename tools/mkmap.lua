@@ -1,5 +1,10 @@
 #! /usr/bin/env texlua
 
+-- 90 字形と 04 字形が別ファイルに分かれているフォントセットの場合は
+--   * ml, mr, ... に 90 字形フォント
+--   * mln, mrn, ... に 04 字形フォント
+-- を登録し，separate = true とする．それ以外のフォントは ml, mr, ... のほうに登録しておけばよい．
+-- CID フォントでない場合は noncid = true とする．
 -- '?' は 'Pro' 等に置換される
 local foundry = {
    ['noEmbed']   = {
@@ -97,6 +102,27 @@ local foundry = {
       mgr='ipaexg.ttf %!PS IPAexGothic',
       {''},
    },
+   ['moga-mobo']   = {
+      noncid = true,
+      separate = true,
+      ml=':3:mogam.ttc',
+      mr=':3:mogam.ttc',
+      mb=':3:mogamb.ttc',
+      gr=':3:mogag.ttc',
+      gru=':3:mogag.ttc',
+      gb=':3:mogagb.ttc',
+      ge=':3:mogagb.ttcc',
+      mgr=':3:mobog.ttc',
+      mln=':0:mogam.ttc',
+      mrn=':0:mogam.ttc',
+      mbn=':0:mogamb.ttc',
+      grn=':0:mogag.ttc',
+      grun=':0:mogag.ttc',
+      gbn=':0:mogagb.ttc',
+      gen=':0:mogagb.ttcc',
+      mgrn=':0:mobog.ttc',
+      {''},
+   },
    ['kozuka']   = {
       ml='KozMin?-Light.otf',
       mr='KozMin?-Regular.otf',
@@ -187,10 +213,10 @@ local maps = {
       {'gbmv', 'V', 'gru'},
    },
    ['ptex-@-04'] = { -- pTeX JIS04
-      {'rml',  '2004-H', 'mr'},
-      {'rmlv', '2004-V', 'mr'},
-      {'gbm',  '2004-H', 'gru'},
-      {'gbmv', '2004-V', 'gru'},
+      {'rml',  '2004-H', 'mrn'},
+      {'rmlv', '2004-V', 'mrn'},
+      {'gbm',  '2004-H', 'grun'},
+      {'gbmv', '2004-V', 'grun'},
    },
    ['uptex-@'] = {   -- upTeX 90JIS
       {'urml',    'UniJIS-UTF16-H', 'mr'},
@@ -203,14 +229,14 @@ local maps = {
       {'upgbm-hq','UniJIS-UCS2-H',  'gru'},
    },
    ['uptex-@-04'] = { -- upTeX JIS04
-      {'urml',    'UniJIS2004-UTF16-H', 'mr'},
-      {'urmlv',   'UniJIS2004-UTF16-V', 'mr'},
-      {'ugbm',    'UniJIS2004-UTF16-H', 'gru'},
-      {'ugbmv',   'UniJIS2004-UTF16-V', 'gru'},
-      {'uprml-#', 'UniJIS2004-UTF16-#', 'mr'},
-      {'upgbm-#', 'UniJIS2004-UTF16-#', 'gru'},
-      {'uprml-hq','UniJIS-UCS2-H',  'mr'},
-      {'upgbm-hq','UniJIS-UCS2-H',  'gru'},
+      {'urml',    'UniJIS2004-UTF16-H', 'mrn'},
+      {'urmlv',   'UniJIS2004-UTF16-V', 'mrn'},
+      {'ugbm',    'UniJIS2004-UTF16-H', 'grun'},
+      {'ugbmv',   'UniJIS2004-UTF16-V', 'grun'},
+      {'uprml-#', 'UniJIS2004-UTF16-#', 'mrn'},
+      {'upgbm-#', 'UniJIS2004-UTF16-#', 'grun'},
+      {'uprml-hq','UniJIS-UCS2-H',  'mrn'},
+      {'upgbm-hq','UniJIS-UCS2-H',  'grun'},
    },
    ['otf-@'] = {
       '% TEXT, 90JIS',
@@ -222,21 +248,21 @@ local maps = {
       {'hgotheb-#','#', 'ge'},
       {'hmgothr-#','#', 'mgr'},
       '% TEXT, JIS04',
-      {'hminln-#',  '#', 'ml'},
-      {'hminrn-#',  '#', 'mr'},
-      {'hminbn-#',  '#', 'mb'},
-      {'hgothrn-#', '#', 'gr'},
-      {'hgothbn-#', '#', 'gb'},
-      {'hgothebn-#','#', 'ge'},
-      {'hmgothrn-#','#', 'mgr'},
+      {'hminln-#',  '#', 'mln'},
+      {'hminrn-#',  '#', 'mrn'},
+      {'hminbn-#',  '#', 'mbn'},
+      {'hgothrn-#', '#', 'grn'},
+      {'hgothbn-#', '#', 'gbn'},
+      {'hgothebn-#','#', 'gen'},
+      {'hmgothrn-#','#', 'mgrn'},
       '% CID',
-      {'otf-cjml-#', 'Identity-#',     'ml'},
-      {'otf-cjmr-#', 'Identity-#',     'mr'},
-      {'otf-cjmb-#', 'Identity-#',     'mb'},
-      {'otf-cjgr-#', 'Identity-#',     'gr'},
-      {'otf-cjgb-#', 'Identity-#',     'gb'},
-      {'otf-cjge-#', 'Identity-#',     'ge'},
-      {'otf-cjmgr-#','Identity-#',     'mgr'},
+      {'otf-cjml-#', 'Identity-#',     'mln'},
+      {'otf-cjmr-#', 'Identity-#',     'mrn'},
+      {'otf-cjmb-#', 'Identity-#',     'mbn'},
+      {'otf-cjgr-#', 'Identity-#',     'grn'},
+      {'otf-cjgb-#', 'Identity-#',     'gbn'},
+      {'otf-cjge-#', 'Identity-#',     'gen'},
+      {'otf-cjmgr-#','Identity-#',     'mgrn'},
       '% Unicode 90JIS',
       {'otf-ujml-#', 'UniJIS-UTF16-#', 'ml'},
       {'otf-ujmr-#', 'UniJIS-UTF16-#', 'mr'},
@@ -246,13 +272,13 @@ local maps = {
       {'otf-ujge-#', 'UniJIS-UTF16-#', 'ge'},
       {'otf-ujmgr-#','UniJIS-UTF16-#', 'mgr'},
       '% Unicode JIS04',
-      {'otf-ujmln-#', 'UniJIS2004-UTF16-#', 'ml'},
-      {'otf-ujmrn-#', 'UniJIS2004-UTF16-#', 'mr'},
-      {'otf-ujmbn-#', 'UniJIS2004-UTF16-#', 'mb'},
-      {'otf-ujgrn-#', 'UniJIS2004-UTF16-#', 'gr'},
-      {'otf-ujgbn-#', 'UniJIS2004-UTF16-#', 'gb'},
-      {'otf-ujgen-#', 'UniJIS2004-UTF16-#', 'ge'},
-      {'otf-ujmgrn-#','UniJIS2004-UTF16-#', 'mgr'},
+      {'otf-ujmln-#', 'UniJIS2004-UTF16-#', 'mln'},
+      {'otf-ujmrn-#', 'UniJIS2004-UTF16-#', 'mrn'},
+      {'otf-ujmbn-#', 'UniJIS2004-UTF16-#', 'mbn'},
+      {'otf-ujgrn-#', 'UniJIS2004-UTF16-#', 'grn'},
+      {'otf-ujgbn-#', 'UniJIS2004-UTF16-#', 'gbn'},
+      {'otf-ujgen-#', 'UniJIS2004-UTF16-#', 'gen'},
+      {'otf-ujmgrn-#','UniJIS2004-UTF16-#', 'mgrn'},
    },
    ['otf-up-@'] = {
       '% TEXT, 90JIS',
@@ -264,13 +290,13 @@ local maps = {
       {'uphgotheb-#','UniJIS-UTF16-#', 'ge'},
       {'uphmgothr-#','UniJIS-UTF16-#', 'mgr'},
       '% TEXT, JIS04',
-      {'uphminln-#',  'UniJIS2004-UTF16-#', 'ml'},
-      {'uphminrn-#',  'UniJIS2004-UTF16-#', 'mr'},
-      {'uphminbn-#',  'UniJIS2004-UTF16-#', 'mb'},
-      {'uphgothrn-#', 'UniJIS2004-UTF16-#', 'gr'},
-      {'uphgothbn-#', 'UniJIS2004-UTF16-#', 'gb'},
-      {'uphgothebn-#','UniJIS2004-UTF16-#', 'ge'},
-      {'uphmgothrn-#','UniJIS2004-UTF16-#', 'mgr'},
+      {'uphminln-#',  'UniJIS2004-UTF16-#', 'mln'},
+      {'uphminrn-#',  'UniJIS2004-UTF16-#', 'mrn'},
+      {'uphminbn-#',  'UniJIS2004-UTF16-#', 'mbn'},
+      {'uphgothrn-#', 'UniJIS2004-UTF16-#', 'grn'},
+      {'uphgothbn-#', 'UniJIS2004-UTF16-#', 'gbn'},
+      {'uphgothebn-#','UniJIS2004-UTF16-#', 'gen'},
+      {'uphmgothrn-#','UniJIS2004-UTF16-#', 'mgrn'},
    },
 }
 
@@ -289,9 +315,9 @@ local function ret_suffix(fd, s, fa)
       return 'ProVI' -- 小塚だけ特別
    elseif fd:match('hiragino') then
       if string.match(s, jis2004_flag) then
-	 return (fa=='ge') and 'StdN' or suffix[s][1]
+	 return (fa=='ge' or fa=='gen') and 'StdN' or suffix[s][1]
       else
-	 return (fa=='ge') and 'Std'  or suffix[s][1]
+	 return (fa=='ge' or fa=='gen') and 'Std'  or suffix[s][1]
       end
       -- ヒラギノ角ゴ W8 は StdN/Std しかない
    else
@@ -333,6 +359,17 @@ local function make_one_line(o, fd, s)
 end
 
 for fd, v1 in pairs(foundry) do
+   -- separate でないときは mln などのデータベースを省略してあるので ml などからコピー
+   if not foundry[fd].separate then
+      foundry[fd].mln = foundry[fd].ml
+      foundry[fd].mrn = foundry[fd].mr
+      foundry[fd].mbn = foundry[fd].mb
+      foundry[fd].grn = foundry[fd].gr
+      foundry[fd].grun = foundry[fd].gru
+      foundry[fd].gbn = foundry[fd].gb
+      foundry[fd].gen = foundry[fd].ge
+      foundry[fd].mgrn = foundry[fd].mgr
+   end
    for _,s in pairs(v1[1]) do
       local dirname = fd .. suffix[s][2]
       print('kanjiEmbed: ' .. dirname)
@@ -340,7 +377,10 @@ for fd, v1 in pairs(foundry) do
       os.execute('mkdir ' .. dirname .. ' &>/dev/null')
       for mnx, mcont in pairs(maps) do
 	 --if not string.match(mnx, '-04') or string.match(s, jis2004_flag) then
-	 if not string.match(mnx, '-04') or not foundry[fd].noncid then
+	 -- フォントが OpenType (CID) の場合は、すべての map を作る
+	 -- フォントが TrueType の場合は、基本的に -04 以外の map を作る
+	 -- ただし TrueType でも separate なときは -04 も作る
+	 if not string.match(mnx, '-04') or not foundry[fd].noncid or foundry[fd].separate then
 	    local mapbase = gsub(mnx, '@', dirname)
 	    local f = io.open(dirname .. '/' .. mapbase .. '.map', 'w+')
 	    for _,x in ipairs(mcont) do
