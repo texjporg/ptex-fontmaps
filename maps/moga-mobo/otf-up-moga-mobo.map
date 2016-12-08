@@ -10,8 +10,8 @@ uphgothr-h	UniJIS-UTF16-H	:3:mogag.ttc
 uphgothr-v	UniJIS-UTF16-V	:3:mogag.ttc
 uphgothb-h	UniJIS-UTF16-H	:3:mogagb.ttc
 uphgothb-v	UniJIS-UTF16-V	:3:mogagb.ttc
-uphgotheb-h	UniJIS-UTF16-H	:3:mogagb.ttcc
-uphgotheb-v	UniJIS-UTF16-V	:3:mogagb.ttcc
+uphgotheb-h	UniJIS-UTF16-H	:3:mogagb.ttc
+uphgotheb-v	UniJIS-UTF16-V	:3:mogagb.ttc
 uphmgothr-h	UniJIS-UTF16-H	:3:mobog.ttc
 uphmgothr-v	UniJIS-UTF16-V	:3:mobog.ttc
 
@@ -26,7 +26,7 @@ uphgothrn-h	UniJIS2004-UTF16-H	:0:mogag.ttc
 uphgothrn-v	UniJIS2004-UTF16-V	:0:mogag.ttc
 uphgothbn-h	UniJIS2004-UTF16-H	:0:mogagb.ttc
 uphgothbn-v	UniJIS2004-UTF16-V	:0:mogagb.ttc
-uphgothebn-h	UniJIS2004-UTF16-H	:0:mogagb.ttcc
-uphgothebn-v	UniJIS2004-UTF16-V	:0:mogagb.ttcc
+uphgothebn-h	UniJIS2004-UTF16-H	:0:mogagb.ttc
+uphgothebn-v	UniJIS2004-UTF16-V	:0:mogagb.ttc
 uphmgothrn-h	UniJIS2004-UTF16-H	:0:mobog.ttc
 uphmgothrn-v	UniJIS2004-UTF16-V	:0:mobog.ttc

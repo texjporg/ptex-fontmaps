@@ -10,8 +10,8 @@ hgothr-h	H	:3:mogag.ttc
 hgothr-v	V	:3:mogag.ttc
 hgothb-h	H	:3:mogagb.ttc
 hgothb-v	V	:3:mogagb.ttc
-hgotheb-h	H	:3:mogagb.ttcc
-hgotheb-v	V	:3:mogagb.ttcc
+hgotheb-h	H	:3:mogagb.ttc
+hgotheb-v	V	:3:mogagb.ttc
 hmgothr-h	H	:3:mobog.ttc
 hmgothr-v	V	:3:mobog.ttc
 
@@ -26,8 +26,8 @@ hgothrn-h	H	:0:mogag.ttc
 hgothrn-v	V	:0:mogag.ttc
 hgothbn-h	H	:0:mogagb.ttc
 hgothbn-v	V	:0:mogagb.ttc
-hgothebn-h	H	:0:mogagb.ttcc
-hgothebn-v	V	:0:mogagb.ttcc
+hgothebn-h	H	:0:mogagb.ttc
+hgothebn-v	V	:0:mogagb.ttc
 hmgothrn-h	H	:0:mobog.ttc
 hmgothrn-v	V	:0:mobog.ttc
 
@@ -42,8 +42,8 @@ otf-cjgr-h	Identity-H	:0:mogag.ttc/AJ16
 otf-cjgr-v	Identity-V	:0:mogag.ttc/AJ16
 otf-cjgb-h	Identity-H	:0:mogagb.ttc/AJ16
 otf-cjgb-v	Identity-V	:0:mogagb.ttc/AJ16
-otf-cjge-h	Identity-H	:0:mogagb.ttcc/AJ16
-otf-cjge-v	Identity-V	:0:mogagb.ttcc/AJ16
+otf-cjge-h	Identity-H	:0:mogagb.ttc/AJ16
+otf-cjge-v	Identity-V	:0:mogagb.ttc/AJ16
 otf-cjmgr-h	Identity-H	:0:mobog.ttc/AJ16
 otf-cjmgr-v	Identity-V	:0:mobog.ttc/AJ16
 
@@ -58,8 +58,8 @@ otf-ujgr-h	UniJIS-UTF16-H	:3:mogag.ttc
 otf-ujgr-v	UniJIS-UTF16-V	:3:mogag.ttc
 otf-ujgb-h	UniJIS-UTF16-H	:3:mogagb.ttc
 otf-ujgb-v	UniJIS-UTF16-V	:3:mogagb.ttc
-otf-ujge-h	UniJIS-UTF16-H	:3:mogagb.ttcc
-otf-ujge-v	UniJIS-UTF16-V	:3:mogagb.ttcc
+otf-ujge-h	UniJIS-UTF16-H	:3:mogagb.ttc
+otf-ujge-v	UniJIS-UTF16-V	:3:mogagb.ttc
 otf-ujmgr-h	UniJIS-UTF16-H	:3:mobog.ttc
 otf-ujmgr-v	UniJIS-UTF16-V	:3:mobog.ttc
 
@@ -74,7 +74,7 @@ otf-ujgrn-h	UniJIS2004-UTF16-H	:0:mogag.ttc
 otf-ujgrn-v	UniJIS2004-UTF16-V	:0:mogag.ttc
 otf-ujgbn-h	UniJIS2004-UTF16-H	:0:mogagb.ttc
 otf-ujgbn-v	UniJIS2004-UTF16-V	:0:mogagb.ttc
-otf-ujgen-h	UniJIS2004-UTF16-H	:0:mogagb.ttcc
-otf-ujgen-v	UniJIS2004-UTF16-V	:0:mogagb.ttcc
+otf-ujgen-h	UniJIS2004-UTF16-H	:0:mogagb.ttc
+otf-ujgen-v	UniJIS2004-UTF16-V	:0:mogagb.ttc
 otf-ujmgrn-h	UniJIS2004-UTF16-H	:0:mobog.ttc
 otf-ujmgrn-v	UniJIS2004-UTF16-V	:0:mobog.ttc
