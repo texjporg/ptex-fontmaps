@@ -75,6 +75,7 @@ my %representatives = (
   "kozuka-pr6"    => "KozMinProVI-Regular.otf",
   "ipa"           => "ipam.ttf",
   "ipaex"         => "ipaexm.ttf",
+  "moga-mobo"     => "mogam.ttc",
   "ms"            => "msgothic.ttc",
   "ms-osx"        => "MS-Gothic.ttf",
   "yu-win"        => "yugothib.ttf",
@@ -119,8 +120,10 @@ sub Usage {
                    hiragino, hiragino-pron, hiragino-elcapitan,
                    hiragino-elcapitan-pron, toppanbunkyu-sierra,
                    morisawa, morisawa-pr6n,
-                   kozuka, kozuka-pr6, kozuka-pr6n, ipaex, ipa, ms, 
-                   yu-osx, yu-win, yu-win10
+                   kozuka, kozuka-pr6n, kozuka-pr6,
+                   ipa, ipaex, moga-mobo,
+                   ms, ms-osx,
+                   yu-win, yu-win10, yu-osx
                  and fall back to not embedding any font if none of them
                  is available
      nofont:     embed no fonts (and rely on system fonts when displaying pdfs)
@@ -246,13 +249,16 @@ sub SetupReplacement {
           print "Previous setting $STATUS is unknown, replacing it!\n"
         }
         # if we are in the noEmbed or nothing set case, but one
-        # of the three fonts hiragino/morisawa/kozuka are present
-        # then use them
+        # of the supported fonts are present then use them
+        # (originally it said "three fonts hiragino/morisawa/kozuka", but the code below
+        #  was different from this statement; changed to "supported fonts" on 2016/12/08)
         for my $i (qw/
-            morisawa-pr6n yu-osx kozuka-pr6n kozuka-pr6
-            hiragino-pron hiragino-elcapitan-pron hiragino
-            hiragino-elcapitan toppanbunkyu-sierra
-            morisawa kozuka yu-win yu-win10 ipaex ipa ms/) {
+            morisawa-pr6n morisawa
+            hiragino-pron hiragino hiragino-elcapitan-pron hiragino-elcapitan
+            kozuka-pr6n kozuka-pr6 kozuka
+            toppanbunkyu-sierra
+            yu-osx yu-win10 yu-win10
+            ms ms-osx moga-mobo ipa ipaex/) {
           if ($available{$i}) {
             return SetupMapFile($i);
           }
