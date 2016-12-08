@@ -81,6 +81,7 @@ my %representatives = (
   "yu-win"        => "yugothib.ttf",
   "yu-win10"      => "YuGothB.ttc",
   "yu-osx"        => "YuMin-Medium.otf",
+  "canon"         => "FGCCHMW3.TTC",
 );
 my %available;
 
@@ -123,7 +124,8 @@ sub Usage {
                    kozuka, kozuka-pr6n, kozuka-pr6,
                    ipa, ipaex, moga-mobo,
                    ms, ms-osx,
-                   yu-win, yu-win10, yu-osx
+                   yu-win, yu-win10, yu-osx,
+                   canon
                  and fall back to not embedding any font if none of them
                  is available
      nofont:     embed no fonts (and rely on system fonts when displaying pdfs)
@@ -257,7 +259,7 @@ sub SetupReplacement {
             hiragino-pron hiragino hiragino-elcapitan-pron hiragino-elcapitan
             kozuka-pr6n kozuka-pr6 kozuka
             toppanbunkyu-sierra
-            yu-osx yu-win10 yu-win10
+            yu-osx yu-win10 yu-win10 canon
             ms ms-osx moga-mobo ipa ipaex/) {
           if ($available{$i}) {
             return SetupMapFile($i);

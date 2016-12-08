@@ -123,6 +123,18 @@ local foundry = {
       mgrn=':0:mobog.ttc',
       {''},
    },
+   ['canon']   = {
+      noncid = true,
+      ml=':0:FGCCHMW3.TTC',
+      mr=':0:FGCCHMW3.TTC',
+      mb=':0:FGCCHMW5.TTC',
+      gr=':0:FGCCHGW5.TTC',
+      gru=':0:FGCCHGW7.TTC',
+      gb=':0:FGCCHGW7.TTC',
+      ge=':0:FGCCHGW9.TTC',
+      mgr=':0:FGCCARGM.TTC',
+      {''},
+   },
    ['kozuka']   = {
       ml='KozMin?-Light.otf',
       mr='KozMin?-Regular.otf',

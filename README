@@ -30,17 +30,20 @@ the parenthesis, but need to be renamed to the name given first.
 
 O: kanjiVariant '-04' is supported.
 P: We have '-04' maps, but fonts lack some glyphs
-X: We don't have '-04' maps.
+D: We don't have '-04' maps, so the result depends on the actual glyphs
 4: no -04 maps, but all glyphs have automatically JIS2004
+9: no -04 maps, and all glyphs have automatically JIS1990 (no JIS2004 glyphs)
 
 O noEmbed - no embedding is done at all, fonts are selected by the viewer
     (no font needed for dvipdfmx)
 
-X ms - MS Mincho and MS Gothic, shipped with Windows
+D ms - MS Mincho and MS Gothic, shipped with Windows
+       The fonts after Vista should have automatically JIS2004
     msmincho.ttc
     msgothic.ttc
 
-X ms-osx - MS Mincho and MS Gothic, shipped with Office for Mac
+D ms-osx - MS Mincho and MS Gothic, shipped with Office for Mac
+       The fonts after Office for Mac 2008 should have automatically JIS2004
     MS-Mincho.ttf      (<= "MS Mincho.ttf")
     MS-Gothic.ttf      (<= "MS Gothic.ttf")
 
@@ -82,6 +85,14 @@ O? moga-mobo - Moga/Mobo fonts from Y.Oz Vox http://yozvox.web.fc2.com/
     mogag.ttc
     mogagb.ttc
     mobog.ttc
+
+9 canon - Canon FontGallery fonts, bundled with CANON LIPS
+    FGCCHMW3.TTC
+    FGCCHMW5.TTC
+    FGCCHGW5.TTC
+    FGCCHGW7.TTC
+    FGCCHGW9.TTC
+    FGCCARGM.TTC
 
 O? hiragino - Hiragino fonts by Dainippon Screen Mfg. Co., Ltd.
 	bundled with Mac OS X 10.5--10.10, 
