@@ -1,10 +1,10 @@
-urml	UniJIS2004-UTF16-H	:0:mogam.ttc
-urmlv	UniJIS2004-UTF16-V	:0:mogam.ttc
-ugbm	UniJIS2004-UTF16-H	:0:mogag.ttc
-ugbmv	UniJIS2004-UTF16-V	:0:mogag.ttc
-uprml-h	UniJIS2004-UTF16-H	:0:mogam.ttc
-uprml-v	UniJIS2004-UTF16-V	:0:mogam.ttc
-upgbm-h	UniJIS2004-UTF16-H	:0:mogag.ttc
-upgbm-v	UniJIS2004-UTF16-V	:0:mogag.ttc
-uprml-hq	UniJIS-UCS2-H	:0:mogam.ttc
-upgbm-hq	UniJIS-UCS2-H	:0:mogag.ttc
+urml	UniJIS2004-UTF16-H	:0:mogam.ttc %!PS MogaMincho-Regular
+urmlv	UniJIS2004-UTF16-V	:0:mogam.ttc %!PS MogaMincho-Regular
+ugbm	UniJIS2004-UTF16-H	:0:mogag.ttc %!PS MogaGothic-Regular
+ugbmv	UniJIS2004-UTF16-V	:0:mogag.ttc %!PS MogaGothic-Regular
+uprml-h	UniJIS2004-UTF16-H	:0:mogam.ttc %!PS MogaMincho-Regular
+uprml-v	UniJIS2004-UTF16-V	:0:mogam.ttc %!PS MogaMincho-Regular
+upgbm-h	UniJIS2004-UTF16-H	:0:mogag.ttc %!PS MogaGothic-Regular
+upgbm-v	UniJIS2004-UTF16-V	:0:mogag.ttc %!PS MogaGothic-Regular
+uprml-hq	UniJIS-UCS2-H	:0:mogam.ttc %!PS MogaMincho-Regular
+upgbm-hq	UniJIS-UCS2-H	:0:mogag.ttc %!PS MogaGothic-Regular

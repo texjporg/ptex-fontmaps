@@ -1,10 +1,10 @@
-urml	UniJIS-UTF16-H	:3:mogam.ttc
-urmlv	UniJIS-UTF16-V	:3:mogam.ttc
-ugbm	UniJIS-UTF16-H	:3:mogag.ttc
-ugbmv	UniJIS-UTF16-V	:3:mogag.ttc
-uprml-h	UniJIS-UTF16-H	:3:mogam.ttc
-uprml-v	UniJIS-UTF16-V	:3:mogam.ttc
-upgbm-h	UniJIS-UTF16-H	:3:mogag.ttc
-upgbm-v	UniJIS-UTF16-V	:3:mogag.ttc
-uprml-hq	UniJIS-UCS2-H	:3:mogam.ttc
-upgbm-hq	UniJIS-UCS2-H	:3:mogag.ttc
+urml	UniJIS-UTF16-H	:3:mogam.ttc %!PS Moga90Mincho-Regular
+urmlv	UniJIS-UTF16-V	:3:mogam.ttc %!PS Moga90Mincho-Regular
+ugbm	UniJIS-UTF16-H	:2:mogag.ttc %!PS Moga90Gothic-Regular
+ugbmv	UniJIS-UTF16-V	:2:mogag.ttc %!PS Moga90Gothic-Regular
+uprml-h	UniJIS-UTF16-H	:3:mogam.ttc %!PS Moga90Mincho-Regular
+uprml-v	UniJIS-UTF16-V	:3:mogam.ttc %!PS Moga90Mincho-Regular
+upgbm-h	UniJIS-UTF16-H	:2:mogag.ttc %!PS Moga90Gothic-Regular
+upgbm-v	UniJIS-UTF16-V	:2:mogag.ttc %!PS Moga90Gothic-Regular
+uprml-hq	UniJIS-UCS2-H	:3:mogam.ttc %!PS Moga90Mincho-Regular
+upgbm-hq	UniJIS-UCS2-H	:2:mogag.ttc %!PS Moga90Gothic-Regular
