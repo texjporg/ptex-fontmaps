@@ -1,12 +1,12 @@
 
 % CID
-otf-ccmr-h	Identity-H	uming.ttf/AG14
-otf-ccmr-v	Identity-V	uming.ttf/AG14
-otf-ccgr-h	Identity-H	ukai.ttf/AG14
-otf-ccgr-v	Identity-V	ukai.ttf/AG14
+otf-ccmr-h	Identity-H	uming.ttf/AG14 %!PS ShanHeiSun-Uni
+otf-ccmr-v	Identity-V	uming.ttf/AG14 %!PS ShanHeiSun-Uni
+otf-ccgr-h	Identity-H	ukai.ttf/AG14 %!PS ZenKai-Uni
+otf-ccgr-v	Identity-V	ukai.ttf/AG14 %!PS ZenKai-Uni
 
 % Unicode
-otf-ucmr-h	UniGB-UCS2-H	uming.ttf
-otf-ucmr-v	UniGB-UCS2-V	uming.ttf
-otf-ucgr-h	UniGB-UCS2-H	ukai.ttf
-otf-ucgr-v	UniGB-UCS2-V	ukai.ttf
+otf-ucmr-h	UniGB-UCS2-H	uming.ttf %!PS ShanHeiSun-Uni
+otf-ucmr-v	UniGB-UCS2-V	uming.ttf %!PS ShanHeiSun-Uni
+otf-ucgr-h	UniGB-UCS2-H	ukai.ttf %!PS ZenKai-Uni
+otf-ucgr-v	UniGB-UCS2-V	ukai.ttf %!PS ZenKai-Uni

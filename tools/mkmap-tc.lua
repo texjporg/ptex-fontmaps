@@ -21,20 +21,20 @@ local foundry = {
    },
    ['cjkunifonts']   = {  -- gr がサンセリフになっていない
       noncid = true,
-      mr=':2:uming.ttc',   -- UMingTW
-      gr=':2:ukai.ttc',    -- UKaiTW
+      mr=':2:uming.ttc %!PS UMingTW',
+      gr=':2:ukai.ttc %!PS UKaiTW',
       {''},
    },
    ['cjkunifonts-ttf']   = {  -- gr がサンセリフになっていない
       noncid = true,
-      mr='uming.ttf',      -- ShanHeiSun-Uni
-      gr='ukai.ttf',       -- ZenKai-Uni
+      mr='uming.ttf %!PS ShanHeiSun-Uni',
+      gr='ukai.ttf %!PS ZenKai-Uni',
       {''},
    },
    ['ms']   = {
       noncid = true,
-      mr=':0:mingliu.ttc',  -- MingLiU
-      gr='MSMHei.ttf',      -- MicrosoftMHei ほかに見当たらなかったので
+      mr=':0:mingliu.ttc %!PS MingLiU',
+      gr='MSMHei.ttf %!PS MicrosoftMHei',  -- ほかに見当たらなかったので
       {''},
    },
    ['dynacomware']   = {

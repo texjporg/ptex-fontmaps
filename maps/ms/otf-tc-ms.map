@@ -1,12 +1,12 @@
 
 % CID
-otf-ctmr-h	Identity-H	:0:mingliu.ttc/AC14
-otf-ctmr-v	Identity-V	:0:mingliu.ttc/AC14
-otf-ctgr-h	Identity-H	MSMHei.ttf/AC14
-otf-ctgr-v	Identity-V	MSMHei.ttf/AC14
+otf-ctmr-h	Identity-H	:0:mingliu.ttc/AC14 %!PS MingLiU
+otf-ctmr-v	Identity-V	:0:mingliu.ttc/AC14 %!PS MingLiU
+otf-ctgr-h	Identity-H	MSMHei.ttf/AC14 %!PS MicrosoftMHei
+otf-ctgr-v	Identity-V	MSMHei.ttf/AC14 %!PS MicrosoftMHei
 
 % Unicode
-otf-utmr-h	UniCNS-UCS2-H	:0:mingliu.ttc
-otf-utmr-v	UniCNS-UCS2-V	:0:mingliu.ttc
-otf-utgr-h	UniCNS-UCS2-H	MSMHei.ttf
-otf-utgr-v	UniCNS-UCS2-V	MSMHei.ttf
+otf-utmr-h	UniCNS-UCS2-H	:0:mingliu.ttc %!PS MingLiU
+otf-utmr-v	UniCNS-UCS2-V	:0:mingliu.ttc %!PS MingLiU
+otf-utgr-h	UniCNS-UCS2-H	MSMHei.ttf %!PS MicrosoftMHei
+otf-utgr-v	UniCNS-UCS2-V	MSMHei.ttf %!PS MicrosoftMHei
