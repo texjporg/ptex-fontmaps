@@ -4,6 +4,7 @@
 --   * ml, mr, ... に 90 字形フォント
 --   * mln, mrn, ... に 04 字形フォント
 -- を登録し，separate = true とする．それ以外のフォントは ml, mr, ... のほうに登録しておけばよい．
+-- PSName がファイル名と異なる場合は %!PS も必要．
 -- CID フォントでない場合は noncid = true とする．
 -- '?' は 'Pro' 等に置換される
 local foundry = {
@@ -158,14 +159,14 @@ local foundry = {
    },
    ['canon']   = {
       noncid = true,
-      ml=':0:FGCCHMW3.TTC',
-      mr=':0:FGCCHMW3.TTC',
-      mb=':0:FGCCHMW5.TTC',
-      gr=':0:FGCCHGW5.TTC',
-      gru=':0:FGCCHGW7.TTC',
-      gb=':0:FGCCHGW7.TTC',
-      ge=':0:FGCCHGW9.TTC',
-      mgr=':0:FGCCARGM.TTC',
+      ml=':0:FGCCHMW3.TTC %!PS FGHeiseiMincho-W3',
+      mr=':0:FGCCHMW3.TTC %!PS FGHeiseiMincho-W3',
+      mb=':0:FGCCHMW5.TTC %!PS FGHeiseiMincho-W5',
+      gr=':0:FGCCHGW5.TTC %!PS FGHeiseiKakuGothic-W5',
+      gru=':0:FGCCHGW7.TTC %!PS FGHeiseiKakuGothic-W7',
+      gb=':0:FGCCHGW7.TTC %!PS FGHeiseiKakuGothic-W7',
+      ge=':0:FGCCHGW9.TTC %!PS FGHeiseiKakuGothic-W9',
+      mgr=':0:FGCCARGM.TTC %!PS FGMaruGothicCa-M',
       {''},
    },
    ['kozuka']   = {

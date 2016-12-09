@@ -1,32 +1,32 @@
 
 % TEXT, 90JIS
-uphminl-h	UniJIS-UTF16-H	:0:FGCCHMW3.TTC
-uphminl-v	UniJIS-UTF16-V	:0:FGCCHMW3.TTC
-uphminr-h	UniJIS-UTF16-H	:0:FGCCHMW3.TTC
-uphminr-v	UniJIS-UTF16-V	:0:FGCCHMW3.TTC
-uphminb-h	UniJIS-UTF16-H	:0:FGCCHMW5.TTC
-uphminb-v	UniJIS-UTF16-V	:0:FGCCHMW5.TTC
-uphgothr-h	UniJIS-UTF16-H	:0:FGCCHGW5.TTC
-uphgothr-v	UniJIS-UTF16-V	:0:FGCCHGW5.TTC
-uphgothb-h	UniJIS-UTF16-H	:0:FGCCHGW7.TTC
-uphgothb-v	UniJIS-UTF16-V	:0:FGCCHGW7.TTC
-uphgotheb-h	UniJIS-UTF16-H	:0:FGCCHGW9.TTC
-uphgotheb-v	UniJIS-UTF16-V	:0:FGCCHGW9.TTC
-uphmgothr-h	UniJIS-UTF16-H	:0:FGCCARGM.TTC
-uphmgothr-v	UniJIS-UTF16-V	:0:FGCCARGM.TTC
+uphminl-h	UniJIS-UTF16-H	:0:FGCCHMW3.TTC %!PS FGHeiseiMincho-W3
+uphminl-v	UniJIS-UTF16-V	:0:FGCCHMW3.TTC %!PS FGHeiseiMincho-W3
+uphminr-h	UniJIS-UTF16-H	:0:FGCCHMW3.TTC %!PS FGHeiseiMincho-W3
+uphminr-v	UniJIS-UTF16-V	:0:FGCCHMW3.TTC %!PS FGHeiseiMincho-W3
+uphminb-h	UniJIS-UTF16-H	:0:FGCCHMW5.TTC %!PS FGHeiseiMincho-W5
+uphminb-v	UniJIS-UTF16-V	:0:FGCCHMW5.TTC %!PS FGHeiseiMincho-W5
+uphgothr-h	UniJIS-UTF16-H	:0:FGCCHGW5.TTC %!PS FGHeiseiKakuGothic-W5
+uphgothr-v	UniJIS-UTF16-V	:0:FGCCHGW5.TTC %!PS FGHeiseiKakuGothic-W5
+uphgothb-h	UniJIS-UTF16-H	:0:FGCCHGW7.TTC %!PS FGHeiseiKakuGothic-W7
+uphgothb-v	UniJIS-UTF16-V	:0:FGCCHGW7.TTC %!PS FGHeiseiKakuGothic-W7
+uphgotheb-h	UniJIS-UTF16-H	:0:FGCCHGW9.TTC %!PS FGHeiseiKakuGothic-W9
+uphgotheb-v	UniJIS-UTF16-V	:0:FGCCHGW9.TTC %!PS FGHeiseiKakuGothic-W9
+uphmgothr-h	UniJIS-UTF16-H	:0:FGCCARGM.TTC %!PS FGMaruGothicCa-M
+uphmgothr-v	UniJIS-UTF16-V	:0:FGCCARGM.TTC %!PS FGMaruGothicCa-M
 
 % TEXT, JIS04
-uphminln-h	UniJIS2004-UTF16-H	:0:FGCCHMW3.TTC
-uphminln-v	UniJIS2004-UTF16-V	:0:FGCCHMW3.TTC
-uphminrn-h	UniJIS2004-UTF16-H	:0:FGCCHMW3.TTC
-uphminrn-v	UniJIS2004-UTF16-V	:0:FGCCHMW3.TTC
-uphminbn-h	UniJIS2004-UTF16-H	:0:FGCCHMW5.TTC
-uphminbn-v	UniJIS2004-UTF16-V	:0:FGCCHMW5.TTC
-uphgothrn-h	UniJIS2004-UTF16-H	:0:FGCCHGW5.TTC
-uphgothrn-v	UniJIS2004-UTF16-V	:0:FGCCHGW5.TTC
-uphgothbn-h	UniJIS2004-UTF16-H	:0:FGCCHGW7.TTC
-uphgothbn-v	UniJIS2004-UTF16-V	:0:FGCCHGW7.TTC
-uphgothebn-h	UniJIS2004-UTF16-H	:0:FGCCHGW9.TTC
-uphgothebn-v	UniJIS2004-UTF16-V	:0:FGCCHGW9.TTC
-uphmgothrn-h	UniJIS2004-UTF16-H	:0:FGCCARGM.TTC
-uphmgothrn-v	UniJIS2004-UTF16-V	:0:FGCCARGM.TTC
+uphminln-h	UniJIS2004-UTF16-H	:0:FGCCHMW3.TTC %!PS FGHeiseiMincho-W3
+uphminln-v	UniJIS2004-UTF16-V	:0:FGCCHMW3.TTC %!PS FGHeiseiMincho-W3
+uphminrn-h	UniJIS2004-UTF16-H	:0:FGCCHMW3.TTC %!PS FGHeiseiMincho-W3
+uphminrn-v	UniJIS2004-UTF16-V	:0:FGCCHMW3.TTC %!PS FGHeiseiMincho-W3
+uphminbn-h	UniJIS2004-UTF16-H	:0:FGCCHMW5.TTC %!PS FGHeiseiMincho-W5
+uphminbn-v	UniJIS2004-UTF16-V	:0:FGCCHMW5.TTC %!PS FGHeiseiMincho-W5
+uphgothrn-h	UniJIS2004-UTF16-H	:0:FGCCHGW5.TTC %!PS FGHeiseiKakuGothic-W5
+uphgothrn-v	UniJIS2004-UTF16-V	:0:FGCCHGW5.TTC %!PS FGHeiseiKakuGothic-W5
+uphgothbn-h	UniJIS2004-UTF16-H	:0:FGCCHGW7.TTC %!PS FGHeiseiKakuGothic-W7
+uphgothbn-v	UniJIS2004-UTF16-V	:0:FGCCHGW7.TTC %!PS FGHeiseiKakuGothic-W7
+uphgothebn-h	UniJIS2004-UTF16-H	:0:FGCCHGW9.TTC %!PS FGHeiseiKakuGothic-W9
+uphgothebn-v	UniJIS2004-UTF16-V	:0:FGCCHGW9.TTC %!PS FGHeiseiKakuGothic-W9
+uphmgothrn-h	UniJIS2004-UTF16-H	:0:FGCCARGM.TTC %!PS FGMaruGothicCa-M
+uphmgothrn-v	UniJIS2004-UTF16-V	:0:FGCCARGM.TTC %!PS FGMaruGothicCa-M
