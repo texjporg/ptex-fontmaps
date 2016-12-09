@@ -79,12 +79,15 @@ O yu-osx - Yu Mincho and Yu Gothic fonts by Jiyu-koubou LTD.,
     ipaexm.ttf
     ipaexg.ttf
 
-O? moga-mobo - Moga/Mobo fonts from Y.Oz Vox http://yozvox.web.fc2.com/
+O moga-mobo - Moga/Mobo fonts from Y.Oz Vox http://yozvox.web.fc2.com/
     mogam.ttc
     mogamb.ttc
     mogag.ttc
     mogagb.ttc
     mobog.ttc
+
+O moga-mobo-ex - MogaEx/MoboEx fonts from Y.Oz Vox http://yozvox.web.fc2.com/
+    uses same font files as moga-mobo
 
 4 ume - Ume-font from https://ja.osdn.net/projects/ume-font/
     ume-tmo3.ttf
