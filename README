@@ -26,10 +26,10 @@ software, this package is split into two parts:
 
 The package `jfontmaps' (this package) is available in TeX Live,
 while the package `jfontmaps-nonfree` is *NOT* available directly from the
-TeX Live package mirrors, but can be installed from the tlptexlive
+TeX Live package mirrors, but can be installed from the tltexjp
 repository, by executing the following commands:
-	tlmgr repository add http://www.tug.org/~preining/tlptexlive tlptexlive
-	tlmgr pinning add tlptexlive jfontmaps-nonfree
+	tlmgr repository add http://texlive.texjp.org/current/tltexjp tltexjp
+	tlmgr pinning add tltexjp '*'
 	tlmgr install jfontmaps-nonfree
 After that updates for the jfontmaps packages will be automatically
 installed.

@@ -47,13 +47,20 @@ mkdir $PROJECT-nonfree-$VER
 for i in $PROJECT-$VER/maps/* ; do
   bn=`basename $i`
   case $bn in
-    hiragino|hiragino-pron|hiragino-elcapitan|hiragino-elcapitan-pron) 
-      mv $PROJECT-$VER/maps/$bn $PROJECT-nonfree-$VER ;;
-    kozuka|kozuka-pr6|kozuka-pr6n)
-      mv $PROJECT-$VER/maps/$bn $PROJECT-nonfree-$VER ;;
-    morisawa|morisawa-pr6n)
-      mv $PROJECT-$VER/maps/$bn $PROJECT-nonfree-$VER ;;
-    ms|yu-osx|yu-win10|yu-win)
+    # -- Japanese nonfree fonts
+    # -- currently we don't want to separate Japanese nonfree fonts !
+    # hiragino|hiragino-pron|hiragino-elcapitan|hiragino-elcapitan-pron) 
+    #   mv $PROJECT-$VER/maps/$bn $PROJECT-nonfree-$VER ;;
+    # kozuka|kozuka-pr6|kozuka-pr6n)
+    #   mv $PROJECT-$VER/maps/$bn $PROJECT-nonfree-$VER ;;
+    # morisawa|morisawa-pr6n)
+    #   mv $PROJECT-$VER/maps/$bn $PROJECT-nonfree-$VER ;;
+    # ms|ms-osx|yu-win|yu-win10|yu-osx)
+    #   mv $PROJECT-$VER/maps/$bn $PROJECT-nonfree-$VER ;;
+    # canon|toppanbunkyu-sierra)
+    #   mv $PROJECT-$VER/maps/$bn $PROJECT-nonfree-$VER ;;
+    # -- Chinese/Korean nonfree fonts
+    adobe|apple|dynacomware|sinotype)
       mv $PROJECT-$VER/maps/$bn $PROJECT-nonfree-$VER ;;
   esac
 done

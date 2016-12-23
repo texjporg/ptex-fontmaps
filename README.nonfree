@@ -13,13 +13,14 @@ programs and formats.
 Please see the README for the package `jfontmaps' for details 
 concerning all fonts.
 
-The font maps were written by several people, including
+The font maps were written by several people, including (in alphabetic order)
   Hironori Kitagawa
-  Takuji Tanaka
-  Saito Shuzaburo
   Norbert Preining
-and are now maintained in the tug.org subversion repository:
-  https://git.gitorious.org/tlptexlive/jfontmaps.git
+  Saito Shuzaburo
+  Takuji Tanaka
+  Hironobu Yamashita
+and are now maintained in the github.com git repository:
+  https://github.com/texjporg/jfontmaps
 
 Copyright/License
 =================
