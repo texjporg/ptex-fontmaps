@@ -1,0 +1,27 @@
+jfontmaps-nonfree
+=================
+
+Current release: $VER$
+
+This package is a companion to `jfontmaps' including support for
+non-free fonts, which cannot be included in TeX Live.
+
+The files contained in this package contains font maps for dvipdfmx to
+make various non-free Japanese fonts available for (u)ptex and related
+programs and formats.
+
+Please see the README for the package `jfontmaps' for details 
+concerning all fonts.
+
+The font maps were written by several people, including
+  Hironori Kitagawa
+  Takuji Tanaka
+  Saito Shuzaburo
+  Norbert Preining
+and are now maintained in the tug.org subversion repository:
+  https://git.gitorious.org/tlptexlive/jfontmaps.git
+
+Copyright/License
+=================
+All the map files are under Public Domain.
+
