@@ -31,8 +31,62 @@ the parenthesis, but need to be renamed to the name given first.
 Simplified Chinese
 ==================
 
+* noEmbed - no embedding is done at all, fonts are selected by the viewer
+    (no font needed for dvipdfmx)
+
+* ms - SimSun and SimHei, shipped with Windows
+    simsun.ttc
+    simhei.ttf
+
+* sinotype - by SinoType Technology Co., Ltd
+    STSong.ttf
+    STHeiti.ttf
+
+* adobe - by Adobe Systems, bundled with Adobe's software
+    AdobeSongStd-Light.otf
+    AdobeHeitiStd-Regular.otf
+
+* arphic - BousungEG-Light-GB and GBZenKai-Medium
+    gbsn00lp.ttf
+    gkai00mp.ttf
+
+* cjkunifonts - UMingCN and UKaiCN
+    uming.ttc
+    ukai.ttc
+
+* cjkunifonts-ttf - ShanHeiSun-Uni and ZenKai-Uni (old distribution of above)
+    uming.ttf
+    ukai.ttf
+
 Traditional Chinese
 ===================
+
+* noEmbed - no embedding is done at all, fonts are selected by the viewer
+    (no font needed for dvipdfmx)
+
+* ms - MingLiU and MicrosoftMHei, shipped with Windows
+    mingliu.ttf
+    MSMHei.ttf
+
+* dynacomware - DynaComware Taiwan Inc.
+    LiSongPro.ttf
+    LiHeiPro.ttf
+
+* adobe - by Adobe Systems, bundled with Adobe's software
+    AdobeMingStd-Light.otf
+    AdobeFanHeitiStd-Bold.otf
+
+* arphic - ShanHeiSun-LightB and ZenKai-MediumZenKai-Medium
+    bsmi00lp.ttf
+    bkai00mp.ttf
+
+* cjkunifonts - UMingTW and UKaiTW
+    uming.ttc
+    ukai.ttc
+
+* cjkunifonts-ttf - ShanHeiSun-Uni and ZenKai-Uni (old distribution of above)
+    uming.ttf
+    ukai.ttf
 
 Korean
 ======
@@ -40,113 +94,29 @@ Korean
 * noEmbed - no embedding is done at all, fonts are selected by the viewer
     (no font needed for dvipdfmx)
 
+* ms - Batang and Dotum, shipped with Windows
+    batang.ttc
+    gulim.ttc
 
------ ここから下は jfontmaps のものをそのままコピーしただけ -----
+* apple - Apple fonts, bundled with OSX
+    AppleMyungjo.ttf
+    AppleGothic.ttf
 
+* adobe - by Adobe Systems, bundled with Adobe's software
+    AdobeMyungjoStd-Medium.otf
+    AdobeGothicStd-Bold.otf
 
-* ms - MS Mincho and MS Gothic, shipped with Windows
-    msmincho.ttc
-    msgothic.ttc
+* baekmuk - Baekmuk-Batang and Baekmuk-Dotum
+    batang.ttf
+    dotum.ttf
 
-* ms-osx - MS Mincho and MS Gothic, shipped with Office for Mac
-    MS-Mincho.ttf      (<= "MS Mincho.ttf")
-    MS-Gothic.ttf      (<= "MS Gothic.ttf")
+* baekmuk - Unfonts-core bundle
+    UnBatang.ttf
+    UnDotum.ttf
 
-* yu-win - Yu Mincho and Yu Gothic fonts by Jiyu-koubou LTD.,
-       bundled with Win 8.1.
-    yumin.ttf
-    yuminl.ttf
-    yumindb.ttf
-    yugothic.ttf
-    yugothib.ttf
-
-* yu-win10 - Yu Mincho and Yu Gothic fonts by Jiyu-koubou LTD.,
-       bundled with Win 10.
-    yumin.ttf
-    yuminl.ttf
-    yumindb.ttf
-    YuGothR.ttc
-    YuGothM.ttc
-    YuGothB.ttc
-
-* yu-osx - Yu Mincho and Yu Gothic fonts by Jiyu-koubou LTD.,
-       bundled with OSX 10.9 and 10.10.
-    YuGo-Bold.otf      (<= "Yu Gothic Bold.otf")
-    YuGo-Medium.otf    (<= "Yu Gothic Medium.otf")
-    YuMin-Demibold.otf (<= "Yu Mincho Demibold.otf")
-    YuMin-Medium.otf   (<= "Yu Mincho Medium.otf")
-
-* ipa - IPA fonts from Information-technology Promotion Agency
-    ipam.ttf
-    ipag.ttf
-
-* ipaex - IPAex fonts from Information-technology Promotion Agency
-    ipaexm.ttf
-    ipaexg.ttf
-
-* hiragino - Hiragino fonts by Dainippon Screen Mfg. Co., Ltd.
-	bundled with Mac OS X 10.5--10.10, 
-	or Japanese word processor Ichitaro 2012 Premium/Super-premium editions
-    HiraMinPro-W2.otf   (<= "ヒラギノ明朝 Pro W2.otf")
-    HiraMinPro-W3.otf   (<= "ヒラギノ明朝 Pro W3.otf")
-    HiraMinPro-W6.otf   (<= "ヒラギノ明朝 Pro W6.otf")
-    HiraKakuPro-W3.otf  (<= "ヒラギノ角ゴ Pro W3.otf")
-    HiraKakuPro-W6.otf  (<= "ヒラギノ角ゴ Pro W6.otf")
-    HiraKakuStd-W8.otf  (<= "ヒラギノ角ゴ Std W8.otf")
-    HiraMaruPro-W4.otf  (<= "ヒラギノ丸ゴ Pro W4.otf")
-
-    If you use Mac OSX, you must create symlink
-
-* hiragino-pron - see above
-    same with ProN/StdN instead of Pro/Std
-
-* hiragino-elcapitan-pron
-* hiragino-elcapitan
-	bundled with Mac OS X 10.11 El Capitan or later
-    HiraginoSansR-W4.ttc (<= "ヒラギノ丸ゴ ProN W4.ttc")
-    HiraginoSans-W3.ttc  (<= "ヒラギノ角ゴシック W3.ttc")
-    HiraginoSans-W6.ttc  (<= "ヒラギノ角ゴシック W6.ttc")
-    HiraginoSans-W8.ttc  (<= "ヒラギノ角ゴシック W8.ttc")
-    HiraginoSerif-W3.ttc (<= "ヒラギノ明朝 ProN W3.ttc")
-    HiraginoSerif-W6.ttc (<= "ヒラギノ明朝 ProN W6.ttc")
-
-* toppanbunkyu-sierra
-	bundled with macOS 10.12 Sierra
-    ToppanBunkyuMincho-Regular.otf
-    ToppanBunkyuMidashiMincho-ExtraBold.otf
-    ToppanBunkyuGothic.ttc
-    ToppanBunkyuMidashiGothic-ExtraBold.otf
-
-* kozuka - by Adobe Systems, bundled with Adobe's software
-    KozMinPro-Light.otf
-    KozMinPro-Regular.otf
-    KozMinPro-Bold.otf
-    KozGoPro-Light.otf
-    KozGoPro-Medium.otf
-    KozGoPro-Bold.otf
-    KozGoPro-Heavy.otf
-
-* kozuka-pr6n - see above
-    same with Pr6N instead of Pro
-
-* kozuka-pr6 - see above
-    same with ProVI instead of Pro
-
-* morisawa - by Morisawa Inc.
-    A-OTF-FutoGoB101Pro-Bold.otf
-    A-OTF-FutoMinA101Pro-Bold.otf
-    A-OTF-GothicBBBPro-Medium.otf
-    A-OTF-Jun101Pro-Light.otf
-    A-OTF-MidashiGoPro-MB31.otf
-    A-OTF-RyuminPro-Light.otf
-
-* morisawa-pr6n - see above
-    A-OTF-FutoGoB101Pr6N-Bold.otf
-    A-OTF-FutoMinA101Pr6N-Bold.otf
-    A-OTF-GothicBBBPr6N-Medium.otf
-    A-OTF-ShinMGoPr6N-Light.otf
-    A-OTF-MidashiGoPr6N-MB31.otf
-    A-OTF-RyuminPr6N-Light.otf
+* solaris - Myeongjo and Gothic, bundled with Solaris 10/11
+    h2mjsm.ttf
+    h2gtrm.ttf
 
 
 Copyright/License
