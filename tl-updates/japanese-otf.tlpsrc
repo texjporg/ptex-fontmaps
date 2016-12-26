@@ -1,0 +1,4 @@
+execute addKanjiMap otf-@jaEmbed@.map
+execute addKanjiMap otf-sc-@scEmbed@.map
+execute addKanjiMap otf-tc-@tcEmbed@.map
+execute addKanjiMap otf-ko-@koEmbed@.map

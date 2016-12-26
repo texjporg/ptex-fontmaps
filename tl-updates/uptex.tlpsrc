@@ -1,0 +1,34 @@
+depend uptex-base
+depend uptex-fonts
+
+tlpsetvar fmtcomm cm,hyphen-base,knuth-lib,plain,uptex-base,uptex-fonts
+#
+execute AddFormat name=uptex engine=uptex options="uptex.ini" \
+          fmttriggers=${fmtcomm}
+#
+execute AddFormat name=euptex engine=euptex options="*euptex.ini" \
+          patterns=language.def \
+          fmttriggers=${fmtcomm},etex,ptex-base
+#
+execute addKanjiMap uptex-@jaEmbed@@jaVariant@.map
+execute addKanjiMap uptex-sc-@scEmbed@.map
+execute addKanjiMap uptex-tc-@tcEmbed@.map
+execute addKanjiMap uptex-ko-@koEmbed@.map
+
+binpattern f bin/${ARCH}/euptex
+binpattern f bin/${ARCH}/upbibtex
+binpattern f bin/${ARCH}/updvitomp
+binpattern f bin/${ARCH}/updvitype
+binpattern f bin/${ARCH}/upmpost
+binpattern f bin/${ARCH}/uppltotf
+binpattern f bin/${ARCH}/uptftopl
+binpattern f bin/${ARCH}/uptex
+binpattern f bin/${ARCH}/wovp2ovf
+# not built now
+#binpattern f bin/${ARCH}/upmetapost
+#
+docpattern +d texmf-dist/doc/upmendex
+
+# uptex-base excludes:
+runpattern +!d texmf-dist/tex/uptex/uptex-base
+docpattern +!d texmf-dist/doc/uptex/uptex-base
