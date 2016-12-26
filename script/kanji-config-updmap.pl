@@ -11,7 +11,7 @@
 # For copyright statements see end of file.
 #
 # For development see
-#  https://github.com/norbusan/jfontmaps
+#  https://github.com/texjporg/jfontmaps
 #
 # For a changelog see the git log
 # 
@@ -30,11 +30,17 @@ my $dry_run = 0;
 my $opt_help = 0;
 my $opt_jis = 0;
 my $opt_sys = 0;
+my $opt_mode = "ja";
 
 if (! GetOptions(
         "n|dry-run" => \$dry_run,
         "h|help" => \$opt_help,
         "jis2004" => \$opt_jis,
+        "mode=s"   => \$opt_mode,
+        "ja"       => sub { $opt_mode = "ja"; },
+        "sc"       => sub { $opt_mode = "sc"; },
+        "tc"       => sub { $opt_mode = "tc"; },
+        "ko"       => sub { $opt_mode = "ko"; },
         "sys" => \$opt_sys,
         "version" => sub { print &version(); exit(0); }, ) ) {
   die "Try \"$0 --help\" for more information.\n";
@@ -63,27 +69,53 @@ if ($opt_help) {
 # representatives of support font families
 #
 my %representatives = (
-  "hiragino"      => "HiraMinPro-W3.otf",
-  "hiragino-pron" => "HiraMinProN-W3.otf",
-  "hiragino-elcapitan" => "HiraginoSerif-W3.ttc",
-  "hiragino-elcapitan-pron" => "HiraginoSerif-W3.ttc",
-  "toppanbunkyu-sierra" => "ToppanBunkyuGothic.ttc",
-  "morisawa"      => "A-OTF-RyuminPro-Light.otf",
-  "morisawa-pr6n" => "A-OTF-RyuminPr6N-Light.otf",
-  "kozuka"        => "KozMinPro-Regular.otf",
-  "kozuka-pr6n"   => "KozMinPr6N-Regular.otf",
-  "kozuka-pr6"    => "KozMinProVI-Regular.otf",
-  "ipa"           => "ipam.ttf",
-  "ipaex"         => "ipaexm.ttf",
-  "moga-mobo"     => "mogam.ttc",
-  "moga-mobo-ex"  => "mogam.ttc",
-  "ume"           => "ume-tmo3.ttf",
-  "ms"            => "msgothic.ttc",
-  "ms-osx"        => "MS-Gothic.ttf",
-  "yu-win"        => "yugothib.ttf",
-  "yu-win10"      => "YuGothB.ttc",
-  "yu-osx"        => "YuMin-Medium.otf",
-  "canon"         => "FGCCHMW3.TTC",
+  "ja" => {
+    "hiragino"      => "HiraMinPro-W3.otf",
+    "hiragino-pron" => "HiraMinProN-W3.otf",
+    "hiragino-elcapitan" => "HiraginoSerif-W3.ttc",
+    "hiragino-elcapitan-pron" => "HiraginoSerif-W3.ttc",
+    "toppanbunkyu-sierra" => "ToppanBunkyuGothic.ttc",
+    "morisawa"      => "A-OTF-RyuminPro-Light.otf",
+    "morisawa-pr6n" => "A-OTF-RyuminPr6N-Light.otf",
+    "kozuka"        => "KozMinPro-Regular.otf",
+    "kozuka-pr6n"   => "KozMinPr6N-Regular.otf",
+    "kozuka-pr6"    => "KozMinProVI-Regular.otf",
+    "ipa"           => "ipam.ttf",
+    "ipaex"         => "ipaexm.ttf",
+    "moga-mobo"     => "mogam.ttc",
+    "moga-mobo-ex"  => "mogam.ttc",
+    "ume"           => "ume-tmo3.ttf",
+    "ms"            => "msgothic.ttc",
+    "ms-osx"        => "MS-Gothic.ttf",
+    "yu-win"        => "yugothib.ttf",
+    "yu-win10"      => "YuGothB.ttc",
+    "yu-osx"        => "YuMin-Medium.otf",
+    "canon"         => "FGCCHMW3.TTC",
+  },
+  "sc" => {
+    "ms"            => "simhei.ttf",
+    "sinotype"      => "STSong.ttf",
+    "adobe"         => "AdobeSongStd-Light.otf",
+    "arphic"        => "gbsn00lp.ttf",
+    "cjkunifonts"   => "uming.ttc",
+    "cjkunifonts-ttf" => "uming.ttf",
+  },
+  "tc" => {
+    "ms"            => "mingliu.ttf",
+    "dynacomware"   => "LiSongPro.ttf",
+    "adobe"         => "AdobeMingStd-Light.otf",
+    "arphic"        => "bsmi00lp.ttf",
+    "cjkunifonts"   => "uming.ttc",
+    "cjkunifonts-ttf" => "uming.ttf",
+  },
+  "ko" => {
+    "ms"            => "batang.ttc",
+    "apple"         => "AppleMyunjo.ttf",
+    "adobe"         => "AdobeMyungjoStd-Medium.otf",
+    "baekmuk"       => "batang.ttf",
+    "unfonts"       => "UnBatang.ttf",
+    "solaris"       => "h2mjsm.ttf",
+  }
 );
 my %available;
 
@@ -98,7 +130,7 @@ sub version {
 
 sub Usage {
   my $usage = <<"EOF";
-  $prg  Set up embedding of Japanese fonts via updmap.cfg.
+  $prg  Set up embedding of Japanese/Chinese/Korean fonts via updmap.cfg.
 
                  This script searches for some of the most common fonts
                  for embedding into pdfs by dvipdfmx.
@@ -107,10 +139,17 @@ sub Usage {
                  to be embedded into the generated pdf files, as long
                  as at least the map file otf-<family>.map is present.
                  Other map files that will be used if available are
-                   
+                  
+                 For Japanese:
                    ptex-<family>.map
                    uptex-<family>.map
+                   otf-<family>.map
                    otf-up-<family>.map
+
+                 For Korean, Traditional Chinese and Simplified Chinese:
+                   uptex-<NN>-<family>.map
+                   otf-<NN>-<family>.map
+                 (NN being: ko, tc, sc)
 
   Please see the documentation of updmap for details (updmap --help).
 
@@ -139,6 +178,9 @@ sub Usage {
   Options:
     -n, --dry-run  do not actually run updmap
     -h, --help     show this message and exit
+    --mode=NN      setup for Japanese (NN=ja), Korean (NN=ko),
+                   Simplified Chinese (NN=sc), Traditional Chinese (NN=tc)
+    --NN           short for --mode=NN
     --jis2004      use JIS2004 variants for default fonts of (u)pTeX
     --sys          run in sys mode, i.e., call updmap-sys
     --version      show version information and exit
@@ -156,8 +198,8 @@ EOF
 ###
 
 sub CheckInstallFont {
-  for my $k (keys %representatives) {
-    my $f = `kpsewhich $representatives{$k}`;
+  for my $k (keys %{$representatives{$opt_mode}}) {
+    my $f = `kpsewhich $representatives{$opt_mode}{$k}`;
     if (! $?) {
       $available{$k} = chomp($f);
     }
@@ -180,24 +222,25 @@ sub check_mapfile {
 }
 
 sub GetStatus {
-  my $val = `$updmap_real --quiet --showoption kanjiEmbed`;
+  my $val = `$updmap_real --quiet --showoption ${opt_mode}Embed`;
   my $STATUS;
-  if ($val =~ m/^kanjiEmbed=([^()\s]*)(\s+\()?/) {
+  if ($val =~ m/^${opt_mode}Embed=([^()\s]*)(\s+\()?/) {
     $STATUS = $1;
   } else {
-    printf STDERR "Cannot find status of current kanjiEmbed setting via updmap --showoption!\n";
+    printf STDERR "Cannot find status of current ${opt_mode}Embed setting via updmap --showoption!\n";
     exit 1;
   }
 
-  if (check_mapfile("ptex-$STATUS.map")) {
-    print "CURRENT family : $STATUS\n";
+  my $testmap = ($opt_mode eq "ja" ? "ptex-$STATUS.map" : "uptex-${opt_mode}-$STATUS.map");
+  if (check_mapfile($testmap)) {
+    print "CURRENT family for $opt_mode: $STATUS\n";
   } else {
-    print "WARNING: Currently selected map file cannot be found: ptex-$STATUS.map\n";
+    print "WARNING: Currently selected map file for $opt_mode cannot be found: $testmap\n";
   }
 
-  for my $k (sort keys %representatives) {
-    my $MAPFILE = "ptex-$k.map";
-    next if ($MAPFILE eq "ptex-$STATUS.map");
+  for my $k (sort keys %{$representatives{$opt_mode}}) {
+    my $MAPFILE = ($opt_mode eq "ja" ? "ptex-$k.map" : "uptex-${opt_mode}-$k.map");
+    next if ($MAPFILE eq $testmap);
     if (check_mapfile($MAPFILE)) {
       if ($available{$k}) {
         print "Standby family : $k\n";
@@ -213,14 +256,14 @@ sub GetStatus {
 
 sub SetupMapFile {
   my $rep = shift;
-  my $MAPFILE = "ptex-$rep.map";
+  my $MAPFILE = ($opt_mode eq "ja" ? "ptex-$rep.map" : "uptex-${opt_mode}-$rep.map");
   if (check_mapfile($MAPFILE)) {
     print "Setting up ... $MAPFILE\n";
-    system("$updmap --quiet --nomkmap --nohash -setoption kanjiEmbed $rep");
+    system("$updmap --quiet --nomkmap --nohash -setoption ${opt_mode}Embed $rep");
     if ($opt_jis) {
-      system("$updmap --quiet --nomkmap --nohash -setoption kanjiVariant -04");
+      system("$updmap --quiet --nomkmap --nohash -setoption jaVariant -04");
     } else {
-      system("$updmap --quiet --nomkmap --nohash -setoption kanjiVariant \"\"");
+      system("$updmap --quiet --nomkmap --nohash -setoption jaVariant \"\"");
     }
     system("$updmap");
   } else {
@@ -231,7 +274,7 @@ sub SetupMapFile {
 
 sub SetupReplacement {
   my $rep = shift;
-  if (defined($representatives{$rep})) {
+  if (defined($representatives{$opt_mode}{$rep})) {
     if ($available{$rep}) {
       return SetupMapFile($rep);
     } else {
@@ -245,25 +288,37 @@ sub SetupReplacement {
       my $STATUS = GetStatus();
       # first check if we have a status set and the font is installed
       # in this case don't change anything, just make sure
-      if (defined($representatives{$STATUS}) && $available{$STATUS}) {
+      if (defined($representatives{$opt_mode}{$STATUS}) && $available{$STATUS}) {
         return SetupMapFile($STATUS);
       } else {
         if (!($STATUS eq "noEmbed" || $STATUS eq "")) {
           # some unknown setting is set up currently, overwrite, but warn
-          print "Previous setting $STATUS is unknown, replacing it!\n"
+          print "Previous setting $STATUS for $opt_mode is unknown, replacing it!\n"
         }
         # if we are in the noEmbed or nothing set case, but one
         # of the supported fonts are present then use them
         # (originally it said "three fonts hiragino/morisawa/kozuka", but the code below
         #  was different from this statement; changed to "supported fonts" on 2016/12/08)
-        for my $i (qw/
+        my @testlist;
+        if ($opt_mode eq 'ja') {
+          @testlist = qw/
             morisawa-pr6n morisawa
             hiragino-pron hiragino hiragino-elcapitan-pron hiragino-elcapitan
             kozuka-pr6n kozuka-pr6 kozuka
             toppanbunkyu-sierra
             yu-osx yu-win10 yu-win10 canon
             ms ms-osx moga-mobo moga-mobo-ex ume
-            ipa ipaex/) {
+            ipa ipaex/;
+        } elsif ($opt_mode eq 'tc') {
+          @testlist = qw/dynacomware adobe ms arphic cjkunifonts cjkunifonts-ttf/;
+        } elsif ($opt_mode eq 'sc') {
+          @testlist = qw/sinotype adobe ms arphic cjkunifonts cjkunifonts-ttf/;
+        } elsif ($opt_mode eq 'ko') {
+          @testlist = qw/apple adobe baekmuk ms unfonts solaris/;
+        }
+        # else cannot happen unless getopt is broken
+
+        for my $i (@testlist) {
           if ($available{$i}) {
             return SetupMapFile($i);
           }
