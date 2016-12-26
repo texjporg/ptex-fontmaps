@@ -2,7 +2,7 @@
 # release.sh
 # copied from luatexja project and adapted
 
-PROJECT=jfontmaps
+PROJECT=ptex-fontmaps
 DIR=`pwd`/..
 VER=${VER:-`date +%Y%m%d.0`}
 
@@ -46,9 +46,9 @@ echo
 echo "  git push && git tag $VER && git push origin $VER"
 echo
 echo Informations for submitting CTAN: 
-echo "  CONTRIBUTION: jfontmaps"
-echo "  SUMMARY:      Font maps and configuration tools for Japanese fonts"
-echo "  DIRECTORY:    language/japanese/jfontmaps"
+echo "  CONTRIBUTION: ptex-fontmaps"
+echo "  SUMMARY:      Font maps and configuration tools for Japanese/Chinese/Korean fonts with (u)ptex"
+echo "  DIRECTORY:    language/japanese/ptex-fontmaps"
 echo "  LICENSE:      free/other-free"
 echo "  FILE:         $DIR/$PROJECT-$VER.tar.gz"
 
