@@ -136,11 +136,11 @@ my %settings = (
     type     => "binary",
     default  => "false",
   },
-  kanjiEmbed            => {
+  jaEmbed               => {
     type     => "any",
     default  => "noEmbed",
   },
-  kanjiVariant          => {
+  jaVariant             => {
     type     => "any",
     default  => "",
   },
@@ -1007,11 +1007,19 @@ sub mkMaps {
   my ($pdftexDownloadBase14, $pdftexDownloadBase14_origin) = 
     get_cfg('pdftexDownloadBase14');
   my ($pxdviUse, $pxdviUse_origin) = get_cfg('pxdviUse');
-  my ($kanjiEmbed, $kanjiEmbed_origin) = get_cfg('kanjiEmbed');
-  my ($kanjiVariant, $kanjiVariant_origin) = get_cfg('kanjiVariant');
+  my ($jaEmbed, $jaEmbed_origin) = get_cfg('jaEmbed');
+  my ($jaVariant, $jaVariant_origin) = get_cfg('jaVariant');
   my ($scEmbed, $scEmbed_origin) = get_cfg('scEmbed');
   my ($tcEmbed, $tcEmbed_origin) = get_cfg('tcEmbed');
   my ($koEmbed, $koEmbed_origin) = get_cfg('koEmbed');
+
+  # keep backward compatibility with old definitions
+  # of kanjiEmbed, kanjiVariant
+  ($jaEmbed, $jaEmbed_origin) = get_cfg('kanjiEmbed')
+    if (!defined($jaEmbed));
+  ($jaVariant, $jaVariant_origin) = get_cfg('kanjiVariant')
+    if (!defined($jaVariant));
+
 
   # pxdvi is optional, and off by default.  Don't create the output
   # directory unless we are going to put something there.
@@ -1029,10 +1037,10 @@ sub mkMaps {
          .      "$dvipsDownloadBase35 ($dvipsDownloadBase35_origin)"
          . "\n  download standard fonts (pdftex) : "
          .      "$pdftexDownloadBase14 ($pdftexDownloadBase14_origin)"
-         . "\n  kanjiEmbed replacement string    : "
-         .      "$kanjiEmbed ($kanjiEmbed_origin)"
-         . "\n  kanjiVariant replacement string  : "
-         .      "$kanjiVariant ($kanjiVariant_origin)"
+         . "\n  jaEmbed replacement string    : "
+         .      "$jaEmbed ($jaEmbed_origin)"
+         . "\n  jaVariant replacement string  : "
+         .      "$jaVariant ($jaVariant_origin)"
          . "\n  scEmbed replacement string    : "
          .      "$scEmbed ($scEmbed_origin)"
          . "\n  tcEmbed replacement string    : "
@@ -1660,6 +1668,16 @@ sub check_option {
 sub setOption {
   my ($opt, $val) = @_;
 
+  # allow backward compatility with old kanjiEmbed and kanjiVariant settings
+  if ($opt eq "kanjiEmbed") {
+    print_warning("using jaEmbed instead of kanjiEmbed\n");
+    $opt = "jaEmbed";
+  }
+  if ($opt eq "kanjiVariant") {
+    print_warning("using jaVariant instead of kanjiVariant\n");
+    $opt = "jaVariant";
+  }
+
   die "$prg: Unsupported option $opt." if (!defined($settings{$opt}));
   die "$0: Invalid value $val for option $opt." 
     if (!check_option($opt, $val));
@@ -1883,11 +1901,19 @@ sub merge_settings_replace_kanji {
     }
   }
   #
-  my ($kanjiEmbed, $kanjiEmbed_origin) = get_cfg('kanjiEmbed');
-  my ($kanjiVariant, $kanjiVariant_origin) = get_cfg('kanjiVariant');
+  my ($jaEmbed, $jaEmbed_origin) = get_cfg('jaEmbed');
+  my ($jaVariant, $jaVariant_origin) = get_cfg('jaVariant');
   my ($scEmbed, $scEmbed_origin) = get_cfg('scEmbed');
   my ($tcEmbed, $tcEmbed_origin) = get_cfg('tcEmbed');
   my ($koEmbed, $koEmbed_origin) = get_cfg('koEmbed');
+
+  # keep backward compatibility with old definitions
+  # of kanjiEmbed, kanjiVariant
+  ($jaEmbed, $jaEmbed_origin) = get_cfg('kanjiEmbed')
+    if (!defined($jaEmbed));
+  ($jaVariant, $jaVariant_origin) = get_cfg('kanjiVariant')
+    if (!defined($jaVariant));
+
   #
   # go through all map files and check that the text is properly replaced
   # after the replacement check that the generated map file actually
@@ -1897,8 +1923,8 @@ sub merge_settings_replace_kanji {
     for my $m (keys %{$alldata->{'updmap'}{$l}{'maps'}}) {
       my $newm = $m;
       # do all kinds of substitutions
-      $newm =~ s/\@kanjiEmbed@/$kanjiEmbed/;
-      $newm =~ s/\@kanjiVariant@/$kanjiVariant/;
+      $newm =~ s/\@jaEmbed@/$jaEmbed/;
+      $newm =~ s/\@jaVariant@/$jaVariant/;
       $newm =~ s/\@scEmbed@/$scEmbed/;
       $newm =~ s/\@tcEmbed@/$tcEmbed/;
       $newm =~ s/\@koEmbed@/$koEmbed/;
@@ -2319,8 +2345,8 @@ Explanation of the OPTION names for --showoptions, --showoption, --setoption:
     Whether pdftex includes the standard 14 PDF fonts in its output.
   pxdviUse              true,false  (default false)
     Whether maps for pxdvi (Japanese-patched xdvi) are under updmap's control.
-  kanjiEmbed            (any string)
-  kanjiVariant          (any string)
+  jaEmbed               (any string)
+  jaVariant             (any string)
   scEmbed               (any string)
   tcEmbed               (any string)
   koEmbed               (any string)
@@ -2339,11 +2365,11 @@ Explanation of the OPTION names for --showoptions, --showoption, --setoption:
   command-line options or configuration files to the programs, as
   explained at the beginning of updmap.cfg.
 
-  The options kanjiEmbed and kanjiVariant specify special replacements
-  in the map lines.  If a map contains the string \@kanjiEmbed\@, then
-  this will be replaced by the value of that option; similarly for
-  kanjiVariant.  In this way, users of Japanese TeX can select different
-  fonts to be included in the final output.  The counterpart for
+  The options jaEmbed and jaVariant (formerly kanjiEmbed and kanjiVariant)
+  specify special replacements in the map lines.  If a map contains the 
+  string \@jaEmbed\@, then this will be replaced by the value of that option;
+  similarly for jaVariant.  In this way, users of Japanese TeX can select
+  different fonts to be included in the final output.  The counterpart for
   Simplified Chinese, Traditional Chinese and Korean fonts are
   scEmbed, tcEmbed and koEmbed respectively.
 
