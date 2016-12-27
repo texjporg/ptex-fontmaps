@@ -1940,7 +1940,7 @@ sub merge_settings_replace_kanji {
             $alldata->{'updmap'}{$l}{'maps'}{$m}{'line'};
           $alldata->{'updmap'}{$l}{'maps'}{$newm}{'original'} = $m;
         } else {
-          print_warning("generated map $newm (from $m) does not exists, not activating it!\n");
+          print_warning("generated map $newm (from $m) does not exist, not activating it!\n");
         }
         # in any case delete the @kanji...@ entry line, such a map will
         # never exist
