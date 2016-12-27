@@ -93,7 +93,7 @@ my %representatives = (
     "canon"         => "FGCCHMW3.TTC",
   },
   "sc" => {
-    "ms"            => "simhei.ttf",
+    "ms"            => "simsun.ttc",
     "sinotype"      => "STSong.ttf",
     "adobe"         => "AdobeSongStd-Light.otf",
     "arphic"        => "gbsn00lp.ttf",
@@ -101,7 +101,7 @@ my %representatives = (
     "cjkunifonts-ttf" => "uming.ttf",
   },
   "tc" => {
-    "ms"            => "mingliu.ttf",
+    "ms"            => "mingliu.ttc",
     "dynacomware"   => "LiSongPro.ttf",
     "adobe"         => "AdobeMingStd-Light.otf",
     "arphic"        => "bsmi00lp.ttf",
@@ -110,7 +110,7 @@ my %representatives = (
   },
   "ko" => {
     "ms"            => "batang.ttc",
-    "apple"         => "AppleMyunjo.ttf",
+    "apple"         => "AppleMyungjo.ttf",
     "adobe"         => "AdobeMyungjoStd-Medium.otf",
     "baekmuk"       => "batang.ttf",
     "unfonts"       => "UnBatang.ttf",
