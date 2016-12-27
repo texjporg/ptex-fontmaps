@@ -2007,6 +2007,9 @@ sub read_updmap_file {
     if (@rest) {
       print_warning("line $i in $fn contains a syntax error, more than two words!\n");
     }
+    # backward compatibility with kanjiEmbed/kanjiVariant
+    $a = ($a eq "kanjiEmbed" ? "jaEmbed" : $a);
+    $a = ($a eq "kanjiVariant" ? "jaVariant" : $a);
     if (defined($settings{$a})) {
       if (check_option($a, $b)) {
         $data{'setting'}{$a}{'val'} = $b;
