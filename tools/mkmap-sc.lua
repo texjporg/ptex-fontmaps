@@ -31,6 +31,12 @@ local foundry = {
       gr='ukai.ttf %!PS ZenKai-Uni',       -- (-Adobe-GB1)
       {''},
    },
+   ['fandol']   = {
+      noncid = false,
+      mr='FandolSong-Regular.otf',
+      gr='FandolHei-Regular.otf',
+      {''},
+   },
    ['ms']   = {
       noncid = true,
       mr=':0:simsun.ttc %!PS SimSun',

@@ -96,6 +96,7 @@ my %representatives = (
     "ms"            => "simsun.ttc",
     #"sinotype"      => "STSong.ttf", # removed
     "adobe"         => "AdobeSongStd-Light.otf",
+    "fandol"        => "FandolSong-Regular.otf",
     "arphic"        => "gbsn00lp.ttf",
     "cjkunifonts"   => "uming.ttc",
     "cjkunifonts-ttf" => "uming.ttf",
@@ -312,9 +313,9 @@ sub SetupReplacement {
         } elsif ($opt_mode eq 'tc') {
           @testlist = qw/dynacomware adobe ms arphic cjkunifonts cjkunifonts-ttf/;
         } elsif ($opt_mode eq 'sc') {
-          @testlist = qw/adobe ms arphic cjkunifonts cjkunifonts-ttf/;
+          @testlist = qw/fandol adobe ms arphic cjkunifonts cjkunifonts-ttf/;
         } elsif ($opt_mode eq 'ko') {
-          @testlist = qw/apple adobe baekmuk ms unfonts solaris/;
+          @testlist = qw/apple adobe ms baekmuk unfonts solaris/;
         }
         # else cannot happen unless getopt is broken
 
