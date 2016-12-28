@@ -26,14 +26,16 @@ For following list of maps, the respective fonts are shipped in TeX Live
 and are available for free:
 
 * Japanese: ipa, ipaex
-* Simplified/Traditional Chinese: arphic
+* Simplified Chinese: arphic, fandol
+* Traditional Chinese: arphic
 * Korean: baekmuk, unfonts
 
 For following list of maps, the respective fonts are available for free
 but not shipped in TeX Live:
 
 * Japanese: moga-mobo, moga-mobo-ex, ume
-* Simplified/Traditional Chinese: cjkunifonts, cjkunifonts-ttf
+* Simplified Chinese: cjkunifonts, cjkunifonts-ttf
+* Traditional Chinese: cjkunifonts, cjkunifonts-ttf
 
 All other fonts are non-free.
 
