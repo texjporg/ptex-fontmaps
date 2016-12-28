@@ -193,10 +193,6 @@ Simplified Chinese
     simsun.ttc
     simhei.ttf
 
-* sinotype - by SinoType Technology Co., Ltd
-    STSong.ttf
-    STHeiti.ttf
-
 * adobe - by Adobe Systems, bundled with Adobe's software
     AdobeSongStd-Light.otf
     AdobeHeitiStd-Regular.otf
@@ -224,8 +220,8 @@ Traditional Chinese
     MSMHei.ttf
 
 * dynacomware - DynaComware Taiwan Inc.
-    LiSongPro.ttf
-    LiHeiPro.ttf
+    LiSongPro.ttf  (<= "儷宋 Pro.ttf")
+    LiHeiPro.ttf   (<= "儷黑 Pro.ttf")
 
 * adobe - by Adobe Systems, bundled with Adobe's software
     AdobeMingStd-Light.otf

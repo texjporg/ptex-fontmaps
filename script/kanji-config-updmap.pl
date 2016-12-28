@@ -94,7 +94,7 @@ my %representatives = (
   },
   "sc" => {
     "ms"            => "simsun.ttc",
-    "sinotype"      => "STSong.ttf",
+    #"sinotype"      => "STSong.ttf", # removed
     "adobe"         => "AdobeSongStd-Light.otf",
     "arphic"        => "gbsn00lp.ttf",
     "cjkunifonts"   => "uming.ttc",
@@ -312,7 +312,7 @@ sub SetupReplacement {
         } elsif ($opt_mode eq 'tc') {
           @testlist = qw/dynacomware adobe ms arphic cjkunifonts cjkunifonts-ttf/;
         } elsif ($opt_mode eq 'sc') {
-          @testlist = qw/sinotype adobe ms arphic cjkunifonts cjkunifonts-ttf/;
+          @testlist = qw/adobe ms arphic cjkunifonts cjkunifonts-ttf/;
         } elsif ($opt_mode eq 'ko') {
           @testlist = qw/apple adobe baekmuk ms unfonts solaris/;
         }

@@ -37,12 +37,12 @@ local foundry = {
       gr='simhei.ttf %!PS SimHei',
       {''},
    },
-   ['sinotype']   = {
-      noncid = true,
-      mr='STSong.ttf',
-      gr='STHeiti.ttf',
-      {''},
-   },
+--   ['sinotype']   = { -- Adobe-GB1 cmap unavailable
+--      noncid = true,
+--      mr='STSong.ttf',
+--      gr='STHeiti.ttf',
+--      {''},
+--   },
 }
 
 local suffix = {
