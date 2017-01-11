@@ -113,7 +113,7 @@ my %representatives = (
     "ms"            => "batang.ttc",
     "apple"         => "AppleMyungjo.ttf",
     "adobe"         => "AdobeMyungjoStd-Medium.otf",
-    "baekmuk"       => "batang.ttf",
+    "baekmuk"       => "dotum.ttf", # slightly safer than batang.ttf on case-insentive systems
     "unfonts"       => "UnBatang.ttf",
     "solaris"       => "h2mjsm.ttf",
   }
