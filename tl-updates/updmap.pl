@@ -1037,15 +1037,15 @@ sub mkMaps {
          .      "$dvipsDownloadBase35 ($dvipsDownloadBase35_origin)"
          . "\n  download standard fonts (pdftex) : "
          .      "$pdftexDownloadBase14 ($pdftexDownloadBase14_origin)"
-         . "\n  jaEmbed replacement string    : "
+         . "\n  jaEmbed replacement string       : "
          .      "$jaEmbed ($jaEmbed_origin)"
-         . "\n  jaVariant replacement string  : "
-         .      "$jaVariant ($jaVariant_origin)"
-         . "\n  scEmbed replacement string    : "
+         . "\n  jaVariant replacement string     : "
+         .      ($jaVariant ? $jaVariant : "<empty>") . " ($jaVariant_origin)"
+         . "\n  scEmbed replacement string       : "
          .      "$scEmbed ($scEmbed_origin)"
-         . "\n  tcEmbed replacement string    : "
+         . "\n  tcEmbed replacement string       : "
          .      "$tcEmbed ($tcEmbed_origin)"
-         . "\n  koEmbed replacement string    : "
+         . "\n  koEmbed replacement string       : "
          .      "$koEmbed ($koEmbed_origin)"
          . "\n  create a mapfile for pxdvi       : "
          .      "$pxdviUse ($pxdviUse_origin)"
@@ -1928,6 +1928,10 @@ sub merge_settings_replace_kanji {
       $newm =~ s/\@scEmbed@/$scEmbed/;
       $newm =~ s/\@tcEmbed@/$tcEmbed/;
       $newm =~ s/\@koEmbed@/$koEmbed/;
+      # also do substitutions of old strings in case they are left
+      # over somewhere
+      $newm =~ s/\@kanjiEmbed@/$jaEmbed/;
+      $newm =~ s/\@kanjiVariant@/$jaVariant/;
       if ($newm ne $m) {
         # something was substituted
         if (locateMap($newm)) {
