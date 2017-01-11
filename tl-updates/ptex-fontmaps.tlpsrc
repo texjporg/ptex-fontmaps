@@ -1,6 +1,5 @@
-# default fonts for embedding settings (tc, sc, ko, jaEmbed)
+# default fonts for embedding settings (sc/tc, ko, jaEmbed)
 depend arphic-ttf
-depend fandol
 depend baekmuk
 depend ipaex
 runpattern +d texmf-dist/fonts/map/dvipdfmx/ptex-fontmaps
