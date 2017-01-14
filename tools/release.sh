@@ -33,6 +33,9 @@ rm -rf $PROJECT-$VER-orig
 cp -r $PROJECT-$VER $PROJECT-$VER-orig
 cd $PROJECT-$VER
 rm -f .gitignore
+#
+# remove also tl-update stuff that is only here temporarily
+rm -rf tl-update
 for i in README script/kanji-fontmap-creator.pl script/kanji-config-updmap.pl ; do
   perl -pi.bak -e "s/\\\$VER\\\$/$VER/g" $i
   rm -f ${i}.bak
