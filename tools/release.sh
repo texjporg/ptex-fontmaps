@@ -30,12 +30,12 @@ git --no-pager log --date=short --format='%ad  %aN  <%ae>%n%n%x09* %s%d [%h]%n' 
 cat ChangeLog.pre-git >> $TEMP/$PROJECT-$VER/ChangeLog
 cd $TEMP
 rm -rf $PROJECT-$VER-orig
+#
+# remove tl-update stuff that is only here temporarily
+rm -rf $PROJECT-$VER/tl-updates
 cp -r $PROJECT-$VER $PROJECT-$VER-orig
 cd $PROJECT-$VER
 rm -f .gitignore
-#
-# remove also tl-update stuff that is only here temporarily
-rm -rf tl-update
 for i in README script/kanji-fontmap-creator.pl script/kanji-config-updmap.pl ; do
   perl -pi.bak -e "s/\\\$VER\\\$/$VER/g" $i
   rm -f ${i}.bak
