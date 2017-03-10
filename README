@@ -222,7 +222,7 @@ Traditional Chinese
     (no font needed for dvipdfmx)
 
 * ms - MingLiU and MicrosoftMHei, shipped with Windows
-    mingliu.ttf
+    mingliu.ttc
     MSMHei.ttf
 
 * dynacomware - DynaComware Taiwan Inc.
