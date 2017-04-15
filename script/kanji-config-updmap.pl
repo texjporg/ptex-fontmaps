@@ -102,7 +102,8 @@ my %representatives = (
     "cjkunifonts-ttf" => "uming.ttf",
   },
   "tc" => {
-    "ms"            => "mingliu.ttc",
+    "ms"            => "msjh.ttf",
+    "ms-win10"      => "msjh.ttc",
     "dynacomware"   => "LiSongPro.ttf",
     "adobe"         => "AdobeMingStd-Light.otf",
     "arphic"        => "bsmi00lp.ttf",
@@ -311,7 +312,7 @@ sub SetupReplacement {
             ms ms-osx moga-mobo moga-mobo-ex ume
             ipa ipaex/;
         } elsif ($opt_mode eq 'tc') {
-          @testlist = qw/dynacomware adobe ms arphic cjkunifonts cjkunifonts-ttf/;
+          @testlist = qw/dynacomware adobe ms-win10 ms arphic cjkunifonts cjkunifonts-ttf/;
         } elsif ($opt_mode eq 'sc') {
           @testlist = qw/fandol adobe ms arphic cjkunifonts cjkunifonts-ttf/;
         } elsif ($opt_mode eq 'ko') {

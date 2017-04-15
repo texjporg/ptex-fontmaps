@@ -31,10 +31,16 @@ local foundry = {
       gr='ukai.ttf %!PS ZenKai-Uni',
       {''},
    },
-   ['ms']   = {
+   ['ms']   = { -- for windows vista, 7
       noncid = true,
       mr=':0:mingliu.ttc %!PS MingLiU',
-      gr='MSMHei.ttf %!PS MicrosoftMHei',  -- ほかに見当たらなかったので
+      gr='msjh.ttf %!PS MicrosoftJhengHeiRegular',
+      {''},
+   },
+   ['ms-win10']   = { -- for windows 8, 8.1, 10
+      noncid = true,
+      mr=':0:mingliu.ttc %!PS MingLiU',
+      gr=':0:msjh.ttc %!PS MicrosoftJhengHeiRegular',
       {''},
    },
    ['dynacomware']   = {

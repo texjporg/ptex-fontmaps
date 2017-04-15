@@ -221,9 +221,13 @@ Traditional Chinese
 * noEmbed - no embedding is done at all, fonts are selected by the viewer
     (no font needed for dvipdfmx)
 
-* ms - MingLiU and MicrosoftMHei, shipped with Windows
+* ms - MingLiU and MicrosoftJhengHeiRegular, shipped with Windows Vista/7
     mingliu.ttc
-    MSMHei.ttf
+    msjh.ttf
+
+* ms-win10 - MingLiU and MicrosoftJhengHeiRegular, shipped with Windows 8/8.1/10
+    mingliu.ttc
+    msjh.ttc
 
 * dynacomware - DynaComware Taiwan Inc.
     LiSongPro.ttf  (<= "儷宋 Pro.ttf")
