@@ -5,7 +5,8 @@
 # formerly known as updmap-setup-kanji
 #
 # Copyright 2004-2006 by KOBAYASHI R. Taizo for the shell version (updmap-otf)
-# Copyright 2011-2016 by PREINING Norbert
+# Copyright 2011-2017 by PREINING Norbert
+# Copyright 2016-2017 by Japanese TeX Development Community
 #
 # This file is licensed under GPL version 3 or any later version.
 # For copyright statements see end of file.
@@ -58,6 +59,10 @@ if ($dry_run) {
 if ($opt_sys) {
   $updmap = "$updmap --sys" ;
   $updmap_real = "$updmap_real --sys" ;
+} else {
+  # TeX Live 2017 requires --user option
+  $updmap = "$updmap --user" ;
+  $updmap_real = "$updmap_real --user" ;
 }
 
 if ($opt_help) {
