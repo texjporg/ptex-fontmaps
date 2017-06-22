@@ -31,9 +31,9 @@ local foundry = {
    },
    ['ms']   = {
       noncid = true,
-      mr=':0:batang.ttc %!PS Batang',
-      gr=':2:gulim.ttc %!PS Dotum',
-      mgr=':0:gulim.ttc %!PS Gulim',
+      mr=':1:batang.ttc %!PS BatangChe',
+      gr=':3:gulim.ttc %!PS DotumChe',
+      mgr=':1:gulim.ttc %!PS GulimChe',
       {''},
    },
    ['apple']   = {

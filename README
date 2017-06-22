@@ -255,7 +255,7 @@ Korean
 * noEmbed - no embedding is done at all, fonts are selected by the viewer
     (no font needed for dvipdfmx)
 
-* ms - Batang and Dotum, shipped with Windows
+* ms - BatangChe and DotumChe, shipped with Windows
     batang.ttc
     gulim.ttc
 
