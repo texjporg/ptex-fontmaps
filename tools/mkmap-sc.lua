@@ -37,6 +37,12 @@ local foundry = {
       gr='FandolHei-Regular.otf',
       {''},
    },
+   ['founder']   = {
+      noncid = true,
+      mr='FZSSK.TTF %!PS FZSSK--GBK1-0',
+      gr='FZHTK.TTF %!PS FZHTK--GBK1-0',
+      {''},
+   },
    ['ms']   = {
       noncid = true,
       mr=':0:simsun.ttc %!PS SimSun',

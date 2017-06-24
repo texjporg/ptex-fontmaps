@@ -128,6 +128,7 @@ my %representatives = (
     #"sinotype"      => "STSong.ttf", # removed
     "adobe"         => "AdobeSongStd-Light.otf",
     "fandol"        => "FandolSong-Regular.otf",
+    "founder"       => "FZSSK.TTF",
     "arphic"        => "gbsn00lp.ttf",
     "cjkunifonts"   => "uming.ttc",
     "cjkunifonts-ttf" => "uming.ttf",
