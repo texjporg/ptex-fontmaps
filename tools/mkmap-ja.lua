@@ -238,7 +238,7 @@ local foundry = {
 }
 
 local suffix = {
-   -- { '?' 置換, kanjiEmbed 接尾辞, (ttc index mov)}
+   -- { '?' 置換, jaEmbed 接尾辞, (ttc index mov)}
    ['']   = {'', ''},          -- 非 CID フォント用ダミー
    ['n']  = {'!', ''},         -- 非埋め込みに使用
    ['4']  = {'Pro', ''},
@@ -250,7 +250,7 @@ local suffix = {
 }
 
 -- '#' は 'h', 'v' に置換される
--- '@' は kanjiEmbed の値に置換される
+-- '@' は jaEmbed の値に置換される
 local maps = {
    ['ptex-@'] = {    -- pTeX 90JIS
       {'rml',  'H', 'mr'},
@@ -418,7 +418,7 @@ for fd, v1 in pairs(foundry) do
    end
    for _,s in pairs(v1[1]) do
       local dirname = fd .. suffix[s][2]
-      print('kanjiEmbed: ' .. dirname)
+      print('jaEmbed: ' .. dirname)
       -- Linux しか想定していない
       os.execute('mkdir ' .. dirname .. ' &>/dev/null')
       for mnx, mcont in pairs(maps) do

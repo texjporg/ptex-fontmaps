@@ -5,7 +5,7 @@
 # Version: $VER$
 # Licenced under the GPLv2 or any higher version
 #
-# gui to create map files for updmap(-setup-kanji)
+# gui to create map files for (kanji-config-)updmap
 #
 # ptex/uptex:
 #  2 fonts (rml/gbm)
@@ -552,7 +552,7 @@ kanji-fontmap-creator [I<option>]
 
 =head1 DESCRIPTION
 
-Create fontmap families for updmap's C<kanjiEmbed> setting. For details
+Create fontmap families for updmap's C<jaEmbed> setting. For details
 see the man page of B<updmap>(1) and the web page
 L<http://tug.org/texlive/updmap-kanji.html>
 
