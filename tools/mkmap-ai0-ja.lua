@@ -3,6 +3,17 @@
 -- Adobe-Identity0 なフォントのマップを作る．unicode 専用．
 -- これは up(La)TeX + dvipdfmx (TeX Live 2017) が必須．
 -- つまり，p(La)TeX は不可．dvips も不可．cid も不可．
+
+-- ただし，TeX Live 2017 の dvipdfmx にはバグがあるので，
+-- 同じフォントに異なる OpenType Layout を付けられない．
+-- r44689, r44681 で直っているので，TeX Live 2018 では ok なはず．
+-- 回避策として，TL2017 の間は
+--   * (-TL17, +TL18) の行を disable
+--   * (+TL17, -TL18) の行を enable
+-- している．TL2018 になる前に，これを
+--   * (-TL17, +TL18) の行を enable
+--   * (+TL17, -TL18) の行を disable
+-- すること．
 local foundry = {
    ['noto-otc']   = {
       ml=':0:NotoSerifCJK-Light.ttc',
@@ -13,6 +24,8 @@ local foundry = {
       gb=':0:NotoSansCJK-Bold.ttc',
       ge=':0:NotoSansCJK-Black.ttc',
       mgr=':0:NotoSansCJK-Medium.ttc',
+      mrq=':2:NotoSerifCJK-Regular.ttc', -- (+TL17, -TL18)
+      gruq=':2:NotoSansCJK-Medium.ttc', -- (+TL17, -TL18)
       {''},
    },
 }
@@ -27,8 +40,10 @@ local maps = {
       {'ugbmv',   '-w 1 -l jp90', 'gru'},
       {'uprml-#', '# -l jp90',    'mr'},
       {'upgbm-#', '# -l jp90',    'gru'},
-      {'uprml-hq','-l fwid',      'mr'},
-      {'upgbm-hq','-l fwid',      'gru'},
+--      {'uprml-hq','-l fwid',      'mr'}, -- (-TL17, +TL18)
+--      {'upgbm-hq','-l fwid',      'gru'}, -- (-TL17, +TL18)
+      {'uprml-hq','',      'mrq'}, -- (+TL17, -TL18)
+      {'upgbm-hq','',      'gruq'}, -- (+TL17, -TL18)
    },
    ['uptex-@-04'] = { -- upTeX JIS04
       {'urml',    '-l jp04',      'mrn'},
@@ -37,8 +52,10 @@ local maps = {
       {'ugbmv',   '-w 1 -l jp04', 'grun'},
       {'uprml-#', '# -l jp04',    'mrn'},
       {'upgbm-#', '# -l jp04',    'grun'},
-      {'uprml-hq','-l fwid',      'mrn'},
-      {'upgbm-hq','-l fwid',      'grun'},
+--      {'uprml-hq','-l fwid',      'mrn'}, -- (-TL17, +TL18)
+--      {'upgbm-hq','-l fwid',      'grun'}, -- (-TL17, +TL18)
+      {'uprml-hq','',      'mrq'}, -- (+TL17, -TL18)
+      {'upgbm-hq','',      'gruq'}, -- (+TL17, -TL18)
    },
    ['otf-@'] = {
       '% Unicode 90JIS',
