@@ -1,6 +1,6 @@
 
 % Unicode
-otf-ukmr-h	unicode	:1:NotoSerifCJK-Regular.ttc 
-otf-ukmr-v	unicode	:1:NotoSerifCJK-Regular.ttc -w 1 
-otf-ukgr-h	unicode	:1:NotoSansCJK-Regular.ttc 
-otf-ukgr-v	unicode	:1:NotoSansCJK-Regular.ttc -w 1 
+otf-ukmr-h	unicode	:1:NotoSerifCJK-Regular.ttc
+otf-ukmr-v	unicode	:1:NotoSerifCJK-Regular.ttc -w 1
+otf-ukgr-h	unicode	:1:NotoSansCJK-Medium.ttc
+otf-ukgr-v	unicode	:1:NotoSansCJK-Medium.ttc -w 1

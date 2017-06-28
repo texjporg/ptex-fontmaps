@@ -1,4 +1,4 @@
-upmsl-h	unicode	:3:NotoSerifCJK-Regular.ttc 
-upmsl-v	unicode	:3:NotoSerifCJK-Regular.ttc -w 1 
-upmhm-h	unicode	:3:NotoSansCJK-Regular.ttc 
-upmhm-v	unicode	:3:NotoSansCJK-Regular.ttc -w 1 
+upmsl-h	unicode	:3:NotoSerifCJK-Regular.ttc
+upmsl-v	unicode	:3:NotoSerifCJK-Regular.ttc -w 1
+upmhm-h	unicode	:3:NotoSansCJK-Medium.ttc
+upmhm-v	unicode	:3:NotoSansCJK-Medium.ttc -w 1

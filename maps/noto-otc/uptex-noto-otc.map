@@ -1,10 +1,10 @@
 urml	unicode	:0:NotoSerifCJK-Regular.ttc -l jp90
 urmlv	unicode	:0:NotoSerifCJK-Regular.ttc -w 1 -l jp90
-ugbm	unicode	:0:NotoSansCJK-Regular.ttc -l jp90
-ugbmv	unicode	:0:NotoSansCJK-Regular.ttc -w 1 -l jp90
+ugbm	unicode	:0:NotoSansCJK-Medium.ttc -l jp90
+ugbmv	unicode	:0:NotoSansCJK-Medium.ttc -w 1 -l jp90
 uprml-h	unicode	:0:NotoSerifCJK-Regular.ttc -l jp90
 uprml-v	unicode	:0:NotoSerifCJK-Regular.ttc -w 1 -l jp90
-upgbm-h	unicode	:0:NotoSansCJK-Regular.ttc -l jp90
-upgbm-v	unicode	:0:NotoSansCJK-Regular.ttc -w 1 -l jp90
+upgbm-h	unicode	:0:NotoSansCJK-Medium.ttc -l jp90
+upgbm-v	unicode	:0:NotoSansCJK-Medium.ttc -w 1 -l jp90
 uprml-hq	unicode	:0:NotoSerifCJK-Regular.ttc -l fwid
-upgbm-hq	unicode	:0:NotoSansCJK-Regular.ttc -l fwid
+upgbm-hq	unicode	:0:NotoSansCJK-Medium.ttc -l fwid

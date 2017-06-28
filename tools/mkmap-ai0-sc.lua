@@ -6,7 +6,7 @@
 local foundry = {
    ['noto-otc']   = {
       mr=':2:NotoSerifCJK-Regular.ttc',
-      gr=':2:NotoSansCJK-Regular.ttc',
+      gr=':2:NotoSansCJK-Medium.ttc',
       {''},
    },
 }
@@ -42,8 +42,8 @@ local function make_one_line(o, fd, s)
       local fx = foundry[fd]
       local fn = fx[o[3]]
       if string.match(o[1], '#') then -- 'H', 'V' 一括出力
-	 return gsub(o[1], '#', 'h') .. '\t' .. "unicode" .. '\t' .. fn .. ' ' .. gsub(o[2], '#', '') .. '\n'
-          .. gsub(o[1], '#', 'v') .. '\t' .. "unicode" .. '\t' .. fn .. ' ' .. gsub(o[2], '#', '-w 1 ') .. '\n'
+	 return gsub(o[1], '#', 'h') .. '\t' .. "unicode" .. '\t' .. fn .. gsub(o[2], '#', '') .. '\n'
+          .. gsub(o[1], '#', 'v') .. '\t' .. "unicode" .. '\t' .. fn .. ' ' .. gsub(o[2], '#', '-w 1') .. '\n'
       else
 	 return o[1] .. '\t' .. "unicode" .. '\t' .. fn .. ' ' .. o[2] .. '\n'
       end

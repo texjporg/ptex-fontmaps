@@ -9,10 +9,10 @@ local foundry = {
       mr=':0:NotoSerifCJK-Regular.ttc',
       mb=':0:NotoSerifCJK-Bold.ttc',
       gr=':0:NotoSansCJK-Regular.ttc',
-      gru=':0:NotoSansCJK-Regular.ttc',
+      gru=':0:NotoSansCJK-Medium.ttc',
       gb=':0:NotoSansCJK-Bold.ttc',
       ge=':0:NotoSansCJK-Black.ttc',
-      mgr=':0:NotoSansCJK-Black.ttc',
+      mgr=':0:NotoSansCJK-Medium.ttc',
       {''},
    },
 }

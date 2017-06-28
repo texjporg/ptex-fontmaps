@@ -12,8 +12,8 @@ otf-ujgb-h	unicode	:0:NotoSansCJK-Bold.ttc -l jp90
 otf-ujgb-v	unicode	:0:NotoSansCJK-Bold.ttc -w 1 -l jp90
 otf-ujge-h	unicode	:0:NotoSansCJK-Black.ttc -l jp90
 otf-ujge-v	unicode	:0:NotoSansCJK-Black.ttc -w 1 -l jp90
-otf-ujmgr-h	unicode	:0:NotoSansCJK-Black.ttc -l jp90
-otf-ujmgr-v	unicode	:0:NotoSansCJK-Black.ttc -w 1 -l jp90
+otf-ujmgr-h	unicode	:0:NotoSansCJK-Medium.ttc -l jp90
+otf-ujmgr-v	unicode	:0:NotoSansCJK-Medium.ttc -w 1 -l jp90
 
 % Unicode JIS04
 otf-ujmln-h	unicode	:0:NotoSerifCJK-Light.ttc -l jp04
@@ -28,5 +28,5 @@ otf-ujgbn-h	unicode	:0:NotoSansCJK-Bold.ttc -l jp04
 otf-ujgbn-v	unicode	:0:NotoSansCJK-Bold.ttc -w 1 -l jp04
 otf-ujgen-h	unicode	:0:NotoSansCJK-Black.ttc -l jp04
 otf-ujgen-v	unicode	:0:NotoSansCJK-Black.ttc -w 1 -l jp04
-otf-ujmgrn-h	unicode	:0:NotoSansCJK-Black.ttc -l jp04
-otf-ujmgrn-v	unicode	:0:NotoSansCJK-Black.ttc -w 1 -l jp04
+otf-ujmgrn-h	unicode	:0:NotoSansCJK-Medium.ttc -l jp04
+otf-ujmgrn-v	unicode	:0:NotoSansCJK-Medium.ttc -w 1 -l jp04
