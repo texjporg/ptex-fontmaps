@@ -1,0 +1,268 @@
+%
+% test for TEXT fonts
+%
+
+% This file requires e-TeX extension for \dimexpr
+\def\ERROR{\errhelp{}\errmessage{This test requires e-pTeX or e-upTeX}}
+\ifx\eTeXversion\undefined\ERROR\expandafter\end\fi
+\ifx\kanjiskip\undefined\ERROR\expandafter\end\fi
+
+% default settings
+\ifx\CFGLOADED\undefined
+  % this file can be processed alone
+  \let\DIR\yoko %         \yoko/\tate
+  \def\MAPSETJP{ipaex}%   jaEmbed
+  \def\MAPSETJPVAR{}%     jaVariant
+  \def\MAPSETKO{baekmuk}% koEmbed
+  \def\MAPSETSC{arphic}%  scEmbed
+  \def\MAPSETTC{arphic}%  tcEmbed
+  \def\USEOTF{y}%         y/n
+\fi
+
+%% common
+\def\RULE{\vrule height10pt}
+\def\ADJUST{\setbox0=\hbox{字}\setbox2=\hbox{A}\iftdir
+  \tbaselineshift\else\ybaselineshift\fi
+  \dimexpr(\dp0-\dp2)-(\ht0+\dp0)/2+(\ht2+\dp2)/2\relax}
+\newtoks\TMPTOKS \TMPTOKS{\special{papersize=700pt,600pt}}
+\def\ADDSPECIAL#1{\expandafter\TMPTOKS
+  \expandafter{\the\TMPTOKS\special{#1}}}
+
+%% japanese
+\ifx\MAPSETJP\undefined\else
+\ifx\ucs\undefined
+  \ADDSPECIAL{pdf:mapfile ptex-\MAPSETJP\MAPSETJPVAR.map}
+  \if y\USEOTF
+    \ADDSPECIAL{pdf:mapfile otf-\MAPSETJP.map}
+  \fi
+\else
+  \ADDSPECIAL{pdf:mapfile uptex-\MAPSETJP\MAPSETJPVAR.map}
+  \if y\USEOTF
+    \ADDSPECIAL{pdf:mapfile otf-up-\MAPSETJP.map}
+  \fi
+\fi
+\long\def\TESTJP{%
+  日本語Japanese\par
+  \RULE 一一一「おはよう、ありがとう」。壱壱壱\RULE\par
+  \RULE 二二二『ちょっと，（チェック．）しちゃった！』弐弐弐\RULE\par
+  \RULE 三三三“髙島屋と葛飾区”参参参\RULE\par % <= quote
+  \RULE 四四四‘（骨曜）’肆肆肆\RULE\par % <= quote
+}
+\fi
+
+%% korean
+\ifx\MAPSETKO\undefined\else
+\ifx\ucs\undefined
+  \if y\USEOTF
+    \ADDSPECIAL{pdf:mapfile otf-ko-\MAPSETKO.map}
+  \fi
+\else
+  \ADDSPECIAL{pdf:mapfile uptex-ko-\MAPSETKO.map}
+\fi
+\long\def\TESTKO{%
+  한국어Korean\par
+  \RULE 일일일“안녕, 감사합니다.”일일일\RULE\par
+  \RULE 이이이『김치를 잘 먹는대요.』이이이\RULE\par
+  \RULE 삼삼삼“내 호버크라프트는 장어로 가득 차 있어요.”삼삼삼\RULE\par
+  \RULE 사사사‘（骨曜）’사사사\RULE\par
+}
+\fi
+
+%% simplified chinese
+\ifx\MAPSETSC\undefined\else
+\ifx\ucs\undefined
+  \if y\USEOTF
+    \ADDSPECIAL{pdf:mapfile otf-sc-\MAPSETSC.map}
+  \fi
+\else
+  \ADDSPECIAL{pdf:mapfile uptex-sc-\MAPSETSC.map}
+\fi
+\long\def\TESTSC{%
+  简体中文Simplified Chinese\par
+  \RULE 一壹一“早上好，谢谢你。”一壹一\RULE\par
+  \RULE 二贰二「想吃好吃的中国菜。」二贰二\RULE\par
+  \RULE 三叁三“我的气垫船充满了鳝鱼。”三叁三\RULE\par
+  \RULE 四肆四‘（骨曜）’四肆四\RULE\par
+}
+\fi
+
+%% traditional chinese
+\ifx\MAPSETTC\undefined\else
+\ifx\ucs\undefined
+  \if y\USEOTF
+    \ADDSPECIAL{pdf:mapfile otf-tc-\MAPSETTC.map}
+  \fi
+\else
+  \ADDSPECIAL{pdf:mapfile uptex-tc-\MAPSETTC.map}
+\fi
+\long\def\TESTTC{%
+  繁體中文Traditional Chinese\par
+  \RULE 一壹一“早上好，謝謝你。”一壹一\RULE\par
+  \RULE 二貳二「想吃好吃的中國菜。」二貳二\RULE\par
+  \RULE 三叄三“我的氣墊船充滿了鱔魚。”三叄三\RULE\par
+  \RULE 四肆四‘（骨曜）’四肆四\RULE\par
+}
+\fi
+
+%% write specials
+\shipout\vbox{Test for text fonts\the\TMPTOKS}
+
+% japanese
+\ifx\MAPSETJP\undefined\else\shipout\vbox{\DIR\ADJUST
+  \ifx\ucs\undefined
+    \iftdir
+      \tfont\x=tmin10 at 10pt\x\TESTJP
+      \tfont\x=tgoth10 at 10pt\x\TESTJP
+      \tfont\x=jis-v at 10pt\x\TESTJP
+      \tfont\x=jisg-v at 10pt\x\TESTJP
+    \else
+      \jfont\x=min10 at 10pt\x\TESTJP
+      \jfont\x=goth10 at 10pt\x\TESTJP
+      \jfont\x=jis at 10pt\x\TESTJP
+      \jfont\x=jisg at 10pt\x\TESTJP
+    \fi
+  \else
+    \iftdir
+      \tfont\x=utmin10 at 10pt\x\TESTJP
+      \tfont\x=utgoth10 at 10pt\x\TESTJP
+      \tfont\x=upjisr-v at 10pt\x\TESTJP
+      \tfont\x=upjisg-v at 10pt\x\TESTJP
+      \tfont\x=upjpnrm-v at 10pt\x\TESTJP
+      \tfont\x=upjpngt-v at 10pt\x\TESTJP
+    \else
+      \jfont\x=umin10 at 10pt\x\TESTJP
+      \jfont\x=ugoth10 at 10pt\x\TESTJP
+      \jfont\x=upjisr-h at 10pt\x\TESTJP
+      \jfont\x=upjisg-h at 10pt\x\TESTJP
+      \jfont\x=upjpnrm-h at 10pt\x\TESTJP
+      \jfont\x=upjpngt-h at 10pt\x\TESTJP
+    \fi
+  \fi
+}\fi
+
+% korean
+\ifx\MAPSETKO\undefined\else\ifx\ucs\undefined\else
+  \shipout\vbox{\DIR\ADJUST
+    \iftdir
+      \tfont\x=upkorrm-v at 10pt\x\TESTKO
+      \tfont\x=upkorgt-v at 10pt\x\TESTKO
+    \else
+      \jfont\x=upkorrm-h at 10pt\x\TESTKO
+      \jfont\x=upkorgt-h at 10pt\x\TESTKO
+    \fi
+  }\fi
+\fi
+
+% simplified chinese
+\ifx\MAPSETSC\undefined\else\ifx\ucs\undefined\else
+  \shipout\vbox{\DIR\ADJUST
+    \iftdir
+      \tfont\x=upschrm-v at 10pt\x\TESTSC
+      \tfont\x=upschgt-v at 10pt\x\TESTSC
+    \else
+      \jfont\x=upschrm-h at 10pt\x\TESTSC
+      \jfont\x=upschgt-h at 10pt\x\TESTSC
+    \fi
+  }\fi
+\fi
+
+% traditional chinese
+\ifx\MAPSETTC\undefined\else\ifx\ucs\undefined\else
+  \shipout\vbox{\DIR\ADJUST
+    \iftdir
+      \tfont\x=uptchrm-v at 10pt\x\TESTTC
+      \tfont\x=uptchgt-v at 10pt\x\TESTTC
+    \else
+      \jfont\x=uptchrm-h at 10pt\x\TESTTC
+      \jfont\x=uptchgt-h at 10pt\x\TESTTC
+    \fi
+  }\fi
+\fi
+
+% japanese-otf(-uptex), 90JIS
+\if y\USEOTF
+\ifx\MAPSETJP\undefined\else\shipout\vbox{\DIR\ADJUST
+  \iftdir
+    \ifx\ucs\undefined
+      \tfont\x=nmlminl-v at 10pt\x\TESTJP
+      \tfont\x=nmlminr-v at 10pt\x\TESTJP
+      \tfont\x=nmlminb-v at 10pt\x\TESTJP
+      \tfont\x=nmlgothr-v at 10pt\x\TESTJP
+      \tfont\x=nmlgothb-v at 10pt\x\TESTJP
+      \tfont\x=nmlgotheb-v at 10pt\x\TESTJP
+      \tfont\x=nmlmgothr-v at 10pt\x\TESTJP
+    \else
+      \tfont\x=upnmlminl-v at 10pt\x\TESTJP
+      \tfont\x=upnmlminr-v at 10pt\x\TESTJP
+      \tfont\x=upnmlminb-v at 10pt\x\TESTJP
+      \tfont\x=upnmlgothr-v at 10pt\x\TESTJP
+      \tfont\x=upnmlgothb-v at 10pt\x\TESTJP
+      \tfont\x=upnmlgotheb-v at 10pt\x\TESTJP
+      \tfont\x=upnmlmgothr-v at 10pt\x\TESTJP
+    \fi
+  \else
+    \ifx\ucs\undefined
+      \tfont\x=nmlminl-h at 10pt\x\TESTJP
+      \tfont\x=nmlminr-h at 10pt\x\TESTJP
+      \tfont\x=nmlminb-h at 10pt\x\TESTJP
+      \tfont\x=nmlgothr-h at 10pt\x\TESTJP
+      \tfont\x=nmlgothb-h at 10pt\x\TESTJP
+      \tfont\x=nmlgotheb-h at 10pt\x\TESTJP
+      \tfont\x=nmlmgothr-h at 10pt\x\TESTJP
+    \else
+      \tfont\x=upnmlminl-h at 10pt\x\TESTJP
+      \tfont\x=upnmlminr-h at 10pt\x\TESTJP
+      \tfont\x=upnmlminb-h at 10pt\x\TESTJP
+      \tfont\x=upnmlgothr-h at 10pt\x\TESTJP
+      \tfont\x=upnmlgothb-h at 10pt\x\TESTJP
+      \tfont\x=upnmlgotheb-h at 10pt\x\TESTJP
+      \tfont\x=upnmlmgothr-h at 10pt\x\TESTJP
+    \fi
+  \fi
+}\fi
+\fi
+
+% japanese-otf(-uptex), 04JIS
+\if y\USEOTF
+\ifx\MAPSETJP\undefined\else\shipout\vbox{\DIR\ADJUST
+  \iftdir
+    \ifx\ucs\undefined
+      \tfont\x=nmlminln-v at 10pt\x\TESTJP
+      \tfont\x=nmlminrn-v at 10pt\x\TESTJP
+      \tfont\x=nmlminbn-v at 10pt\x\TESTJP
+      \tfont\x=nmlgothrn-v at 10pt\x\TESTJP
+      \tfont\x=nmlgothbn-v at 10pt\x\TESTJP
+      \tfont\x=nmlgothebn-v at 10pt\x\TESTJP
+      \tfont\x=nmlmgothrn-v at 10pt\x\TESTJP
+    \else
+      \tfont\x=upnmlminln-v at 10pt\x\TESTJP
+      \tfont\x=upnmlminrn-v at 10pt\x\TESTJP
+      \tfont\x=upnmlminbn-v at 10pt\x\TESTJP
+      \tfont\x=upnmlgothrn-v at 10pt\x\TESTJP
+      \tfont\x=upnmlgothbn-v at 10pt\x\TESTJP
+      \tfont\x=upnmlgothebn-v at 10pt\x\TESTJP
+      \tfont\x=upnmlmgothrn-v at 10pt\x\TESTJP
+    \fi
+  \else
+    \ifx\ucs\undefined
+      \tfont\x=nmlminln-h at 10pt\x\TESTJP
+      \tfont\x=nmlminrn-h at 10pt\x\TESTJP
+      \tfont\x=nmlminbn-h at 10pt\x\TESTJP
+      \tfont\x=nmlgothrn-h at 10pt\x\TESTJP
+      \tfont\x=nmlgothbn-h at 10pt\x\TESTJP
+      \tfont\x=nmlgothebn-h at 10pt\x\TESTJP
+      \tfont\x=nmlmgothrn-h at 10pt\x\TESTJP
+    \else
+      \tfont\x=upnmlminln-h at 10pt\x\TESTJP
+      \tfont\x=upnmlminrn-h at 10pt\x\TESTJP
+      \tfont\x=upnmlminbn-h at 10pt\x\TESTJP
+      \tfont\x=upnmlgothrn-h at 10pt\x\TESTJP
+      \tfont\x=upnmlgothbn-h at 10pt\x\TESTJP
+      \tfont\x=upnmlgothebn-h at 10pt\x\TESTJP
+      \tfont\x=upnmlmgothrn-h at 10pt\x\TESTJP
+    \fi
+  \fi
+}\fi
+\fi
+
+\bye
