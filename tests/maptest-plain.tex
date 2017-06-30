@@ -11,11 +11,11 @@
 \ifx\CFGLOADED\undefined
   % this file can be processed alone
   \let\DIR\yoko %         \yoko/\tate
-  \def\MAPSETJP{ipaex}%   jaEmbed
-  \def\MAPSETJPVAR{}%     jaVariant
-  \def\MAPSETKO{baekmuk}% koEmbed
-  \def\MAPSETSC{arphic}%  scEmbed
-  \def\MAPSETTC{arphic}%  tcEmbed
+  \def\MAPSETja{ipaex}%   jaEmbed
+  \def\MAPSETjaVAR{}%     jaVariant
+  \def\MAPSETko{baekmuk}% koEmbed
+  \def\MAPSETsc{arphic}%  scEmbed
+  \def\MAPSETtc{arphic}%  tcEmbed
   \def\USEOTF{y}%         y/n
 \fi
 
@@ -29,16 +29,16 @@
   \expandafter{\the\TMPTOKS\special{#1}}}
 
 %% japanese
-\ifx\MAPSETJP\undefined\else
+\ifx\MAPSETja\undefined\else
 \ifx\ucs\undefined
-  \ADDSPECIAL{pdf:mapfile ptex-\MAPSETJP\MAPSETJPVAR.map}
+  \ADDSPECIAL{pdf:mapfile ptex-\MAPSETja\MAPSETjaVAR.map}
   \if y\USEOTF
-    \ADDSPECIAL{pdf:mapfile otf-\MAPSETJP.map}
+    \ADDSPECIAL{pdf:mapfile otf-\MAPSETja.map}
   \fi
 \else
-  \ADDSPECIAL{pdf:mapfile uptex-\MAPSETJP\MAPSETJPVAR.map}
+  \ADDSPECIAL{pdf:mapfile uptex-\MAPSETja\MAPSETjaVAR.map}
   \if y\USEOTF
-    \ADDSPECIAL{pdf:mapfile otf-up-\MAPSETJP.map}
+    \ADDSPECIAL{pdf:mapfile otf-up-\MAPSETja.map}
   \fi
 \fi
 \long\def\TESTJP{%
@@ -51,13 +51,13 @@
 \fi
 
 %% korean
-\ifx\MAPSETKO\undefined\else
+\ifx\MAPSETko\undefined\else
 \ifx\ucs\undefined
   \if y\USEOTF
-    \ADDSPECIAL{pdf:mapfile otf-ko-\MAPSETKO.map}
+    \ADDSPECIAL{pdf:mapfile otf-ko-\MAPSETko.map}
   \fi
 \else
-  \ADDSPECIAL{pdf:mapfile uptex-ko-\MAPSETKO.map}
+  \ADDSPECIAL{pdf:mapfile uptex-ko-\MAPSETko.map}
 \fi
 \long\def\TESTKO{%
   한국어Korean\par
@@ -69,13 +69,13 @@
 \fi
 
 %% simplified chinese
-\ifx\MAPSETSC\undefined\else
+\ifx\MAPSETsc\undefined\else
 \ifx\ucs\undefined
   \if y\USEOTF
-    \ADDSPECIAL{pdf:mapfile otf-sc-\MAPSETSC.map}
+    \ADDSPECIAL{pdf:mapfile otf-sc-\MAPSETsc.map}
   \fi
 \else
-  \ADDSPECIAL{pdf:mapfile uptex-sc-\MAPSETSC.map}
+  \ADDSPECIAL{pdf:mapfile uptex-sc-\MAPSETsc.map}
 \fi
 \long\def\TESTSC{%
   简体中文Simplified Chinese\par
@@ -87,13 +87,13 @@
 \fi
 
 %% traditional chinese
-\ifx\MAPSETTC\undefined\else
+\ifx\MAPSETtc\undefined\else
 \ifx\ucs\undefined
   \if y\USEOTF
-    \ADDSPECIAL{pdf:mapfile otf-tc-\MAPSETTC.map}
+    \ADDSPECIAL{pdf:mapfile otf-tc-\MAPSETtc.map}
   \fi
 \else
-  \ADDSPECIAL{pdf:mapfile uptex-tc-\MAPSETTC.map}
+  \ADDSPECIAL{pdf:mapfile uptex-tc-\MAPSETtc.map}
 \fi
 \long\def\TESTTC{%
   繁體中文Traditional Chinese\par
@@ -108,7 +108,7 @@
 \shipout\vbox{Test for text fonts\the\TMPTOKS}
 
 % japanese
-\ifx\MAPSETJP\undefined\else\shipout\vbox{\DIR\ADJUST
+\ifx\MAPSETja\undefined\else\shipout\vbox{\DIR\ADJUST
   \ifx\ucs\undefined
     \iftdir
       \tfont\x=tmin10 at 10pt\x\TESTJP
@@ -141,7 +141,7 @@
 }\fi
 
 % korean
-\ifx\MAPSETKO\undefined\else\ifx\ucs\undefined\else
+\ifx\MAPSETko\undefined\else\ifx\ucs\undefined\else
   \shipout\vbox{\DIR\ADJUST
     \iftdir
       \tfont\x=upkorrm-v at 10pt\x\TESTKO
@@ -154,7 +154,7 @@
 \fi
 
 % simplified chinese
-\ifx\MAPSETSC\undefined\else\ifx\ucs\undefined\else
+\ifx\MAPSETsc\undefined\else\ifx\ucs\undefined\else
   \shipout\vbox{\DIR\ADJUST
     \iftdir
       \tfont\x=upschrm-v at 10pt\x\TESTSC
@@ -167,7 +167,7 @@
 \fi
 
 % traditional chinese
-\ifx\MAPSETTC\undefined\else\ifx\ucs\undefined\else
+\ifx\MAPSETtc\undefined\else\ifx\ucs\undefined\else
   \shipout\vbox{\DIR\ADJUST
     \iftdir
       \tfont\x=uptchrm-v at 10pt\x\TESTTC
@@ -181,7 +181,7 @@
 
 % japanese-otf(-uptex), 90JIS
 \if y\USEOTF
-\ifx\MAPSETJP\undefined\else\shipout\vbox{\DIR\ADJUST
+\ifx\MAPSETja\undefined\else\shipout\vbox{\DIR\ADJUST
   \iftdir
     \ifx\ucs\undefined
       \tfont\x=nmlminl-v at 10pt\x\TESTJP
@@ -224,7 +224,7 @@
 
 % japanese-otf(-uptex), 04JIS
 \if y\USEOTF
-\ifx\MAPSETJP\undefined\else\shipout\vbox{\DIR\ADJUST
+\ifx\MAPSETja\undefined\else\shipout\vbox{\DIR\ADJUST
   \iftdir
     \ifx\ucs\undefined
       \tfont\x=nmlminln-v at 10pt\x\TESTJP
