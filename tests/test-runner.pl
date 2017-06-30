@@ -31,7 +31,6 @@ sub do_class {
       my $curr = "test-$cl-$k-$dir.tex";
       open(FOO, ">", $curr) ||
         die ("Cannot open $curr: $!");
-      print FOO "%#!euptex\n";
       print FOO "\\let\\DIR\\", "$dir\n";
       print FOO "\\def\\MAPSET", "$cl", "{$k}\n";
       print FOO "\\def\\MAPSET", "$cl", "VAR{}\n";
@@ -41,30 +40,26 @@ sub do_class {
       close FOO;
       chomp (@foo = `euptex -kanji=utf8 -interaction=nonstopmode $curr`);
       $curr =~ s/.tex$//;
-      if ( ! -f "$curr.dvi" ) {
-      	print_error("No output $curr.dvi!\n");
-      	exit(1);
-      }
+      check_outfile("$curr.dvi");
       chomp (@foo = `dvipdfmx -o $curr-up.pdf $curr.dvi`);
-      if ( ! -f "$curr-up.pdf" ) {
-      	print_error("No output $curr-up.pdf!\n");
-      	exit(1);
-      }
+      check_outfile("$curr-up.pdf");
       if ($cl eq 'ja') {
         chomp (@foo = `eptex -kanji=utf8 -interaction=nonstopmode $curr`);
         $curr =~ s/.tex$//;
-        if ( ! -f "$curr.dvi" ) {
-      	  print_error("No output $curr.dvi!\n");
-      	  exit(1);
-        }
+        check_outfile("$curr.dvi");
         chomp (@foo = `dvipdfmx -o $curr-p.pdf $curr.dvi`);
-        if ( ! -f "$curr-p.pdf" ) {
-      	  print_error("No output $curr-p.pdf!\n");
-      	  exit(1);
-        }
+        check_outfile("$curr-p.pdf");
       }
       for my $ext (qw/tex log dvi/) { unlink "$curr.$ext" };
     }
+  }
+}
+
+sub check_outfile {
+  my ($file) = @_;
+  if ( ! -f "$file" ) {
+    print_error("No output $file!\n");
+    exit(1);
   }
 }
 
