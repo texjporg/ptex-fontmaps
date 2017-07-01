@@ -30,17 +30,16 @@
 
 %% japanese
 \ifx\MAPSETja\undefined\else
-\ifx\ucs\undefined
   \ADDSPECIAL{pdf:mapfile ptex-\MAPSETja\MAPSETjaVAR.map}
   \if y\USEOTF
     \ADDSPECIAL{pdf:mapfile otf-\MAPSETja.map}
   \fi
-\else
-  \ADDSPECIAL{pdf:mapfile uptex-\MAPSETja\MAPSETjaVAR.map}
-  \if y\USEOTF
-    \ADDSPECIAL{pdf:mapfile otf-up-\MAPSETja.map}
+  \ifx\ucs\undefined\else
+    \ADDSPECIAL{pdf:mapfile uptex-\MAPSETja\MAPSETjaVAR.map}
+    \if y\USEOTF
+      \ADDSPECIAL{pdf:mapfile otf-up-\MAPSETja.map}
+    \fi
   \fi
-\fi
 \long\def\TESTJP{%
   日本語Japanese\par
   \RULE 一一一「おはよう、ありがとう」。壱壱壱\RULE\par
@@ -52,13 +51,12 @@
 
 %% korean
 \ifx\MAPSETko\undefined\else
-\ifx\ucs\undefined
   \if y\USEOTF
     \ADDSPECIAL{pdf:mapfile otf-ko-\MAPSETko.map}
   \fi
-\else
-  \ADDSPECIAL{pdf:mapfile uptex-ko-\MAPSETko.map}
-\fi
+  \ifx\ucs\undefined\else
+    \ADDSPECIAL{pdf:mapfile uptex-ko-\MAPSETko.map}
+  \fi
 \long\def\TESTKO{%
   한국어Korean\par
   \RULE 일일일“안녕, 감사합니다.”일일일\RULE\par
@@ -70,13 +68,12 @@
 
 %% simplified chinese
 \ifx\MAPSETsc\undefined\else
-\ifx\ucs\undefined
   \if y\USEOTF
     \ADDSPECIAL{pdf:mapfile otf-sc-\MAPSETsc.map}
   \fi
-\else
-  \ADDSPECIAL{pdf:mapfile uptex-sc-\MAPSETsc.map}
-\fi
+  \ifx\ucs\undefined\else
+    \ADDSPECIAL{pdf:mapfile uptex-sc-\MAPSETsc.map}
+  \fi
 \long\def\TESTSC{%
   简体中文Simplified Chinese\par
   \RULE 一壹一“早上好，谢谢你。”一壹一\RULE\par
@@ -88,13 +85,12 @@
 
 %% traditional chinese
 \ifx\MAPSETtc\undefined\else
-\ifx\ucs\undefined
   \if y\USEOTF
     \ADDSPECIAL{pdf:mapfile otf-tc-\MAPSETtc.map}
   \fi
-\else
-  \ADDSPECIAL{pdf:mapfile uptex-tc-\MAPSETtc.map}
-\fi
+  \ifx\ucs\undefined\else
+    \ADDSPECIAL{pdf:mapfile uptex-tc-\MAPSETtc.map}
+  \fi
 \long\def\TESTTC{%
   繁體中文Traditional Chinese\par
   \RULE 一壹一“早上好，謝謝你。”一壹一\RULE\par
