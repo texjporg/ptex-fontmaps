@@ -195,6 +195,10 @@ Simplified Chinese
     simsun.ttc
     simhei.ttf
 
+* ms-osx - SimSun and SimHei, shipped with Office for Mac
+    simsun.ttf         (<= "SimSun.ttf")
+    simhei.ttf         (<= "SimHei.ttf")
+
 * adobe - by Adobe Systems, bundled with Adobe's software
     AdobeSongStd-Light.otf
     AdobeHeitiStd-Regular.otf

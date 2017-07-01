@@ -49,6 +49,12 @@ local foundry = {
       gr='simhei.ttf %!PS SimHei',
       {''},
    },
+   ['ms-osx']   = {
+      noncid = true,
+      mr='simsun.ttf %!PS SimSun',
+      gr='simhei.ttf %!PS SimHei',
+      {''},
+   },
 --   ['sinotype']   = { -- Adobe-GB1 cmap unavailable
 --      noncid = true,
 --      mr='STSong.ttf',

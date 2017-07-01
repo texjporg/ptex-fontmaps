@@ -125,6 +125,7 @@ my %representatives = (
   },
   "sc" => {
     "ms"            => "simsun.ttc",
+    "ms-osx"        => "simsun.ttf",
     #"sinotype"      => "STSong.ttf", # removed
     "adobe"         => "AdobeSongStd-Light.otf",
     "fandol"        => "FandolSong-Regular.otf",
