@@ -1,0 +1,10 @@
+urml	unicode	NotoSerifCJKjp-Regular.otf -l jp04
+urmlv	unicode	NotoSerifCJKjp-Regular.otf -w 1 -l jp04
+ugbm	unicode	NotoSansCJKjp-Medium.otf -l jp04
+ugbmv	unicode	NotoSansCJKjp-Medium.otf -w 1 -l jp04
+uprml-h	unicode	NotoSerifCJKjp-Regular.otf -l jp04
+uprml-v	unicode	NotoSerifCJKjp-Regular.otf -w 1 -l jp04
+upgbm-h	unicode	NotoSansCJKjp-Medium.otf -l jp04
+upgbm-v	unicode	NotoSansCJKjp-Medium.otf -w 1 -l jp04
+uprml-hq	unicode	NotoSerifCJKsc-Regular.otf 
+upgbm-hq	unicode	NotoSansCJKsc-Medium.otf 

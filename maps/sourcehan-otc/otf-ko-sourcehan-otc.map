@@ -1,0 +1,6 @@
+
+% Unicode
+otf-ukmr-h	unicode	:1:SourceHanSerif-Regular.ttc
+otf-ukmr-v	unicode	:1:SourceHanSerif-Regular.ttc -w 1
+otf-ukgr-h	unicode	:1:SourceHanSans-Medium.ttc
+otf-ukgr-v	unicode	:1:SourceHanSans-Medium.ttc -w 1

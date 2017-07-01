@@ -4,9 +4,24 @@
 -- これは up(La)TeX + dvipdfmx (TeX Live 2017) が必須．
 -- つまり，p(La)TeX は不可．dvips も不可．cid も不可．
 local foundry = {
-   ['noto-otc']   = {
+   ['sourcehan-otc']   = { -- Source Han Sans/Serif, "OTC"
+      mr=':1:SourceHanSerif-Regular.ttc',
+      gr=':1:SourceHanSans-Medium.ttc',
+      {''},
+   },
+   ['sourcehan']   = { -- Source Han Sans/Serif, "Language-specific OTF"
+      mr='SourceHanSerifK-Regular.otf',
+      gr='SourceHanSansK-Medium.otf',
+      {''},
+   },
+   ['noto-otc']   = { -- Noto Sans/Serif CJK, "OpenType/CFF Collection (OTC)"
       mr=':1:NotoSerifCJK-Regular.ttc',
       gr=':1:NotoSansCJK-Medium.ttc',
+      {''},
+   },
+   ['noto']   = { -- Noto Sans/Serif CJK, "Language-specific OpenType/CFF (OTF)"
+      mr='NotoSerifCJKkr-Regular.otf',
+      gr='NotoSansCJKkr-Medium.otf',
       {''},
    },
 }

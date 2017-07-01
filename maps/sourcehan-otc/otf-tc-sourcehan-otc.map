@@ -1,0 +1,6 @@
+
+% Unicode
+otf-utmr-h	unicode	:3:SourceHanSerif-Regular.ttc
+otf-utmr-v	unicode	:3:SourceHanSerif-Regular.ttc -w 1
+otf-utgr-h	unicode	:3:SourceHanSans-Medium.ttc
+otf-utgr-v	unicode	:3:SourceHanSans-Medium.ttc -w 1

@@ -1,0 +1,32 @@
+
+% TEXT, 90JIS
+uphminl-h	unicode	SourceHanSerif-Light.otf -l jp90
+uphminl-v	unicode	SourceHanSerif-Light.otf -w 1 -l jp90
+uphminr-h	unicode	SourceHanSerif-Regular.otf -l jp90
+uphminr-v	unicode	SourceHanSerif-Regular.otf -w 1 -l jp90
+uphminb-h	unicode	SourceHanSerif-Bold.otf -l jp90
+uphminb-v	unicode	SourceHanSerif-Bold.otf -w 1 -l jp90
+uphgothr-h	unicode	SourceHanSans-Regular.otf -l jp90
+uphgothr-v	unicode	SourceHanSans-Regular.otf -w 1 -l jp90
+uphgothb-h	unicode	SourceHanSans-Bold.otf -l jp90
+uphgothb-v	unicode	SourceHanSans-Bold.otf -w 1 -l jp90
+uphgotheb-h	unicode	SourceHanSans-Heavy.otf -l jp90
+uphgotheb-v	unicode	SourceHanSans-Heavy.otf -w 1 -l jp90
+uphmgothr-h	unicode	SourceHanSans-Medium.otf -l jp90
+uphmgothr-v	unicode	SourceHanSans-Medium.otf -w 1 -l jp90
+
+% TEXT, JIS04
+uphminln-h	unicode	SourceHanSerif-Light.otf -l jp04
+uphminln-v	unicode	SourceHanSerif-Light.otf -w 1 -l jp04
+uphminrn-h	unicode	SourceHanSerif-Regular.otf -l jp04
+uphminrn-v	unicode	SourceHanSerif-Regular.otf -w 1 -l jp04
+uphminbn-h	unicode	SourceHanSerif-Bold.otf -l jp04
+uphminbn-v	unicode	SourceHanSerif-Bold.otf -w 1 -l jp04
+uphgothrn-h	unicode	SourceHanSans-Regular.otf -l jp04
+uphgothrn-v	unicode	SourceHanSans-Regular.otf -w 1 -l jp04
+uphgothbn-h	unicode	SourceHanSans-Bold.otf -l jp04
+uphgothbn-v	unicode	SourceHanSans-Bold.otf -w 1 -l jp04
+uphgothebn-h	unicode	SourceHanSans-Heavy.otf -l jp04
+uphgothebn-v	unicode	SourceHanSans-Heavy.otf -w 1 -l jp04
+uphmgothrn-h	unicode	SourceHanSans-Medium.otf -l jp04
+uphmgothrn-v	unicode	SourceHanSans-Medium.otf -w 1 -l jp04

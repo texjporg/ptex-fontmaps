@@ -1,0 +1,32 @@
+
+% Unicode 90JIS
+otf-ujml-h	unicode	:0:SourceHanSerif-Light.ttc -l jp90
+otf-ujml-v	unicode	:0:SourceHanSerif-Light.ttc -w 1 -l jp90
+otf-ujmr-h	unicode	:0:SourceHanSerif-Regular.ttc -l jp90
+otf-ujmr-v	unicode	:0:SourceHanSerif-Regular.ttc -w 1 -l jp90
+otf-ujmb-h	unicode	:0:SourceHanSerif-Bold.ttc -l jp90
+otf-ujmb-v	unicode	:0:SourceHanSerif-Bold.ttc -w 1 -l jp90
+otf-ujgr-h	unicode	:0:SourceHanSans-Regular.ttc -l jp90
+otf-ujgr-v	unicode	:0:SourceHanSans-Regular.ttc -w 1 -l jp90
+otf-ujgb-h	unicode	:0:SourceHanSans-Bold.ttc -l jp90
+otf-ujgb-v	unicode	:0:SourceHanSans-Bold.ttc -w 1 -l jp90
+otf-ujge-h	unicode	:0:SourceHanSans-Heavy.ttc -l jp90
+otf-ujge-v	unicode	:0:SourceHanSans-Heavy.ttc -w 1 -l jp90
+otf-ujmgr-h	unicode	:0:SourceHanSans-Medium.ttc -l jp90
+otf-ujmgr-v	unicode	:0:SourceHanSans-Medium.ttc -w 1 -l jp90
+
+% Unicode JIS04
+otf-ujmln-h	unicode	:0:SourceHanSerif-Light.ttc -l jp04
+otf-ujmln-v	unicode	:0:SourceHanSerif-Light.ttc -w 1 -l jp04
+otf-ujmrn-h	unicode	:0:SourceHanSerif-Regular.ttc -l jp04
+otf-ujmrn-v	unicode	:0:SourceHanSerif-Regular.ttc -w 1 -l jp04
+otf-ujmbn-h	unicode	:0:SourceHanSerif-Bold.ttc -l jp04
+otf-ujmbn-v	unicode	:0:SourceHanSerif-Bold.ttc -w 1 -l jp04
+otf-ujgrn-h	unicode	:0:SourceHanSans-Regular.ttc -l jp04
+otf-ujgrn-v	unicode	:0:SourceHanSans-Regular.ttc -w 1 -l jp04
+otf-ujgbn-h	unicode	:0:SourceHanSans-Bold.ttc -l jp04
+otf-ujgbn-v	unicode	:0:SourceHanSans-Bold.ttc -w 1 -l jp04
+otf-ujgen-h	unicode	:0:SourceHanSans-Heavy.ttc -l jp04
+otf-ujgen-v	unicode	:0:SourceHanSans-Heavy.ttc -w 1 -l jp04
+otf-ujmgrn-h	unicode	:0:SourceHanSans-Medium.ttc -l jp04
+otf-ujmgrn-v	unicode	:0:SourceHanSans-Medium.ttc -w 1 -l jp04

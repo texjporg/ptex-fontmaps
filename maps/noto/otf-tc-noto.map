@@ -1,0 +1,6 @@
+
+% Unicode
+otf-utmr-h	unicode	NotoSerifCJKtc-Regular.otf
+otf-utmr-v	unicode	NotoSerifCJKtc-Regular.otf -w 1
+otf-utgr-h	unicode	NotoSansCJKtc-Medium.otf
+otf-utgr-v	unicode	NotoSansCJKtc-Medium.otf -w 1

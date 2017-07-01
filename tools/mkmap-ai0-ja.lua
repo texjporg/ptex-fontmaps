@@ -15,7 +15,33 @@
 --   * (+TL17, -TL18) の行を disable
 -- すること．
 local foundry = {
-   ['noto-otc']   = {
+   ['sourcehan-otc']   = { -- Source Han Sans/Serif, "OTC"
+      ml=':0:SourceHanSerif-Light.ttc',
+      mr=':0:SourceHanSerif-Regular.ttc',
+      mb=':0:SourceHanSerif-Bold.ttc',
+      gr=':0:SourceHanSans-Regular.ttc',
+      gru=':0:SourceHanSans-Medium.ttc',
+      gb=':0:SourceHanSans-Bold.ttc',
+      ge=':0:SourceHanSans-Heavy.ttc',
+      mgr=':0:SourceHanSans-Medium.ttc',
+      mrq=':2:SourceHanSerif-Regular.ttc', -- (+TL17, -TL18)
+      gruq=':2:SourceHanSans-Medium.ttc', -- (+TL17, -TL18)
+      {''},
+   },
+   ['sourcehan']   = { -- Source Han Sans/Serif, "Language-specific OTF"
+      ml='SourceHanSerif-Light.otf',
+      mr='SourceHanSerif-Regular.otf',
+      mb='SourceHanSerif-Bold.otf',
+      gr='SourceHanSans-Regular.otf',
+      gru='SourceHanSans-Medium.otf',
+      gb='SourceHanSans-Bold.otf',
+      ge='SourceHanSans-Heavy.otf',
+      mgr='SourceHanSans-Medium.otf',
+      mrq='SourceHanSerifSC-Regular.otf', -- (+TL17, -TL18)
+      gruq='SourceHanSansSC-Medium.otf', -- (+TL17, -TL18)
+      {''},
+   },
+   ['noto-otc']   = { -- Noto Sans/Serif CJK, "OpenType/CFF Collection (OTC)"
       ml=':0:NotoSerifCJK-Light.ttc',
       mr=':0:NotoSerifCJK-Regular.ttc',
       mb=':0:NotoSerifCJK-Bold.ttc',
@@ -26,6 +52,19 @@ local foundry = {
       mgr=':0:NotoSansCJK-Medium.ttc',
       mrq=':2:NotoSerifCJK-Regular.ttc', -- (+TL17, -TL18)
       gruq=':2:NotoSansCJK-Medium.ttc', -- (+TL17, -TL18)
+      {''},
+   },
+   ['noto']   = { -- Noto Sans/Serif CJK, "Language-specific OpenType/CFF (OTF)"
+      ml='NotoSerifCJKjp-Light.otf',
+      mr='NotoSerifCJKjp-Regular.otf',
+      mb='NotoSerifCJKjp-Bold.otf',
+      gr='NotoSansCJKjp-Regular.otf',
+      gru='NotoSansCJKjp-Medium.otf',
+      gb='NotoSansCJKjp-Bold.otf',
+      ge='NotoSansCJKjp-Black.otf',
+      mgr='NotoSansCJKjp-Medium.otf',
+      mrq='NotoSerifCJKsc-Regular.otf', -- (+TL17, -TL18)
+      gruq='NotoSansCJKsc-Medium.otf', -- (+TL17, -TL18)
       {''},
    },
 }

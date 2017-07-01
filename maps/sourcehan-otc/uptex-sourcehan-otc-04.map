@@ -1,0 +1,10 @@
+urml	unicode	:0:SourceHanSerif-Regular.ttc -l jp04
+urmlv	unicode	:0:SourceHanSerif-Regular.ttc -w 1 -l jp04
+ugbm	unicode	:0:SourceHanSans-Medium.ttc -l jp04
+ugbmv	unicode	:0:SourceHanSans-Medium.ttc -w 1 -l jp04
+uprml-h	unicode	:0:SourceHanSerif-Regular.ttc -l jp04
+uprml-v	unicode	:0:SourceHanSerif-Regular.ttc -w 1 -l jp04
+upgbm-h	unicode	:0:SourceHanSans-Medium.ttc -l jp04
+upgbm-v	unicode	:0:SourceHanSans-Medium.ttc -w 1 -l jp04
+uprml-hq	unicode	:2:SourceHanSerif-Regular.ttc 
+upgbm-hq	unicode	:2:SourceHanSans-Medium.ttc 

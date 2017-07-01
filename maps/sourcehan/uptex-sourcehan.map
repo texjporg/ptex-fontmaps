@@ -1,0 +1,10 @@
+urml	unicode	SourceHanSerif-Regular.otf -l jp90
+urmlv	unicode	SourceHanSerif-Regular.otf -w 1 -l jp90
+ugbm	unicode	SourceHanSans-Medium.otf -l jp90
+ugbmv	unicode	SourceHanSans-Medium.otf -w 1 -l jp90
+uprml-h	unicode	SourceHanSerif-Regular.otf -l jp90
+uprml-v	unicode	SourceHanSerif-Regular.otf -w 1 -l jp90
+upgbm-h	unicode	SourceHanSans-Medium.otf -l jp90
+upgbm-v	unicode	SourceHanSans-Medium.otf -w 1 -l jp90
+uprml-hq	unicode	SourceHanSerifSC-Regular.otf 
+upgbm-hq	unicode	SourceHanSansSC-Medium.otf 
