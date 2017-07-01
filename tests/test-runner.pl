@@ -28,6 +28,7 @@ sub do_class {
     next if (!$k);
     print_info("Running test for $cl-$k ...\n");
     for my $dir (qw/yoko tate/) {
+      # first round
       my $curr = "test-$cl-$k-$dir.tex";
       open(FOO, ">", $curr) ||
         die ("Cannot open $curr: $!");
@@ -49,6 +50,30 @@ sub do_class {
         check_outfile("$curr.dvi");
         chomp (@foo = `dvipdfmx -o $curr-p.pdf $curr.dvi`);
         check_outfile("$curr-p.pdf");
+        chomp (@foo = `kpsewhich ptex-$k-04.map`);
+        if (@foo) {
+          # second round for JIS04
+          $curr = "test-$cl-$k-$dir.tex";
+          open(FOO, ">", $curr) ||
+            die ("Cannot open $curr: $!");
+          print FOO "\\let\\DIR\\", "$dir\n";
+          print FOO "\\def\\MAPSET", "$cl", "{$k}\n";
+          print FOO "\\def\\MAPSET", "$cl", "VAR{-04}\n";
+          print FOO "\\def\\USEOTF{y}\n";
+          print FOO "\\def\\CFGLOADED{}\n";
+          print FOO "\\input maptest-plain.tex\n";
+          close FOO;
+          chomp (@foo = `euptex -kanji=utf8 -interaction=nonstopmode $curr`);
+          $curr =~ s/.tex$//;
+          check_outfile("$curr.dvi");
+          chomp (@foo = `dvipdfmx -o $curr-up-04.pdf $curr.dvi`);
+          check_outfile("$curr-up-04.pdf");
+          chomp (@foo = `eptex -kanji=utf8 -interaction=nonstopmode $curr`);
+          $curr =~ s/.tex$//;
+          check_outfile("$curr.dvi");
+          chomp (@foo = `dvipdfmx -o $curr-p-04.pdf $curr.dvi`);
+          check_outfile("$curr-p-04.pdf");
+        }
       }
       for my $ext (qw/tex log dvi/) { unlink "$curr.$ext" };
     }
