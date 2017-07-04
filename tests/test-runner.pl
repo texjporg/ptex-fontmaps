@@ -1,8 +1,24 @@
 #!/usr/bin/env perl
 
 use strict;
+use Getopt::Long qw(:config no_autoabbrev ignore_case_always);
 
-for my $class (qw/ja ko sc tc/) {
+my $option = 0;
+my @opt_mode;
+if (! GetOptions(
+        "ja"       => sub { $option = 1; push @opt_mode, "ja"; },
+        "ko"       => sub { $option = 1; push @opt_mode, "ko"; },
+        "sc"       => sub { $option = 1; push @opt_mode, "sc"; },
+        "tc"       => sub { $option = 1; push @opt_mode, "tc"; },
+) ) {
+  print_error("Only --ja, --ko, --sc and --tc are available!\n");
+  exit(1);
+}
+
+# without any option, all classes are tested
+@opt_mode = ("ja", "ko", "sc", "tc") if (!$option);
+
+for my $class (@opt_mode) {
   do_class($class);
 }
 
