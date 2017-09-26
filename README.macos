@@ -1,0 +1,29 @@
+ptex-fontmaps-macos
+===================
+
+Current release: $VER$
+
+This package is a companion to `ptex-fontmaps' including support for
+macOS-specific fonts, which we decided not to be included in TeX Live.
+
+The files contained in this package contain font maps for dvipdfmx to
+make various macOS-specific Japanese fonts available for (u)ptex and
+related programs and formats.
+
+Please see the README for the package `ptex-fontmaps' for details 
+concerning all fonts.
+
+The font maps were written by several people, including (in alphabetic order)
+  Hironori Kitagawa
+  Norbert Preining
+  Saito Shuzaburo
+  Takuji Tanaka
+  Yusuke Terada
+  Hironobu Yamashita
+and are now maintained in the github.com git repository:
+  https://github.com/texjporg/jfontmaps
+
+Copyright/License
+=================
+All the map files are under Public Domain.
+

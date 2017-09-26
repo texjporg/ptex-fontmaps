@@ -12,9 +12,32 @@ The font maps were written by several people, including (in alphabetic order)
   Norbert Preining
   Saito Shuzaburo
   Takuji Tanaka
+  Yusuke Terada
   Hironobu Yamashita
 and are now maintained in the github.com git repository:
   https://github.com/texjporg/jfontmaps
+
+
+Note about macOS
+================
+Due to frequent incompatible changes in font file names by Apple,
+we don't provide macOS-specific map files in TeX Live. This also agrees
+with the requirements that TeX Live includes only support for free
+software. this package is split into two parts:
+* ptex-fontmaps : which contains most of the files and scripts,
+    as well	as support files
+* ptex-fontmaps-macos : only the support (map) files for
+    macOS-specific fonts
+
+The package `ptex-fontmaps' (this package) is available in TeX Live,
+while the package `ptex-fontmaps-macos` is *NOT* available directly from the
+TeX Live package mirrors, but can be installed from the tltexjp
+repository, by executing the following commands:
+	tlmgr repository add http://texlive.texjp.org/current/tltexjp tltexjp
+	tlmgr pinning add tltexjp '*'
+	tlmgr install ptex-fontmaps-macos
+After that updates for the ptex-fontmaps packages will be automatically
+installed.
 
 
 Families, support, and necessary font files

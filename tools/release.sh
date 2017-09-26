@@ -42,7 +42,27 @@ for i in README script/kanji-fontmap-creator.pl script/kanji-config-updmap.pl ; 
 done
 cd ..
 diff -urN $PROJECT-$VER-orig $PROJECT-$VER
+
+#
+# separate macOS-specific packages
+mkdir $PROJECT-macos-$VER
+# remove the non-free part in the main project
+for i in $PROJECT-$VER/maps/* ; do
+  bn=`basename $i`
+  case $bn in
+    hiragino-elcapitan|hiragino-elcapitan-pron)
+       mv $PROJECT-$VER/maps/$bn $PROJECT-macos-$VER ;;
+    hiragino-highsierra|hiragino-highsierra-pron)
+       mv $PROJECT-$VER/maps/$bn $PROJECT-macos-$VER ;;
+    toppanbunkyu-sierra|toppanbunkyu-highsierra)
+       mv $PROJECT-$VER/maps/$bn $PROJECT-macos-$VER ;;
+  esac
+done
+# remove the rest of the stuff
+mv $PROJECT-$VER/README.macos $PROJECT-macos-$VER/README
+
 tar zcf $DIR/$PROJECT-$VER.tar.gz $PROJECT-$VER
+tar zcf $DIR/$PROJECT-macos-$VER.tar.gz $PROJECT-macos-$VER
 echo
 echo You should execute
 echo
