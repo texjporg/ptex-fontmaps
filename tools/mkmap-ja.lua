@@ -224,6 +224,17 @@ local foundry = {
       mgr='#0+HiraginoSansR-W4.ttc %!PS HiraMaru?-W4',
       {'X','Xn'},  -- Pro and ProN
    },
+   ['hiragino-highsierra'] = {
+      ml= '#1-HiraginoSerif.ttc %!PS HiraMin?-W3', -- ここは OTC を使おう
+      mr= '#1-HiraginoSerif.ttc %!PS HiraMin?-W3',
+      mb= '#3-HiraginoSerif.ttc %!PS HiraMin?-W6',
+      gr= '#3-HiraginoSans-W3.ttc  %!PS HiraKaku?-W3',
+      gru='#3-HiraginoSans-W6.ttc  %!PS HiraKaku?-W6',
+      gb= '#3-HiraginoSans-W6.ttc  %!PS HiraKaku?-W6',
+      ge= '#2+HiraginoSans-W8.ttc  %!PS HiraKaku?-W8',
+      mgr='#0+HiraginoSansR-W4.ttc %!PS HiraMaru?-W4',
+      {'X','Xn'},  -- Pro and ProN
+   },
    ['toppanbunkyu-sierra'] = {
       ml= 'ToppanBunkyuMincho-Regular.otf %!PS ToppanBunkyuMinchoPr6N-Regular',
       mr= 'ToppanBunkyuMincho-Regular.otf %!PS ToppanBunkyuMinchoPr6N-Regular',

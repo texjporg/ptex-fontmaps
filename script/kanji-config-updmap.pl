@@ -105,6 +105,8 @@ my %representatives = (
     "hiragino-pron" => "HiraMinProN-W3.otf",
     "hiragino-elcapitan" => "HiraginoSerif-W3.ttc",
     "hiragino-elcapitan-pron" => "HiraginoSerif-W3.ttc",
+    "hiragino-highsierra" => "HiraginoSerif.ttc",
+    "hiragino-highsierra-pron" => "HiraginoSerif.ttc",
     "toppanbunkyu-sierra" => "ToppanBunkyuGothic.ttc",
     "morisawa"      => "A-OTF-RyuminPro-Light.otf",
     "morisawa-pr6n" => "A-OTF-RyuminPr6N-Light.otf",
@@ -194,8 +196,10 @@ sub Usage {
                  map file otf-<family>.map has to be available.
      auto:       embed one of the following supported font families
                  automatically:
-                   hiragino, hiragino-pron, hiragino-elcapitan,
-                   hiragino-elcapitan-pron, toppanbunkyu-sierra,
+                   hiragino, hiragino-pron,
+                   hiragino-elcapitan, hiragino-elcapitan-pron,
+                   hiragino-highsierra, hiragino-highsierra-pron,
+                   toppanbunkyu-sierra,
                    morisawa, morisawa-pr6n,
                    kozuka, kozuka-pr6n, kozuka-pr6,
                    ipa, ipaex, moga-mobo, moga-mobo-ex, ume,
@@ -345,6 +349,7 @@ sub SetupReplacement {
           @testlist = qw/
             morisawa-pr6n morisawa
             hiragino-pron hiragino hiragino-elcapitan-pron hiragino-elcapitan
+            hiragino-highsierra hiragino-highsierra-pron
             kozuka-pr6n kozuka-pr6 kozuka
             toppanbunkyu-sierra
             yu-osx yu-win10 yu-win10 canon
