@@ -108,6 +108,7 @@ my %representatives = (
     "hiragino-highsierra" => "HiraginoSerif.ttc",
     "hiragino-highsierra-pron" => "HiraginoSerif.ttc",
     "toppanbunkyu-sierra" => "ToppanBunkyuGothic.ttc",
+    "toppanbunkyu-highsierra" => "ToppanBunkyuGothicPr6N.ttc",
     "morisawa"      => "A-OTF-RyuminPro-Light.otf",
     "morisawa-pr6n" => "A-OTF-RyuminPr6N-Light.otf",
     "kozuka"        => "KozMinPro-Regular.otf",

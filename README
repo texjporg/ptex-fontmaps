@@ -163,6 +163,13 @@ O toppanbunkyu-sierra
     ToppanBunkyuGothic.ttc
     ToppanBunkyuMidashiGothic-ExtraBold.otf
 
+O toppanbunkyu-highsierra
+	bundled with macOS 10.13 Sierra
+    ToppanBunkyuMinchoPr6N-Regular.otf
+    ToppanBunkyuMidashiMinchoStdN-ExtraBold.otf
+    ToppanBunkyuGothicPr6N.ttc
+    ToppanBunkyuMidashiGothicStdN-ExtraBold.otf
+
 P kozuka - by Adobe Systems, bundled with Adobe's software
     KozMinPro-Light.otf
     KozMinPro-Regular.otf

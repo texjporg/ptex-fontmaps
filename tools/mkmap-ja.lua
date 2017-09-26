@@ -246,6 +246,17 @@ local foundry = {
       mgr=':1:ToppanBunkyuGothic.ttc %!PS ToppanBunkyuGothicPr6N-Regular',
       {''},
    },
+   ['toppanbunkyu-highsierra'] = {
+      ml= 'ToppanBunkyuMinchoPr6N-Regular.otf %!PS ToppanBunkyuMinchoPr6N-Regular',
+      mr= 'ToppanBunkyuMinchoPr6N-Regular.otf %!PS ToppanBunkyuMinchoPr6N-Regular',
+      mb= 'ToppanBunkyuMidashiMinchoStdN-ExtraBold.otf %!PS ToppanBunkyuMidashiMinchoStdN-ExtraBold',
+      gr= ':1:ToppanBunkyuGothicPr6N.ttc %!PS ToppanBunkyuGothicPr6N-Regular',
+      gru=':0:ToppanBunkyuGothicPr6N.ttc %!PS ToppanBunkyuGothicPr6N-DB',
+      gb= ':0:ToppanBunkyuGothicPr6N.ttc %!PS ToppanBunkyuGothicPr6N-DB',
+      ge= 'ToppanBunkyuMidashiGothicStdN-ExtraBold.otf %!PS ToppanBunkyuMidashiGothicStdN-ExtraBold',
+      mgr=':1:ToppanBunkyuGothicPr6N.ttc %!PS ToppanBunkyuGothicPr6N-Regular',
+      {''},
+   },
 }
 
 local suffix = {
