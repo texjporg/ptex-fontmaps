@@ -23,7 +23,7 @@ Note about macOS
 Due to frequent incompatible changes in font file names by Apple,
 we don't provide macOS-specific map files in TeX Live. This also agrees
 with the requirements that TeX Live includes only support for free
-software. this package is split into two parts:
+software. This package is split into two parts:
 * ptex-fontmaps : which contains most of the files and scripts,
     as well as support files
 * ptex-fontmaps-macos : only the support (map) files for
