@@ -101,58 +101,58 @@ if ($opt_help) {
 #
 my %representatives = (
   "ja" => {
-    "hiragino"      => "HiraMinPro-W3.otf",
-    "hiragino-pron" => "HiraMinProN-W3.otf",
-    "hiragino-elcapitan" => "HiraginoSerif-W3.ttc",
-    "hiragino-elcapitan-pron" => "HiraginoSerif-W3.ttc",
-    "hiragino-highsierra" => "HiraginoSerif.ttc",
-    "hiragino-highsierra-pron" => "HiraginoSerif.ttc",
-    "toppanbunkyu-sierra" => "ToppanBunkyuGothic.ttc",
-    "toppanbunkyu-highsierra" => "ToppanBunkyuGothicPr6N.ttc",
-    "morisawa"      => "A-OTF-RyuminPro-Light.otf",
     "morisawa-pr6n" => "A-OTF-RyuminPr6N-Light.otf",
-    "kozuka"        => "KozMinPro-Regular.otf",
+    "morisawa"      => "A-OTF-RyuminPro-Light.otf",
+    "hiragino-pron" => "HiraMinProN-W3.otf",
+    "hiragino"      => "HiraMinPro-W3.otf",
+    "hiragino-highsierra-pron" => "HiraginoSerif.ttc",
+    "hiragino-highsierra" => "HiraginoSerif.ttc",
+    "hiragino-elcapitan-pron" => "HiraginoSerif-W3.ttc",
+    "hiragino-elcapitan" => "HiraginoSerif-W3.ttc",
     "kozuka-pr6n"   => "KozMinPr6N-Regular.otf",
     "kozuka-pr6"    => "KozMinProVI-Regular.otf",
-    "ipa"           => "ipam.ttf",
-    "ipaex"         => "ipaexm.ttf",
-    "moga-mobo"     => "mogam.ttc",
-    "moga-mobo-ex"  => "mogam.ttc",
-    "ume"           => "ume-tmo3.ttf",
+    "kozuka"        => "KozMinPro-Regular.otf",
+    "toppanbunkyu-highsierra" => "ToppanBunkyuGothicPr6N.ttc",
+    "toppanbunkyu-sierra" => "ToppanBunkyuGothic.ttc",
+    "yu-osx"        => "YuMin-Medium.otf",
+    "yu-win10"      => "YuGothB.ttc",
+    "yu-win"        => "yugothib.ttf",
     "ms"            => "msgothic.ttc",
     "ms-osx"        => "MS-Gothic.ttf",
-    "yu-win"        => "yugothib.ttf",
-    "yu-win10"      => "YuGothB.ttc",
-    "yu-osx"        => "YuMin-Medium.otf",
+    "moga-mobo-ex"  => "mogam.ttc",
+    "moga-mobo"     => "mogam.ttc",
+    "ipaex"         => "ipaexm.ttf",
+    "ipa"           => "ipam.ttf",
+    "ume"           => "ume-tmo3.ttf",
     "canon"         => "FGCCHMW3.TTC",
   },
   "sc" => {
-    "ms"            => "simsun.ttc",
-    "ms-osx"        => "simsun.ttf",
+    "fandol"        => "FandolSong-Regular.otf",
     #"sinotype"      => "STSong.ttf", # removed
     "adobe"         => "AdobeSongStd-Light.otf",
-    "fandol"        => "FandolSong-Regular.otf",
+    "ms"            => "simsun.ttc",
+    "ms-osx"        => "simsun.ttf",
     "founder"       => "FZSSK.TTF",
-    "arphic"        => "gbsn00lp.ttf",
     "cjkunifonts"   => "uming.ttc",
     "cjkunifonts-ttf" => "uming.ttf",
+    "arphic"        => "gbsn00lp.ttf",
   },
   "tc" => {
-    "ms"            => "msjh.ttf",
-    "ms-win10"      => "msjh.ttc",
     "dynacomware"   => "LiSongPro.ttf",
     "adobe"         => "AdobeMingStd-Light.otf",
-    "arphic"        => "bsmi00lp.ttf",
+    "ms-win10"      => "msjh.ttc",
+    "ms"            => "msjh.ttf",
     "cjkunifonts"   => "uming.ttc",
     "cjkunifonts-ttf" => "uming.ttf",
+    "arphic"        => "bsmi00lp.ttf",
   },
   "ko" => {
-    "ms"            => "batang.ttc",
-    "apple"         => "AppleMyungjo.ttf",
     "adobe"         => "AdobeMyungjoStd-Medium.otf",
-    "baekmuk"       => "dotum.ttf", # slightly safer than batang.ttf on case-insentive systems
-    "unfonts"       => "UnBatang.ttf",
+    "apple"         => "AppleMyungjo.ttf",
+    "ms"            => "batang.ttc",
     "solaris"       => "h2mjsm.ttf",
+    "unfonts"       => "UnBatang.ttf",
+    "baekmuk"       => "dotum.ttf", # slightly safer than batang.ttf on case-insentive systems
   }
 );
 my %available;
@@ -197,16 +197,17 @@ sub Usage {
                  map file otf-<family>.map has to be available.
      auto:       embed one of the following supported font families
                  automatically:
-                   hiragino, hiragino-pron,
-                   hiragino-elcapitan, hiragino-elcapitan-pron,
-                   hiragino-highsierra, hiragino-highsierra-pron,
-                   toppanbunkyu-sierra,
-                   morisawa, morisawa-pr6n,
-                   kozuka, kozuka-pr6n, kozuka-pr6,
-                   ipa, ipaex, moga-mobo, moga-mobo-ex, ume,
+                   morisawa-pr6n, morisawa,
+                   hiragino-pron, hiragino,
+                   hiragino-highsierra-pron, hiragino-highsierra,
+                   hiragino-elcapitan-pron, hiragino-elcapitan,
+                   kozuka-pr6n, kozuka-pr6, kozuka,
+                   toppanbunkyu-highsierra, toppanbunkyu-sierra,
+                   yu-osx, yu-win10, yu-win,
                    ms, ms-osx,
-                   yu-win, yu-win10, yu-osx,
-                   canon
+                   moga-mobo-ex, moga-mobo,
+                   ipaex, ipa,
+                   ume, canon
                  and fall back to not embedding any font if none of them
                  is available
      nofont:     embed no fonts (and rely on system fonts when displaying pdfs)
@@ -349,19 +350,34 @@ sub SetupReplacement {
         if ($opt_mode eq 'ja') {
           @testlist = qw/
             morisawa-pr6n morisawa
-            hiragino-pron hiragino hiragino-elcapitan-pron hiragino-elcapitan
-            hiragino-highsierra hiragino-highsierra-pron
+            hiragino-pron hiragino
+            hiragino-highsierra-pron hiragino-highsierra
+            hiragino-elcapitan-pron hiragino-elcapitan
             kozuka-pr6n kozuka-pr6 kozuka
-            toppanbunkyu-sierra
-            yu-osx yu-win10 yu-win10 canon
-            ms ms-osx moga-mobo moga-mobo-ex ume
-            ipa ipaex/;
-        } elsif ($opt_mode eq 'tc') {
-          @testlist = qw/dynacomware adobe ms-win10 ms arphic cjkunifonts cjkunifonts-ttf/;
+            toppanbunkyu-highsierra toppanbunkyu-sierra
+            yu-osx yu-win10 yu-win
+            ms ms-osx
+            moga-mobo-ex moga-mobo
+            ipaex ipa
+            ume canon /;
         } elsif ($opt_mode eq 'sc') {
-          @testlist = qw/fandol adobe ms arphic cjkunifonts cjkunifonts-ttf/;
+          @testlist = qw/
+            fandol adobe
+            ms ms-osx
+            founder
+            cjkunifonts cjkunifonts-ttf
+            arphic /;
+        } elsif ($opt_mode eq 'tc') {
+          @testlist = qw/
+            dynacomware adobe
+            ms-win10 ms
+            cjkunifonts cjkunifonts-ttf
+            arphic /;
         } elsif ($opt_mode eq 'ko') {
-          @testlist = qw/apple adobe ms baekmuk unfonts solaris/;
+          @testlist = qw/
+            adobe
+            apple ms solaris
+            unfonts baekmuk /;
         }
         # else cannot happen unless getopt is broken
 
