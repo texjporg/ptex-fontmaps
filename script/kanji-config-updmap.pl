@@ -126,18 +126,17 @@ sub Usage {
 
     In addition it allows to set up arbitrary font families
     to be embedded into the generated pdf files, as long
-    as at least the map file ptex-<family>.map (for Japanese) or
-    uptex-<family>.map (for Chinese/Korean) is present.
-    Other map files that will be used if available are
+    as at least the representative map file is present.
+    Other map files will be used if available:
                   
       For Japanese:
-        ptex-<family>.map
+        ptex-<family>.map (representative map file)
         uptex-<family>.map
         otf-<family>.map
         otf-up-<family>.map
 
       For Simplified Chinese, Traditional Chinese and Korean:
-        uptex-<NN>-<family>.map
+        uptex-<NN>-<family>.map (representative map file)
         otf-<NN>-<family>.map
        (NN being: sc, tc, ko)
 
@@ -146,8 +145,7 @@ sub Usage {
   Usage:  $prg [OPTION] {<fontname>|auto|nofont|status}
 
      <family>    Embed an arbitrary font family <family>, at least
-                 the map file ptex-<family>.map and the representative font
-                 used in the map are available.
+                 the representative map file has to be available.
      auto:       If the current status is noEmbed or unknown, try to embed
                  one of the supported font families automatically.
                  If none of them is available, fall back to nofont
