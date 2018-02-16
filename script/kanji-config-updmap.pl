@@ -118,33 +118,36 @@ sub version {
 
 sub Usage {
   my $usage = <<"EOF";
-  $prg  Set up embedding of Japanese/Chinese/Korean fonts via updmap.cfg.
+  $prg $version
+  Set up embedding of Japanese/Chinese/Korean fonts via updmap.cfg.
 
-                 This script searches for some of the most common fonts
-                 for embedding into pdfs by dvipdfmx.
+    This script searches for some of the most common fonts
+    for embedding into pdfs by dvipdfmx.
 
-                 In addition it allows to set up arbitrary font families
-                 to be embedded into the generated pdf files, as long
-                 as at least the map file otf-<family>.map is present.
-                 Other map files that will be used if available are
+    In addition it allows to set up arbitrary font families
+    to be embedded into the generated pdf files, as long
+    as at least the map file ptex-<family>.map (for Japanese) or
+    uptex-<family>.map (for Chinese/Korean) is present.
+    Other map files that will be used if available are
                   
-                 For Japanese:
-                   ptex-<family>.map
-                   uptex-<family>.map
-                   otf-<family>.map
-                   otf-up-<family>.map
+      For Japanese:
+        ptex-<family>.map
+        uptex-<family>.map
+        otf-<family>.map
+        otf-up-<family>.map
 
-                 For Korean, Traditional Chinese and Simplified Chinese:
-                   uptex-<NN>-<family>.map
-                   otf-<NN>-<family>.map
-                 (NN being: ko, tc, sc)
+      For Simplified Chinese, Traditional Chinese and Korean:
+        uptex-<NN>-<family>.map
+        otf-<NN>-<family>.map
+       (NN being: sc, tc, ko)
 
   Please see the documentation of updmap for details (updmap --help).
 
   Usage:  $prg [OPTION] {<fontname>|auto|nofont|status}
 
-     <family>    Embed an arbitrary font family <family>, at least the
-                 map file otf-<family>.map has to be available.
+     <family>    Embed an arbitrary font family <family>, at least
+                 the map file ptex-<family>.map and the representative font
+                 used in the map are available.
      auto:       If the current status is noEmbed or unknown, try to embed
                  one of the supported font families automatically.
                  If none of them is available, fall back to nofont
@@ -158,16 +161,16 @@ sub Usage {
     -h, --help     Show this message and exit
     --mode=NN      Setup for Japanese (NN=ja), Korean (NN=ko),
                    Simplified Chinese (NN=sc), Traditional Chinese (NN=tc)
-    --NN           short for --mode=NN
-    --jis2004      use JIS2004 variants for default fonts of (u)pTeX
-    --sys          run in sys mode, i.e., call updmap -sys
-    --user         run in user mode, i.e., call updmap -user or updmap
-                   by checking the version of the updmap script. If a
-                   non-parsable output of `updmap --version' is found, a new
-                   updmap with --user option is assumed. If this is not the
-                   case, use --old.
+    --NN           Shorthand for --mode=NN
+    --jis2004      Use JIS2004 variants for default fonts of (u)pTeX
+    --sys          Run in sys mode, i.e., call updmap -sys
+    --user         Run in user mode, i.e., call updmap -user or updmap,
+                   by checking the version of the updmap script.
+                   If a non-parsable output of `updmap --version' is found,
+                   a new updmap with --user option is assumed.
+                   If this is not the case, explicitly use --old.
     --old          Makes $prg call `updmap' without --user argument in user mode.
-    --version      show version information and exit
+    --version      Show version information and exit
 
 EOF
 ;
