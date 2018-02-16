@@ -5,8 +5,8 @@
 # formerly known as updmap-setup-kanji
 #
 # Copyright 2004-2006 by KOBAYASHI R. Taizo for the shell version (updmap-otf)
-# Copyright 2011-2017 by PREINING Norbert
-# Copyright 2016-2017 by Japanese TeX Development Community
+# Copyright 2011-2018 by PREINING Norbert
+# Copyright 2016-2018 by Japanese TeX Development Community
 #
 # This file is licensed under GPL version 3 or any later version.
 # For copyright statements see end of file.
@@ -99,63 +99,13 @@ if ($opt_help) {
 #
 # representatives of support font families
 #
-my %representatives = (
-  "ja" => {
-    "morisawa-pr6n" => "A-OTF-RyuminPr6N-Light.otf",
-    "morisawa"      => "A-OTF-RyuminPro-Light.otf",
-    "hiragino-pron" => "HiraMinProN-W3.otf",
-    "hiragino"      => "HiraMinPro-W3.otf",
-    "hiragino-highsierra-pron" => "HiraginoSerif.ttc",
-    "hiragino-highsierra" => "HiraginoSerif.ttc",
-    "hiragino-elcapitan-pron" => "HiraginoSerif-W3.ttc",
-    "hiragino-elcapitan" => "HiraginoSerif-W3.ttc",
-    "kozuka-pr6n"   => "KozMinPr6N-Regular.otf",
-    "kozuka-pr6"    => "KozMinProVI-Regular.otf",
-    "kozuka"        => "KozMinPro-Regular.otf",
-    "toppanbunkyu-highsierra" => "ToppanBunkyuGothicPr6N.ttc",
-    "toppanbunkyu-sierra" => "ToppanBunkyuGothic.ttc",
-    "yu-osx"        => "YuMin-Medium.otf",
-    "yu-win10"      => "YuGothB.ttc",
-    "yu-win"        => "yugothib.ttf",
-    "ms"            => "msgothic.ttc",
-    "ms-osx"        => "MS-Gothic.ttf",
-    "moga-mobo-ex"  => "mogam.ttc",
-    "moga-mobo"     => "mogam.ttc",
-    "ipaex"         => "ipaexm.ttf",
-    "ipa"           => "ipam.ttf",
-    "ume"           => "ume-tmo3.ttf",
-    "canon"         => "FGCCHMW3.TTC",
-  },
-  "sc" => {
-    "fandol"        => "FandolSong-Regular.otf",
-    #"sinotype"      => "STSong.ttf", # removed
-    "adobe"         => "AdobeSongStd-Light.otf",
-    "ms"            => "simsun.ttc",
-    "ms-osx"        => "simsun.ttf",
-    "founder"       => "FZSSK.TTF",
-    "cjkunifonts"   => "uming.ttc",
-    "cjkunifonts-ttf" => "uming.ttf",
-    "arphic"        => "gbsn00lp.ttf",
-  },
-  "tc" => {
-    "dynacomware"   => "LiSongPro.ttf",
-    "adobe"         => "AdobeMingStd-Light.otf",
-    "ms-win10"      => "msjh.ttc",
-    "ms"            => "msjh.ttf",
-    "cjkunifonts"   => "uming.ttc",
-    "cjkunifonts-ttf" => "uming.ttf",
-    "arphic"        => "bsmi00lp.ttf",
-  },
-  "ko" => {
-    "adobe"         => "AdobeMyungjoStd-Medium.otf",
-    "apple"         => "AppleMyungjo.ttf",
-    "ms"            => "batang.ttc",
-    "solaris"       => "h2mjsm.ttf",
-    "unfonts"       => "UnBatang.ttf",
-    "baekmuk"       => "dotum.ttf", # slightly safer than batang.ttf on case-insentive systems
-  }
-);
-my %available;
+my %representatives;
+my $ja_candidate;
+my $sc_candidate;
+my $tc_candidate;
+my $ko_candidate;
+my @databaselist = "ptex-fontmaps-data.dat";
+push @databaselist, "ptex-fontmaps-macos-data.dat";
 
 
 main(@ARGV);
@@ -193,33 +143,20 @@ sub Usage {
 
   Usage:  $prg [OPTION] {<fontname>|auto|nofont|status}
 
-     <family>    embed an arbitrary font family <family>, at least the
+     <family>    Embed an arbitrary font family <family>, at least the
                  map file otf-<family>.map has to be available.
-     auto:       embed one of the following supported font families
-                 automatically:
-                   morisawa-pr6n, morisawa,
-                   hiragino-pron, hiragino,
-                   hiragino-highsierra-pron, hiragino-highsierra,
-                   hiragino-elcapitan-pron, hiragino-elcapitan,
-                   kozuka-pr6n, kozuka-pr6, kozuka,
-                   toppanbunkyu-highsierra, toppanbunkyu-sierra,
-                   yu-osx, yu-win10, yu-win,
-                   ms, ms-osx,
-                   moga-mobo-ex, moga-mobo,
-                   ipaex, ipa,
-                   ume, canon
-                 and fall back to not embedding any font if none of them
-                 is available
-     nofont:     embed no fonts (and rely on system fonts when displaying pdfs)
+     auto:       If the current status is noEmbed or unknown, try to embed
+                 one of the supported font families automatically.
+                 If none of them is available, fall back to nofont
+     nofont:     Embed no fonts (and rely on system fonts when displaying pdfs).
                  If your system does not have any of the supported font 
-                 families as specified above, this target is selected 
-                 automatically.
-     status:     get information about current environment and usable font map
+                 families, this target is selected automatically.
+     status:     Get information about current environment and usable font maps.
 
   Options:
-    -n, --dry-run  do not actually run updmap
-    -h, --help     show this message and exit
-    --mode=NN      setup for Japanese (NN=ja), Korean (NN=ko),
+    -n, --dry-run  Do not actually run updmap
+    -h, --help     Show this message and exit
+    --mode=NN      Setup for Japanese (NN=ja), Korean (NN=ko),
                    Simplified Chinese (NN=sc), Traditional Chinese (NN=tc)
     --NN           short for --mode=NN
     --jis2004      use JIS2004 variants for default fonts of (u)pTeX
@@ -241,14 +178,79 @@ EOF
 
 
 ###
+### Collect Database Lines
+###
+
+sub InitDatabase {
+  %representatives = ();
+}
+
+sub ReadDatabase {
+  my @curdbl;
+  # open database
+  for my $f (@databaselist) {
+    my $foo = kpse_miscfont($f);
+    open(FDB, "<$foo") || die("Cannot find $f: $!");
+    @curdbl = <FDB>;
+    close(FDB);
+    # parse lines
+    my $lineno = 0;
+    chomp(@curdbl);
+    push @curdbl, ""; # add a "final empty line" to easy parsing
+    for my $l (@curdbl) {
+      $lineno++;
+      next if ($l =~ m/^\s*$/); # skip empty line
+      next if ($l =~ m/^\s*#/); # skip comment line
+      $l =~ s/\s*#.*$//; # skip comment after '#'
+      if ($l =~ m/^JA\((\d+)\):\s*(.*):\s*(.*)$/) {
+        $representatives{'ja'}{$2}{'priority'} = $1;
+        $representatives{'ja'}{$2}{'file'} = $3;
+        next;
+      }
+      if ($l =~ m/^SC\((\d+)\):\s*(.*):\s*(.*)$/) {
+        $representatives{'sc'}{$2}{'priority'} = $1;
+        $representatives{'sc'}{$2}{'file'} = $3;
+        next;
+      }
+      if ($l =~ m/^TC\((\d+)\):\s*(.*):\s*(.*)$/) {
+        $representatives{'tc'}{$2}{'priority'} = $1;
+        $representatives{'tc'}{$2}{'file'} = $3;
+        next;
+      }
+      if ($l =~ m/^KO\((\d+)\):\s*(.*):\s*(.*)$/) {
+        $representatives{'ko'}{$2}{'priority'} = $1;
+        $representatives{'ko'}{$2}{'file'} = $3;
+        next;
+      }
+      # we are still here??
+      printf STDERR "Cannot parse \"$foo\" at line $lineno,
+                     exiting. Strange line: >>>$l<<<\n";
+      exit(1);
+    }
+  }
+}
+
+sub kpse_miscfont {
+  my ($file) = @_;
+  chomp(my $foo = `kpsewhich -format=miscfont $file`);
+  # for GitHub repository diretory structure
+  if ($foo eq "") {
+    $foo = "database/$file" if (-f "database/$file");
+  }
+  return $foo;
+}
+
+###
 ### Check Installed Font
 ###
 
 sub CheckInstallFont {
   for my $k (keys %{$representatives{$opt_mode}}) {
-    my $f = `kpsewhich $representatives{$opt_mode}{$k}`;
-    if (! $?) {
-      $available{$k} = chomp($f);
+    my $f = `kpsewhich $representatives{$opt_mode}{$k}{'file'}`;
+    if ($?) {
+      $representatives{$opt_mode}{$k}{'available'} = "";
+    } else {
+      $representatives{$opt_mode}{$k}{'available'} = chomp($f);
     }
   }
 }
@@ -289,7 +291,7 @@ sub GetStatus {
     my $MAPFILE = ($opt_mode eq "ja" ? "ptex-$k.map" : "uptex-${opt_mode}-$k.map");
     next if ($MAPFILE eq $testmap);
     if (check_mapfile($MAPFILE)) {
-      if ($available{$k}) {
+      if ($representatives{$opt_mode}{$k}{'available'}) {
         print "Standby family : $k\n";
       }
     }
@@ -322,7 +324,7 @@ sub SetupMapFile {
 sub SetupReplacement {
   my $rep = shift;
   if (defined($representatives{$opt_mode}{$rep})) {
-    if ($available{$rep}) {
+    if ($representatives{$opt_mode}{$rep}{'available'}) {
       return SetupMapFile($rep);
     } else {
       printf STDERR "$rep not available, falling back to auto!\n";
@@ -335,54 +337,21 @@ sub SetupReplacement {
       my $STATUS = GetStatus();
       # first check if we have a status set and the font is installed
       # in this case don't change anything, just make sure
-      if (defined($representatives{$opt_mode}{$STATUS}) && $available{$STATUS}) {
+      if (defined($representatives{$opt_mode}{$STATUS}) &&
+          $representatives{$opt_mode}{$STATUS}{'available'}) {
         return SetupMapFile($STATUS);
       } else {
         if (!($STATUS eq "noEmbed" || $STATUS eq "")) {
           # some unknown setting is set up currently, overwrite, but warn
           print "Previous setting $STATUS for $opt_mode is unknown, replacing it!\n"
         }
-        # if we are in the noEmbed or nothing set case, but one
-        # of the supported fonts are present then use them
-        # (originally it said "three fonts hiragino/morisawa/kozuka", but the code below
-        #  was different from this statement; changed to "supported fonts" on 2016/12/08)
-        my @testlist;
-        if ($opt_mode eq 'ja') {
-          @testlist = qw/
-            morisawa-pr6n morisawa
-            hiragino-pron hiragino
-            hiragino-highsierra-pron hiragino-highsierra
-            hiragino-elcapitan-pron hiragino-elcapitan
-            kozuka-pr6n kozuka-pr6 kozuka
-            toppanbunkyu-highsierra toppanbunkyu-sierra
-            yu-osx yu-win10 yu-win
-            ms ms-osx
-            moga-mobo-ex moga-mobo
-            ipaex ipa
-            ume canon /;
-        } elsif ($opt_mode eq 'sc') {
-          @testlist = qw/
-            fandol adobe
-            ms ms-osx
-            founder
-            cjkunifonts cjkunifonts-ttf
-            arphic /;
-        } elsif ($opt_mode eq 'tc') {
-          @testlist = qw/
-            dynacomware adobe
-            ms-win10 ms
-            cjkunifonts cjkunifonts-ttf
-            arphic /;
-        } elsif ($opt_mode eq 'ko') {
-          @testlist = qw/
-            adobe
-            apple ms solaris
-            unfonts baekmuk /;
-        }
-        # else cannot happen unless getopt is broken
-
-        for my $i (@testlist) {
-          if ($available{$i}) {
+        # if we are in the noEmbed or nothing set case,
+        # and if one of the supported fonts are present, then use them
+        for my $i (sort { $representatives{$opt_mode}{$a}{'priority'}
+                          <=>
+                          $representatives{$opt_mode}{$b}{'priority'} }
+                        keys %{$representatives{$opt_mode}}) {
+          if ($representatives{$opt_mode}{$i}{'available'}) {
             return SetupMapFile($i);
           }
         }
@@ -403,6 +372,8 @@ sub SetupReplacement {
 sub main {
   my ($a, $b) = @_;
 
+  InitDatabase();
+  ReadDatabase();
   CheckInstallFont();
 
   if (!defined($a) || defined($b)) {

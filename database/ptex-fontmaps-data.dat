@@ -1,0 +1,45 @@
+# ptex-fontmaps-data.dat
+
+JA(10): morisawa-pr6n: A-OTF-RyuminPr6N-Light.otf
+JA(20): morisawa: A-OTF-RyuminPro-Light.otf
+JA(30): hiragino-pron: HiraMinProN-W3.otf
+JA(40): hiragino: HiraMinPro-W3.otf
+JA(50): kozuka-pr6n: KozMinPr6N-Regular.otf
+JA(60): kozuka-pr6: KozMinProVI-Regular.otf
+JA(70): kozuka: KozMinPro-Regular.otf
+JA(90): yu-osx: YuMin-Medium.otf
+JA(95): yu-win10: YuGothB.ttc
+JA(96): yu-win: yugothib.ttf
+JA(100): ms: msgothic.ttc
+JA(105): ms-osx: MS-Gothic.ttf
+JA(110): moga-mobo-ex: mogam.ttc
+JA(120): moga-mobo: mogam.ttc
+JA(130): ipaex: ipaexm.ttf
+JA(140): ipa: ipam.ttf
+JA(150): ume: ume-tmo3.ttf
+JA(160): canon: FGCCHMW3.TTC
+
+#sinotype: STSong.ttf # removed
+SC(30): fandol: FandolSong-Regular.otf
+SC(40): adobe: AdobeSongStd-Light.otf
+SC(50): ms: simsun.ttc
+SC(55): ms-osx: simsun.ttf
+SC(60): founder: FZSSK.TTF
+SC(70): cjkunifonts: uming.ttc
+SC(75): cjkunifonts-ttf: uming.ttf
+SC(80): arphic: gbsn00lp.ttf
+
+TC(30): dynacomware: LiSongPro.ttf
+TC(40): adobe: AdobeMingStd-Light.otf
+TC(50): ms-win10: msjh.ttc
+TC(55): ms: msjh.ttf
+TC(70): cjkunifonts: uming.ttc
+TC(75): cjkunifonts-ttf: uming.ttf
+TC(80): arphic: bsmi00lp.ttf
+
+KO(40): adobe: AdobeMyungjoStd-Medium.otf
+KO(50): apple: AppleMyungjo.ttf
+KO(60): ms: batang.ttc
+KO(70): solaris: h2mjsm.ttf
+KO(80): unfonts: UnBatang.ttf
+KO(90): baekmuk: dotum.ttf # slightly safer than batang.ttf
