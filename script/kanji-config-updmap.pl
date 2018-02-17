@@ -15,7 +15,7 @@
 #  https://github.com/texjporg/jfontmaps
 #
 # For a changelog see the git log
-# 
+#
 
 $^W = 1;
 use Getopt::Long qw(:config no_autoabbrev ignore_case_always);
@@ -33,17 +33,22 @@ my $opt_jis = 0;
 my $opt_sys = 0;
 my $opt_user = 0;
 my $opt_old = 0;
-my $opt_mode = "ja";
+my @opt_mode_list;
+my $opt_mode_one;
+my $opt_mode_ja;
+my $opt_mode_sc;
+my $opt_mode_tc;
+my $opt_mode_ko;
 
 if (! GetOptions(
         "n|dry-run" => \$dry_run,
         "h|help" => \$opt_help,
         "jis2004" => \$opt_jis,
-        "mode=s"   => \$opt_mode,
-        "ja"       => sub { $opt_mode = "ja"; },
-        "sc"       => sub { $opt_mode = "sc"; },
-        "tc"       => sub { $opt_mode = "tc"; },
-        "ko"       => sub { $opt_mode = "ko"; },
+        "mode=s"   => \$opt_mode_one,
+        "ja=s"     => \$opt_mode_ja,
+        "sc=s"     => \$opt_mode_sc,
+        "tc=s"     => \$opt_mode_tc,
+        "ko=s"     => \$opt_mode_ko,
         "sys"      => \$opt_sys,
         "user"     => \$opt_user,
         "old"      => \$opt_old,
@@ -51,13 +56,32 @@ if (! GetOptions(
   die "Try \"$0 --help\" for more information.\n";
 }
 
+if ($opt_mode_one) {
+  if (defined($opt_mode_ja) || defined($opt_mode_sc) ||
+      defined($opt_mode_tc) || defined($opt_mode_ko)) {
+    die "Options --ja/--sc/--tc/--ko are invalid with --mode=NN!\n";
+  }
+  # define a corresponding option by empty string
+  if ($opt_mode_one eq "ja") {
+    $opt_mode_ja = '';
+  } elsif ($opt_mode_one eq "sc") {
+    $opt_mode_sc = '';
+  } elsif ($opt_mode_one eq "tc") {
+    $opt_mode_tc = '';
+  } elsif ($opt_mode_one eq "ko") {
+    $opt_mode_ko = '';
+  } else {
+    die "Unknown mode $opt_mode_one!";
+  }
+}
+push @opt_mode_list, "ja" if ($opt_mode_ja);
+push @opt_mode_list, "sc" if ($opt_mode_sc);
+push @opt_mode_list, "tc" if ($opt_mode_tc);
+push @opt_mode_list, "ko" if ($opt_mode_ko);
+push @opt_mode_list, "ja" if (!@opt_mode_list); # default mode: ja
 
 sub win32 { return ($^O=~/^MSWin(32|64)$/i); }
 my $nul = (win32() ? 'nul' : '/dev/null') ;
-
-if ($opt_user && $opt_sys) {
-  die "Only one of -user and -sys can be used!";
-}
 
 if (defined($ARGV[0]) && $ARGV[0] ne "status") {
   if (!($opt_user || $opt_sys)) {
@@ -65,10 +89,10 @@ if (defined($ARGV[0]) && $ARGV[0] ne "status") {
   }
 }
 
-
-if ($dry_run) {
-  $updmap = "echo updmap"; 
+if ($opt_user && $opt_sys) {
+  die "Only one of -user and -sys can be used!";
 }
+
 if ($opt_sys) {
   $updmap = "$updmap --sys" ;
   $updmap_real = "$updmap_real --sys" ;
@@ -89,10 +113,13 @@ if ($opt_sys) {
     }
   }
 }
+if ($dry_run) {
+  $updmap = "echo updmap";
+}
 
 if ($opt_help) {
   Usage();
-  exit 0;
+  exit(0);
 }
 
 #
@@ -106,8 +133,7 @@ push @databaselist, "ptex-fontmaps-macos-data.dat";
 main(@ARGV);
 
 sub version {
-  my $ret = sprintf "%s version %s\n", 
-    $prg, $version;
+  my $ret = sprintf "%s version %s\n", $prg, $version;
   return $ret;
 }
 
@@ -123,7 +149,7 @@ sub Usage {
     to be embedded into the generated pdf files, as long
     as at least the representative map file is present.
     Other map files will be used if available:
-                  
+
       For Japanese:
         ptex-<family>.map (representative map file)
         uptex-<family>.map
@@ -145,7 +171,7 @@ sub Usage {
                  one of the supported font families automatically.
                  If none of them is available, fall back to nofont
      nofont:     Embed no fonts (and rely on system fonts when displaying pdfs).
-                 If your system does not have any of the supported font 
+                 If your system does not have any of the supported font
                  families, this target is selected automatically.
      status:     Get information about current environment and usable font maps.
 
@@ -168,7 +194,7 @@ sub Usage {
 EOF
 ;
   print $usage;
-  exit 0;
+  exit(0);
 }
 
 
@@ -246,12 +272,14 @@ sub kpse_miscfont {
 ###
 
 sub CheckInstallFont {
-  for my $k (keys %{$representatives{$opt_mode}}) {
-    my $f = `kpsewhich $representatives{$opt_mode}{$k}{'file'}`;
-    if ($?) {
-      $representatives{$opt_mode}{$k}{'available'} = "";
-    } else {
-      $representatives{$opt_mode}{$k}{'available'} = chomp($f);
+  for my $opt_mode (@opt_mode_list) {
+    for my $k (keys %{$representatives{$opt_mode}}) {
+      my $f = `kpsewhich $representatives{$opt_mode}{$k}{'file'}`;
+      if ($?) {
+        $representatives{$opt_mode}{$k}{'available'} = "";
+      } else {
+        $representatives{$opt_mode}{$k}{'available'} = chomp($f);
+      }
     }
   }
 }
@@ -272,20 +300,20 @@ sub check_mapfile {
 }
 
 sub GetStatus {
+  my $opt_mode = shift;
   my $val = `$updmap_real --quiet --showoption ${opt_mode}Embed`;
   my $STATUS;
   if ($val =~ m/^${opt_mode}Embed=([^()\s]*)(\s+\()?/) {
     $STATUS = $1;
   } else {
-    printf STDERR "Cannot find status of current ${opt_mode}Embed setting via updmap --showoption!\n";
-    exit 1;
+    die "Cannot find status of current ${opt_mode}Embed setting via updmap --showoption!\n";
   }
 
   my $testmap = ($opt_mode eq "ja" ? "ptex-$STATUS.map" : "uptex-${opt_mode}-$STATUS.map");
   if (check_mapfile($testmap)) {
     print "CURRENT family for $opt_mode: $STATUS\n";
   } else {
-    print "WARNING: Currently selected map file for $opt_mode cannot be found: $testmap\n";
+    print STDERR "WARNING: Currently selected map file for $opt_mode cannot be found: $testmap\n";
   }
 
   for my $k (sort keys %{$representatives{$opt_mode}}) {
@@ -305,6 +333,7 @@ sub GetStatus {
 ###
 
 sub SetupMapFile {
+  my $opt_mode = shift;
   my $rep = shift;
   my $MAPFILE = ($opt_mode eq "ja" ? "ptex-$rep.map" : "uptex-${opt_mode}-$rep.map");
   if (check_mapfile($MAPFILE)) {
@@ -315,36 +344,35 @@ sub SetupMapFile {
     } else {
       system("$updmap --quiet --nomkmap --nohash -setoption jaVariant \"\"");
     }
-    system("$updmap");
   } else {
-    print "NOT EXIST $MAPFILE\n";
-    exit 1;
+    die "NOT EXIST $MAPFILE\n";
   }
 }
 
 sub SetupReplacement {
+  my $opt_mode = shift;
   my $rep = shift;
   if (defined($representatives{$opt_mode}{$rep})) {
     if ($representatives{$opt_mode}{$rep}{'available'}) {
-      return SetupMapFile($rep);
+      SetupMapFile($opt_mode, $rep);
     } else {
       printf STDERR "$rep not available, falling back to auto!\n";
-      return SetupReplacement("auto");
+      SetupReplacement($opt_mode, "auto");
     }
   } else {
     if ($rep eq "nofont") {
-      return SetupMapFile("noEmbed");
+      SetupMapFile($opt_mode, "noEmbed");
     } elsif ($rep eq "auto") {
-      my $STATUS = GetStatus();
+      my $STATUS = GetStatus($opt_mode);
       # first check if we have a status set and the font is installed
       # in this case don't change anything, just make sure
       if (defined($representatives{$opt_mode}{$STATUS}) &&
           $representatives{$opt_mode}{$STATUS}{'available'}) {
-        return SetupMapFile($STATUS);
+        SetupMapFile($opt_mode, $STATUS);
       } else {
         if (!($STATUS eq "noEmbed" || $STATUS eq "")) {
           # some unknown setting is set up currently, overwrite, but warn
-          print "Previous setting $STATUS for $opt_mode is unknown, replacing it!\n"
+          print STDERR "Previous setting $STATUS for $opt_mode is unknown, replacing it!\n"
         }
         # if we are in the noEmbed or nothing set case,
         # and if one of the supported fonts are present, then use them
@@ -353,15 +381,15 @@ sub SetupReplacement {
                           $representatives{$opt_mode}{$b}{'priority'} }
                         keys %{$representatives{$opt_mode}}) {
           if ($representatives{$opt_mode}{$i}{'available'}) {
-            return SetupMapFile($i);
+            SetupMapFile($opt_mode, $i);
           }
         }
         # still here, no map file found!
-        return SetupMapFile("noEmbed");
+        SetupMapFile($opt_mode, "noEmbed");
       }
     } else {
       # anything else is treated as a map file name
-      return SetupMapFile($rep);
+      SetupMapFile($opt_mode, $rep);
     }
   }
 }
@@ -371,23 +399,51 @@ sub SetupReplacement {
 ###
 
 sub main {
+  # Number of arguments allowed:
+  #  0: should be only --NN=<family> lists ('=' can be omitted)
+  #  1: treated as --mode=NN <family> ('=' can be omitted)
+  #  2 or more: I can't handle!
   my ($a, $b) = @_;
+  if (defined($b)) {
+    die "Number of the arguments should be at most one!\n";
+  }
+  if ($a) {
+    die "Strange argument found! >>>$a<<<\n" if (!$opt_mode_one);
+    # argument is passed to defined-but-empty language mode
+    if (defined($opt_mode_ja) && !$opt_mode_ja) {
+      $opt_mode_ja = $a;
+    } elsif (defined($opt_mode_sc) && !$opt_mode_sc) {
+      $opt_mode_sc = $a;
+    } elsif (defined($opt_mode_tc) && !$opt_mode_tc) {
+      $opt_mode_tc = $a;
+    } elsif (defined($opt_mode_ko) && !$opt_mode_ko) {
+      $opt_mode_ko = $a;
+    }
+  } else {
+    die "No family is specified for $opt_mode_one!\n" if ($opt_mode_one);
+  }
 
   InitDatabase();
   ReadDatabase();
   CheckInstallFont();
 
-  if (!defined($a) || defined($b)) {
-    Usage();
-    exit 1;
+  # if one of <family> arguments is "status", then
+  # all arguments are forced into "status"
+  if (($opt_mode_ja && ($opt_mode_ja eq "status")) ||
+      ($opt_mode_sc && ($opt_mode_sc eq "status")) ||
+      ($opt_mode_tc && ($opt_mode_tc eq "status")) ||
+      ($opt_mode_ko && ($opt_mode_ko eq "status"))) {
+    GetStatus("ja") if ($opt_mode_ja);
+    GetStatus("sc") if ($opt_mode_sc);
+    GetStatus("tc") if ($opt_mode_tc);
+    GetStatus("ko") if ($opt_mode_ko);
+  } else {
+    SetupReplacement("ja", $opt_mode_ja) if ($opt_mode_ja);
+    SetupReplacement("sc", $opt_mode_sc) if ($opt_mode_sc);
+    SetupReplacement("tc", $opt_mode_tc) if ($opt_mode_tc);
+    SetupReplacement("ko", $opt_mode_ko) if ($opt_mode_ko);
+    system("$updmap");
   }
-
-  if ($a eq "status") {
-    GetStatus();
-    exit 0;
-  }
-
-  return SetupReplacement($a);
 }
 
 #
