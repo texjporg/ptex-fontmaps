@@ -32,8 +32,8 @@ my $opt_help = 0;
 my $opt_jis = 0;
 my $opt_sys = 0;
 my $opt_user = 0;
-my $opt_mode = "ja";
 my $opt_old = 0;
+my $opt_mode = "ja";
 
 if (! GetOptions(
         "n|dry-run" => \$dry_run,
@@ -53,7 +53,6 @@ if (! GetOptions(
 
 
 sub win32 { return ($^O=~/^MSWin(32|64)$/i); }
-
 my $nul = (win32() ? 'nul' : '/dev/null') ;
 
 if ($opt_user && $opt_sys) {
@@ -100,10 +99,6 @@ if ($opt_help) {
 # representatives of support font families
 #
 my %representatives;
-my $ja_candidate;
-my $sc_candidate;
-my $tc_candidate;
-my $ko_candidate;
 my @databaselist = "ptex-fontmaps-data.dat";
 push @databaselist, "ptex-fontmaps-macos-data.dat";
 
@@ -227,14 +222,12 @@ sub ReadDatabase {
         next;
       }
       # we are still here??
-      printf STDERR "Cannot parse \"$foo\" at line $lineno,
-                     exiting. Strange line: >>>$l<<<\n";
-      exit(1);
+      die "Cannot parse \"$foo\" at line $lineno,
+           exiting. Strange line: >>>$l<<<\n";
     }
   }
   if (!%representatives) {
-    printf STDERR "Candidate list is empty, cannot proceed!\n";
-    exit(1);
+    die "Candidate list is empty, cannot proceed!\n";
   }
 }
 
