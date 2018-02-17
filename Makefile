@@ -18,6 +18,8 @@ install:
 	cp cmap/* ${TEXMF}/fonts/cmap/ptex-fontmaps/
 	mkdir -p ${TEXMF}/fonts/map/dvipdfmx/ptex-fontmaps
 	cp -r maps ${TEXMF}/fonts/map/dvipdfmx/ptex-fontmaps/
+	mkdir -p ${TEXMF}/fonts/misc/$(PROJECT)
+	cp database/*.dat ${TEXMF}/fonts/misc/$(PROJECT)/
 	mkdir -p ${TEXMF}/scripts/ptex-fontmaps
 	ls script/* | grep -v updmap-otf.sh | xargs -I % cp % ${TEXMF}/scripts/ptex-fontmaps/
 	mkdir -p ${TEXMF}/source/ptex-fontmaps/script

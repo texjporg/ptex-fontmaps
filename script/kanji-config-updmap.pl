@@ -191,7 +191,10 @@ sub ReadDatabase {
   # open database
   for my $f (@databaselist) {
     my $foo = kpse_miscfont($f);
-    open(FDB, "<$foo") || die("Cannot find $f: $!");
+    if (!open(FDB, "<$foo")) {
+      printf STDERR "Cannot find $f, skipping!\n";
+      next;
+    }
     @curdbl = <FDB>;
     close(FDB);
     # parse lines
@@ -228,6 +231,10 @@ sub ReadDatabase {
                      exiting. Strange line: >>>$l<<<\n";
       exit(1);
     }
+  }
+  if (!%representatives) {
+    printf STDERR "Candidate list is empty, cannot proceed!\n";
+    exit(1);
   }
 }
 
