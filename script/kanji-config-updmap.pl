@@ -74,11 +74,16 @@ if ($opt_mode_one) {
     die "Unknown mode $opt_mode_one!";
   }
 }
-push @opt_mode_list, "ja" if ($opt_mode_ja);
-push @opt_mode_list, "sc" if ($opt_mode_sc);
-push @opt_mode_list, "tc" if ($opt_mode_tc);
-push @opt_mode_list, "ko" if ($opt_mode_ko);
-push @opt_mode_list, "ja" if (!@opt_mode_list); # default mode: ja
+push @opt_mode_list, "ja" if (defined($opt_mode_ja));
+push @opt_mode_list, "sc" if (defined($opt_mode_sc));
+push @opt_mode_list, "tc" if (defined($opt_mode_tc));
+push @opt_mode_list, "ko" if (defined($opt_mode_ko));
+if (!@opt_mode_list) {
+  # default mode needs to be set, define it by empty string
+  $opt_mode_one = "ja";
+  $opt_mode_ja = '';
+  push @opt_mode_list, "ja";
+}
 
 sub win32 { return ($^O=~/^MSWin(32|64)$/i); }
 my $nul = (win32() ? 'nul' : '/dev/null') ;
@@ -401,7 +406,7 @@ sub SetupReplacement {
 sub main {
   # Number of arguments allowed:
   #  0: should be only --NN=<family> lists ('=' can be omitted)
-  #  1: treated as --mode=NN <family> ('=' can be omitted)
+  #  1: treated as [--mode=NN] <family> ('=' can be omitted)
   #  2 or more: I can't handle!
   my ($a, $b) = @_;
   if (defined($b)) {
@@ -420,7 +425,8 @@ sub main {
       $opt_mode_ko = $a;
     }
   } else {
-    die "No family is specified for $opt_mode_one!\n" if ($opt_mode_one);
+    die "No family or operation is specified for $opt_mode_one!\n",
+        "Try \"$0 --help\" for more information.\n" if ($opt_mode_one);
   }
 
   InitDatabase();
