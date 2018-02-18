@@ -47,17 +47,20 @@ diff -urN $PROJECT-$VER-orig $PROJECT-$VER
 # separate macOS-specific packages
 mkdir $PROJECT-macos-$VER
 # remove the non-free part in the main project
+mkdir -p $PROJECT-macos-$VER/maps
 for i in $PROJECT-$VER/maps/* ; do
   bn=`basename $i`
   case $bn in
     hiragino-elcapitan|hiragino-elcapitan-pron)
-       mv $PROJECT-$VER/maps/$bn $PROJECT-macos-$VER ;;
+       mv $PROJECT-$VER/maps/$bn $PROJECT-macos-$VER/maps/ ;;
     hiragino-highsierra|hiragino-highsierra-pron)
-       mv $PROJECT-$VER/maps/$bn $PROJECT-macos-$VER ;;
+       mv $PROJECT-$VER/maps/$bn $PROJECT-macos-$VER/maps/ ;;
     toppanbunkyu-sierra|toppanbunkyu-highsierra)
-       mv $PROJECT-$VER/maps/$bn $PROJECT-macos-$VER ;;
+       mv $PROJECT-$VER/maps/$bn $PROJECT-macos-$VER/maps/ ;;
   esac
 done
+mkdir -p $PROJECT-macos-$VER/database
+mv $PROJECT-$VER/database/*-macos-*.dat $PROJECT-macos-$VER/database/
 # remove the rest of the stuff
 mv $PROJECT-$VER/README.macos $PROJECT-macos-$VER/README
 
