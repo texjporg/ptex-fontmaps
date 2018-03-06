@@ -29,13 +29,15 @@ git archive --format=tar --prefix=$PROJECT-$VER/ HEAD | (cd $TEMP && tar xf -)
 git --no-pager log --date=short --format='%ad  %aN  <%ae>%n%n%x09* %s%d [%h]%n' > $TEMP/$PROJECT-$VER/ChangeLog
 cat ChangeLog.pre-git >> $TEMP/$PROJECT-$VER/ChangeLog
 cd $TEMP
-rm -rf $PROJECT-$VER-orig
-#
+# exclude unnecessary files for CTAN
+rm -f $PROJECT-$VER/.gitignore $PROJECT-$VER/ChangeLog.pre-git
+rm -rf $PROJECT-$VER/tools $PROJECT-$VER/tests
 # remove tl-update stuff that is only here temporarily
 rm -rf $PROJECT-$VER/tl-updates
+# version number
+rm -rf $PROJECT-$VER-orig
 cp -r $PROJECT-$VER $PROJECT-$VER-orig
 cd $PROJECT-$VER
-rm -f .gitignore
 for i in README script/kanji-fontmap-creator.pl script/kanji-config-updmap.pl ; do
   perl -pi.bak -e "s/\\\$VER\\\$/$VER/g" $i
   rm -f ${i}.bak
