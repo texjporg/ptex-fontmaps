@@ -30,7 +30,8 @@ git --no-pager log --date=short --format='%ad  %aN  <%ae>%n%n%x09* %s%d [%h]%n' 
 cat ChangeLog.pre-git >> $TEMP/$PROJECT-$VER/ChangeLog
 cd $TEMP
 # exclude unnecessary files for CTAN
-rm -f $PROJECT-$VER/.gitignore $PROJECT-$VER/ChangeLog.pre-git
+rm -f $PROJECT-$VER/.gitignore
+rm -f $PROJECT-$VER/Makefile $PROJECT-$VER/ChangeLog.pre-git
 rm -rf $PROJECT-$VER/tools $PROJECT-$VER/tests
 # remove tl-update stuff that is only here temporarily
 rm -rf $PROJECT-$VER/tl-updates
@@ -38,7 +39,7 @@ rm -rf $PROJECT-$VER/tl-updates
 rm -rf $PROJECT-$VER-orig
 cp -r $PROJECT-$VER $PROJECT-$VER-orig
 cd $PROJECT-$VER
-for i in README script/kanji-fontmap-creator.pl script/kanji-config-updmap.pl ; do
+for i in README README.macos script/kanji-fontmap-creator.pl script/kanji-config-updmap.pl ; do
   perl -pi.bak -e "s/\\\$VER\\\$/$VER/g" $i
   rm -f ${i}.bak
 done
@@ -66,6 +67,11 @@ mv $PROJECT-$VER/database/*-macos-*.dat $PROJECT-macos-$VER/database/
 # remove the rest of the stuff
 mv $PROJECT-$VER/README.macos $PROJECT-macos-$VER/README
 
+# noto/sourcehan is not supported well, sorry
+for i in noto noto-otc sourcehan sourcehan-otc ; do
+  rm -rf $PROJECT-$VER/maps/$i
+done
+
 tar zcf $DIR/$PROJECT-$VER.tar.gz $PROJECT-$VER
 tar zcf $DIR/$PROJECT-macos-$VER.tar.gz $PROJECT-macos-$VER
 echo
@@ -80,3 +86,5 @@ echo "  DIRECTORY:    language/japanese/ptex-fontmaps"
 echo "  LICENSE:      free/other-free"
 echo "  FILE:         $DIR/$PROJECT-$VER.tar.gz"
 
+# clean up
+rm -rf $PROJECT-$VER-orig $PROJECT-$VER $PROJECT-macos-$VER
