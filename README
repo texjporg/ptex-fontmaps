@@ -31,10 +31,10 @@ software. This package is split into two parts:
 
 The package `ptex-fontmaps' (this package) is available in TeX Live,
 while the package `ptex-fontmaps-macos` is *NOT* available directly from the
-TeX Live package mirrors, but can be installed from the tltexjp
+TeX Live package mirrors, but can be installed from the TLContrib
 repository, by executing the following commands:
-	tlmgr repository add http://texlive.texjp.org/current/tltexjp tltexjp
-	tlmgr pinning add tltexjp '*'
+	tlmgr repository add http://texlive.texjp.org/current/tlcontrib tlcontrib
+	tlmgr pinning add tlcontrib '*'
 	tlmgr install ptex-fontmaps-macos
 After that updates for the ptex-fontmaps packages will be automatically
 installed.
