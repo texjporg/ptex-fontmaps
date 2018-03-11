@@ -71,6 +71,19 @@ my %opts = ( quiet => 0, nohash => 0, nomkmap => 0 );
 my $alldata;
 my $updLSR;
 
+# which programs are available for various writing styles
+# this gives
+#  jaEmbed.ptex, jaEmbed.otf, jaEmbed.uptex, jaEmbed.otf-up
+#  koEmbed.otf, koEmbed.otf-up
+# etc
+my @supported_writing_styles = qw/ja ko tc sc/;
+my %kanji_map_progs = (
+  ja => [ qw/ptex otf uptex otf-up/ ],
+  ko => [ qw/otf uptex/ ],
+  sc => [ qw/otf uptex/ ],
+  tc => [ qw/otf uptex/ ]
+);
+
 my @cmdline_options = (
   "sys",
   "user",
@@ -145,17 +158,29 @@ my %settings = (
     type     => "any",
     default  => "",
   },
-  scEmbed            => {
+  scEmbed               => {
     type     => "any",
     default  => "noEmbed",
   },
-  tcEmbed            => {
+  scVariant             => {
+    type     => "any",
+    default  => "",
+  },
+  tcEmbed               => {
     type     => "any",
     default  => "noEmbed",
   },
-  koEmbed            => {
+  tcVariant             => {
+    type     => "any",
+    default  => "",
+  },
+  koEmbed               => {
     type     => "any",
     default  => "noEmbed",
+  },
+  koVariant             => {
+    type     => "any",
+    default  => "",
   },
 );
 
@@ -202,12 +227,13 @@ sub main {
  
   if ($opts{'showoptions'}) {
     for my $o (@{$opts{'showoptions'}}) {
-      if (defined($settings{$o})) {
-        if ($settings{$o}{'type'} eq "binary") {
+      (my $oo = $o) =~ s/\..*$//;
+      if (defined($settings{$oo})) {
+        if ($settings{$oo}{'type'} eq "binary") {
           print "true false\n";
-        } elsif ($settings{$o}{'type'} eq "string") {
-          print "@{$settings{$o}{'possible'}}\n";
-        } elsif ($settings{$o}{'type'} eq "any") {
+        } elsif ($settings{$oo}{'type'} eq "string") {
+          print "@{$settings{$oo}{'possible'}}\n";
+        } elsif ($settings{$oo}{'type'} eq "any") {
           print "(any string)\n";
         } else {
           print_warning("strange: unknown type of option $o\nplease report\n");
@@ -346,7 +372,8 @@ sub main {
   if ($opts{'showoption'}) {
     merge_settings_replace_kanji();
     for my $o (@{$opts{'showoption'}}) {
-      if (defined($settings{$o})) {
+      (my $oo = $o) =~ s/\..*$//;
+      if (defined($settings{$o}) || defined($settings{$oo})) {
         my ($v, $vo) = get_cfg($o);
         $v = "\"$v\"" if ($v =~ m/\s/);
         print "$o=$v ($vo)\n";
@@ -951,13 +978,59 @@ sub cidx2dvips_old {
     return @d
 }
 
+sub get_embed_settings {
+  my %embedSettings;
+  for my $w (@supported_writing_styles) {
+    my ($a, $b);
+    ($a, $b) = get_cfg("${w}Embed");
+    $embedSettings{$w}{'Embed'}{'value'} = $a;
+    $embedSettings{$w}{'Embed'}{'origin'} = $b;
+    for my $p (@{$kanji_map_progs{$w}}) {
+      my ($aa, $bb) = get_cfg("${w}Embed.$p");
+      if ($aa) {
+        $embedSettings{$w}{'Embed'}{$p}{'value'} = $aa;
+        $embedSettings{$w}{'Embed'}{$p}{'origin'} = $bb;
+      }
+    }
+    ($a, $b) = get_cfg("${w}Variant");
+    $embedSettings{$w}{'Variant'}{'value'} = $a;
+    $embedSettings{$w}{'Variant'}{'origin'} = $b;
+    for my $p (@{$kanji_map_progs{$w}}) {
+      my ($aa, $bb) = get_cfg("${w}Variant.$p");
+      if ($aa) {
+        $embedSettings{$w}{'Variant'}{$p}{'value'} = $aa;
+        $embedSettings{$w}{'Variant'}{$p}{'origin'} = $bb;
+      }
+    }
+  }
+  # keep backward compatibility with old definitions
+  # of kanjiEmbed, kanjiVariant
+  for my $t (qw/Embed Variant/) {
+    if (!defined($embedSettings{'ja'}{$t}{'value'})) {
+      ($embedSettings{'ja'}{$t}{'value'}, $embedSettings{'ja'}{$t}{'origin'}) = get_cfg("kanji$t");
+    }
+  }
+  # require Data::Dumper;
+  # # two times to silence perl warnings!
+  # $Data::Dumper::Indent = 1;
+  # $Data::Dumper::Indent = 1;
+  # print "READING DONE ============================\n";
+  # print Data::Dumper::Dumper(%embedSettings);
+  return \%embedSettings;
+}
+
 sub get_cfg {
   my ($v) = @_;
   if (defined($alldata->{'merged'}{'setting'}{$v})) {
     return ( $alldata->{'merged'}{'setting'}{$v}{'val'},
              $alldata->{'merged'}{'setting'}{$v}{'origin'} );
   } else {
-    return ($settings{$v}{'default'}, "default");
+    if (defined($settings{$v}{'default'})) {
+      return ($settings{$v}{'default'}, "default");
+    } else {
+      # should only happen for xxEmbed.prog etc
+      return ("", "");
+    }
   }
 }
 
@@ -994,19 +1067,7 @@ sub mkMaps {
   my ($pdftexDownloadBase14, $pdftexDownloadBase14_origin) = 
     get_cfg('pdftexDownloadBase14');
   my ($pxdviUse, $pxdviUse_origin) = get_cfg('pxdviUse');
-  my ($jaEmbed, $jaEmbed_origin) = get_cfg('jaEmbed');
-  my ($jaVariant, $jaVariant_origin) = get_cfg('jaVariant');
-  my ($scEmbed, $scEmbed_origin) = get_cfg('scEmbed');
-  my ($tcEmbed, $tcEmbed_origin) = get_cfg('tcEmbed');
-  my ($koEmbed, $koEmbed_origin) = get_cfg('koEmbed');
-
-  # keep backward compatibility with old definitions
-  # of kanjiEmbed, kanjiVariant
-  ($jaEmbed, $jaEmbed_origin) = get_cfg('kanjiEmbed')
-    if (!defined($jaEmbed));
-  ($jaVariant, $jaVariant_origin) = get_cfg('kanjiVariant')
-    if (!defined($jaVariant));
-
+  my $embedSettings = get_embed_settings();
 
   # pxdvi is optional, and off by default.  Don't create the output
   # directory unless we are going to put something there.
@@ -1023,18 +1084,23 @@ sub mkMaps {
          . "\n  download standard fonts (dvips)  : "
          .      "$dvipsDownloadBase35 ($dvipsDownloadBase35_origin)"
          . "\n  download standard fonts (pdftex) : "
-         .      "$pdftexDownloadBase14 ($pdftexDownloadBase14_origin)"
-         . "\n  jaEmbed replacement string       : "
-         .      "$jaEmbed ($jaEmbed_origin)"
-         . "\n  jaVariant replacement string     : "
-         .      ($jaVariant ? $jaVariant : "<empty>") . " ($jaVariant_origin)"
-         . "\n  scEmbed replacement string       : "
-         .      "$scEmbed ($scEmbed_origin)"
-         . "\n  tcEmbed replacement string       : "
-         .      "$tcEmbed ($tcEmbed_origin)"
-         . "\n  koEmbed replacement string       : "
-         .      "$koEmbed ($koEmbed_origin)"
-         . "\n  create a mapfile for pxdvi       : "
+         .      "$pdftexDownloadBase14 ($pdftexDownloadBase14_origin)");
+  for my $w (@supported_writing_styles) {
+    for my $t (qw/Embed Variant/) {
+      my $spacer = ($t eq 'Embed' ? "  " : "");
+      my $val = ( $embedSettings->{$w}{$t}{'value'} ? $embedSettings->{$w}{$t}{'value'} : "<empty>" );
+      my $ori = $embedSettings->{$w}{$t}{'origin'};
+      print_and_log ("\n  $w$t replacement string     $spacer: $val ($ori)");
+      for my $p (@{$kanji_map_progs{$w}}) {
+        if (defined($embedSettings->{$w}{$t}{$p})) {
+          my $val = ( $embedSettings->{$w}{$t}{$p}{'value'} ? $embedSettings->{$w}{$t}{$p}{'value'} : "<empty>" );
+          my $spacer = " " x (length("up-otf") - length($p));
+          print_and_log ("\n  $w$t.$p replacement string$spacer: $val ($ori)");
+        }
+      }
+    }
+  }
+  print_and_log("\n  create a mapfile for pxdvi       : "
          .      "$pxdviUse ($pxdviUse_origin)"
          . "\n\n");
 
@@ -1677,9 +1743,10 @@ sub setOption {
     $opt = "jaVariant";
   }
 
-  die "$prg: Unsupported option $opt." if (!defined($settings{$opt}));
+  (my $oo = $opt) =~ s/\..*$//;
+  die "$prg: Unsupported option $opt." if (!defined($settings{$oo}));
   die "$0: Invalid value $val for option $opt." 
-    if (!check_option($opt, $val));
+    if (!check_option($oo, $val));
 
   # silently accept this old option name, just in case.
   return if $opt eq "dvipdfmDownloadBase14";
@@ -1900,18 +1967,8 @@ sub merge_settings_replace_kanji {
     }
   }
   #
-  my ($jaEmbed, $jaEmbed_origin) = get_cfg('jaEmbed');
-  my ($jaVariant, $jaVariant_origin) = get_cfg('jaVariant');
-  my ($scEmbed, $scEmbed_origin) = get_cfg('scEmbed');
-  my ($tcEmbed, $tcEmbed_origin) = get_cfg('tcEmbed');
-  my ($koEmbed, $koEmbed_origin) = get_cfg('koEmbed');
+  my $embedSettings = get_embed_settings();
 
-  # keep backward compatibility with old definitions
-  # of kanjiEmbed, kanjiVariant
-  ($jaEmbed, $jaEmbed_origin) = get_cfg('kanjiEmbed')
-    if (!defined($jaEmbed));
-  ($jaVariant, $jaVariant_origin) = get_cfg('kanjiVariant')
-    if (!defined($jaVariant));
 
   #
   # go through all map files and check that the text is properly replaced
@@ -1921,16 +1978,31 @@ sub merge_settings_replace_kanji {
   for my $l (@l) {
     for my $m (keys %{$alldata->{'updmap'}{$l}{'maps'}}) {
       my $newm = $m;
+      my $kprog;
+      if ($newm =~ m/^(ptex|otf|uptex|up-otf)-/) {
+        $kprog = $1;
+      }
       # do all kinds of substitutions
-      $newm =~ s/\@jaEmbed@/$jaEmbed/;
-      $newm =~ s/\@jaVariant@/$jaVariant/;
-      $newm =~ s/\@scEmbed@/$scEmbed/;
-      $newm =~ s/\@tcEmbed@/$tcEmbed/;
-      $newm =~ s/\@koEmbed@/$koEmbed/;
+      for my $w (@supported_writing_styles) {
+        # if we have a map name that matches one of the programs
+        # and there is a subsetting for this program, then use it
+        # we need to be defensive here since not all writing styles
+        # support all programs, and not all vars might be defined
+        for my $t (qw/Embed Variant/) {
+          my $val = ( defined($kprog) && defined($embedSettings->{$w}{$t}{$kprog}) ?
+                   $embedSettings->{$w}{$t}{$kprog}{'value'} :
+                   $embedSettings->{$w}{$t}{'value'} );
+          my $re = qr/\@${w}${t}@/;
+          $newm =~ s/$re/$val/;
+        }
+      }
       # also do substitutions of old strings in case they are left
       # over somewhere
-      $newm =~ s/\@kanjiEmbed@/$jaEmbed/;
-      $newm =~ s/\@kanjiVariant@/$jaVariant/;
+      for my $t (qw/Embed Variant/) {
+        my $re = qr/\@kanji$t@/;
+        my $val = $embedSettings->{'ja'}{'value'};
+        $newm =~ s/$re/$val/;
+      }
       if ($newm ne $m) {
         # something was substituted
         if (locateMap($newm)) {
@@ -2015,6 +2087,13 @@ sub read_updmap_file {
     $a = ($a eq "kanjiVariant" ? "jaVariant" : $a);
     if (defined($settings{$a})) {
       if (check_option($a, $b)) {
+        $data{'setting'}{$a}{'val'} = $b;
+        $data{'setting'}{$a}{'line'} = $i;
+      } else {
+        print_warning("unknown setting for $a: $b, ignored!\n");
+      }
+    } elsif ($a =~ m/^([^.]*)\./ && defined($settings{$1})) {
+      if (check_option($1, $b)) {
         $data{'setting'}{$a}{'val'} = $b;
         $data{'setting'}{$a}{'line'} = $i;
       } else {
