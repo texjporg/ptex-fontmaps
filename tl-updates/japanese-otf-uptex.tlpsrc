@@ -1,4 +1,0 @@
-depend japanese-otf
-## disabled for now
-##depend uptex
-execute addKanjiMap otf-up-@jaEmbed@.map

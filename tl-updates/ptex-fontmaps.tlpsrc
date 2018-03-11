@@ -1,9 +1,0 @@
-# default fonts for embedding settings (sc/tc, ko, jaEmbed)
-depend arphic-ttf
-depend baekmuk
-depend ipaex
-runpattern +d texmf-dist/fonts/map/dvipdfmx/ptex-fontmaps
-runpattern +d texmf-dist/fonts/cmap/ptex-fontmaps
-binpattern f bin/${ARCH}/kanji-config-updmap
-binpattern f bin/${ARCH}/kanji-config-updmap-sys
-binpattern f bin/${ARCH}/kanji-fontmap-creator
