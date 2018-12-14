@@ -10,10 +10,10 @@
 -- 回避策として，TL2017 の間は
 --   * (-TL17, +TL18) の行を disable
 --   * (+TL17, -TL18) の行を enable
--- している．TL2018 になる前に，これを
+-- していた．TL2018 では逆に
 --   * (-TL17, +TL18) の行を enable
 --   * (+TL17, -TL18) の行を disable
--- すること．
+-- とする．
 local foundry = {
    ['sourcehan-otc']   = { -- Source Han Sans/Serif, "OTC"
       ml=':0:SourceHanSerif-Light.ttc',
@@ -24,8 +24,8 @@ local foundry = {
       gb=':0:SourceHanSans-Bold.ttc',
       ge=':0:SourceHanSans-Heavy.ttc',
       mgr=':0:SourceHanSans-Medium.ttc',
-      mrq=':2:SourceHanSerif-Regular.ttc', -- (+TL17, -TL18)
-      gruq=':2:SourceHanSans-Medium.ttc', -- (+TL17, -TL18)
+      -- mrq=':2:SourceHanSerif-Regular.ttc', -- (+TL17, -TL18)
+      -- gruq=':2:SourceHanSans-Medium.ttc', -- (+TL17, -TL18)
       {''},
    },
    ['sourcehan']   = { -- Source Han Sans/Serif, "Language-specific OTF"
@@ -37,8 +37,8 @@ local foundry = {
       gb='SourceHanSans-Bold.otf',
       ge='SourceHanSans-Heavy.otf',
       mgr='SourceHanSans-Medium.otf',
-      mrq='SourceHanSerifSC-Regular.otf', -- (+TL17, -TL18)
-      gruq='SourceHanSansSC-Medium.otf', -- (+TL17, -TL18)
+      -- mrq='SourceHanSerifSC-Regular.otf', -- (+TL17, -TL18)
+      -- gruq='SourceHanSansSC-Medium.otf', -- (+TL17, -TL18)
       {''},
    },
    ['noto-otc']   = { -- Noto Sans/Serif CJK, "OpenType/CFF Collection (OTC)"
@@ -50,8 +50,8 @@ local foundry = {
       gb=':0:NotoSansCJK-Bold.ttc',
       ge=':0:NotoSansCJK-Black.ttc',
       mgr=':0:NotoSansCJK-Medium.ttc',
-      mrq=':2:NotoSerifCJK-Regular.ttc', -- (+TL17, -TL18)
-      gruq=':2:NotoSansCJK-Medium.ttc', -- (+TL17, -TL18)
+      -- mrq=':2:NotoSerifCJK-Regular.ttc', -- (+TL17, -TL18)
+      -- gruq=':2:NotoSansCJK-Medium.ttc', -- (+TL17, -TL18)
       {''},
    },
    ['noto']   = { -- Noto Sans/Serif CJK, "Language-specific OpenType/CFF (OTF)"
@@ -63,8 +63,8 @@ local foundry = {
       gb='NotoSansCJKjp-Bold.otf',
       ge='NotoSansCJKjp-Black.otf',
       mgr='NotoSansCJKjp-Medium.otf',
-      mrq='NotoSerifCJKsc-Regular.otf', -- (+TL17, -TL18)
-      gruq='NotoSansCJKsc-Medium.otf', -- (+TL17, -TL18)
+      -- mrq='NotoSerifCJKsc-Regular.otf', -- (+TL17, -TL18)
+      -- gruq='NotoSansCJKsc-Medium.otf', -- (+TL17, -TL18)
       {''},
    },
 }
@@ -79,10 +79,10 @@ local maps = {
       {'ugbmv',   '-w 1 -l jp90', 'gru'},
       {'uprml-#', '# -l jp90',    'mr'},
       {'upgbm-#', '# -l jp90',    'gru'},
---      {'uprml-hq','-l fwid',      'mr'}, -- (-TL17, +TL18)
---      {'upgbm-hq','-l fwid',      'gru'}, -- (-TL17, +TL18)
-      {'uprml-hq','',      'mrq'}, -- (+TL17, -TL18)
-      {'upgbm-hq','',      'gruq'}, -- (+TL17, -TL18)
+      {'uprml-hq','-l fwid',      'mr'}, -- (-TL17, +TL18)
+      {'upgbm-hq','-l fwid',      'gru'}, -- (-TL17, +TL18)
+      -- {'uprml-hq','',      'mrq'}, -- (+TL17, -TL18)
+      -- {'upgbm-hq','',      'gruq'}, -- (+TL17, -TL18)
    },
    ['uptex-@-04'] = { -- upTeX JIS04
       {'urml',    '-l jp04',      'mrn'},
@@ -91,10 +91,10 @@ local maps = {
       {'ugbmv',   '-w 1 -l jp04', 'grun'},
       {'uprml-#', '# -l jp04',    'mrn'},
       {'upgbm-#', '# -l jp04',    'grun'},
---      {'uprml-hq','-l fwid',      'mrn'}, -- (-TL17, +TL18)
---      {'upgbm-hq','-l fwid',      'grun'}, -- (-TL17, +TL18)
-      {'uprml-hq','',      'mrq'}, -- (+TL17, -TL18)
-      {'upgbm-hq','',      'gruq'}, -- (+TL17, -TL18)
+      {'uprml-hq','-l fwid',      'mrn'}, -- (-TL17, +TL18)
+      {'upgbm-hq','-l fwid',      'grun'}, -- (-TL17, +TL18)
+      -- {'uprml-hq','',      'mrq'}, -- (+TL17, -TL18)
+      -- {'upgbm-hq','',      'gruq'}, -- (+TL17, -TL18)
    },
    ['otf-@'] = {
       '% Unicode 90JIS',

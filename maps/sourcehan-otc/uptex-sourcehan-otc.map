@@ -6,5 +6,5 @@ uprml-h	unicode	:0:SourceHanSerif-Regular.ttc -l jp90
 uprml-v	unicode	:0:SourceHanSerif-Regular.ttc -w 1 -l jp90
 upgbm-h	unicode	:0:SourceHanSans-Medium.ttc -l jp90
 upgbm-v	unicode	:0:SourceHanSans-Medium.ttc -w 1 -l jp90
-uprml-hq	unicode	:2:SourceHanSerif-Regular.ttc 
-upgbm-hq	unicode	:2:SourceHanSans-Medium.ttc 
+uprml-hq	unicode	:0:SourceHanSerif-Regular.ttc -l fwid
+upgbm-hq	unicode	:0:SourceHanSans-Medium.ttc -l fwid

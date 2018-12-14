@@ -6,5 +6,5 @@ uprml-h	unicode	NotoSerifCJKjp-Regular.otf -l jp90
 uprml-v	unicode	NotoSerifCJKjp-Regular.otf -w 1 -l jp90
 upgbm-h	unicode	NotoSansCJKjp-Medium.otf -l jp90
 upgbm-v	unicode	NotoSansCJKjp-Medium.otf -w 1 -l jp90
-uprml-hq	unicode	NotoSerifCJKsc-Regular.otf 
-upgbm-hq	unicode	NotoSansCJKsc-Medium.otf 
+uprml-hq	unicode	NotoSerifCJKjp-Regular.otf -l fwid
+upgbm-hq	unicode	NotoSansCJKjp-Medium.otf -l fwid
