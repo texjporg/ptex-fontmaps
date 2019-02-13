@@ -5,8 +5,8 @@
 # formerly known as updmap-setup-kanji
 #
 # Copyright 2004-2006 by KOBAYASHI R. Taizo for the shell version (updmap-otf)
-# Copyright 2011-2018 by PREINING Norbert
-# Copyright 2016-2018 by Japanese TeX Development Community
+# Copyright 2011-2019 by PREINING Norbert
+# Copyright 2016-2019 by Japanese TeX Development Community
 #
 # This file is licensed under GPL version 3 or any later version.
 # For copyright statements see end of file.
