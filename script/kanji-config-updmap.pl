@@ -377,21 +377,21 @@ sub SetupReplacement {
   my $rep = shift;
   if (defined($representatives{$opt_mode}{$rep})) {
     if ($representatives{$opt_mode}{$rep}{'available'}) {
-      SetupMapFile($opt_mode, $rep);
+      return SetupMapFile($opt_mode, $rep);
     } else {
       printf STDERR "$rep not available, falling back to auto!\n";
-      SetupReplacement($opt_mode, "auto");
+      return SetupReplacement($opt_mode, "auto");
     }
   } else {
     if ($rep eq "nofont") {
-      SetupMapFile($opt_mode, "noEmbed");
+      return SetupMapFile($opt_mode, "noEmbed");
     } elsif ($rep eq "auto") {
       my $STATUS = GetStatus($opt_mode);
       # first check if we have a status set and the font is installed
       # in this case don't change anything, just make sure
       if (defined($representatives{$opt_mode}{$STATUS}) &&
           $representatives{$opt_mode}{$STATUS}{'available'}) {
-        SetupMapFile($opt_mode, $STATUS);
+        return SetupMapFile($opt_mode, $STATUS);
       } else {
         if (!($STATUS eq "noEmbed" || $STATUS eq "")) {
           # some unknown setting is set up currently, overwrite, but warn
@@ -404,15 +404,15 @@ sub SetupReplacement {
                           $representatives{$opt_mode}{$b}{'priority'} }
                         keys %{$representatives{$opt_mode}}) {
           if ($representatives{$opt_mode}{$i}{'available'}) {
-            SetupMapFile($opt_mode, $i);
+            return SetupMapFile($opt_mode, $i);
           }
         }
         # still here, no map file found!
-        SetupMapFile($opt_mode, "noEmbed");
+        return SetupMapFile($opt_mode, "noEmbed");
       }
     } else {
       # anything else is treated as a map file name
-      SetupMapFile($opt_mode, $rep);
+      return SetupMapFile($opt_mode, $rep);
     }
   }
 }
