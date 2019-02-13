@@ -18,6 +18,10 @@ JA(130): ipaex: ipaexm.ttf
 JA(140): ipa: ipam.ttf
 JA(150): ume: ume-tmo3.ttf
 JA(160): canon: FGCCHMW3.TTC
+JA-AI0: sourcehan-otc: SourceHanSerif-Regular.ttc
+JA-AI0: sourcehan: SourceHanSerif-Regular.otf
+JA-AI0: noto-otc: NotoSerifCJK-Regular.ttc
+JA-AI0: noto: NotoSerifCJKjp-Regular.otf
 
 #sinotype: STSong.ttf # removed
 SC(30): fandol: FandolSong-Regular.otf
@@ -28,6 +32,10 @@ SC(60): founder: FZSSK.TTF
 SC(70): cjkunifonts: uming.ttc
 SC(75): cjkunifonts-ttf: uming.ttf
 SC(80): arphic: gbsn00lp.ttf
+SC-AI0: sourcehan-otc: SourceHanSerif-Regular.ttc
+SC-AI0: sourcehan: SourceHanSerifSC-Regular.otf
+SC-AI0: noto-otc: NotoSerifCJK-Regular.ttc
+SC-AI0: noto: NotoSerifCJKsc-Regular.otf
 
 TC(30): dynacomware: LiSongPro.ttf
 TC(40): adobe: AdobeMingStd-Light.otf
@@ -36,6 +44,10 @@ TC(55): ms: msjh.ttf
 TC(70): cjkunifonts: uming.ttc
 TC(75): cjkunifonts-ttf: uming.ttf
 TC(80): arphic: bsmi00lp.ttf
+TC-AI0: sourcehan-otc: SourceHanSerif-Regular.ttc
+TC-AI0: sourcehan: SourceHanSerifTC-Regular.otf
+TC-AI0: noto-otc: NotoSerifCJK-Regular.ttc
+TC-AI0: noto: NotoSerifCJKtc-Regular.otf
 
 KO(40): adobe: AdobeMyungjoStd-Medium.otf
 KO(50): apple: AppleMyungjo.ttf
@@ -43,3 +55,7 @@ KO(60): ms: batang.ttc
 KO(70): solaris: h2mjsm.ttf
 KO(80): unfonts: UnBatang.ttf
 KO(90): baekmuk: dotum.ttf # slightly safer than batang.ttf
+KO-AI0: sourcehan-otc: SourceHanSerif-Regular.ttc
+KO-AI0: sourcehan: SourceHanSerifK-Regular.otf
+KO-AI0: noto-otc: NotoSerifCJK-Regular.ttc
+KO-AI0: noto: NotoSerifCJKkr-Regular.otf

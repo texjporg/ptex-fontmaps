@@ -270,6 +270,26 @@ sub ReadDatabase {
         $representatives{'ko'}{$2}{'file'} = $3;
         next;
       }
+      if ($l =~ m/^JA-AI0:\s*(.*):\s*(.*)$/) {
+        $representatives{'ja'}{$1}{'file'} = $2;
+        $representatives{'ja'}{$1}{'ai0'} = 1;
+        next;
+      }
+      if ($l =~ m/^SC-AI0:\s*(.*):\s*(.*)$/) {
+        $representatives{'sc'}{$1}{'file'} = $2;
+        $representatives{'sc'}{$1}{'ai0'} = 1;
+        next;
+      }
+      if ($l =~ m/^TC-AI0:\s*(.*):\s*(.*)$/) {
+        $representatives{'tc'}{$1}{'file'} = $2;
+        $representatives{'tc'}{$1}{'ai0'} = 1;
+        next;
+      }
+      if ($l =~ m/^KO-AI0:\s*(.*):\s*(.*)$/) {
+        $representatives{'ko'}{$1}{'file'} = $2;
+        $representatives{'ko'}{$1}{'ai0'} = 1;
+        next;
+      }
       # we are still here??
       die "Cannot parse \"$foo\" at line $lineno,
            exiting. Strange line: >>>$l<<<\n";
@@ -322,6 +342,17 @@ sub check_mapfile {
   }
 }
 
+sub gen_mapfile {
+  my $opt_mode = shift;
+  my $map_base = shift;
+  # returns a representative map file name
+  return ($opt_mode eq "ja" ?
+            ($representatives{$opt_mode}{$map_base}{'ai0'} ?
+               "uptex-${map_base}.map" :
+               "ptex-${map_base}.map") :
+            "uptex-${opt_mode}-${map_base}.map");
+}
+
 sub GetStatus {
   my $opt_mode = shift;
   my $val = `$updmap_real --quiet --showoption ${opt_mode}Embed`;
@@ -332,19 +363,23 @@ sub GetStatus {
     die "Cannot find status of current ${opt_mode}Embed setting via updmap --showoption!\n";
   }
 
-  my $testmap = ($opt_mode eq "ja" ? "ptex-$STATUS.map" : "uptex-${opt_mode}-$STATUS.map");
+  my $testmap = gen_mapfile($opt_mode, $STATUS);
   if (check_mapfile($testmap)) {
-    print "CURRENT family for $opt_mode: $STATUS\n";
+    print "CURRENT family for $opt_mode: $STATUS";
+    print " (AI0)" if ($representatives{$opt_mode}{$STATUS}{'ai0'});
+    print "\n";
   } else {
     print STDERR "WARNING: Currently selected map file for $opt_mode cannot be found: $testmap\n";
   }
 
   for my $k (sort keys %{$representatives{$opt_mode}}) {
-    my $MAPFILE = ($opt_mode eq "ja" ? "ptex-$k.map" : "uptex-${opt_mode}-$k.map");
+    my $MAPFILE = gen_mapfile($opt_mode, $k);
     next if ($MAPFILE eq $testmap);
     if (check_mapfile($MAPFILE)) {
       if ($representatives{$opt_mode}{$k}{'available'}) {
-        print "Standby family : $k\n";
+        print "Standby family : $k";
+        print " (AI0)" if ($representatives{$opt_mode}{$k}{'ai0'});
+        print "\n";
       }
     }
   }
@@ -358,9 +393,11 @@ sub GetStatus {
 sub SetupMapFile {
   my $opt_mode = shift;
   my $rep = shift;
-  my $MAPFILE = ($opt_mode eq "ja" ? "ptex-$rep.map" : "uptex-${opt_mode}-$rep.map");
+  my $MAPFILE = gen_mapfile($opt_mode, $rep);
   if (check_mapfile($MAPFILE)) {
-    print "Setting up ... $MAPFILE\n";
+    print "Setting up ... $rep";
+    print " (AI0)" if ($representatives{$opt_mode}{$rep}{'ai0'});
+    print " for $opt_mode\n";
     system("$updmap --quiet --nomkmap --nohash -setoption ${opt_mode}Embed $rep");
     if ($opt_jis) {
       system("$updmap --quiet --nomkmap --nohash -setoption jaVariant -04");
