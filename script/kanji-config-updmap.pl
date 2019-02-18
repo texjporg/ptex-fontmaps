@@ -5,8 +5,8 @@
 # formerly known as updmap-setup-kanji
 #
 # Copyright 2004-2006 by KOBAYASHI R. Taizo for the shell version (updmap-otf)
-# Copyright 2011-2018 by PREINING Norbert
-# Copyright 2016-2018 by Japanese TeX Development Community
+# Copyright 2011-2019 by PREINING Norbert
+# Copyright 2016-2019 by Japanese TeX Development Community
 #
 # This file is licensed under GPL version 3 or any later version.
 # For copyright statements see end of file.
@@ -27,13 +27,26 @@ my $version = '$VER$';
 my $updmap_real = "updmap";
 my $updmap = $updmap_real;
 
+# copied from updmap.pl
+# which programs are available for various writing styles
+# this gives
+#  jaEmbed.ptex, jaEmbed.otf, jaEmbed.uptex, jaEmbed.otf-up
+#  koEmbed.otf, koEmbed.otf-up
+# etc
+my @supported_writing_styles = qw/ja ko tc sc/;
+my %kanji_map_progs = (
+  ja => [ qw/ptex otf uptex otf-up/ ],
+  ko => [ qw/otf uptex/ ],
+  sc => [ qw/otf uptex/ ],
+  tc => [ qw/otf uptex/ ]
+);
+
 my $dry_run = 0;
 my $opt_help = 0;
 my $opt_jis = 0;
 my $opt_sys = 0;
 my $opt_user = 0;
 my $opt_old = 0;
-my @opt_mode_list;
 my $opt_mode_one;
 my $opt_mode_ja;
 my $opt_mode_sc;
@@ -56,33 +69,57 @@ if (! GetOptions(
   die "Try \"$0 --help\" for more information.\n";
 }
 
-if ($opt_mode_one) {
-  if (defined($opt_mode_ja) || defined($opt_mode_sc) ||
-      defined($opt_mode_tc) || defined($opt_mode_ko)) {
-    die "Options --ja/--sc/--tc/--ko are invalid with --mode=NN!\n";
+#
+# BACKWARD COMPATIBILITY MODE
+#
+if (defined($opt_mode_one) || defined($opt_mode_ja) || defined($opt_mode_sc) ||
+    defined($opt_mode_tc) || defined($opt_mode_ko)) {
+  my $backMode;
+  if (scalar grep(/=/, @ARGV)) {
+    die "Mixing of compatibility mode with arguments of the form NN[.PP]=<fam> is not supported!";
   }
-  # define a corresponding option by empty string
-  if ($opt_mode_one eq "ja") {
-    $opt_mode_ja = '';
-  } elsif ($opt_mode_one eq "sc") {
-    $opt_mode_sc = '';
-  } elsif ($opt_mode_one eq "tc") {
-    $opt_mode_tc = '';
-  } elsif ($opt_mode_one eq "ko") {
-    $opt_mode_ko = '';
+  if ($opt_mode_one) {
+    if (defined($opt_mode_ja) || defined($opt_mode_sc) ||
+        defined($opt_mode_tc) || defined($opt_mode_ko)) {
+      die "Options --ja/--sc/--tc/--ko are invalid with --mode=NN!\n";
+    }
+    # define a corresponding option by empty string
+    if (member($opt_mode_one, @supported_writing_styles)) {
+      $backMode = $opt_mode_one;
+    } else {
+      die "Unknown mode $opt_mode_one!";
+    }
+    # we don't have the --ja=familiy stuff!
+    @ARGV = map { "$backMode=$_" } @ARGV;
   } else {
-    die "Unknown mode $opt_mode_one!";
+    # case --ja=<fam>
+    # in this case we are not allowed to have any further ARGV
+    if ($#ARGV >= 0) {
+      die "Unexpected argument(s) @ARGV";
+    }
+    if (defined($opt_mode_ja)) {
+      push @ARGV, "ja=$opt_mode_ja";
+    } 
+    if (defined($opt_mode_ko)) {
+      push @ARGV, "ko=$opt_mode_ko";
+    }
+    if (defined($opt_mode_tc)) {
+      push @ARGV, "tc=$opt_mode_tc";
+    }
+    if (defined($opt_mode_sc)) {
+      push @ARGV, "sc=$opt_mode_sc";
+    }
   }
+  # print "DEBUG CONVERTED ARGUMENTS: @ARGV\n";
 }
-push @opt_mode_list, "ja" if (defined($opt_mode_ja));
-push @opt_mode_list, "sc" if (defined($opt_mode_sc));
-push @opt_mode_list, "tc" if (defined($opt_mode_tc));
-push @opt_mode_list, "ko" if (defined($opt_mode_ko));
-if (!@opt_mode_list) {
-  # default mode needs to be set, define it by empty string
-  $opt_mode_one = "ja";
-  $opt_mode_ja = '';
-  push @opt_mode_list, "ja";
+#
+# BACKWARD COMPATIBILITY MODE II
+#
+if ($#ARGV < 0) {
+  die "Missing argument, try \"$0 --help\" for more information.\n";
+}
+if ($ARGV[0] !~ m/=/) {
+  $ARGV[0] = "ja=" . $ARGV[0];
 }
 
 sub win32 { return ($^O=~/^MSWin(32|64)$/i); }
@@ -186,13 +223,13 @@ sub Usage {
 
   Please see the documentation of updmap for details (updmap --help).
 
-  Usage:  $prg [OPTION] {<fontname>|auto|nofont|status}
+  Usage:  $prg [OPTION] NN[.PROG]={<fontname>|auto|nofont|status} ...
 
+     NN:         One of ja, ko, sc, tc
+     PROG:       One of ptex, otf, uptex, otf-up
      <family>    Embed an arbitrary font family <family>, at least
                  the representative map file has to be available.
-     auto:       If the current status is noEmbed or unknown, try to embed
-                 one of the supported font families automatically.
-                 If none of them is available, fall back to nofont
+     auto:       Automatically select the best font available.
      nofont:     Embed no fonts (and rely on system fonts when displaying pdfs).
                  If your system does not have any of the supported font
                  families, this target is selected automatically.
@@ -201,9 +238,6 @@ sub Usage {
   Options:
     -n, --dry-run  Do not actually run updmap
     -h, --help     Show this message and exit
-    --mode=NN      Setup for Japanese (NN=ja), Korean (NN=ko),
-                   Simplified Chinese (NN=sc), Traditional Chinese (NN=tc)
-    --NN           Shorthand for --mode=NN
     --jis2004      Use JIS2004 variants for default fonts of (u)pTeX
     --sys          Run in sys mode, i.e., call updmap -sys
     --user         Run in user mode, i.e., call updmap -user or updmap,
@@ -214,12 +248,25 @@ sub Usage {
     --old          Makes $prg call `updmap' without --user argument in user mode.
     --version      Show version information and exit
 
+  Backward compatibility with previous versions of $prg:
+
+       $prg [OPTION] {<fontname>|auto|nofont|status}
+
+  Additional options:
+    --mode=NN      Setup for Japanese (NN=ja), Korean (NN=ko),
+                   Simplified Chinese (NN=sc), Traditional Chinese (NN=tc)
+    --NN=<family>  Shorthand for --mode=NN <family>
+
 EOF
 ;
   print $usage;
   exit(0);
 }
 
+sub member {
+  my $what = shift;
+  return scalar grep($_ eq $what, @_);
+}
 
 
 ###
@@ -282,6 +329,7 @@ sub ReadDatabase {
 
 sub kpse_miscfont {
   my ($file) = @_;
+  # print STDERR "DEBUG calling kpsewhich $file\n";
   chomp(my $foo = `kpsewhich -format=miscfont $file`);
   # for GitHub repository diretory structure
   if ($foo eq "") {
@@ -291,28 +339,12 @@ sub kpse_miscfont {
 }
 
 ###
-### Check Installed Font
-###
-
-sub CheckInstallFont {
-  for my $opt_mode (@opt_mode_list) {
-    for my $k (keys %{$representatives{$opt_mode}}) {
-      my $f = `kpsewhich $representatives{$opt_mode}{$k}{'file'}`;
-      if ($?) {
-        $representatives{$opt_mode}{$k}{'available'} = "";
-      } else {
-        $representatives{$opt_mode}{$k}{'available'} = chomp($f);
-      }
-    }
-  }
-}
-
-###
 ### GetStatus
 ###
 
 sub check_mapfile {
   my $mapf = shift;
+  # print STDERR "DEBUG calling kpsewhich $mapf\n";
   my $f = `kpsewhich $mapf 2> $nul`;
   my $ret = $?;
   if (wantarray) {
@@ -322,33 +354,130 @@ sub check_mapfile {
   }
 }
 
-sub GetStatus {
-  my $opt_mode = shift;
-  my $val = `$updmap_real --quiet --showoption ${opt_mode}Embed`;
+sub get_repr_map_file {
+  my ($mode, $prog, $status) = @_;
+  my $testmap;
+  if (defined($prog)) {
+    if ($mode eq "ja") {
+      $testmap = "$prog-$status.map";
+    } else {
+      $testmap = "$prog-$mode-$status.map";
+    }
+  } else {
+    $testmap = ($mode eq "ja" ? "ptex-$status.map" : "uptex-${mode}-$status.map");
+  }
+  return($testmap);
+}
+
+sub get_cfg {
+  my $arg = shift;
+  my $updSet = $arg;
+  my $mode;
+  my $prog;
+  # add the Embed string
+  if ($updSet !~ m/\./) {
+    $mode = $updSet;
+    $updSet .= "Embed";
+  } else {
+    ($mode, $prog) = split(/\./, $updSet);
+    $updSet = "${mode}Embed.$prog";
+  }
+  # print "DEBUG CALLING $updmap_real --quiet --showoption $updSet\n";
+  my $val = `$updmap_real --quiet --showoption $updSet`;
+  chomp($val);
+  if ($val eq "$updSet=(undefined)") {
+    return undef;
+  }
   my $STATUS;
-  if ($val =~ m/^${opt_mode}Embed=([^()\s]*)(\s+\()?/) {
+  if ($val =~ m/^\Q$updSet\E=([^()\s]*)(\s+\()?/) {
     $STATUS = $1;
   } else {
-    die "Cannot find status of current ${opt_mode}Embed setting via updmap --showoption!\n";
+    return undef;
   }
+}
 
-  my $testmap = ($opt_mode eq "ja" ? "ptex-$STATUS.map" : "uptex-${opt_mode}-$STATUS.map");
-  if (check_mapfile($testmap)) {
-    print "CURRENT family for $opt_mode: $STATUS\n";
+sub GetStatus {
+  my $arg = shift;
+  my $mode;
+  my $prog;
+  # add the Embed string
+  if ($arg !~ m/\./) {
+    $mode = $arg;
   } else {
-    print STDERR "WARNING: Currently selected map file for $opt_mode cannot be found: $testmap\n";
+    ($mode, $prog) = split(/\./, $arg);
   }
 
-  for my $k (sort keys %{$representatives{$opt_mode}}) {
-    my $MAPFILE = ($opt_mode eq "ja" ? "ptex-$k.map" : "uptex-${opt_mode}-$k.map");
+  my $status = get_cfg($arg);
+  my $parentstatus;
+  if (!$status) {
+    if (!defined($prog)) {
+      # die if we cannot find the main setting (without sub-setting for programs)
+      die "Cannot find status of current $arg setting via updmap --showoption!\n"
+        if (!defined($prog));
+    } else {
+      # we tried to get ja.ptex and this is not defined by now, get the 
+      # superseeding ja
+      $parentstatus = get_cfg($mode);
+      die "Cannot find status of current $parentstatus setting via updmap --showoption!\n"
+        if (!$parentstatus);
+    }
+  }
+
+  my $testmap;
+  if (defined($status)) {
+    $testmap = get_repr_map_file($mode, $prog, $status);
+  } else {
+    print "CURRENT family for $arg: (unset)\n";
+    $testmap = get_repr_map_file($mode, $prog, $parentstatus);
+  }
+  if (check_mapfile($testmap)) {
+    if (defined($status)) {
+      print "CURRENT family for $arg: $status\n";
+    } else {
+      print "CURRENT family for $mode: $parentstatus\n";
+    }
+  } else {
+    print STDERR "WARNING: Currently selected map file for $arg cannot be found: $testmap\n";
+  }
+
+  for my $k (sort { $representatives{$mode}{$a}{'priority'}
+                    <=>
+                    $representatives{$mode}{$b}{'priority'} }
+                  keys %{$representatives{$mode}}) {
+    my $MAPFILE = get_repr_map_file($mode, $prog, $k);
     next if ($MAPFILE eq $testmap);
     if (check_mapfile($MAPFILE)) {
-      if ($representatives{$opt_mode}{$k}{'available'}) {
+      if (is_repr_available($mode, $k)) {
         print "Standby family : $k\n";
       }
     }
   }
-  return $STATUS;
+  return $status;
+}
+
+sub is_repr_available {
+  my ($mode, $fam) = @_;
+  # print "DEBUG etnering is_available $mode $fam\n";
+  if (defined($representatives{$mode}{$fam})) {
+    if (!defined($representatives{$mode}{$fam}{'available'})) {
+      # check availability
+      $representatives{$mode}{$fam}{'available'} = check_availability($mode, $fam);
+    }
+    return $representatives{$mode}{$fam}{'available'};
+  } else {
+    return "";
+  }
+}
+
+sub check_availability {
+  my ($mode, $fam) = @_;
+  # print STDERR "DEBUG calling kpsewhich $representatives{$mode}{$fam}{'file'}\n";
+  my $f = `kpsewhich $representatives{$mode}{$fam}{'file'}`;
+  if ($?) {
+    return "";
+  } else {
+    return chomp($f);
+  }
 }
 
 ###
@@ -356,16 +485,29 @@ sub GetStatus {
 ###
 
 sub SetupMapFile {
-  my $opt_mode = shift;
+  my $arg = shift;
   my $rep = shift;
-  my $MAPFILE = ($opt_mode eq "ja" ? "ptex-$rep.map" : "uptex-${opt_mode}-$rep.map");
+  # print "DEBUG entering SetupMapFile $arg $rep\n";
+  my $updSet = $arg;
+  my $mode;
+  my $prog;
+  # add the Embed string
+  if ($updSet !~ m/\./) {
+    $mode = $updSet;
+    $updSet .= "Embed";
+  } else {
+    ($mode, $prog) = split(/\./, $updSet);
+    $updSet = "${mode}Embed.$prog";
+  }
+
+  my $MAPFILE = get_repr_map_file($mode, $prog, $rep);
   if (check_mapfile($MAPFILE)) {
     print "Setting up ... $MAPFILE\n";
-    system("$updmap --quiet --nomkmap --nohash -setoption ${opt_mode}Embed $rep");
+    system("$updmap --quiet --nomkmap --nohash --setoption $updSet $rep");
     if ($opt_jis) {
-      system("$updmap --quiet --nomkmap --nohash -setoption jaVariant -04");
+      system("$updmap --quiet --nomkmap --nohash --setoption jaVariant -04");
     } else {
-      system("$updmap --quiet --nomkmap --nohash -setoption jaVariant \"\"");
+      system("$updmap --quiet --nomkmap --nohash --setoption jaVariant \"\"");
     }
   } else {
     die "NOT EXIST $MAPFILE\n";
@@ -373,46 +515,42 @@ sub SetupMapFile {
 }
 
 sub SetupReplacement {
-  my $opt_mode = shift;
-  my $rep = shift;
-  if (defined($representatives{$opt_mode}{$rep})) {
-    if ($representatives{$opt_mode}{$rep}{'available'}) {
-      SetupMapFile($opt_mode, $rep);
+  my $arg = shift;
+  my $fam = shift;
+  my $mode;
+  my $prog;
+  if ($arg !~ m/\./) {
+    $mode = $arg;
+  } else {
+    ($mode, $prog) = split(/\./, $arg);
+  }
+
+  if (defined($representatives{$mode}{$fam})) {
+    if (is_repr_available($mode, $fam)) {
+      SetupMapFile($arg, $fam);
     } else {
-      printf STDERR "$rep not available, falling back to auto!\n";
-      SetupReplacement($opt_mode, "auto");
+      printf STDERR "$fam not available, falling back to auto!\n";
+      SetupReplacement($arg, "auto");
     }
   } else {
-    if ($rep eq "nofont") {
-      SetupMapFile($opt_mode, "noEmbed");
-    } elsif ($rep eq "auto") {
-      my $STATUS = GetStatus($opt_mode);
-      # first check if we have a status set and the font is installed
-      # in this case don't change anything, just make sure
-      if (defined($representatives{$opt_mode}{$STATUS}) &&
-          $representatives{$opt_mode}{$STATUS}{'available'}) {
-        SetupMapFile($opt_mode, $STATUS);
-      } else {
-        if (!($STATUS eq "noEmbed" || $STATUS eq "")) {
-          # some unknown setting is set up currently, overwrite, but warn
-          print STDERR "Previous setting $STATUS for $opt_mode is unknown, replacing it!\n"
+    if ($fam eq "nofont") {
+      SetupMapFile($arg, "noEmbed");
+    } elsif ($fam eq "auto") {
+      for my $i (sort { $representatives{$mode}{$a}{'priority'}
+                        <=>
+                        $representatives{$mode}{$b}{'priority'} }
+                      keys %{$representatives{$mode}}) {
+                      # print "DEBUG checking for $mode / $i\n";
+        if (is_repr_available($mode, $i)) {
+          SetupMapFile($arg, $i);
+          return;
         }
-        # if we are in the noEmbed or nothing set case,
-        # and if one of the supported fonts are present, then use them
-        for my $i (sort { $representatives{$opt_mode}{$a}{'priority'}
-                          <=>
-                          $representatives{$opt_mode}{$b}{'priority'} }
-                        keys %{$representatives{$opt_mode}}) {
-          if ($representatives{$opt_mode}{$i}{'available'}) {
-            SetupMapFile($opt_mode, $i);
-          }
-        }
-        # still here, no map file found!
-        SetupMapFile($opt_mode, "noEmbed");
       }
+      # still here, no map file found!
+      SetupMapFile($arg, "noEmbed");
     } else {
       # anything else is treated as a map file name
-      SetupMapFile($opt_mode, $rep);
+      SetupMapFile($arg, $fam);
     }
   }
 }
@@ -422,52 +560,52 @@ sub SetupReplacement {
 ###
 
 sub main {
-  # Number of arguments allowed:
-  #  0: should be only --NN=<family> lists ('=' can be omitted)
-  #  1: treated as [--mode=NN] <family> ('=' can be omitted)
-  #  2 or more: I can't handle!
-  my ($a, $b) = @_;
-  if (defined($b)) {
-    die "Number of the arguments should be at most one!\n";
-  }
-  if ($a) {
-    die "Strange argument found! >>>$a<<<\n" if (!$opt_mode_one);
-    # argument is passed to defined-but-empty language mode
-    if (defined($opt_mode_ja) && !$opt_mode_ja) {
-      $opt_mode_ja = $a;
-    } elsif (defined($opt_mode_sc) && !$opt_mode_sc) {
-      $opt_mode_sc = $a;
-    } elsif (defined($opt_mode_tc) && !$opt_mode_tc) {
-      $opt_mode_tc = $a;
-    } elsif (defined($opt_mode_ko) && !$opt_mode_ko) {
-      $opt_mode_ko = $a;
-    }
-  } else {
-    die "No family or operation is specified for $opt_mode_one!\n",
-        "Try \"$0 --help\" for more information.\n" if ($opt_mode_one);
-  }
-
   InitDatabase();
   ReadDatabase();
-  CheckInstallFont();
 
-  # if one of <family> arguments is "status", then
-  # all arguments are forced into "status"
-  if (($opt_mode_ja && ($opt_mode_ja eq "status")) ||
-      ($opt_mode_sc && ($opt_mode_sc eq "status")) ||
-      ($opt_mode_tc && ($opt_mode_tc eq "status")) ||
-      ($opt_mode_ko && ($opt_mode_ko eq "status"))) {
-    GetStatus("ja") if ($opt_mode_ja);
-    GetStatus("sc") if ($opt_mode_sc);
-    GetStatus("tc") if ($opt_mode_tc);
-    GetStatus("ko") if ($opt_mode_ko);
-  } else {
-    SetupReplacement("ja", $opt_mode_ja) if ($opt_mode_ja);
-    SetupReplacement("sc", $opt_mode_sc) if ($opt_mode_sc);
-    SetupReplacement("tc", $opt_mode_tc) if ($opt_mode_tc);
-    SetupReplacement("ko", $opt_mode_ko) if ($opt_mode_ko);
-    system("$updmap");
+  # require Data::Dumper;
+  # # two times to silence perl warnings!
+  # $Data::Dumper::Indent = 1;
+  # $Data::Dumper::Indent = 1;
+  # print "READING DONE ============================\n";
+  # print Data::Dumper::Dumper(\%representatives);
+
+  my $runUpdmap = 0;
+
+  # first run over arguments to check for correctness
+  my $error = 0;
+  for my $arg (@_) {
+    my ($a, $b) = split(/=/, $arg, 2);
+    my ($mode, $prog) = split(/\./, $a, 2);
+    if (defined($prog)) {
+      if (!member($prog, @{$kanji_map_progs{$mode}})) {
+        print "Program $prog cannot be used in $mode mode!\n";
+        $error = 1;
+      }
+    }
   }
+  if ($error) {
+    die "Incorrect arguments found, terminating!";
+  }
+
+  for my $arg (@_) {
+    my ($a, $b) = split(/=/, $arg, 2);
+    my ($mode, $prog) = split(/\./, $a, 2);
+    if ($b eq "status") {
+      GetStatus($a);
+    } elsif ($b eq "auto") {
+      SetupReplacement($a, $b);
+      $runUpdmap = 1;
+    } elsif ($b eq "nofont") {
+      SetupReplacement($a, $b);
+      $runUpdmap = 1;
+    } else {
+      SetupReplacement($a, $b);
+      $runUpdmap = 1;
+    }
+  }
+
+  system("$updmap") if ($runUpdmap);
 }
 
 #
