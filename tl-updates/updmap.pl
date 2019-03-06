@@ -875,7 +875,7 @@ sub cidx2dvips {
     # make everything single spaced
     s/\s\s*/ /g;
     # unicode encoded fonts are not supported
-    next if (m!^\w\w* unicode !);
+    next if (m!^[\w-][\w-]* unicode !);
     # now we have the following format
     #  <word> <word> <word> some options like -e or -s
     if ($_ !~ m/([^ ][^ ]*) ([^ ][^ ]*) ([^ ][^ ]*)( (.*))?$/) {
