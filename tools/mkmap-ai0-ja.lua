@@ -151,10 +151,10 @@ local function make_one_line(o, fd, s)
       local fx = foundry[fd]
       local fn = fx[o[3]]
       if string.match(o[1], '#') then -- 'H', 'V' 一括出力
-	 return gsub(o[1], '#', 'h') .. '\t' .. "unicode" .. '\t' .. fn .. ' ' .. gsub(o[2], '# ', '') .. '\n'
+         return gsub(o[1], '#', 'h') .. '\t' .. "unicode" .. '\t' .. fn .. ' ' .. gsub(o[2], '# ', '') .. '\n'
           .. gsub(o[1], '#', 'v') .. '\t' .. "unicode" .. '\t' .. fn .. ' ' .. gsub(o[2], '# ', '-w 1 ') .. '\n'
       else
-	 return o[1] .. '\t' .. "unicode" .. '\t' .. fn .. ' ' .. o[2] .. '\n'
+         return o[1] .. '\t' .. "unicode" .. '\t' .. fn .. ' ' .. o[2] .. '\n'
       end
    end
 end
@@ -177,14 +177,14 @@ for fd, v1 in pairs(foundry) do
       -- Linux しか想定していない
       os.execute('mkdir ' .. dirname .. ' &>/dev/null')
       for mnx, mcont in pairs(maps) do
-	 if not string.match(mnx, '-04') or not foundry[fd].noncid or foundry[fd].separate then
-	    local mapbase = gsub(mnx, '@', dirname)
-	    local f = io.open(dirname .. '/' .. mapbase .. '.map', 'w+')
-	    for _,x in ipairs(mcont) do
-	       f:write(make_one_line(x, fd, s))
-	    end
-	    f:close()
-	 end
+         if not string.match(mnx, '-04') or not foundry[fd].noncid or foundry[fd].separate then
+            local mapbase = gsub(mnx, '@', dirname)
+            local f = io.open(dirname .. '/' .. mapbase .. '.map', 'w+')
+            for _,x in ipairs(mcont) do
+               f:write(make_one_line(x, fd, s))
+            end
+            f:close()
+         end
       end
    end
 end

@@ -98,7 +98,7 @@ local function replace_index(line, s)
    if ttc_mov then
       local ttc_index, ttc_dir = line:match('#(%d)(.)')
       if tonumber(ttc_index) then
-	 return line:gsub('#..', ':' .. tostring(tonumber(ttc_index)+tonumber(ttc_dir .. ttc_mov)) .. ':')
+         return line:gsub('#..', ':' .. tostring(tonumber(ttc_index)+tonumber(ttc_dir .. ttc_mov)) .. ':')
       end
    end
    return line
@@ -111,17 +111,17 @@ local function make_one_line(o, fd, s)
       local fx = foundry[fd]
       local fn = replace_index(gsub(fx[o[3]], '?', ret_suffix(fd,s,o[3])), s)
       if fx.noncid and string.match(o[2],'Identity') then
-	 if string.match(fn, '%!PS') then
-	    fn = gsub(fn, ' %%!PS', '/AK12 %%!PS')
-	 else
-	    fn = fn .. '/AK12'
-	 end
+         if string.match(fn, '%!PS') then
+            fn = gsub(fn, ' %%!PS', '/AK12 %%!PS')
+         else
+            fn = fn .. '/AK12'
+         end
       end
       if string.match(o[1], '#') then -- 'H', 'V' 一括出力
-	 return gsub(o[1], '#', 'h') .. '\t' .. gsub(o[2], '#', 'H') .. '\t' .. fn .. '\n'
+         return gsub(o[1], '#', 'h') .. '\t' .. gsub(o[2], '#', 'H') .. '\t' .. fn .. '\n'
           .. gsub(o[1], '#', 'v') .. '\t' .. gsub(o[2], '#', 'V') .. '\t' .. fn .. '\n'
       else
-	 return o[1] .. '\t' .. o[2] .. '\t' .. fn .. '\n'
+         return o[1] .. '\t' .. o[2] .. '\t' .. fn .. '\n'
       end
    end
 end
@@ -133,15 +133,15 @@ for fd, v1 in pairs(foundry) do
       -- Linux しか想定していない
       os.execute('mkdir ' .. dirname .. ' &>/dev/null')
       for mnx, mcont in pairs(maps) do
-	 --if not string.match(mnx, '-04') or string.match(s, jis2004_flag) then
-	 if not string.match(mnx, '-04') or not foundry[fd].noncid then
-	    local mapbase = gsub(mnx, '@', dirname)
-	    local f = io.open(dirname .. '/' .. mapbase .. '.map', 'w+')
-	    for _,x in ipairs(mcont) do
-	       f:write(make_one_line(x, fd, s))
-	    end
-	    f:close()
-	 end
+         --if not string.match(mnx, '-04') or string.match(s, jis2004_flag) then
+         if not string.match(mnx, '-04') or not foundry[fd].noncid then
+            local mapbase = gsub(mnx, '@', dirname)
+            local f = io.open(dirname .. '/' .. mapbase .. '.map', 'w+')
+            for _,x in ipairs(mcont) do
+               f:write(make_one_line(x, fd, s))
+            end
+            f:close()
+         end
       end
    end
 end

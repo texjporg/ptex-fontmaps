@@ -383,9 +383,9 @@ local function ret_suffix(fd, s, fa)
       return 'ProVI' -- 小塚だけ特別
    elseif fd:match('hiragino') then
       if string.match(s, jis2004_flag) then
-	 return (fa=='ge' or fa=='gen') and 'StdN' or suffix[s][1]
+         return (fa=='ge' or fa=='gen') and 'StdN' or suffix[s][1]
       else
-	 return (fa=='ge' or fa=='gen') and 'Std'  or suffix[s][1]
+         return (fa=='ge' or fa=='gen') and 'Std'  or suffix[s][1]
       end
       -- ヒラギノ角ゴ W8 は StdN/Std しかない
    else
@@ -398,7 +398,7 @@ local function replace_index(line, s)
    if ttc_mov then
       local ttc_index, ttc_dir = line:match('#(%d)(.)')
       if tonumber(ttc_index) then
-	 return line:gsub('#..', ':' .. tostring(tonumber(ttc_index)+tonumber(ttc_dir .. ttc_mov)) .. ':')
+         return line:gsub('#..', ':' .. tostring(tonumber(ttc_index)+tonumber(ttc_dir .. ttc_mov)) .. ':')
       end
    end
    return line
@@ -411,17 +411,17 @@ local function make_one_line(o, fd, s)
       local fx = foundry[fd]
       local fn = replace_index(gsub(fx[o[3]], '?', ret_suffix(fd,s,o[3])), s)
       if fx.noncid and string.match(o[2],'Identity') then
-	 if string.match(fn, '%!PS') then
-	    fn = gsub(fn, ' %%!PS', '/AJ16 %%!PS')
-	 else
-	    fn = fn .. '/AJ16'
-	 end
+         if string.match(fn, '%!PS') then
+            fn = gsub(fn, ' %%!PS', '/AJ16 %%!PS')
+         else
+            fn = fn .. '/AJ16'
+         end
       end
       if string.match(o[1], '#') then -- 'H', 'V' 一括出力
-	 return gsub(o[1], '#', 'h') .. '\t' .. gsub(o[2], '#', 'H') .. '\t' .. fn .. '\n'
+         return gsub(o[1], '#', 'h') .. '\t' .. gsub(o[2], '#', 'H') .. '\t' .. fn .. '\n'
           .. gsub(o[1], '#', 'v') .. '\t' .. gsub(o[2], '#', 'V') .. '\t' .. fn .. '\n'
       else
-	 return o[1] .. '\t' .. o[2] .. '\t' .. fn .. '\n'
+         return o[1] .. '\t' .. o[2] .. '\t' .. fn .. '\n'
       end
    end
 end
@@ -444,19 +444,19 @@ for fd, v1 in pairs(foundry) do
       -- Linux しか想定していない
       os.execute('mkdir ' .. dirname .. ' &>/dev/null')
       for mnx, mcont in pairs(maps) do
-	 --if not string.match(mnx, '-04') or string.match(s, jis2004_flag) then
-	 -- フォントが OpenType (CID) の場合は、すべての map を作る
-	 -- フォントが TrueType の場合は、基本的に -04 以外の map を作る
-	 -- ただし TrueType でも separate なときは -04 も作る
-	 if not string.match(mnx, '-04') or not foundry[fd].noncid or foundry[fd].separate then
-	    local mapbase = gsub(mnx, '@', dirname)
-	    local f = io.open(dirname .. '/' .. mapbase .. '.map', 'w+')
-	    for _,x in ipairs(mcont) do
-	       f:write(make_one_line(x, fd, s))
-	    end
-	    if string.match(mapbase,'otf%-hiragino') then
-	       print('  hiraprop: ' .. mapbase)
-	       local v2 = string.explode([[
+         --if not string.match(mnx, '-04') or string.match(s, jis2004_flag) then
+         -- フォントが OpenType (CID) の場合は、すべての map を作る
+         -- フォントが TrueType の場合は、基本的に -04 以外の map を作る
+         -- ただし TrueType でも separate なときは -04 も作る
+         if not string.match(mnx, '-04') or not foundry[fd].noncid or foundry[fd].separate then
+            local mapbase = gsub(mnx, '@', dirname)
+            local f = io.open(dirname .. '/' .. mapbase .. '.map', 'w+')
+            for _,x in ipairs(mcont) do
+               f:write(make_one_line(x, fd, s))
+            end
+            if string.match(mapbase,'otf%-hiragino') then
+               print('  hiraprop: ' .. mapbase)
+               local v2 = string.explode([[
 
 % hiraprop
 hiramin-w3-h Identity-H $mr
@@ -471,14 +471,14 @@ hirakaku-w6-v Identity-V $gb
 hiramaru-w4-v Identity-V $mgr
 
 ]])
-	       for i,v in pairs(v2) do
-		  v = (v:gsub ('$(%w+)', foundry[fd])):gsub('?', ret_suffix(fd,s,''))
-		  v2[i] = replace_index(v, s)
-	       end
-	       f:write(table.concat(v2, '\n'))
-	    end
-	    f:close()
-	 end
+               for i,v in pairs(v2) do
+                  v = (v:gsub ('$(%w+)', foundry[fd])):gsub('?', ret_suffix(fd,s,''))
+                  v2[i] = replace_index(v, s)
+               end
+               f:write(table.concat(v2, '\n'))
+            end
+            f:close()
+         end
       end
    end
 end
