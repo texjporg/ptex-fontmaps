@@ -1,10 +1,10 @@
-urml	unicode	NotoSerifCJKjp-Regular.otf -l jp90
-urmlv	unicode	NotoSerifCJKjp-Regular.otf -w 1 -l jp90
-ugbm	unicode	NotoSansCJKjp-Medium.otf -l jp90
-ugbmv	unicode	NotoSansCJKjp-Medium.otf -w 1 -l jp90
-uprml-h	unicode	NotoSerifCJKjp-Regular.otf -l jp90
-uprml-v	unicode	NotoSerifCJKjp-Regular.otf -w 1 -l jp90
-upgbm-h	unicode	NotoSansCJKjp-Medium.otf -l jp90
-upgbm-v	unicode	NotoSansCJKjp-Medium.otf -w 1 -l jp90
-uprml-hq	unicode	NotoSerifCJKjp-Regular.otf -l fwid
-upgbm-hq	unicode	NotoSansCJKjp-Medium.otf -l fwid
+urml	unicode	NotoSerifCJKjp-Regular.otf -l jp90 %!FB !Ryumin-Light-UniJIS-UTF16-H
+urmlv	unicode	NotoSerifCJKjp-Regular.otf -w 1 -l jp90 %!FB !Ryumin-Light-UniJIS-UTF16-V
+ugbm	unicode	NotoSansCJKjp-Medium.otf -l jp90 %!FB !GothicBBB-Medium-UniJIS-UTF16-H
+ugbmv	unicode	NotoSansCJKjp-Medium.otf -w 1 -l jp90 %!FB !GothicBBB-Medium-UniJIS-UTF16-V
+uprml-h	unicode	NotoSerifCJKjp-Regular.otf -l jp90 %!FB !Ryumin-Light-UniJIS-UTF16-H
+uprml-v	unicode	NotoSerifCJKjp-Regular.otf -w 1 -l jp90 %!FB !Ryumin-Light-UniJIS-UTF16-V
+upgbm-h	unicode	NotoSansCJKjp-Medium.otf -l jp90 %!FB !GothicBBB-Medium-UniJIS-UTF16-H
+upgbm-v	unicode	NotoSansCJKjp-Medium.otf -w 1 -l jp90 %!FB !GothicBBB-Medium-UniJIS-UTF16-V
+uprml-hq	unicode	NotoSerifCJKjp-Regular.otf -l fwid %!FB !Ryumin-Light-UniJIS-UCS2-H
+upgbm-hq	unicode	NotoSansCJKjp-Medium.otf -l fwid %!FB !GothicBBB-Medium-UniJIS-UCS2-H

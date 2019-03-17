@@ -69,68 +69,122 @@ local foundry = {
    },
 }
 
+-- Adobe-Identity0 なフォントは dvips で全く使えないので，
+-- フォールバックとして noEmbed 相当の設定を追加する．
+local foundry_fallback = {
+   ['noEmbed']   = {
+      fml='!Ryumin-Light',
+      fmr='!Ryumin-Light',
+      fmb='!Ryumin-Light,Bold',
+      fgr='!GothicBBB-Medium',
+      fgru='!GothicBBB-Medium',
+      fgb='!GothicBBB-Medium,Bold',
+      fge='!GothicBBB-Medium,Bold',
+      fmgr='!GothicBBB-Medium',
+      {'n'},
+   },
+}
+
 -- '#' は 'h', 'v' に置換される
 -- '@' は jaEmbed の値に置換される
+-- テーブルサイズが 5 のとき，4/5 番目は fallback の AJ1 フォント用
+-- テーブルサイズが 3 のとき，全て fallback の AJ1 フォント用
 local maps = {
+   ['ptex-@'] = {    -- pTeX 90JIS
+      {'rml',  'H', 'fmr'},
+      {'rmlv', 'V', 'fmr'},
+      {'gbm',  'H', 'fgru'},
+      {'gbmv', 'V', 'fgru'},
+   },
+   ['ptex-@-04'] = { -- pTeX JIS04
+      {'rml',  '2004-H', 'fmr'},
+      {'rmlv', '2004-V', 'fmr'},
+      {'gbm',  '2004-H', 'fgru'},
+      {'gbmv', '2004-V', 'fgru'},
+   },
    ['uptex-@'] = {   -- upTeX 90JIS
-      {'urml',    '-l jp90',      'mr'},
-      {'urmlv',   '-w 1 -l jp90', 'mr'},
-      {'ugbm',    '-l jp90',      'gru'},
-      {'ugbmv',   '-w 1 -l jp90', 'gru'},
-      {'uprml-#', '# -l jp90',    'mr'},
-      {'upgbm-#', '# -l jp90',    'gru'},
-      {'uprml-hq','-l fwid',      'mr'}, -- (-TL17, +TL18)
-      {'upgbm-hq','-l fwid',      'gru'}, -- (-TL17, +TL18)
-      -- {'uprml-hq','',      'mrq'}, -- (+TL17, -TL18)
-      -- {'upgbm-hq','',      'gruq'}, -- (+TL17, -TL18)
+      {'urml',    '-l jp90',      'mr',  'fmr',  'UniJIS-UTF16-H'},
+      {'urmlv',   '-w 1 -l jp90', 'mr',  'fmr',  'UniJIS-UTF16-V'},
+      {'ugbm',    '-l jp90',      'gru', 'fgru', 'UniJIS-UTF16-H'},
+      {'ugbmv',   '-w 1 -l jp90', 'gru', 'fgru', 'UniJIS-UTF16-V'},
+      {'uprml-#', '# -l jp90',    'mr',  'fmr',  'UniJIS-UTF16-#'},
+      {'upgbm-#', '# -l jp90',    'gru', 'fgru', 'UniJIS-UTF16-#'},
+      {'uprml-hq','-l fwid',      'mr',  'fmr',  'UniJIS-UCS2-H'}, -- (-TL17, +TL18)
+      {'upgbm-hq','-l fwid',      'gru', 'fgru', 'UniJIS-UCS2-H'}, -- (-TL17, +TL18)
+      --{'uprml-hq','',             'mrq', 'fmrq', 'UniJIS-UCS2-H'}, -- (+TL17, -TL18)
+      --{'upgbm-hq','',             'gruq','fgruq','UniJIS-UCS2-H'}, -- (+TL17, -TL18)
    },
    ['uptex-@-04'] = { -- upTeX JIS04
-      {'urml',    '-l jp04',      'mrn'},
-      {'urmlv',   '-w 1 -l jp04', 'mrn'},
-      {'ugbm',    '-l jp04',      'grun'},
-      {'ugbmv',   '-w 1 -l jp04', 'grun'},
-      {'uprml-#', '# -l jp04',    'mrn'},
-      {'upgbm-#', '# -l jp04',    'grun'},
-      {'uprml-hq','-l fwid',      'mrn'}, -- (-TL17, +TL18)
-      {'upgbm-hq','-l fwid',      'grun'}, -- (-TL17, +TL18)
-      -- {'uprml-hq','',      'mrq'}, -- (+TL17, -TL18)
-      -- {'upgbm-hq','',      'gruq'}, -- (+TL17, -TL18)
+      {'urml',    '-l jp04',      'mrn',  'fmr',  'UniJIS2004-UTF16-H'},
+      {'urmlv',   '-w 1 -l jp04', 'mrn',  'fmr',  'UniJIS2004-UTF16-V'},
+      {'ugbm',    '-l jp04',      'grun', 'fgru', 'UniJIS2004-UTF16-H'},
+      {'ugbmv',   '-w 1 -l jp04', 'grun', 'fgru', 'UniJIS2004-UTF16-V'},
+      {'uprml-#', '# -l jp04',    'mrn',  'fmr',  'UniJIS2004-UTF16-#'},
+      {'upgbm-#', '# -l jp04',    'grun', 'fgru', 'UniJIS2004-UTF16-#'},
+      {'uprml-hq','-l fwid',      'mrn',  'fmr',  'UniJIS-UCS2-H'}, -- (-TL17, +TL18)
+      {'upgbm-hq','-l fwid',      'grun', 'fgru', 'UniJIS-UCS2-H'}, -- (-TL17, +TL18)
+      --{'uprml-hq','',             'mrqn', 'fmrq', 'UniJIS-UCS2-H'}, -- (+TL17, -TL18)
+      --{'upgbm-hq','',             'gruqn','fgruq','UniJIS-UCS2-H'}, -- (+TL17, -TL18)
    },
    ['otf-@'] = {
+      '% TEXT, 90JIS',
+      {'hminl-#',  '#', 'fml'},
+      {'hminr-#',  '#', 'fmr'},
+      {'hminb-#',  '#', 'fmb'},
+      {'hgothr-#', '#', 'fgr'},
+      {'hgothb-#', '#', 'fgb'},
+      {'hgotheb-#','#', 'fge'},
+      {'hmgothr-#','#', 'fmgr'},
+      '% TEXT, JIS04',
+      {'hminln-#',  '#', 'fml'},
+      {'hminrn-#',  '#', 'fmr'},
+      {'hminbn-#',  '#', 'fmb'},
+      {'hgothrn-#', '#', 'fgr'},
+      {'hgothbn-#', '#', 'fgb'},
+      {'hgothebn-#','#', 'fge'},
+      {'hmgothrn-#','#', 'fmgr'},
+      '% CID',
+      {'otf-cjml-#', 'Identity-#',     'fml'},
+      {'otf-cjmr-#', 'Identity-#',     'fmr'},
+      {'otf-cjmb-#', 'Identity-#',     'fmb'},
+      {'otf-cjgr-#', 'Identity-#',     'fgr'},
+      {'otf-cjgb-#', 'Identity-#',     'fgb'},
+      {'otf-cjge-#', 'Identity-#',     'fge'},
+      {'otf-cjmgr-#','Identity-#',     'fmgr'},
       '% Unicode 90JIS',
-      {'otf-ujml-#', '# -l jp90', 'ml'},
-      {'otf-ujmr-#', '# -l jp90', 'mr'},
-      {'otf-ujmb-#', '# -l jp90', 'mb'},
-      {'otf-ujgr-#', '# -l jp90', 'gr'},
-      {'otf-ujgb-#', '# -l jp90', 'gb'},
-      {'otf-ujge-#', '# -l jp90', 'ge'},
-      {'otf-ujmgr-#','# -l jp90', 'mgr'},
+      {'otf-ujml-#', '# -l jp90', 'ml',  'fml', 'UniJIS-UTF16-#'},
+      {'otf-ujmr-#', '# -l jp90', 'mr',  'fmr', 'UniJIS-UTF16-#'},
+      {'otf-ujmb-#', '# -l jp90', 'mb',  'fmb', 'UniJIS-UTF16-#'},
+      {'otf-ujgr-#', '# -l jp90', 'gr',  'fgr', 'UniJIS-UTF16-#'},
+      {'otf-ujgb-#', '# -l jp90', 'gb',  'fgb', 'UniJIS-UTF16-#'},
+      {'otf-ujge-#', '# -l jp90', 'ge',  'fge', 'UniJIS-UTF16-#'},
+      {'otf-ujmgr-#','# -l jp90', 'mgr', 'fmgr','UniJIS-UTF16-#'},
       '% Unicode JIS04',
-      {'otf-ujmln-#', '# -l jp04', 'mln'},
-      {'otf-ujmrn-#', '# -l jp04', 'mrn'},
-      {'otf-ujmbn-#', '# -l jp04', 'mbn'},
-      {'otf-ujgrn-#', '# -l jp04', 'grn'},
-      {'otf-ujgbn-#', '# -l jp04', 'gbn'},
-      {'otf-ujgen-#', '# -l jp04', 'gen'},
-      {'otf-ujmgrn-#','# -l jp04', 'mgrn'},
+      {'otf-ujmln-#', '# -l jp04', 'mln',  'fml', 'UniJIS2004-UTF16-#'},
+      {'otf-ujmrn-#', '# -l jp04', 'mrn',  'fmr', 'UniJIS2004-UTF16-#'},
+      {'otf-ujmbn-#', '# -l jp04', 'mbn',  'fmb', 'UniJIS2004-UTF16-#'},
+      {'otf-ujgrn-#', '# -l jp04', 'grn',  'fgr', 'UniJIS2004-UTF16-#'},
+      {'otf-ujgbn-#', '# -l jp04', 'gbn',  'fgb', 'UniJIS2004-UTF16-#'},
+      {'otf-ujgen-#', '# -l jp04', 'gen',  'fge', 'UniJIS2004-UTF16-#'},
+      {'otf-ujmgrn-#','# -l jp04', 'mgrn', 'fmgr','UniJIS2004-UTF16-#'},
    },
    ['otf-up-@'] = {
       '% TEXT, 90JIS',
-      {'uphminl-#',  '# -l jp90', 'ml'},
-      {'uphminr-#',  '# -l jp90', 'mr'},
-      {'uphminb-#',  '# -l jp90', 'mb'},
-      {'uphgothr-#', '# -l jp90', 'gr'},
-      {'uphgothb-#', '# -l jp90', 'gb'},
-      {'uphgotheb-#','# -l jp90', 'ge'},
-      {'uphmgothr-#','# -l jp90', 'mgr'},
+      {'uphminl-#',  '# -l jp90', 'ml',  'fml', 'UniJIS-UTF16-#'},
+      {'uphminr-#',  '# -l jp90', 'mr',  'fmr', 'UniJIS-UTF16-#'},
+      {'uphminb-#',  '# -l jp90', 'mb',  'fmb', 'UniJIS-UTF16-#'},
+      {'uphgothr-#', '# -l jp90', 'gr',  'fgr', 'UniJIS-UTF16-#'},
+      {'uphgothb-#', '# -l jp90', 'gb',  'fgb', 'UniJIS-UTF16-#'},
+      {'uphgotheb-#','# -l jp90', 'ge',  'fge', 'UniJIS-UTF16-#'},
+      {'uphmgothr-#','# -l jp90', 'mgr', 'fmgr','UniJIS-UTF16-#'},
       '% TEXT, JIS04',
-      {'uphminln-#',  '# -l jp04', 'mln'},
-      {'uphminrn-#',  '# -l jp04', 'mrn'},
-      {'uphminbn-#',  '# -l jp04', 'mbn'},
-      {'uphgothrn-#', '# -l jp04', 'grn'},
-      {'uphgothbn-#', '# -l jp04', 'gbn'},
-      {'uphgothebn-#','# -l jp04', 'gen'},
-      {'uphmgothrn-#','# -l jp04', 'mgrn'},
+      {'uphminln-#',  '# -l jp04', 'mln',  'fml', 'UniJIS2004-UTF16-#'},
+      {'uphminrn-#',  '# -l jp04', 'mrn',  'fmr', 'UniJIS2004-UTF16-#'},
+      {'uphminbn-#',  '# -l jp04', 'mbn',  'fmb', 'UniJIS2004-UTF16-#'},
+      {'uphgothrn-#', '# -l jp04', 'grn',  'fgr', 'UniJIS2004-UTF16-#'},
+      {'uphgothbn-#', '# -l jp04', 'gbn',  'fgb', 'UniJIS2004-UTF16-#'},
+      {'uphgothebn-#','# -l jp04', 'gen',  'fge', 'UniJIS2004-UTF16-#'},
+      {'uphmgothrn-#','# -l jp04', 'mgrn', 'fmgr','UniJIS2004-UTF16-#'},
    },
 }
 
@@ -147,16 +201,30 @@ end
 local function make_one_line(o, fd, s)
    if type(o) == 'string' then
       return '\n' .. o .. '\n'
+   else if #o == 3 then
+      local bx = foundry_fallback['noEmbed']
+      local bn = bx[o[3]]
+      if string.match(o[1], '#') then -- 'H', 'V' 一括出力
+         return gsub(o[1], '#', 'h') .. '\t' .. gsub(o[2], '#', 'H') .. '\t' .. bn .. '\n'
+          .. gsub(o[1], '#', 'v') .. '\t' .. gsub(o[2], '#', 'V') .. '\t' .. bn .. '\n'
+      else
+         return o[1] .. '\t' .. o[2] .. '\t' .. bn .. '\n'
+      end
    else
       local fx = foundry[fd]
       local fn = fx[o[3]]
+      local bx = foundry_fallback['noEmbed']
+      local bn = bx[o[4]]
       if string.match(o[1], '#') then -- 'H', 'V' 一括出力
-         return gsub(o[1], '#', 'h') .. '\t' .. "unicode" .. '\t' .. fn .. ' ' .. gsub(o[2], '# ', '') .. '\n'
-          .. gsub(o[1], '#', 'v') .. '\t' .. "unicode" .. '\t' .. fn .. ' ' .. gsub(o[2], '# ', '-w 1 ') .. '\n'
+         return gsub(o[1], '#', 'h') .. '\t' .. "unicode" .. '\t' .. fn .. ' ' .. gsub(o[2], '# ', '')
+          .. ' %!FB ' .. bn .. '-' .. gsub(o[5], '#', 'H') .. '\n'
+          .. gsub(o[1], '#', 'v') .. '\t' .. "unicode" .. '\t' .. fn .. ' ' .. gsub(o[2], '# ', '-w 1 ')
+          .. ' %!FB ' .. bn .. '-' .. gsub(o[5], '#', 'V') .. '\n'
       else
-         return o[1] .. '\t' .. "unicode" .. '\t' .. fn .. ' ' .. o[2] .. '\n'
+         return o[1] .. '\t' .. "unicode" .. '\t' .. fn .. ' ' .. o[2]
+          .. ' %!FB ' .. bn .. '-' .. o[5] .. '\n'
       end
-   end
+   end end
 end
 
 for fd, v1 in pairs(foundry) do

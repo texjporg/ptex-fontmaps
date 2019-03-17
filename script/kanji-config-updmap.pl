@@ -346,6 +346,8 @@ sub gen_mapfile {
   my $opt_mode = shift;
   my $map_base = shift;
   # returns a representative map file name
+  # ptex-${map_base}.map also exists for Japanese AI0 fonts,
+  # but it is a stub so we use uptex-${map_base}.map instead
   return ($opt_mode eq "ja" ?
             ($representatives{$opt_mode}{$map_base}{'ai0'} ?
                "uptex-${map_base}.map" :
@@ -398,11 +400,11 @@ sub SetupMapFile {
     print "Setting up ... $rep";
     print " (AI0)" if ($representatives{$opt_mode}{$rep}{'ai0'});
     print " for $opt_mode\n";
-    system("$updmap --quiet --nomkmap --nohash -setoption ${opt_mode}Embed $rep");
+    system("$updmap --quiet --nomkmap --nohash --setoption ${opt_mode}Embed $rep");
     if ($opt_jis) {
-      system("$updmap --quiet --nomkmap --nohash -setoption jaVariant -04");
+      system("$updmap --quiet --nomkmap --nohash --setoption jaVariant -04");
     } else {
-      system("$updmap --quiet --nomkmap --nohash -setoption jaVariant \"\"");
+      system("$updmap --quiet --nomkmap --nohash --setoption jaVariant \"\"");
     }
   } else {
     die "NOT EXIST $MAPFILE\n";

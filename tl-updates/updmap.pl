@@ -845,9 +845,18 @@ sub cidx2dvips {
     chomp;
     # save the line for warnings
     my $l = $_;
-    # first check whether a PSname is given
-    my $psname;
     #
+    my $psname;
+    my $fbname;
+    #
+    # special case for pre-defined fallback from unicode encoded font
+    if ($_ =~ m/%!FB\s\s*([0-9A-Za-z-_!,][0-9A-Za-z-_!,]*)/) {
+      $fbname = $1;
+      # minimal adjustment
+      $fbname =~ s/^!//;
+      $fbname =~ s/,Bold//;
+    }
+    # first check whether a PSname is given
     # the matching on \w* is greedy, so will take all the word chars available
     # that means we do not need to test for end of word
     if ($_ =~ m/%!PS\s\s*([0-9A-Za-z-_][0-9A-Za-z-_]*)/) {
@@ -875,7 +884,8 @@ sub cidx2dvips {
     # make everything single spaced
     s/\s\s*/ /g;
     # unicode encoded fonts are not supported
-    next if (m!^[\w-][\w-]* unicode !);
+    # but if a fallback font is pre-defined, we can use it
+    next if (!defined($fbname) && (m!^[\w-][\w-]* unicode !));
     # now we have the following format
     #  <word> <word> <word> some options like -e or -s
     if ($_ !~ m/([^ ][^ ]*) ([^ ][^ ]*) ([^ ][^ ]*)( (.*))?$/) {
@@ -911,13 +921,17 @@ sub cidx2dvips {
       $opts .= " \"$italicmax SlantFont\"";
     }
     # print out the result
-    if (defined($psname)) {
-      push @d, "$tfmname $psname-$cid$opts\n";
+    if (defined($fbname)) {
+      push @d, "$tfmname $fbname\n";
     } else {
-      if (defined($fname_psname{$fname})) {
-        push @d, "$tfmname $fname_psname{$fname}-$cid$opts\n";
+      if (defined($psname)) {
+        push @d, "$tfmname $psname-$cid$opts\n";
       } else {
-        push @d, "$tfmname $fname-$cid$opts\n";
+        if (defined($fname_psname{$fname})) {
+          push @d, "$tfmname $fname_psname{$fname}-$cid$opts\n";
+        } else {
+          push @d, "$tfmname $fname-$cid$opts\n";
+        }
       }
     }
   }
