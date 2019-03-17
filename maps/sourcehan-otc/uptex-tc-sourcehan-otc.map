@@ -1,4 +1,4 @@
-upmsl-h	unicode	:3:SourceHanSerif-Regular.ttc
-upmsl-v	unicode	:3:SourceHanSerif-Regular.ttc -w 1
-upmhm-h	unicode	:3:SourceHanSans-Medium.ttc
-upmhm-v	unicode	:3:SourceHanSans-Medium.ttc -w 1
+upmsl-h	unicode	:3:SourceHanSerif-Regular.ttc %!FB !MSung-Light-UniCNS-UTF16-H
+upmsl-v	unicode	:3:SourceHanSerif-Regular.ttc -w 1 %!FB !MSung-Light-UniCNS-UTF16-V
+upmhm-h	unicode	:3:SourceHanSans-Medium.ttc %!FB !MHei-Medium-UniCNS-UTF16-H
+upmhm-v	unicode	:3:SourceHanSans-Medium.ttc -w 1 %!FB !MHei-Medium-UniCNS-UTF16-V

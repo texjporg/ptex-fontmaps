@@ -65,7 +65,7 @@ local suffix = {
 local maps = {
    ['uptex-ko-@'] = {
       {'uphysmjm-#', 'UniKS-UTF16-#', 'mr'},
-      {'uphygt-#', 'UniKS-UTF16-#', 'gr'},
+      {'uphygt-#',   'UniKS-UTF16-#', 'gr'},
    },
    ['otf-ko-@'] = {
       '% CID',

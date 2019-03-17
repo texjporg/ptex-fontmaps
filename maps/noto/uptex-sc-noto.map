@@ -1,4 +1,4 @@
-upstsl-h	unicode	NotoSerifCJKsc-Regular.otf
-upstsl-v	unicode	NotoSerifCJKsc-Regular.otf -w 1
-upstht-h	unicode	NotoSansCJKsc-Medium.otf
-upstht-v	unicode	NotoSansCJKsc-Medium.otf -w 1
+upstsl-h	unicode	NotoSerifCJKsc-Regular.otf %!FB !STSong-Light-UniGB-UTF16-H
+upstsl-v	unicode	NotoSerifCJKsc-Regular.otf -w 1 %!FB !STSong-Light-UniGB-UTF16-V
+upstht-h	unicode	NotoSansCJKsc-Medium.otf %!FB !STHeiti-Regular-UniGB-UTF16-H
+upstht-v	unicode	NotoSansCJKsc-Medium.otf -w 1 %!FB !STHeiti-Regular-UniGB-UTF16-V

@@ -1,6 +1,12 @@
 
+% CID
+otf-ccmr-h	Identity-H	!STSong-Light
+otf-ccmr-v	Identity-V	!STSong-Light
+otf-ccgr-h	Identity-H	!STHeiti-Regular
+otf-ccgr-v	Identity-V	!STHeiti-Regular
+
 % Unicode
-otf-ucmr-h	unicode	:2:SourceHanSerif-Regular.ttc
-otf-ucmr-v	unicode	:2:SourceHanSerif-Regular.ttc -w 1
-otf-ucgr-h	unicode	:2:SourceHanSans-Medium.ttc
-otf-ucgr-v	unicode	:2:SourceHanSans-Medium.ttc -w 1
+otf-ucmr-h	unicode	:2:SourceHanSerif-Regular.ttc %!FB !STSong-Light-UniGB-UCS2-H
+otf-ucmr-v	unicode	:2:SourceHanSerif-Regular.ttc -w 1 %!FB !STSong-Light-UniGB-UCS2-V
+otf-ucgr-h	unicode	:2:SourceHanSans-Medium.ttc %!FB !STHeiti-Regular-UniGB-UCS2-H
+otf-ucgr-v	unicode	:2:SourceHanSans-Medium.ttc -w 1 %!FB !STHeiti-Regular-UniGB-UCS2-V

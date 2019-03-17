@@ -1,4 +1,4 @@
-uphysmjm-h	unicode	SourceHanSerifK-Regular.otf
-uphysmjm-v	unicode	SourceHanSerifK-Regular.otf -w 1
-uphygt-h	unicode	SourceHanSansK-Medium.otf
-uphygt-v	unicode	SourceHanSansK-Medium.otf -w 1
+uphysmjm-h	unicode	SourceHanSerifK-Regular.otf %!FB !HYSMyeongJo-Medium-UniKS-UTF16-H
+uphysmjm-v	unicode	SourceHanSerifK-Regular.otf -w 1 %!FB !HYSMyeongJo-Medium-UniKS-UTF16-V
+uphygt-h	unicode	SourceHanSansK-Medium.otf %!FB !HYGoThic-Medium-UniKS-UTF16-H
+uphygt-v	unicode	SourceHanSansK-Medium.otf -w 1 %!FB !HYGoThic-Medium-UniKS-UTF16-V

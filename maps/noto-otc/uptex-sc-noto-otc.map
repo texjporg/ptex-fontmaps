@@ -1,4 +1,4 @@
-upstsl-h	unicode	:2:NotoSerifCJK-Regular.ttc
-upstsl-v	unicode	:2:NotoSerifCJK-Regular.ttc -w 1
-upstht-h	unicode	:2:NotoSansCJK-Medium.ttc
-upstht-v	unicode	:2:NotoSansCJK-Medium.ttc -w 1
+upstsl-h	unicode	:2:NotoSerifCJK-Regular.ttc %!FB !STSong-Light-UniGB-UTF16-H
+upstsl-v	unicode	:2:NotoSerifCJK-Regular.ttc -w 1 %!FB !STSong-Light-UniGB-UTF16-V
+upstht-h	unicode	:2:NotoSansCJK-Medium.ttc %!FB !STHeiti-Regular-UniGB-UTF16-H
+upstht-v	unicode	:2:NotoSansCJK-Medium.ttc -w 1 %!FB !STHeiti-Regular-UniGB-UTF16-V

@@ -26,17 +26,32 @@ local foundry = {
    },
 }
 
+-- Adobe-Identity0 なフォントは dvips で全く使えないので，
+-- フォールバックとして noEmbed 相当の設定を追加する．
+local foundry_fallback = {
+   ['noEmbed']   = {
+      fmr='!STSong-Light',
+      fgr='!STHeiti-Regular',
+      {'n'},
+   },
+}
+
 -- '#' は 'h', 'v' に置換される
 -- '@' は scEmbed の値に置換される
+-- テーブルサイズが 5 のとき，4/5 番目は fallback の AG1 フォント用
+-- テーブルサイズが 3 のとき，全て fallback の AG1 フォント用
 local maps = {
    ['uptex-sc-@'] = {
-      {'upstsl-#', '#', 'mr'},
-      {'upstht-#', '#', 'gr'},
+      {'upstsl-#', '#', 'mr', 'fmr', 'UniGB-UTF16-#'},
+      {'upstht-#', '#', 'gr', 'fgr', 'UniGB-UTF16-#'},
    },
    ['otf-sc-@'] = {
+      '% CID',
+      {'otf-ccmr-#', 'Identity-#',     'fmr'},
+      {'otf-ccgr-#', 'Identity-#',     'fgr'},
       '% Unicode',
-      {'otf-ucmr-#', '#', 'mr'},
-      {'otf-ucgr-#', '#', 'gr'},
+      {'otf-ucmr-#', '#', 'mr', 'fmr', 'UniGB-UCS2-#'},
+      {'otf-ucgr-#', '#', 'gr', 'fgr', 'UniGB-UCS2-#'},
    },
 }
 
@@ -53,16 +68,30 @@ end
 local function make_one_line(o, fd, s)
    if type(o) == 'string' then
       return '\n' .. o .. '\n'
+   else if #o == 3 then
+      local bx = foundry_fallback['noEmbed']
+      local bn = bx[o[3]]
+      if string.match(o[1], '#') then -- 'H', 'V' 一括出力
+         return gsub(o[1], '#', 'h') .. '\t' .. gsub(o[2], '#', 'H') .. '\t' .. bn .. '\n'
+          .. gsub(o[1], '#', 'v') .. '\t' .. gsub(o[2], '#', 'V') .. '\t' .. bn .. '\n'
+      else
+         return o[1] .. '\t' .. o[2] .. '\t' .. bn .. '\n'
+      end
    else
       local fx = foundry[fd]
       local fn = fx[o[3]]
+      local bx = foundry_fallback['noEmbed']
+      local bn = bx[o[4]]
       if string.match(o[1], '#') then -- 'H', 'V' 一括出力
-         return gsub(o[1], '#', 'h') .. '\t' .. "unicode" .. '\t' .. fn .. gsub(o[2], '#', '') .. '\n'
-          .. gsub(o[1], '#', 'v') .. '\t' .. "unicode" .. '\t' .. fn .. ' ' .. gsub(o[2], '#', '-w 1') .. '\n'
+         return gsub(o[1], '#', 'h') .. '\t' .. "unicode" .. '\t' .. fn .. gsub(o[2], '#', '')
+          .. ' %!FB ' .. bn .. '-' .. gsub(o[5], '#', 'H') .. '\n'
+          .. gsub(o[1], '#', 'v') .. '\t' .. "unicode" .. '\t' .. fn .. ' ' .. gsub(o[2], '#', '-w 1')
+          .. ' %!FB ' .. bn .. '-' .. gsub(o[5], '#', 'V') .. '\n'
       else
-         return o[1] .. '\t' .. "unicode" .. '\t' .. fn .. ' ' .. o[2] .. '\n'
+         return o[1] .. '\t' .. "unicode" .. '\t' .. fn .. ' ' .. o[2]
+          .. ' %!FB ' .. bn .. '-' .. o[5] .. '\n'
       end
-   end
+   end end
 end
 
 for fd, v1 in pairs(foundry) do
