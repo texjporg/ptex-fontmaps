@@ -84,12 +84,12 @@ local function make_one_line(o, fd, s)
       local bn = bx[o[4]]
       if string.match(o[1], '#') then -- 'H', 'V' 一括出力
          return gsub(o[1], '#', 'h') .. '\t' .. "unicode" .. '\t' .. fn .. gsub(o[2], '#', '')
-          .. ' %!FB ' .. bn .. '-' .. gsub(o[5], '#', 'H') .. '\n'
+          .. ' %!DVIPSFB ' .. bn .. '-' .. gsub(o[5], '#', 'H') .. '\n'
           .. gsub(o[1], '#', 'v') .. '\t' .. "unicode" .. '\t' .. fn .. ' ' .. gsub(o[2], '#', '-w 1')
-          .. ' %!FB ' .. bn .. '-' .. gsub(o[5], '#', 'V') .. '\n'
+          .. ' %!DVIPSFB ' .. bn .. '-' .. gsub(o[5], '#', 'V') .. '\n'
       else
          return o[1] .. '\t' .. "unicode" .. '\t' .. fn .. ' ' .. o[2]
-          .. ' %!FB ' .. bn .. '-' .. o[5] .. '\n'
+          .. ' %!DVIPSFB ' .. bn .. '-' .. o[5] .. '\n'
       end
    end end
 end
