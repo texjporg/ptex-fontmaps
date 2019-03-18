@@ -131,6 +131,7 @@ if ($opt_help) {
 # representatives of support font families
 #
 my %representatives;
+my %ai0flags;
 my @databaselist = "ptex-fontmaps-data.dat";
 push @databaselist, "ptex-fontmaps-macos-data.dat" if (macosx_new());
 
@@ -228,6 +229,7 @@ EOF
 
 sub InitDatabase {
   %representatives = ();
+  %ai0flags = ();
 }
 
 sub ReadDatabase {
@@ -271,23 +273,27 @@ sub ReadDatabase {
         next;
       }
       if ($l =~ m/^JA-AI0:\s*(.*):\s*(.*)$/) {
+        $representatives{'ja'}{$1}{'priority'} = 9999; # lowest
         $representatives{'ja'}{$1}{'file'} = $2;
-        $representatives{'ja'}{$1}{'ai0'} = 1;
+        $ai0flags{'ja'}{$1} = 1;
         next;
       }
       if ($l =~ m/^SC-AI0:\s*(.*):\s*(.*)$/) {
+        $representatives{'sc'}{$1}{'priority'} = 9999; # lowest
         $representatives{'sc'}{$1}{'file'} = $2;
-        $representatives{'sc'}{$1}{'ai0'} = 1;
+        $ai0flags{'sc'}{$1} = 1;
         next;
       }
       if ($l =~ m/^TC-AI0:\s*(.*):\s*(.*)$/) {
+        $representatives{'tc'}{$1}{'priority'} = 9999; # lowest
         $representatives{'tc'}{$1}{'file'} = $2;
-        $representatives{'tc'}{$1}{'ai0'} = 1;
+        $ai0flags{'tc'}{$1} = 1;
         next;
       }
       if ($l =~ m/^KO-AI0:\s*(.*):\s*(.*)$/) {
+        $representatives{'ko'}{$1}{'priority'} = 9999; # lowest
         $representatives{'ko'}{$1}{'file'} = $2;
-        $representatives{'ko'}{$1}{'ai0'} = 1;
+        $ai0flags{'ko'}{$1} = 1;
         next;
       }
       # we are still here??
@@ -349,7 +355,7 @@ sub gen_mapfile {
   # ptex-${map_base}.map also exists for Japanese AI0 fonts,
   # but it is a stub so we use uptex-${map_base}.map instead
   return ($opt_mode eq "ja" ?
-            ($representatives{$opt_mode}{$map_base}{'ai0'} ?
+            ($ai0flags{$opt_mode}{$map_base} ?
                "uptex-${map_base}.map" :
                "ptex-${map_base}.map") :
             "uptex-${opt_mode}-${map_base}.map");
@@ -368,7 +374,7 @@ sub GetStatus {
   my $testmap = gen_mapfile($opt_mode, $STATUS);
   if (check_mapfile($testmap)) {
     print "CURRENT family for $opt_mode: $STATUS";
-    print " (AI0)" if ($representatives{$opt_mode}{$STATUS}{'ai0'});
+    print " (AI0)" if ($ai0flags{$opt_mode}{$STATUS});
     print "\n";
   } else {
     print STDERR "WARNING: Currently selected map file for $opt_mode cannot be found: $testmap\n";
@@ -380,7 +386,7 @@ sub GetStatus {
     if (check_mapfile($MAPFILE)) {
       if ($representatives{$opt_mode}{$k}{'available'}) {
         print "Standby family : $k";
-        print " (AI0)" if ($representatives{$opt_mode}{$k}{'ai0'});
+        print " (AI0)" if ($ai0flags{$opt_mode}{$k});
         print "\n";
       }
     }
@@ -398,7 +404,7 @@ sub SetupMapFile {
   my $MAPFILE = gen_mapfile($opt_mode, $rep);
   if (check_mapfile($MAPFILE)) {
     print "Setting up ... $rep";
-    print " (AI0)" if ($representatives{$opt_mode}{$rep}{'ai0'});
+    print " (AI0)" if ($ai0flags{$opt_mode}{$rep});
     print " for $opt_mode\n";
     system("$updmap --quiet --nomkmap --nohash --setoption ${opt_mode}Embed $rep");
     if ($opt_jis) {
