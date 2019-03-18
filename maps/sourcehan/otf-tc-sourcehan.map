@@ -6,7 +6,7 @@ otf-ctgr-h	Identity-H	!MHei-Medium
 otf-ctgr-v	Identity-V	!MHei-Medium
 
 % Unicode
-otf-utmr-h	unicode	SourceHanSerifTC-Regular.otf %!FB !MSung-Light-UniCNS-UCS2-H
-otf-utmr-v	unicode	SourceHanSerifTC-Regular.otf -w 1 %!FB !MSung-Light-UniCNS-UCS2-V
-otf-utgr-h	unicode	SourceHanSansTC-Medium.otf %!FB !MHei-Medium-UniCNS-UCS2-H
-otf-utgr-v	unicode	SourceHanSansTC-Medium.otf -w 1 %!FB !MHei-Medium-UniCNS-UCS2-V
+otf-utmr-h	unicode	SourceHanSerifTC-Regular.otf %!DVIPSFB !MSung-Light-UniCNS-UCS2-H
+otf-utmr-v	unicode	SourceHanSerifTC-Regular.otf -w 1 %!DVIPSFB !MSung-Light-UniCNS-UCS2-V
+otf-utgr-h	unicode	SourceHanSansTC-Medium.otf %!DVIPSFB !MHei-Medium-UniCNS-UCS2-H
+otf-utgr-v	unicode	SourceHanSansTC-Medium.otf -w 1 %!DVIPSFB !MHei-Medium-UniCNS-UCS2-V
