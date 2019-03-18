@@ -1,5 +1,5 @@
 #!/usr/bin/env perl
-# $Id: updmap.pl 50423 2019-03-17 03:31:22Z hironobu $
+# $Id: updmap.pl 50442 2019-03-18 11:35:23Z hironobu $
 # updmap - maintain map files for outline fonts.
 # (Maintained in TeX Live:Master/texmf-dist/scripts/texlive.)
 # 
@@ -14,7 +14,7 @@
 # the original versions were licensed under the following agreement:
 # Anyone may freely use, modify, and/or distribute this file, without
 
-my $svnid = '$Id: updmap.pl 50423 2019-03-17 03:31:22Z hironobu $';
+my $svnid = '$Id: updmap.pl 50442 2019-03-18 11:35:23Z hironobu $';
 
 my $TEXMFROOT;
 BEGIN {
@@ -27,10 +27,10 @@ BEGIN {
   unshift(@INC, "$TEXMFROOT/tlpkg");
 }
 
-my $lastchdate = '$Date: 2019-03-17 12:31:22 +0900 (Sun, 17 Mar 2019) $';
+my $lastchdate = '$Date: 2019-03-18 20:35:23 +0900 (Mon, 18 Mar 2019) $';
 $lastchdate =~ s/^\$Date:\s*//;
 $lastchdate =~ s/ \(.*$//;
-my $svnrev = '$Revision: 50423 $';
+my $svnrev = '$Revision: 50442 $';
 $svnrev =~ s/^\$Revision:\s*//;
 $svnrev =~ s/\s*\$$//;
 my $version = "r$svnrev ($lastchdate)";
@@ -850,7 +850,7 @@ sub cidx2dvips {
     my $fbname;
     #
     # special case for pre-defined fallback from unicode encoded font
-    if ($_ =~ m/%!FB\s\s*([0-9A-Za-z-_!,][0-9A-Za-z-_!,]*)/) {
+    if ($_ =~ m/%!DVIPSFB\s\s*([0-9A-Za-z-_!,][0-9A-Za-z-_!,]*)/) {
       $fbname = $1;
       # minimal adjustment
       $fbname =~ s/^!//;
@@ -885,7 +885,7 @@ sub cidx2dvips {
     s/\s\s*/ /g;
     # unicode encoded fonts are not supported
     # but if a fallback font is pre-defined, we can use it
-    next if (!defined($fbname) && (m!^[\w-][\w-]* unicode !));
+    next if (!defined($fbname) && (m!^[0-9A-Za-z-_][0-9A-Za-z-_]* unicode !));
     # now we have the following format
     #  <word> <word> <word> some options like -e or -s
     if ($_ !~ m/([^ ][^ ]*) ([^ ][^ ]*) ([^ ][^ ]*)( (.*))?$/) {
