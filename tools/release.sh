@@ -26,8 +26,8 @@ fi
 echo
 git commit -m "Release $VER" --allow-empty
 git archive --format=tar --prefix=$PROJECT-$VER/ HEAD | (cd $TEMP && tar xf -)
-git --no-pager log --date=short --format='%ad  %aN  <%ae>%n%n%x09* %s%d [%h]%n' > $TEMP/$PROJECT-$VER/ChangeLog
-cat ChangeLog.pre-git >> $TEMP/$PROJECT-$VER/ChangeLog
+#git --no-pager log --date=short --format='%ad  %aN  <%ae>%n%n%x09* %s%d [%h]%n' > $TEMP/$PROJECT-$VER/ChangeLog
+#cat ChangeLog.pre-git >> $TEMP/$PROJECT-$VER/ChangeLog
 cd $TEMP
 # exclude unnecessary files for CTAN
 rm -f $PROJECT-$VER/.gitignore
@@ -66,11 +66,6 @@ mkdir -p $PROJECT-macos-$VER/database
 mv $PROJECT-$VER/database/*-macos-*.dat $PROJECT-macos-$VER/database/
 # remove the rest of the stuff
 mv $PROJECT-$VER/README.macos $PROJECT-macos-$VER/README
-
-# noto/sourcehan is not supported well, sorry
-for i in noto noto-otc sourcehan sourcehan-otc ; do
-  rm -rf $PROJECT-$VER/maps/$i
-done
 
 tar zcf $DIR/$PROJECT-$VER.tar.gz $PROJECT-$VER
 tar zcf $DIR/$PROJECT-macos-$VER.tar.gz $PROJECT-macos-$VER
