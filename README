@@ -89,6 +89,12 @@ D ms-osx - MS Mincho and MS Gothic, shipped with Office for Mac
     MS-Mincho.ttf      (<= "MS Mincho.ttf")
     MS-Gothic.ttf      (<= "MS Gothic.ttf")
 
+4 bizud - BIZ UD fonts by Morisawa Inc., bundled with Win 10
+        October 2018 Update.
+    BIZ-UDMinchoM.ttc
+    BIZ-UDGothicR.ttc
+    BIZ-UDGothicB.ttc
+
 4 yu-win - Yu Mincho and Yu Gothic fonts by Jiyu-koubou LTD.,
        bundled with Win 8.1.
     yumin.ttf

@@ -43,6 +43,18 @@ local foundry = {
       mgr='MS-Gothic.ttf',
       {''},
    },
+   ['bizud']   = {
+      noncid = true,
+      ml=':0:BIZ-UDMinchoM.ttc %!PS BIZ-UDMincho-Medium',
+      mr=':0:BIZ-UDMinchoM.ttc %!PS BIZ-UDMincho-Medium',
+      mb=':0:BIZ-UDMinchoM.ttc %!PS BIZ-UDMincho-Medium',
+      gr=':0:BIZ-UDGothicR.ttc %!PS BIZ-UDGothic',
+      gru=':0:BIZ-UDGothicR.ttc %!PS BIZ-UDGothic',
+      gb=':0:BIZ-UDGothicB.ttc %!PS BIZ-UDGothic-Bold',
+      ge=':0:BIZ-UDGothicB.ttc %!PS BIZ-UDGothic-Bold',
+      mgr=':0:BIZ-UDGothicB.ttc %!PS BIZ-UDGothic-Bold',
+      {''},
+   },
    ['yu-win']   = {
       noncid = true,
       ml='yuminl.ttf %!PS YuMincho-Light',

@@ -1,0 +1,80 @@
+
+% TEXT, 90JIS
+hminl-h	H	:0:BIZ-UDMinchoM.ttc %!PS BIZ-UDMincho-Medium
+hminl-v	V	:0:BIZ-UDMinchoM.ttc %!PS BIZ-UDMincho-Medium
+hminr-h	H	:0:BIZ-UDMinchoM.ttc %!PS BIZ-UDMincho-Medium
+hminr-v	V	:0:BIZ-UDMinchoM.ttc %!PS BIZ-UDMincho-Medium
+hminb-h	H	:0:BIZ-UDMinchoM.ttc %!PS BIZ-UDMincho-Medium
+hminb-v	V	:0:BIZ-UDMinchoM.ttc %!PS BIZ-UDMincho-Medium
+hgothr-h	H	:0:BIZ-UDGothicR.ttc %!PS BIZ-UDGothic
+hgothr-v	V	:0:BIZ-UDGothicR.ttc %!PS BIZ-UDGothic
+hgothb-h	H	:0:BIZ-UDGothicB.ttc %!PS BIZ-UDGothic-Bold
+hgothb-v	V	:0:BIZ-UDGothicB.ttc %!PS BIZ-UDGothic-Bold
+hgotheb-h	H	:0:BIZ-UDGothicB.ttc %!PS BIZ-UDGothic-Bold
+hgotheb-v	V	:0:BIZ-UDGothicB.ttc %!PS BIZ-UDGothic-Bold
+hmgothr-h	H	:0:BIZ-UDGothicB.ttc %!PS BIZ-UDGothic-Bold
+hmgothr-v	V	:0:BIZ-UDGothicB.ttc %!PS BIZ-UDGothic-Bold
+
+% TEXT, JIS04
+hminln-h	H	:0:BIZ-UDMinchoM.ttc %!PS BIZ-UDMincho-Medium
+hminln-v	V	:0:BIZ-UDMinchoM.ttc %!PS BIZ-UDMincho-Medium
+hminrn-h	H	:0:BIZ-UDMinchoM.ttc %!PS BIZ-UDMincho-Medium
+hminrn-v	V	:0:BIZ-UDMinchoM.ttc %!PS BIZ-UDMincho-Medium
+hminbn-h	H	:0:BIZ-UDMinchoM.ttc %!PS BIZ-UDMincho-Medium
+hminbn-v	V	:0:BIZ-UDMinchoM.ttc %!PS BIZ-UDMincho-Medium
+hgothrn-h	H	:0:BIZ-UDGothicR.ttc %!PS BIZ-UDGothic
+hgothrn-v	V	:0:BIZ-UDGothicR.ttc %!PS BIZ-UDGothic
+hgothbn-h	H	:0:BIZ-UDGothicB.ttc %!PS BIZ-UDGothic-Bold
+hgothbn-v	V	:0:BIZ-UDGothicB.ttc %!PS BIZ-UDGothic-Bold
+hgothebn-h	H	:0:BIZ-UDGothicB.ttc %!PS BIZ-UDGothic-Bold
+hgothebn-v	V	:0:BIZ-UDGothicB.ttc %!PS BIZ-UDGothic-Bold
+hmgothrn-h	H	:0:BIZ-UDGothicB.ttc %!PS BIZ-UDGothic-Bold
+hmgothrn-v	V	:0:BIZ-UDGothicB.ttc %!PS BIZ-UDGothic-Bold
+
+% CID
+otf-cjml-h	Identity-H	:0:BIZ-UDMinchoM.ttc/AJ16 %!PS BIZ-UDMincho-Medium
+otf-cjml-v	Identity-V	:0:BIZ-UDMinchoM.ttc/AJ16 %!PS BIZ-UDMincho-Medium
+otf-cjmr-h	Identity-H	:0:BIZ-UDMinchoM.ttc/AJ16 %!PS BIZ-UDMincho-Medium
+otf-cjmr-v	Identity-V	:0:BIZ-UDMinchoM.ttc/AJ16 %!PS BIZ-UDMincho-Medium
+otf-cjmb-h	Identity-H	:0:BIZ-UDMinchoM.ttc/AJ16 %!PS BIZ-UDMincho-Medium
+otf-cjmb-v	Identity-V	:0:BIZ-UDMinchoM.ttc/AJ16 %!PS BIZ-UDMincho-Medium
+otf-cjgr-h	Identity-H	:0:BIZ-UDGothicR.ttc/AJ16 %!PS BIZ-UDGothic
+otf-cjgr-v	Identity-V	:0:BIZ-UDGothicR.ttc/AJ16 %!PS BIZ-UDGothic
+otf-cjgb-h	Identity-H	:0:BIZ-UDGothicB.ttc/AJ16 %!PS BIZ-UDGothic-Bold
+otf-cjgb-v	Identity-V	:0:BIZ-UDGothicB.ttc/AJ16 %!PS BIZ-UDGothic-Bold
+otf-cjge-h	Identity-H	:0:BIZ-UDGothicB.ttc/AJ16 %!PS BIZ-UDGothic-Bold
+otf-cjge-v	Identity-V	:0:BIZ-UDGothicB.ttc/AJ16 %!PS BIZ-UDGothic-Bold
+otf-cjmgr-h	Identity-H	:0:BIZ-UDGothicB.ttc/AJ16 %!PS BIZ-UDGothic-Bold
+otf-cjmgr-v	Identity-V	:0:BIZ-UDGothicB.ttc/AJ16 %!PS BIZ-UDGothic-Bold
+
+% Unicode 90JIS
+otf-ujml-h	UniJIS-UTF16-H	:0:BIZ-UDMinchoM.ttc %!PS BIZ-UDMincho-Medium
+otf-ujml-v	UniJIS-UTF16-V	:0:BIZ-UDMinchoM.ttc %!PS BIZ-UDMincho-Medium
+otf-ujmr-h	UniJIS-UTF16-H	:0:BIZ-UDMinchoM.ttc %!PS BIZ-UDMincho-Medium
+otf-ujmr-v	UniJIS-UTF16-V	:0:BIZ-UDMinchoM.ttc %!PS BIZ-UDMincho-Medium
+otf-ujmb-h	UniJIS-UTF16-H	:0:BIZ-UDMinchoM.ttc %!PS BIZ-UDMincho-Medium
+otf-ujmb-v	UniJIS-UTF16-V	:0:BIZ-UDMinchoM.ttc %!PS BIZ-UDMincho-Medium
+otf-ujgr-h	UniJIS-UTF16-H	:0:BIZ-UDGothicR.ttc %!PS BIZ-UDGothic
+otf-ujgr-v	UniJIS-UTF16-V	:0:BIZ-UDGothicR.ttc %!PS BIZ-UDGothic
+otf-ujgb-h	UniJIS-UTF16-H	:0:BIZ-UDGothicB.ttc %!PS BIZ-UDGothic-Bold
+otf-ujgb-v	UniJIS-UTF16-V	:0:BIZ-UDGothicB.ttc %!PS BIZ-UDGothic-Bold
+otf-ujge-h	UniJIS-UTF16-H	:0:BIZ-UDGothicB.ttc %!PS BIZ-UDGothic-Bold
+otf-ujge-v	UniJIS-UTF16-V	:0:BIZ-UDGothicB.ttc %!PS BIZ-UDGothic-Bold
+otf-ujmgr-h	UniJIS-UTF16-H	:0:BIZ-UDGothicB.ttc %!PS BIZ-UDGothic-Bold
+otf-ujmgr-v	UniJIS-UTF16-V	:0:BIZ-UDGothicB.ttc %!PS BIZ-UDGothic-Bold
+
+% Unicode JIS04
+otf-ujmln-h	UniJIS2004-UTF16-H	:0:BIZ-UDMinchoM.ttc %!PS BIZ-UDMincho-Medium
+otf-ujmln-v	UniJIS2004-UTF16-V	:0:BIZ-UDMinchoM.ttc %!PS BIZ-UDMincho-Medium
+otf-ujmrn-h	UniJIS2004-UTF16-H	:0:BIZ-UDMinchoM.ttc %!PS BIZ-UDMincho-Medium
+otf-ujmrn-v	UniJIS2004-UTF16-V	:0:BIZ-UDMinchoM.ttc %!PS BIZ-UDMincho-Medium
+otf-ujmbn-h	UniJIS2004-UTF16-H	:0:BIZ-UDMinchoM.ttc %!PS BIZ-UDMincho-Medium
+otf-ujmbn-v	UniJIS2004-UTF16-V	:0:BIZ-UDMinchoM.ttc %!PS BIZ-UDMincho-Medium
+otf-ujgrn-h	UniJIS2004-UTF16-H	:0:BIZ-UDGothicR.ttc %!PS BIZ-UDGothic
+otf-ujgrn-v	UniJIS2004-UTF16-V	:0:BIZ-UDGothicR.ttc %!PS BIZ-UDGothic
+otf-ujgbn-h	UniJIS2004-UTF16-H	:0:BIZ-UDGothicB.ttc %!PS BIZ-UDGothic-Bold
+otf-ujgbn-v	UniJIS2004-UTF16-V	:0:BIZ-UDGothicB.ttc %!PS BIZ-UDGothic-Bold
+otf-ujgen-h	UniJIS2004-UTF16-H	:0:BIZ-UDGothicB.ttc %!PS BIZ-UDGothic-Bold
+otf-ujgen-v	UniJIS2004-UTF16-V	:0:BIZ-UDGothicB.ttc %!PS BIZ-UDGothic-Bold
+otf-ujmgrn-h	UniJIS2004-UTF16-H	:0:BIZ-UDGothicB.ttc %!PS BIZ-UDGothic-Bold
+otf-ujmgrn-v	UniJIS2004-UTF16-V	:0:BIZ-UDGothicB.ttc %!PS BIZ-UDGothic-Bold

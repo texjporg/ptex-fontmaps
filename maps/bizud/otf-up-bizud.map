@@ -1,0 +1,32 @@
+
+% TEXT, 90JIS
+uphminl-h	UniJIS-UTF16-H	:0:BIZ-UDMinchoM.ttc %!PS BIZ-UDMincho-Medium
+uphminl-v	UniJIS-UTF16-V	:0:BIZ-UDMinchoM.ttc %!PS BIZ-UDMincho-Medium
+uphminr-h	UniJIS-UTF16-H	:0:BIZ-UDMinchoM.ttc %!PS BIZ-UDMincho-Medium
+uphminr-v	UniJIS-UTF16-V	:0:BIZ-UDMinchoM.ttc %!PS BIZ-UDMincho-Medium
+uphminb-h	UniJIS-UTF16-H	:0:BIZ-UDMinchoM.ttc %!PS BIZ-UDMincho-Medium
+uphminb-v	UniJIS-UTF16-V	:0:BIZ-UDMinchoM.ttc %!PS BIZ-UDMincho-Medium
+uphgothr-h	UniJIS-UTF16-H	:0:BIZ-UDGothicR.ttc %!PS BIZ-UDGothic
+uphgothr-v	UniJIS-UTF16-V	:0:BIZ-UDGothicR.ttc %!PS BIZ-UDGothic
+uphgothb-h	UniJIS-UTF16-H	:0:BIZ-UDGothicB.ttc %!PS BIZ-UDGothic-Bold
+uphgothb-v	UniJIS-UTF16-V	:0:BIZ-UDGothicB.ttc %!PS BIZ-UDGothic-Bold
+uphgotheb-h	UniJIS-UTF16-H	:0:BIZ-UDGothicB.ttc %!PS BIZ-UDGothic-Bold
+uphgotheb-v	UniJIS-UTF16-V	:0:BIZ-UDGothicB.ttc %!PS BIZ-UDGothic-Bold
+uphmgothr-h	UniJIS-UTF16-H	:0:BIZ-UDGothicB.ttc %!PS BIZ-UDGothic-Bold
+uphmgothr-v	UniJIS-UTF16-V	:0:BIZ-UDGothicB.ttc %!PS BIZ-UDGothic-Bold
+
+% TEXT, JIS04
+uphminln-h	UniJIS2004-UTF16-H	:0:BIZ-UDMinchoM.ttc %!PS BIZ-UDMincho-Medium
+uphminln-v	UniJIS2004-UTF16-V	:0:BIZ-UDMinchoM.ttc %!PS BIZ-UDMincho-Medium
+uphminrn-h	UniJIS2004-UTF16-H	:0:BIZ-UDMinchoM.ttc %!PS BIZ-UDMincho-Medium
+uphminrn-v	UniJIS2004-UTF16-V	:0:BIZ-UDMinchoM.ttc %!PS BIZ-UDMincho-Medium
+uphminbn-h	UniJIS2004-UTF16-H	:0:BIZ-UDMinchoM.ttc %!PS BIZ-UDMincho-Medium
+uphminbn-v	UniJIS2004-UTF16-V	:0:BIZ-UDMinchoM.ttc %!PS BIZ-UDMincho-Medium
+uphgothrn-h	UniJIS2004-UTF16-H	:0:BIZ-UDGothicR.ttc %!PS BIZ-UDGothic
+uphgothrn-v	UniJIS2004-UTF16-V	:0:BIZ-UDGothicR.ttc %!PS BIZ-UDGothic
+uphgothbn-h	UniJIS2004-UTF16-H	:0:BIZ-UDGothicB.ttc %!PS BIZ-UDGothic-Bold
+uphgothbn-v	UniJIS2004-UTF16-V	:0:BIZ-UDGothicB.ttc %!PS BIZ-UDGothic-Bold
+uphgothebn-h	UniJIS2004-UTF16-H	:0:BIZ-UDGothicB.ttc %!PS BIZ-UDGothic-Bold
+uphgothebn-v	UniJIS2004-UTF16-V	:0:BIZ-UDGothicB.ttc %!PS BIZ-UDGothic-Bold
+uphmgothrn-h	UniJIS2004-UTF16-H	:0:BIZ-UDGothicB.ttc %!PS BIZ-UDGothic-Bold
+uphmgothrn-v	UniJIS2004-UTF16-V	:0:BIZ-UDGothicB.ttc %!PS BIZ-UDGothic-Bold
