@@ -24,18 +24,21 @@ Due to frequent incompatible changes in font file names by Apple,
 we don't provide macOS-specific map files in TeX Live. This also agrees
 with the requirements that TeX Live includes only support for free
 software. This package is split into two parts:
-* ptex-fontmaps : which contains most of the files and scripts,
+
+  * ptex-fontmaps : which contains most of the files and scripts,
     as well as support files
-* ptex-fontmaps-macos : only the support (map) files for
+  * ptex-fontmaps-macos : only the support (map) files for
     macOS-specific fonts
 
 The package `ptex-fontmaps' (this package) is available in TeX Live,
 while the package `ptex-fontmaps-macos` is *NOT* available directly from the
 TeX Live package mirrors, but can be installed from the TLContrib
 repository, by executing the following commands:
-	tlmgr repository add http://texlive.texjp.org/current/tlcontrib tlcontrib
-	tlmgr pinning add tlcontrib '*'
-	tlmgr install ptex-fontmaps-macos
+
+        tlmgr repository add http://texlive.texjp.org/current/tlcontrib tlcontrib
+        tlmgr pinning add tlcontrib '*'
+        tlmgr install ptex-fontmaps-macos
+
 After that updates for the ptex-fontmaps packages will be automatically
 installed.
 
@@ -63,7 +66,7 @@ but not shipped in TeX Live:
 All other fonts are non-free.
 
 If in the following tables some fonts are marked with 
-	'(<= "...")
+        '(<= "...")
 it means that the fonts are originally named as in given within
 the parenthesis, but need to be renamed to the name given first.
 
@@ -90,7 +93,7 @@ D ms-osx - MS Mincho and MS Gothic, shipped with Office for Mac
     MS-Gothic.ttf      (<= "MS Gothic.ttf")
 
 4 bizud - BIZ UD fonts by Morisawa Inc., bundled with Win 10
-        October 2018 Update.
+       October 2018 Update.
     BIZ-UDMinchoM.ttc
     BIZ-UDGothicR.ttc
     BIZ-UDGothicB.ttc
@@ -151,9 +154,9 @@ O moga-mobo-ex - MogaEx/MoboEx fonts from Y.Oz Vox http://yozvox.web.fc2.com/
     FGCCARGM.TTC
 
 O? hiragino - Hiragino fonts by Dainippon Screen Mfg. Co., Ltd.
-	bundled with Mac OS X 10.5--10.10,
-	or Japanese word processor Ichitaro 2012 Premium/Super-premium editions
-    HiraMinPro-W2.otf   (<= "ヒラギノ明朝 Pro W2.otf")
+       bundled with Mac OS X 10.5--10.10,
+       or Japanese word processor Ichitaro 2012 Premium/Super-premium editions
+    HiraMinPro-W2.otf   (<= "ヒラギノ明朝 Pro W2.otf") <= not bundled
     HiraMinPro-W3.otf   (<= "ヒラギノ明朝 Pro W3.otf")
     HiraMinPro-W6.otf   (<= "ヒラギノ明朝 Pro W6.otf")
     HiraKakuPro-W3.otf  (<= "ヒラギノ角ゴ Pro W3.otf")
@@ -168,7 +171,7 @@ O hiragino-pron - see above
 
 O hiragino-elcapitan-pron
 O hiragino-elcapitan
-	bundled with Mac OS X 10.11 El Capitan -- 10.12 Sierra
+        bundled with Mac OS X 10.11 El Capitan -- 10.12 Sierra
     HiraginoSansR-W4.ttc (<= "ヒラギノ丸ゴ ProN W4.ttc")
     HiraginoSans-W3.ttc  (<= "ヒラギノ角ゴシック W3.ttc")
     HiraginoSans-W6.ttc  (<= "ヒラギノ角ゴシック W6.ttc")
@@ -178,7 +181,7 @@ O hiragino-elcapitan
 
 O hiragino-highsierra-pron
 O hiragino-highsierra
-	bundled with Mac OS X 10.13 High Sierra
+       bundled with Mac OS X 10.13 High Sierra
     HiraginoSansR-W4.ttc (<= "ヒラギノ丸ゴ ProN W4.ttc")
     HiraginoSans-W3.ttc  (<= "ヒラギノ角ゴシック W3.ttc")
     HiraginoSans-W6.ttc  (<= "ヒラギノ角ゴシック W6.ttc")
@@ -186,14 +189,14 @@ O hiragino-highsierra
     HiraginoSerif.ttc    (<= "ヒラギノ明朝 ProN.ttc")
 
 O toppanbunkyu-sierra
-	bundled with macOS 10.12 Sierra
+       bundled with macOS 10.12 Sierra
     ToppanBunkyuMincho-Regular.otf
     ToppanBunkyuMidashiMincho-ExtraBold.otf
     ToppanBunkyuGothic.ttc
     ToppanBunkyuMidashiGothic-ExtraBold.otf
 
 O toppanbunkyu-highsierra
-	bundled with macOS 10.13 Sierra
+       bundled with macOS 10.13 High Sierra
     ToppanBunkyuMinchoPr6N-Regular.otf
     ToppanBunkyuMidashiMinchoStdN-ExtraBold.otf
     ToppanBunkyuGothicPr6N.ttc
