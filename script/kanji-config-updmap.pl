@@ -33,6 +33,7 @@ my $opt_jis = 0;
 my $opt_sys = 0;
 my $opt_user = 0;
 my $opt_old = 0;
+my $opt_force = 0;
 my @opt_mode_list;
 my $opt_mode_one;
 my $opt_mode_ja;
@@ -52,6 +53,7 @@ if (! GetOptions(
         "sys"      => \$opt_sys,
         "user"     => \$opt_user,
         "old"      => \$opt_old,
+        "force"    => \$opt_force,
         "version"  => sub { print &version(); exit(0); }, ) ) {
   die "Try \"$0 --help\" for more information.\n";
 }
@@ -213,6 +215,7 @@ sub Usage {
                    a new updmap with --user option is assumed.
                    If this is not the case, explicitly use --old.
     --old          Makes $prg call `updmap' without --user argument in user mode.
+    --force        Set up font embedding even if the font is not available.
     --version      Show version information and exit
 
 EOF
@@ -421,7 +424,7 @@ sub SetupReplacement {
   my $opt_mode = shift;
   my $rep = shift;
   if (defined($representatives{$opt_mode}{$rep})) {
-    if ($representatives{$opt_mode}{$rep}{'available'}) {
+    if ($representatives{$opt_mode}{$rep}{'available'} || $opt_force) {
       return SetupMapFile($opt_mode, $rep);
     } else {
       printf STDERR "$rep not available, falling back to auto!\n";
