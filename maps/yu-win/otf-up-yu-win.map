@@ -4,8 +4,8 @@ uphminl-h	UniJIS-UTF16-H	yuminl.ttf %!PS YuMincho-Light
 uphminl-v	UniJIS-UTF16-V	yuminl.ttf %!PS YuMincho-Light
 uphminr-h	UniJIS-UTF16-H	yumin.ttf %!PS YuMincho-Regular
 uphminr-v	UniJIS-UTF16-V	yumin.ttf %!PS YuMincho-Regular
-uphminb-h	UniJIS-UTF16-H	yumindb.ttf %!PS YuMincho-DemiBold
-uphminb-v	UniJIS-UTF16-V	yumindb.ttf %!PS YuMincho-DemiBold
+uphminb-h	UniJIS-UTF16-H	yumindb.ttf %!PS YuMincho-Demibold
+uphminb-v	UniJIS-UTF16-V	yumindb.ttf %!PS YuMincho-Demibold
 uphgothr-h	UniJIS-UTF16-H	yugothic.ttf %!PS YuGothic-Regular
 uphgothr-v	UniJIS-UTF16-V	yugothic.ttf %!PS YuGothic-Regular
 uphgothb-h	UniJIS-UTF16-H	yugothib.ttf %!PS YuGothic-Bold
@@ -20,8 +20,8 @@ uphminln-h	UniJIS2004-UTF16-H	yuminl.ttf %!PS YuMincho-Light
 uphminln-v	UniJIS2004-UTF16-V	yuminl.ttf %!PS YuMincho-Light
 uphminrn-h	UniJIS2004-UTF16-H	yumin.ttf %!PS YuMincho-Regular
 uphminrn-v	UniJIS2004-UTF16-V	yumin.ttf %!PS YuMincho-Regular
-uphminbn-h	UniJIS2004-UTF16-H	yumindb.ttf %!PS YuMincho-DemiBold
-uphminbn-v	UniJIS2004-UTF16-V	yumindb.ttf %!PS YuMincho-DemiBold
+uphminbn-h	UniJIS2004-UTF16-H	yumindb.ttf %!PS YuMincho-Demibold
+uphminbn-v	UniJIS2004-UTF16-V	yumindb.ttf %!PS YuMincho-Demibold
 uphgothrn-h	UniJIS2004-UTF16-H	yugothic.ttf %!PS YuGothic-Regular
 uphgothrn-v	UniJIS2004-UTF16-V	yugothic.ttf %!PS YuGothic-Regular
 uphgothbn-h	UniJIS2004-UTF16-H	yugothib.ttf %!PS YuGothic-Bold
