@@ -40,7 +40,7 @@
     \expandafter\let\expandafter\xx@langlist\csname xx@\xx@lang list\endcsname
     \ifx\xx@langlist\@empty\else
       \begin{itembox}[l]{\xx@lang}
-      \begin{multicols}{3}
+      \begin{multicols}{2}
         \begin{itemize}
           \@for\xx@item:=\xx@langlist\do{\item \command{\xx@item}}%
         \end{itemize}
@@ -69,7 +69,7 @@
 \endgroup
 \def\xx@parselang#1#2#3\@nil#4{%
   \def\xx@tempa{#1#2}\def\xx@tempb{#3}%
-  \edef\xx@tempc{#4\ifx\xx@tempb\xx@AI\space(AI0)\fi}%
+  \edef\xx@tempc{#4 \ifx\xx@tempb\xx@AI(AI0)\else<#3>\fi}%
   \ifx\xx@tempa\xx@JA \xx@addtolist\xx@日本語list\xx@tempc     \else
   \ifx\xx@tempa\xx@SC \xx@addtolist\xx@簡体中国語list\xx@tempc \else
   \ifx\xx@tempa\xx@TC \xx@addtolist\xx@繁体中国語list\xx@tempc \else
@@ -202,7 +202,9 @@ IPAex明朝・IPAexゴシックに対応しています。
 利用可能な \command{<fontname>} は以下のとおりです。
 それぞれの値が実際にどのフォントに対応しているかは，先ほどと同様に
 \file{ptex-fontmaps}の\file{README}を参照してください。
-また，このリストで\command{(AI0)}と付いているものは，Adobe-Identity0の
+このリストで，各値の末尾に付いている \command{<(番号)>} は，次節で説明する
+\command{auto}による自動選択の優先順位を表します。
+また，\command{(AI0)}と付いているものは，Adobe-Identity0の
 フォントであることを示し，いくつかの制約事項があります（後述）。
 \loaddata{database/ptex-fontmaps-data.dat}
 
@@ -219,14 +221,14 @@ IPAex明朝・IPAexゴシックに対応しています。
 
 \subsection{特殊なプリセット}
 
-引数に\command{auto}を指定すると，上記のリストの中から
-\emph{最初に見つかったフォント}を自動的に選択します。
+引数に\command{auto}を指定すると，上記のリストの中から \command{<(番号)>} が
+なるべく小さな\emph{実在するフォント}を自動的に選択します。
 例えば
 \begin{verbatim}
     $ sudo kanji-config-updmap-sys auto
 \end{verbatim}
 では日本語フォントが\command{morisawa-pr6n}→\command{morisawa}→…の順に
-探され，最初に見つかったフォントを埋め込むように自動で設定します。
+探され，最初に見つかったフォントを埋め込むように自動で設定されることになります。
 \begin{verbatim}
     $ sudo kanji-config-updmap-sys --ja auto --sc auto --tc auto --ko auto
 \end{verbatim}
