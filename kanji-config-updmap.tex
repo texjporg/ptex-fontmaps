@@ -1,0 +1,258 @@
+\documentclass{jlreq}
+\usepackage{array}
+\usepackage{multicol}
+\usepackage{ascmac}
+\usepackage{url}
+
+\makeatletter
+%%%%%
+%
+% ptex-fontmaps-data.dat などを読み込んでリストを出力するマクロ
+% -- \unless, \readline を使っているので e-TeX 必須
+%
+% prepare
+\newread\xx@myread
+\newcount\xx@linecnt
+%
+% main routine
+\def\loaddata#1{%
+  \def\xx@日本語list{}\def\xx@簡体中国語list{}%
+  \def\xx@繁体中国語list{}\def\xx@韓国語list{}%
+  % read database
+  \openin\xx@myread=#1\relax
+  \@whilesw\unless\ifeof\xx@myread\fi{%
+    \readline\xx@myread to \xx@dataline
+    % first: strip trailing LF
+    \expandafter\xx@striplf\xx@dataline\@nil
+    \ifx\xx@dataline\@empty\else
+      % second: strip comments starting from '#'
+      \expandafter\expandafter\expandafter\xx@stripcomment
+        \expandafter\xx@dataline\xx@number\@nil
+      \ifx\xx@dataline\@empty\else
+        % now, only effective database lines
+        \expandafter\xx@parseline\xx@dataline\@nil
+      \fi
+    \fi
+  }%
+  \closein\xx@myread
+  % output result
+  \@for\xx@lang:={日本語,簡体中国語,繁体中国語,韓国語}\do{%
+    \expandafter\let\expandafter\xx@langlist\csname xx@\xx@lang list\endcsname
+    \ifx\xx@langlist\@empty\else
+      \begin{itembox}[l]{\xx@lang}
+      \begin{multicols}{3}
+        \begin{itemize}
+          \@for\xx@item:=\xx@langlist\do{\item \command{\xx@item}}%
+        \end{itemize}
+      \end{multicols}
+      \end{itembox}
+    \fi}
+}%
+%
+% sub
+\begingroup
+  \catcode`\^^M=12 \gdef\xx@lf{^^M}%
+  \catcode`\#=12 \gdef\xx@number{#}%
+\endgroup
+\expandafter\def\expandafter\xx@striplf
+  \expandafter#\expandafter1\xx@lf\@nil{\def\xx@dataline{#1}}
+\expandafter\def\expandafter\xx@stripcomment
+  \expandafter#\expandafter1\xx@number#2\@nil{\def\xx@dataline{#1}}
+\def\xx@parseline#1: #2: #3\@nil{\xx@parselang#1\@nil{#2}}
+%
+% subsub
+\begingroup
+  \escapechar-1
+  \xdef\xx@JA{\string\JA}\xdef\xx@SC{\string\SC}
+  \xdef\xx@TC{\string\TC}\xdef\xx@KO{\string\KO}
+  \xdef\xx@AI{-\string\AI0}
+\endgroup
+\def\xx@parselang#1#2#3\@nil#4{%
+  \def\xx@tempa{#1#2}\def\xx@tempb{#3}%
+  \edef\xx@tempc{#4\ifx\xx@tempb\xx@AI\space(AI0)\fi}%
+  \ifx\xx@tempa\xx@JA \xx@addtolist\xx@日本語list\xx@tempc     \else
+  \ifx\xx@tempa\xx@SC \xx@addtolist\xx@簡体中国語list\xx@tempc \else
+  \ifx\xx@tempa\xx@TC \xx@addtolist\xx@繁体中国語list\xx@tempc \else
+  \ifx\xx@tempa\xx@KO \xx@addtolist\xx@韓国語list\xx@tempc     \else
+    \@latex@error{Unknown language `\xx@tempa' in database}\@ehc
+  \fi\fi\fi\fi}
+\def\xx@addtolist#1#2{%
+  % #1: name of the list, #2: item
+  \ifx#1\@empty
+    \edef#1{#2}%
+  \else
+    \edef#1{#1,#2}%
+  \fi}
+%
+%%%%%
+\makeatother
+
+%% misc
+\def\file#1{\texttt{#1}}
+\def\command#1{\texttt{#1}}
+\def\option#1{\texttt{-{}-#1}}
+\def\TL{\TeX\ Live}
+
+\title{\command{kanji-config-updmap} --- 日本語フォント設定ツール}
+\author{日本語\TeX 開発コミュニティ}
+
+\begin{document}
+\maketitle
+
+\TL に収録されている\file{ptex-fontmaps}パッケージには，
+\command{kanji-config-updmap}というコマンドが付属しています。
+このコマンドを用いると，下記のDVIドライバで埋め込まれる
+日本語・中国語・韓国語フォントの設定を統一的に指定したり，
+確認したりできます。
+\begin{itemize}
+  \item dvipdfmx（PDFへの埋め込みフォント）
+  \item dvips（PostScriptで指定するフォント名）
+  %\item pxdvi（画面表示に使うフォント）\footnote{この機能はオプションです。}
+\end{itemize}
+
+
+\section{はじめに：システム用(\command{-sys})とユーザ用(\command{-user})}
+
+\command{kanji-config-updmap}には2種類のコマンド名があります。
+\begin{itemize}
+  \item \command{kanji-config-updmap-sys}: 全ユーザ向けのシステム共通設定
+  \item \command{kanji-config-updmap-user}: 現在のユーザ用の設定
+\end{itemize}
+これは他の「\command{-sys}」と「\command{-user}」の区別のあるコマンドにも
+言えることですが，特に理由のない限り，\emph{常に}「\command{-sys}」付きの
+コマンド\command{kanji-config-updmap-sys}を使用することをお勧めします。
+これは以下の理由によります。
+\begin{itemize}
+  \item 現在のユーザ用の設定は，システム共通設定より優先する。
+  \item \TL のアップデート時は，システム共通設定は更新されるが，
+        現在のユーザ用の設定は更新されない。
+  \item 結果的に，\emph{たった一度でも}「\command{-user}」付きのコマンドを
+        実行した環境では，\TL のアップデート時に設定更新が反映されない
+        という事故が起こる。
+\end{itemize}
+より詳細には，\url{http://tug.org/texlive/scripts-sys-user.html}を参照してください。
+
+なお，「管理者権限がなくて \command{-sys} 付きのコマンドを実行できない」などの
+理由がある場合は，\command{kanji-config-updmap-user}を使用してください。
+この場合は，\command{tlmgr}で\TL をアップデートすることもない（できない）
+でしょうから，上に述べたような不都合は起きないでしょう。
+
+以下では \command{-sys} の方で説明します。
+また，Windowsでは\command{sudo}（Unixで管理者権限に昇格するコマンド）を
+つける必要はありませんので省いて読んでください。
+
+
+\section{現在の埋め込み設定を確認する}
+
+現在の日本語フォントの埋め込み設定を確認するには
+\begin{verbatim}
+    $ sudo kanji-config-updmap-sys --ja status
+\end{verbatim}
+を実行します（オプション \option{ja} は省略可能です）。
+
+同様に，現在の簡体中国語・繁体中国語・韓国語フォントの埋め込み設定はそれぞれ
+\begin{verbatim}
+    $ sudo kanji-config-updmap-sys --sc status
+    $ sudo kanji-config-updmap-sys --tc status
+    $ sudo kanji-config-updmap-sys --ko status
+\end{verbatim}
+で確認できます（オプション \option{sc}, \option{tc}, \option{ko} は省略不可）。
+
+なお，\TL を公式インストーラでフルインストールした場合は，デフォルトで
+表\ref{tldefault}の設定が適用された状態になっています。
+それぞれの値が実際にどのフォントに対応しているかは，\file{ptex-fontmaps}の
+\file{README}を参照してください。
+例えば，日本語フォントのデフォルト値\command{ipaex}は
+IPAex明朝・IPAexゴシックに対応しています。
+\begin{table}[h]
+  \centering
+  \caption{\TL の埋め込みフォントのデフォルト値}\label{tldefault}
+  \begin{tabular}{m{12zw}m{8zw}}
+  \hline
+  変数名（言語）                  & デフォルト値      \\ \hline
+  \command{jaEmbed}（日本語）     & \command{ipaex}   \\
+  \command{scEmbed}（簡体中国語） & \command{arphic}  \\
+  \command{tcEmbed}（繁体中国語） & \command{arphic}  \\
+  \command{koEmbed}（韓国語）     & \command{baekmuk} \\ \hline
+\end{tabular}
+\end{table}
+
+
+\section{日本語フォントの埋め込み設定を変更する}
+
+日本語フォントの埋め込み設定を変更するには
+\begin{verbatim}
+    $ sudo kanji-config-updmap-sys --ja <fontname>
+\end{verbatim}
+を実行します（ここでもオプション \option{ja} は省略可能です）。
+
+同様に，現在の簡体中国語・繁体中国語・韓国語フォントの埋め込み設定はそれぞれ
+\begin{verbatim}
+    $ sudo kanji-config-updmap-sys --sc <fontname>
+    $ sudo kanji-config-updmap-sys --tc <fontname>
+    $ sudo kanji-config-updmap-sys --ko <fontname>
+\end{verbatim}
+で変更できます（オプション \option{sc}, \option{tc}, \option{ko} は省略不可）。
+
+なお，オプションの書式は \option{ja <fontname>} と \option{ja=<fontname>} のように，
+イコール(\command{=})を付けても付けなくても同じ意味になります。
+
+\subsection{利用可能なプリセット一覧}
+
+利用可能な \command{<fontname>} は以下のとおりです。
+それぞれの値が実際にどのフォントに対応しているかは，先ほどと同様に
+\file{ptex-fontmaps}の\file{README}を参照してください。
+また，このリストで\command{(AI0)}と付いているものは，Adobe-Identity0の
+フォントであることを示し，いくつかの制約事項があります（後述）。
+\loaddata{database/ptex-fontmaps-data.dat}
+
+さらに，TLContribリポジトリから\file{ptex-fontmaps-macos}パッケージを
+インストールすると，以下も追加で利用できます。
+\loaddata{database/ptex-fontmaps-macos-data.dat}
+
+複数の言語のフォント埋め込み設定を同時に変更することもできます。例えば
+\begin{verbatim}
+    $ sudo kanji-config-updmap-sys --ja yu-win10 --sc fandol
+\end{verbatim}
+とすると，日本語フォントを\command{yu-win10}に，
+簡体中国語フォントを\command{fandol}に変更します。
+
+\subsection{特殊なプリセット}
+
+引数に\command{auto}を指定すると，上記のリストの中から
+\emph{最初に見つかったフォント}を自動的に選択します。
+例えば
+\begin{verbatim}
+    $ sudo kanji-config-updmap-sys auto
+\end{verbatim}
+では日本語フォントが\command{morisawa-pr6n}→\command{morisawa}→…の順に
+探され，最初に見つかったフォントを埋め込むように自動で設定します。
+\begin{verbatim}
+    $ sudo kanji-config-updmap-sys --ja auto --sc auto --tc auto --ko auto
+\end{verbatim}
+とすれば，4つの言語全てが同様に自動設定されます。
+
+また，フォントを埋め込まない場合は引数を\command{nofont}とします。
+例えば
+\begin{verbatim}
+    $ sudo kanji-config-updmap-sys nofont
+\end{verbatim}
+とすれば，日本語フォントが埋め込まれません。
+
+\subsection{日本語フォントのJIS2004字形の使用}
+
+
+
+
+[TODO] ここから先は未完成！
+
+オプションとして\option{jis2004}を指定すると，JIS2004字形を使用する設定になる。
+
+\option{force}を付けると，マップに指定されているフォントが実際に存在するか
+どうかにかかわらずそのプリセットを使用する。
+
+\command{kanji-config-updmap-sys}は内部で\command{updmap-sys}を呼び出し，
+\command{kanji-config-updmap-user}は内部で\command{updmap-user}を呼び出す。
+
+
+\end{document}
