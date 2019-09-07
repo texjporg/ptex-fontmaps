@@ -1,7 +1,24 @@
+DOCTARGET = kanji-config-updmap
+PDFTARGET = $(addsuffix .pdf,$(DOCTARGET))
+DVITARGET = $(addsuffix .dvi,$(DOCTARGET))
+KANJI = -kanji=utf8
+FONTMAP = -f ipaex.map -f ptex-ipaex.map
 TEXMF = $(shell kpsewhich -var-value=TEXMFHOME)
 
-.PHONY: all install clean
-all:
+default: $(DVITARGET) maptarget
+all: $(PDFTARGET) maptarget
+
+.SUFFIXES: .tex .dvi .pdf
+.tex.dvi:
+	platex $(KANJI) $<
+	platex $(KANJI) $<
+	platex $(KANJI) $<
+	rm -f *.aux *.log *.toc
+.dvi.pdf:
+	dvipdfmx $(FONTMAP) $<
+
+.PHONY: maptarget install clean
+maptarget:
 	if [ ! -d maps ]; then mkdir maps; fi
 	cd maps; texlua ../tools/mkmap-ja.lua
 	cd maps; texlua ../tools/mkmap-ko.lua
@@ -14,6 +31,8 @@ all:
 install:
 	mkdir -p ${TEXMF}/doc/fonts/ptex-fontmaps
 	cp ./README ${TEXMF}/doc/fonts/ptex-fontmaps/
+	cp ./*.tex ${TEXMF}/doc/fonts/ptex-fontmaps/
+	cp ./*.pdf ${TEXMF}/doc/fonts/ptex-fontmaps/
 	mkdir -p ${TEXMF}/fonts/cmap/ptex-fontmaps
 	cp cmap/* ${TEXMF}/fonts/cmap/ptex-fontmaps/
 	mkdir -p ${TEXMF}/fonts/map/dvipdfmx/ptex-fontmaps
@@ -27,4 +46,5 @@ install:
 	mkdir -p ${TEXMF}/source/ptex-fontmaps/tools
 	cp tools/* ${TEXMF}/source/ptex-fontmaps/tools/
 clean:
+	rm -f $(DVITARGET) $(PDFTARGET)
 	if [ -d maps ]; then cd maps; rm -rf *; fi
