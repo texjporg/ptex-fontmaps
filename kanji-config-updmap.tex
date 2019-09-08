@@ -280,10 +280,15 @@ Adobe-Identity0 (AI0)なフォントの制約事項
 % https://github.com/abenori/jlreq/issues/56
 %\appendix
 
-%\section{\file{ptex-fontmaps}の\file{README}}
-% 流し込もうとしたが，\readline は和文文字をバイト列に変換してしまう
-% https://github.com/texjporg/tex-jp-build/issues/88
-%{\ttfamily\small\loadprint{README}}
 
+\section{\file{ptex-fontmaps}の\file{README}}
+
+% \readline が和文文字をバイト列に変換しない e-pTeX 190908 以降が必要
+% https://github.com/texjporg/tex-jp-build/issues/88
+\ifnum\epTeXversion<190908\relax
+  \errhelp{Update e-pTeX.}\errmessage{e-pTeX 190908 required}
+\else
+  {\ttfamily\footnotesize\loadprint{README}}
+\fi
 
 \end{document}
