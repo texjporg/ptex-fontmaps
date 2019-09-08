@@ -12,7 +12,6 @@
 %
 % prepare
 \newread\xx@myread
-\newcount\xx@linecnt
 %
 % main routine
 \def\loaddata#1{%
@@ -69,7 +68,7 @@
 \endgroup
 \def\xx@parselang#1#2#3\@nil#4{%
   \def\xx@tempa{#1#2}\def\xx@tempb{#3}%
-  \edef\xx@tempc{#4 \ifx\xx@tempb\xx@AI(AI0)\else<#3>\fi}%
+  \edef\xx@tempc{#4 \ifx\xx@tempb\xx@AI<AI0>\else#3\fi}%
   \ifx\xx@tempa\xx@JA \xx@addtolist\xx@日本語list\xx@tempc     \else
   \ifx\xx@tempa\xx@SC \xx@addtolist\xx@簡体中国語list\xx@tempc \else
   \ifx\xx@tempa\xx@TC \xx@addtolist\xx@繁体中国語list\xx@tempc \else
@@ -84,6 +83,23 @@
     \edef#1{#1,#2}%
   \fi}
 %
+%%%%%
+%
+% ptex-fontmaps の README を読み込んでそのまま出力する
+% -- \unless, \readline を使っているので e-TeX 必須
+%
+% prepare
+\def\loadprint#1{%
+  \openin\xx@myread=#1\relax
+  \@whilesw\unless\ifeof\xx@myread\fi{%
+    \readline\xx@myread to \xx@dataline
+    % first: strip trailing LF
+    \expandafter\xx@striplf\xx@dataline\@nil
+    % empty line and indent should be kept
+    \leavevmode\null\xx@dataline\par
+  }%
+  \closein\xx@myread
+}
 %%%%%
 \makeatother
 
@@ -202,9 +218,9 @@ IPAex明朝・IPAexゴシックに対応しています。
 利用可能な \command{<fontname>} は以下のとおりです。
 それぞれの値が実際にどのフォントに対応しているかは，先ほどと同様に
 \file{ptex-fontmaps}の\file{README}を参照してください。
-このリストで，各値の末尾に付いている \command{<(番号)>} は，次節で説明する
+このリストで，各値の末尾に付いている \command{(番号)} は，次節で説明する
 \command{auto}による自動選択の優先順位を表します。
-また，\command{(AI0)}と付いているものは，Adobe-Identity0の
+また \command{<AI0>} と付いているものは，Adobe-Identity0の
 フォントであることを示し，いくつかの制約事項があります（後述）。
 \loaddata{database/ptex-fontmaps-data.dat}
 
@@ -221,7 +237,7 @@ IPAex明朝・IPAexゴシックに対応しています。
 
 \subsection{特殊なプリセット}
 
-引数に\command{auto}を指定すると，上記のリストの中から \command{<(番号)>} が
+引数に\command{auto}を指定すると，上記のリストの中から \command{(番号)} が
 なるべく小さな\emph{実在するフォント}を自動的に選択します。
 例えば
 \begin{verbatim}
@@ -257,6 +273,17 @@ Adobe-Identity0 (AI0)なフォントの制約事項
 
 \command{kanji-config-updmap-sys}は内部で\command{updmap-sys}を呼び出し，
 \command{kanji-config-updmap-user}は内部で\command{updmap-user}を呼び出す。
+
+
+\clearpage
+% エラーになるので一旦隠している
+% https://github.com/abenori/jlreq/issues/56
+%\appendix
+
+%\section{\file{ptex-fontmaps}の\file{README}}
+% 流し込もうとしたが，\readline は和文文字をバイト列に変換してしまう
+% https://github.com/texjporg/tex-jp-build/issues/88
+%{\ttfamily\small\loadprint{README}}
 
 
 \end{document}

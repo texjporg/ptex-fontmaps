@@ -2,7 +2,7 @@ DOCTARGET = kanji-config-updmap
 PDFTARGET = $(addsuffix .pdf,$(DOCTARGET))
 DVITARGET = $(addsuffix .dvi,$(DOCTARGET))
 KANJI = -kanji=utf8
-FONTMAP = -f ipaex.map -f ptex-ipaex.map
+FONTMAP = -f ipaex.map -f uptex-ipaex.map
 TEXMF = $(shell kpsewhich -var-value=TEXMFHOME)
 
 default: $(DVITARGET) maptarget
@@ -10,9 +10,9 @@ all: $(PDFTARGET) maptarget
 
 .SUFFIXES: .tex .dvi .pdf
 .tex.dvi:
-	platex $(KANJI) $<
-	platex $(KANJI) $<
-	platex $(KANJI) $<
+	uplatex $(KANJI) $<
+	uplatex $(KANJI) $<
+	uplatex $(KANJI) $<
 	rm -f *.aux *.log *.toc
 .dvi.pdf:
 	dvipdfmx $(FONTMAP) $<
