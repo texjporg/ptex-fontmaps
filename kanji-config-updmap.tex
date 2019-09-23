@@ -88,7 +88,7 @@
 % ptex-fontmaps の README を読み込んでそのまま出力する
 % -- \unless, \readline を使っているので e-TeX 必須
 %
-% prepare
+% main routine
 \def\loadprint#1{%
   \openin\xx@myread=#1\relax
   \@whilesw\unless\ifeof\xx@myread\fi{%
@@ -276,9 +276,7 @@ Adobe-Identity0 (AI0)なフォントの制約事項
 
 
 \clearpage
-% エラーになるので一旦隠している
-% https://github.com/abenori/jlreq/issues/56
-%\appendix
+\appendix
 
 
 \section{\file{ptex-fontmaps}の\file{README}}
@@ -288,7 +286,7 @@ Adobe-Identity0 (AI0)なフォントの制約事項
 \ifnum\epTeXversion<190908\relax
   \errhelp{Update e-pTeX.}\errmessage{e-pTeX 190908 required}
 \else
-  {\ttfamily\footnotesize\loadprint{README}}
+  {\frenchspacing\ttfamily\footnotesize\loadprint{README}}
 \fi
 
 \end{document}
