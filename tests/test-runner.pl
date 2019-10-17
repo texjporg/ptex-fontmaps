@@ -42,6 +42,7 @@ sub do_class {
   }
   for my $k (@embedlist) {
     next if (!$k);
+    $k =~ s/ \(AI0\)$//;
     print_info("Running test for $cl-$k ...\n");
     for my $dir (qw/yoko tate/) {
       # first round
