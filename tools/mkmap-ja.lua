@@ -269,6 +269,17 @@ local foundry = {
       mgr=':1:ToppanBunkyuGothicPr6N.ttc %!PS ToppanBunkyuGothicPr6N-Regular',
       {''},
    },
+   ['haranoaji']   = {
+      ml='HaranoAjiMincho-Light.otf',
+      mr='HaranoAjiMincho-Regular.otf',
+      mb='HaranoAjiMincho-Bold.otf',
+      gr='HaranoAjiGothic-Regular.otf',
+      gru='HaranoAjiGothic-Medium.otf',
+      gb='HaranoAjiGothic-Bold.otf',
+      ge='HaranoAjiGothic-Heavy.otf',
+      mgr='HaranoAjiGothic-Medium.otf',
+      {''},
+   },
 }
 
 local suffix = {
