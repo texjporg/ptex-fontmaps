@@ -311,10 +311,11 @@ sub ReadDatabase {
 
 sub kpse_miscfont {
   my ($file) = @_;
-  chomp(my $foo = `kpsewhich -format=miscfont $file`);
-  # for GitHub repository diretory structure
+  my $foo = '';
+  # first, prioritize GitHub repository diretory structure
+  $foo = "database/$file" if (-f "database/$file");
   if ($foo eq "") {
-    $foo = "database/$file" if (-f "database/$file");
+    chomp(my $foo = `kpsewhich -format=miscfont $file`);
   }
   return $foo;
 }
