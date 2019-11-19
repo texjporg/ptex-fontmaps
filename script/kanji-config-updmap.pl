@@ -315,7 +315,7 @@ sub kpse_miscfont {
   # first, prioritize GitHub repository diretory structure
   $foo = "database/$file" if (-f "database/$file");
   if ($foo eq "") {
-    chomp(my $foo = `kpsewhich -format=miscfont $file`);
+    chomp($foo = `kpsewhich -format=miscfont $file`);
   }
   return $foo;
 }
