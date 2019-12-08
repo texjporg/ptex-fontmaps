@@ -1,5 +1,6 @@
 # ptex-fontmaps-data.dat
 
+# With '*', no -04 map available
 JA(10): morisawa-pr6n: A-OTF-RyuminPr6N-Light.otf
 JA(20): morisawa: A-OTF-RyuminPro-Light.otf
 JA(30): hiragino-pron: HiraMinProN-W3.otf
@@ -8,18 +9,18 @@ JA(50): kozuka-pr6n: KozMinPr6N-Regular.otf
 JA(55): kozuka-pr6: KozMinProVI-Regular.otf
 JA(60): kozuka: KozMinPro-Regular.otf
 JA(70): haranoaji: HaranoAjiMincho-Regular.otf
-JA(80): bizud: BIZ-UDMinchoM.ttc
+JA*(80): bizud: BIZ-UDMinchoM.ttc
 JA(90): yu-osx: YuMin-Medium.otf
-JA(95): yu-win10: YuGothB.ttc
-JA(96): yu-win: yugothib.ttf
-JA(100): ms: msgothic.ttc
-JA(105): ms-osx: MS-Gothic.ttf
+JA*(95): yu-win10: YuGothB.ttc
+JA*(96): yu-win: yugothib.ttf
+JA*(100): ms: msgothic.ttc
+JA*(105): ms-osx: MS-Gothic.ttf
 JA(110): moga-mobo-ex: mogam.ttc
 JA(120): moga-mobo: mogam.ttc
-JA(130): ipaex: ipaexm.ttf
-JA(140): ipa: ipam.ttf
-JA(150): ume: ume-tmo3.ttf
-JA(160): canon: FGCCHMW3.TTC
+JA*(130): ipaex: ipaexm.ttf
+JA*(140): ipa: ipam.ttf
+JA*(150): ume: ume-tmo3.ttf
+JA*(160): canon: FGCCHMW3.TTC
 JA-AI0: sourcehan-otc: SourceHanSerif-Regular.ttc
 JA-AI0: sourcehan: SourceHanSerif-Regular.otf
 JA-AI0: noto-otc: NotoSerifCJK-Regular.ttc

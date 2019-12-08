@@ -216,10 +216,11 @@ IPAex明朝・IPAexゴシックに対応しています。
 \subsection{利用可能なプリセット一覧}
 
 利用可能な \command{<fontname>} は以下のとおりです。
-それぞれの値が実際にどのフォントに対応しているかは，先ほどと同様に
+実際に対応するフォントは，先ほどと同様に
 \file{ptex-fontmaps}の\file{README}を参照してください。
 このリストで，各値の末尾に付いている \command{(番号)} は，次節で説明する
 \command{auto}による自動選択の優先順位を表します。
+番号の前の \command{*} については，第\ref{jis2004}節で後述します。
 また \command{<AI0>} と付いているものは，Adobe-Identity0の
 フォントであることを示し，いくつかの制約事項があります（後述）。
 \loaddata{database/ptex-fontmaps-data.dat}
@@ -234,6 +235,12 @@ IPAex明朝・IPAexゴシックに対応しています。
 \end{verbatim}
 とすると，日本語フォントを\command{yu-win10}に，
 簡体中国語フォントを\command{fandol}に変更します。
+
+設定変更時には，その設定で使われるであろう代表的なフォントファイルが
+\emph{実在するかどうか}を予めチェックします（もし実在しなければ，後述の
+\command{auto}にフォールバックします）。
+オプション \option{force} を付けると，実在するかどうかにかかわらず
+強制的にそのプリセットを設定します。
 
 \subsection{特殊なプリセット}
 
@@ -257,22 +264,28 @@ IPAex明朝・IPAexゴシックに対応しています。
 \end{verbatim}
 とすれば，日本語フォントが埋め込まれません。
 
-\subsection{日本語フォントのJIS2004字形の使用}
+\subsection{日本語フォントのJIS2004字形の使用}\label{jis2004}
 
+OpenTypeフォント及び一部のTrueTypeフォントでは,
+JIS90字形とJIS2004字形を切り替えることができます
+（先ほどのリストで番号の前に \command{*} が付いているフォントはサポート外）。
+デフォルトではJIS90字形が使われますが，オプション \option{jis2004} を指定すると
+JIS2004字形を使用する設定になります。例えば
+\begin{verbatim}
+    $ sudo kanji-config-updmap-sys haranoaji
+\end{verbatim}
+ではJIS90字形の「原ノ味フォント」が使われますが，
+\begin{verbatim}
+    $ sudo kanji-config-updmap-sys --jis2004 haranoaji
+\end{verbatim}
+ではJIS2004字形の「原ノ味フォント」が使われます。
 
-
+\subsection{Adobe-Identity0 (AI0)なフォントの制約事項}
 
 [TODO] ここから先は未完成！
 
-オプションとして\option{jis2004}を指定すると，JIS2004字形を使用する設定になる。
-
-\option{force}を付けると，マップに指定されているフォントが実際に存在するか
-どうかにかかわらずそのプリセットを使用する。
-
-Adobe-Identity0 (AI0)なフォントの制約事項
-
-\command{kanji-config-updmap-sys}は内部で\command{updmap-sys}を呼び出し，
-\command{kanji-config-updmap-user}は内部で\command{updmap-user}を呼び出す。
+%\command{kanji-config-updmap-sys}は内部で\command{updmap-sys}を呼び出し，
+%\command{kanji-config-updmap-user}は内部で\command{updmap-user}を呼び出す。
 
 
 \clearpage

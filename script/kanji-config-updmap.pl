@@ -255,9 +255,16 @@ sub ReadDatabase {
       next if ($l =~ m/^\s*$/); # skip empty line
       next if ($l =~ m/^\s*#/); # skip comment line
       $l =~ s/\s*#.*$//; # skip comment after '#'
+      if ($l =~ m/^JA\*\((\d+)\):\s*(.*):\s*(.*)$/) { # no -04 map
+        $representatives{'ja'}{$2}{'priority'} = $1;
+        $representatives{'ja'}{$2}{'file'} = $3;
+        $representatives{'ja'}{$2}{'jis04'} = 0;
+        next;
+      }
       if ($l =~ m/^JA\((\d+)\):\s*(.*):\s*(.*)$/) {
         $representatives{'ja'}{$2}{'priority'} = $1;
         $representatives{'ja'}{$2}{'file'} = $3;
+        $representatives{'ja'}{$2}{'jis04'} = 1;
         next;
       }
       if ($l =~ m/^SC\((\d+)\):\s*(.*):\s*(.*)$/) {
@@ -411,10 +418,12 @@ sub SetupMapFile {
     print " (AI0)" if ($ai0flags{$opt_mode}{$rep});
     print " for $opt_mode\n";
     system("$updmap --quiet --nomkmap --nohash --setoption ${opt_mode}Embed $rep");
-    if ($opt_jis) {
-      system("$updmap --quiet --nomkmap --nohash --setoption jaVariant -04");
-    } else {
-      system("$updmap --quiet --nomkmap --nohash --setoption jaVariant \"\"");
+    if ($opt_mode eq "ja") {
+      if ($opt_jis && $representatives{'ja'}{$rep}{'jis04'}) {
+        system("$updmap --quiet --nomkmap --nohash --setoption jaVariant -04");
+      } else {
+        system("$updmap --quiet --nomkmap --nohash --setoption jaVariant \"\"");
+      }
     }
   } else {
     die "NOT EXIST $MAPFILE\n";
