@@ -34,7 +34,7 @@ sub do_class {
   for my $l (@foo) {
     $lineno++;
     next if ($l =~ m/^\s*$/);
-    if ($l =~ m/^.*:\s*(.*)$/) { push @embedlist, $1; next; }
+    if ($l =~ m/^.*?:\s*(.*)$/) { push @embedlist, $1; next; }
     # we are still here??
     print_error("Cannot parse line $lineno, exiting.\n");
     print_error("Strange line: >>>$l<<<\n");
@@ -43,6 +43,7 @@ sub do_class {
   for my $k (@embedlist) {
     next if (!$k);
     $k =~ s/ \(AI0\)$//;
+    $k =~ s/ \(variant: .*\)$//;
     print_info("Running test for $cl-$k ...\n");
     for my $dir (qw/yoko tate/) {
       # first round
