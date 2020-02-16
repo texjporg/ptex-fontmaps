@@ -380,17 +380,32 @@ sub gen_mapfile {
 
 sub GetStatus {
   my $opt_mode = shift;
-  my $val = `$updmap_real --quiet --showoption ${opt_mode}Embed`;
-  my $STATUS;
+  my $val;
+  my $STATUS = "";
+  my $VARIANT = "";
+
+  # fetch jaEmbed/scEmbed/tcEmbed/koEmbed
+  $val = `$updmap_real --quiet --showoption ${opt_mode}Embed`;
   if ($val =~ m/^${opt_mode}Embed=([^()\s]*)(\s+\()?/) {
     $STATUS = $1;
   } else {
     die "Cannot find status of current ${opt_mode}Embed setting via updmap --showoption!\n";
   }
+  # fetch jaVariant
+  if ($opt_mode eq "ja") {
+    $val = `$updmap_real --quiet --showoption ${opt_mode}Variant`;
+    if ($val =~ m/^${opt_mode}Variant=([^()\s]*)(\s+\()?/) {
+      $VARIANT = $1; # should be '' or '-04'
+    } else {
+      die "Cannot find status of current ${opt_mode}Variant setting via updmap --showoption!\n";
+    }
+  }
 
-  my $testmap = gen_mapfile($opt_mode, $STATUS);
+  my $testmap = gen_mapfile($opt_mode, "$STATUS$VARIANT");
+  $VARIANT = "<empty>" if ($VARIANT eq ""); # for printing
   if (check_mapfile($testmap)) {
     print "CURRENT family for $opt_mode: $STATUS";
+    print " (variant: $VARIANT)" if ($opt_mode eq "ja");
     print " (AI0)" if ($ai0flags{$opt_mode}{$STATUS});
     print "\n";
   } else {
