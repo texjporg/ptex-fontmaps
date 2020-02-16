@@ -258,13 +258,12 @@ sub ReadDatabase {
       if ($l =~ m/^JA\*\((\d+)\):\s*(.*):\s*(.*)$/) { # no -04 map
         $representatives{'ja'}{$2}{'priority'} = $1;
         $representatives{'ja'}{$2}{'file'} = $3;
-        $representatives{'ja'}{$2}{'jis04'} = 0;
+        $representatives{'ja'}{$2}{'nojis04'} = 1;
         next;
       }
       if ($l =~ m/^JA\((\d+)\):\s*(.*):\s*(.*)$/) {
         $representatives{'ja'}{$2}{'priority'} = $1;
         $representatives{'ja'}{$2}{'file'} = $3;
-        $representatives{'ja'}{$2}{'jis04'} = 1;
         next;
       }
       if ($l =~ m/^SC\((\d+)\):\s*(.*):\s*(.*)$/) {
@@ -280,6 +279,13 @@ sub ReadDatabase {
       if ($l =~ m/^KO\((\d+)\):\s*(.*):\s*(.*)$/) {
         $representatives{'ko'}{$2}{'priority'} = $1;
         $representatives{'ko'}{$2}{'file'} = $3;
+        next;
+      }
+      if ($l =~ m/^JA-AI0\*:\s*(.*):\s*(.*)$/) { # no -04 map
+        $representatives{'ja'}{$1}{'priority'} = 9999; # lowest
+        $representatives{'ja'}{$1}{'file'} = $2;
+        $representatives{'ja'}{$1}{'nojis04'} = 1;
+        $ai0flags{'ja'}{$1} = 1;
         next;
       }
       if ($l =~ m/^JA-AI0:\s*(.*):\s*(.*)$/) {
@@ -419,7 +425,11 @@ sub SetupMapFile {
     print " for $opt_mode\n";
     system("$updmap --quiet --nomkmap --nohash --setoption ${opt_mode}Embed $rep");
     if ($opt_mode eq "ja") {
-      if ($opt_jis && $representatives{'ja'}{$rep}{'jis04'}) {
+      if ($opt_jis && $representatives{'ja'}{$rep}{'nojis04'}) {
+        print STDERR "WARNING: No -04 map available, option --jis2004 ignored!\n";
+        $opt_jis = 0;
+      }
+      if ($opt_jis) {
         system("$updmap --quiet --nomkmap --nohash --setoption jaVariant -04");
       } else {
         system("$updmap --quiet --nomkmap --nohash --setoption jaVariant \"\"");
