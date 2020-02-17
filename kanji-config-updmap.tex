@@ -107,7 +107,10 @@
 \def\file#1{\texttt{#1}}
 \def\command#1{\texttt{#1}}
 \def\option#1{\texttt{-{}-#1}}
+\def\codechar#1{\ensuremath{\langle\mbox{\texttt{#1}}\rangle}}
 \def\TL{\TeX\ Live}
+\def\pTeX{p\kern-.15em\TeX}
+\def\upTeX{u\pTeX}
 
 \title{\command{kanji-config-updmap} --- 日本語フォント設定ツール}
 \author{日本語\TeX 開発コミュニティ}
@@ -117,7 +120,7 @@
 
 \TL に収録されている\file{ptex-fontmaps}パッケージには，
 \command{kanji-config-updmap}というコマンドが付属しています。
-このコマンドを用いると，下記のDVIドライバで埋め込まれる
+このコマンドは，\pTeX や\upTeX で生成したDVIを扱う下記のドライバが埋め込む
 日本語・中国語・韓国語フォントの設定を統一的に指定したり，
 確認したりできます。
 \begin{itemize}
@@ -125,7 +128,6 @@
   \item dvips（PostScriptで指定するフォント名）
   %\item pxdvi（画面表示に使うフォント）\footnote{この機能はオプションです。}
 \end{itemize}
-
 
 \section{はじめに：システム用(\command{-sys})とユーザ用(\command{-user})}
 
@@ -158,6 +160,9 @@
 つける必要はありませんので省いて読んでください。
 
 
+\clearpage
+
+
 \section{現在の埋め込み設定を確認する}
 
 現在の日本語フォントの埋め込み設定を確認するには
@@ -173,6 +178,24 @@
     $ sudo kanji-config-updmap-sys --ko status
 \end{verbatim}
 で確認できます（オプション \option{sc}, \option{tc}, \option{ko} は省略不可）。
+
+実行例を下に示します。
+\begin{verbatim}
+    $ sudo kanji-config-updmap-sys --ja status
+    CURRENT family for ja: ipaex (variant: <empty>)
+    Standby family : haranoaji
+    Standby family : ipa
+    Standby family : ms
+    Standby family : yu-win10
+\end{verbatim}
+この場合，現在設定されているプリセットは\command{ipaex}であり，
+他に4種類のプリセットが利用可能であることを示します。
+\command{CURRENT family}の末尾の表示されている
+\command{variant}は \command{<empty>} か \command{-04} のいずれかで，
+\textbf{JIS90字形とJIS2004字形の両方がサポートされるプリセットでJIS2004字形が
+選択されている場合}のみ \command{-04} となります
+（第\ref{jis2004}節を参照）。
+% kanji-config-updmap 20200217.0 で status に variant も表示するようにした
 
 なお，\TL を公式インストーラでフルインストールした場合は，デフォルトで
 表\ref{tldefault}の設定が適用された状態になっています。
@@ -194,35 +217,38 @@ IPAex明朝・IPAexゴシックに対応しています。
 \end{table}
 
 
+\clearpage
+
+
 \section{日本語フォントの埋め込み設定を変更する}
 
 日本語フォントの埋め込み設定を変更するには
 \begin{verbatim}
-    $ sudo kanji-config-updmap-sys --ja <fontname>
+    $ sudo kanji-config-updmap-sys --ja <family>
 \end{verbatim}
 を実行します（ここでもオプション \option{ja} は省略可能です）。
 
 同様に，現在の簡体中国語・繁体中国語・韓国語フォントの埋め込み設定はそれぞれ
 \begin{verbatim}
-    $ sudo kanji-config-updmap-sys --sc <fontname>
-    $ sudo kanji-config-updmap-sys --tc <fontname>
-    $ sudo kanji-config-updmap-sys --ko <fontname>
+    $ sudo kanji-config-updmap-sys --sc <family>
+    $ sudo kanji-config-updmap-sys --tc <family>
+    $ sudo kanji-config-updmap-sys --ko <family>
 \end{verbatim}
 で変更できます（オプション \option{sc}, \option{tc}, \option{ko} は省略不可）。
 
-なお，オプションの書式は \option{ja <fontname>} と \option{ja=<fontname>} のように，
+なお，オプションの書式は \option{ja <family>} と \option{ja=<family>} のように，
 イコール(\command{=})を付けても付けなくても同じ意味になります。
 
 \subsection{利用可能なプリセット一覧}
 
-利用可能な \command{<fontname>} は以下のとおりです。
+利用可能な \command{<family>} は以下のとおりです。
 実際に対応するフォントは，先ほどと同様に
 \file{ptex-fontmaps}の\file{README}を参照してください。
 このリストで，各値の末尾に付いている \command{(番号)} は，次節で説明する
 \command{auto}による自動選択の優先順位を表します。
 番号の前の \command{*} については，第\ref{jis2004}節で後述します。
 また \command{<AI0>} と付いているものは，Adobe-Identity0の
-フォントであることを示し，いくつかの制約事項があります（後述）。
+フォントであることを示し，いくつかの制約事項があります（第\ref{ai0}節）。
 \loaddata{database/ptex-fontmaps-data.dat}
 
 さらに，TLContribリポジトリから\file{ptex-fontmaps-macos}パッケージを
@@ -237,15 +263,56 @@ IPAex明朝・IPAexゴシックに対応しています。
 簡体中国語フォントを\command{fandol}に変更します。
 
 設定変更時には，その設定で使われるであろう代表的なフォントファイルが
-\emph{実在するかどうか}を予めチェックします（もし実在しなければ，後述の
-\command{auto}にフォールバックします）。
+\emph{実在するかどうかを予めチェック}します（もし実在しなければ，
+第\ref{special-preset}節で後述する\command{auto}にフォールバックします）。
 オプション \option{force} を付けると，実在するかどうかにかかわらず
-強制的にそのプリセットを設定します。
+強制的にそのプリセットを設定します（バージョン20190506.0の新機能）。
 
-\subsection{特殊なプリセット}
+\subsection{日本語フォントのJIS2004字形の使用}\label{jis2004}
 
-引数に\command{auto}を指定すると，上記のリストの中から \command{(番号)} が
+一部のプリセットでは，JIS90字形とJIS2004字形の両方をサポートしています。
+先ほどのリストで番号の前に \command{*} が\emph{付いていない}プリセットが該当し，
+現在すべてのOpenTypeフォントと一部のTrueTypeフォントが含まれます。
+これらのプリセットでは，\textbf{デフォルトではJIS90字形が使われます}が，
+オプション \option{jis2004} を指定するとJIS2004字形を使用する設定になります。例えば
+\begin{verbatim}
+    $ sudo kanji-config-updmap-sys haranoaji
+\end{verbatim}
+ではJIS90字形の「原ノ味フォント」が使われますが，
+\begin{verbatim}
+    $ sudo kanji-config-updmap-sys --jis2004 haranoaji
+\end{verbatim}
+ではJIS2004字形の「原ノ味フォント」が使われます。
+
+一方 \command{*} が\emph{付いている}プリセットでは，
+JIS90字形とJIS2004字形の\textbf{どちらが出力されるかはフォント次第}です。
+このようなプリセットでは，オプション \option{jis2004} が指定されても
+\begin{verbatim}
+    WARNING: No -04 map available, option --jis2004 ignored!
+\end{verbatim}
+と警告して無視します。
+% 以前はオプションを無視せず -04 のマップファイルを使おうとして，
+% 結果的に kanjix.map からマッピングが消えていたが，
+% kanji-config-updmap 20200217.0 で --jis2004 を無視する仕様にした
+例えば
+\begin{verbatim}
+    $ sudo kanji-config-updmap-sys ipaex
+\end{verbatim}
+で使われる「IPAexフォント」はJIS2004字形でデザインされています。
+
+\subsection{特殊なプリセット}\label{special-preset}
+
+\emph{フォントを埋め込まない}場合は引数を\command{nofont}とします。
+例えば
+\begin{verbatim}
+    $ sudo kanji-config-updmap-sys nofont
+\end{verbatim}
+とすれば，日本語フォントが埋め込まれません。
+
+また，引数に\command{auto}を指定すると，上記のリストの中から \command{(番号)} が
 なるべく小さな\emph{実在するフォント}を自動的に選択します。
+ただし，現在設定されている（\command{nofont}以外の）プリセットが
+実在していて利用可能な場合は，現在の設定を維持します。
 例えば
 \begin{verbatim}
     $ sudo kanji-config-updmap-sys auto
@@ -257,32 +324,67 @@ IPAex明朝・IPAexゴシックに対応しています。
 \end{verbatim}
 とすれば，4つの言語全てが同様に自動設定されます。
 
-また，\emph{フォントを埋め込まない}場合は引数を\command{nofont}とします。
-例えば
-\begin{verbatim}
-    $ sudo kanji-config-updmap-sys nofont
-\end{verbatim}
-とすれば，日本語フォントが埋め込まれません。
+\subsection{カスタムプリセットの利用}
 
-\subsection{日本語フォントのJIS2004字形の使用}\label{jis2004}
+[TODO] 作業中。
+マップファイルを用意すれば\command{kanji-config-updmap}で設定可能。
 
-OpenTypeフォント及び一部のTrueTypeフォントでは,
-JIS90字形とJIS2004字形を切り替えることができます
-（先ほどのリストで番号の前に \command{*} が付いているフォントはサポート外）。
-デフォルトではJIS90字形が使われますが，オプション \option{jis2004} を指定すると
-JIS2004字形を使用する設定になります。例えば
-\begin{verbatim}
-    $ sudo kanji-config-updmap-sys haranoaji
-\end{verbatim}
-ではJIS90字形の「原ノ味フォント」が使われますが，
-\begin{verbatim}
-    $ sudo kanji-config-updmap-sys --jis2004 haranoaji
-\end{verbatim}
-ではJIS2004字形の「原ノ味フォント」が使われます。
 
-\subsection{Adobe-Identity0 (AI0)なフォントの制約事項}
+\clearpage
 
-[TODO] ここから先は未完成！
+
+\section{特記事項}
+
+まず，一般的な注意点を挙げておきます。
+\begin{itemize}
+  \item 特定の文字が出力されるかどうかは，実際に使われるフォントに依ります。
+        フォントに収録されていない文字は出力されませんし，
+        JIS90字形かJIS2004字形のどちらか一方しか用意されていないフォントもあります。
+  \item 複数のウェイトが利用可能かどうかは，プリセットに依ります。
+        例えば，\command{ipaex}が利用するIPAexフォントは明朝とゴシック
+        各1ウェイトのみ配布されており，細字の明朝や太字のゴシックは利用できません。
+\end{itemize}
+
+その他，いくつかのプリセットには注意点があります。
+
+\subsection{Adobe-Identity0 (AI0)なフォントの制約事項}\label{ai0}
+
+\command{sourcehan}や\command{noto}などを埋め込む設定の注意点です。
+
+[TODO] 作業中。
+
+\begin{itemize}
+  \item \upTeX~+~dvipdfmx専用です。他の経路（\pTeX~+~dvipdfmx，
+        \pTeX~+~dvips，\upTeX~+~dvips）はサポートできないため，
+        \emph{フォントを埋め込まない}設定にフォールバックします。
+  \item \upTeX~+~dvipdfmxの経路でも，Adobe-Japan1などの従来のマッピングに
+        依存する文字出力機能もサポートされません。具体的には以下の機能が該当し，
+        これらの文字も\emph{フォントを埋め込まない}設定にフォールバックします。
+    \begin{itemize}
+      \item \file{otf}パッケージが提供する \verb+\CID+ や
+            \file{ajmacros}（\verb+\aj...+命令など）の大半の命令
+      \item \file{otf}パッケージ使用時のクオート記号，
+            つまり\codechar{“}\codechar{”}\codechar{‘}\codechar{’}の4文字
+    \end{itemize}
+\end{itemize}
+
+\subsection{その他}
+
+その他，既知の注意点です。
+\file{ptex-fontmaps}はあくまで\pTeX や\upTeX が提供する共通のJFM（\file{ptex-fonts}，
+\file{uptex-fonts}に収録）から参照される実フォントを切り替えるだけであり，
+個別のフォントに対する対処は行っていません。
+
+\begin{itemize}
+  \item \command{yu}, \command{yu-win10}はWindowsに付属する
+        TrueType形式の游フォントを埋め込みますが，
+        クオート記号\codechar{“}\codechar{”}\codechar{‘}\codechar{’}が
+        全角幅より狭くデザインされているため，出力が異常になります。\\
+        参考： \url{https://oku.edu.mie-u.ac.jp/tex/mod/forum/discuss.php?d=2017}
+\end{itemize}
+
+
+%\section{内部処理}
 
 %\command{kanji-config-updmap-sys}は内部で\command{updmap-sys}を呼び出し，
 %\command{kanji-config-updmap-user}は内部で\command{updmap-user}を呼び出す。

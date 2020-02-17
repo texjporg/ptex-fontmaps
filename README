@@ -51,7 +51,7 @@ map files for dvipdfmx. You have to obtain the fonts separately.
 For following list of maps, the respective fonts are shipped in TeX Live
 and are available for free:
 
-* Japanese: ipa, ipaex
+* Japanese: haranoaji, ipa, ipaex
 * Simplified Chinese: arphic, fandol
 * Traditional Chinese: arphic
 * Korean: baekmuk, unfonts
@@ -59,7 +59,7 @@ and are available for free:
 For following list of maps, the respective fonts are available for free
 but not shipped in TeX Live:
 
-* Japanese: moga-mobo, moga-mobo-ex, ume, haranoaji
+* Japanese: moga-mobo, moga-mobo-ex, ume
 * Simplified Chinese: cjkunifonts, cjkunifonts-ttf
 * Traditional Chinese: cjkunifonts, cjkunifonts-ttf
 
@@ -353,7 +353,7 @@ The (deprecated) file updmap-otf.sh and the (in perl rewritten version)
 kanji-config-updmap.pl are licensed under the following terms:
   Copyright 2004-2006 by KOBAYASHI Taizo
   Copyright 2011-2016 by PREINING Norbert
-  Copyright 2016-     by Japanese TeX Development Community
+  Copyright 2016-2020 by Japanese TeX Development Community
 Licensed under the GPL version 3 or any later version, 
 see the file for details.
 
