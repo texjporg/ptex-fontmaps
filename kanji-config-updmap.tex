@@ -157,7 +157,7 @@
 
 以下では \command{-sys} の方で説明します。
 また，Windowsでは\command{sudo}（Unixで管理者権限に昇格するコマンド）を
-つける必要はありませんので省いて読んでください。
+つける必要はありませんので，\command{sudo}なしに読み替えてください。
 
 
 \clearpage
@@ -169,7 +169,12 @@
 \begin{verbatim}
     $ sudo kanji-config-updmap-sys --ja status
 \end{verbatim}
-を実行します（オプション \option{ja} は省略可能です）。
+を実行します。オプション \option{ja} は省略可能で，単に
+\begin{verbatim}
+    $ sudo kanji-config-updmap-sys status
+\end{verbatim}
+と実行しても同じ結果が得られます\footnote{これは，バージョン20170114.0より
+以前に，\command{kanji-config-updmap}が日本語フォント専用だった名残です。}。
 
 同様に，現在の簡体中国語・繁体中国語・韓国語フォントの埋め込み設定はそれぞれ
 \begin{verbatim}
@@ -200,7 +205,7 @@
 なお，\TL を公式インストーラでフルインストールした場合は，デフォルトで
 表\ref{tldefault}の設定が適用された状態になっています。
 それぞれの値が実際にどのフォントに対応しているかは，\file{ptex-fontmaps}の
-\file{README}を参照してください。
+\file{README}（本PDFの付録\ref{ptex-fontmaps-readme}にも掲載）を参照してください。
 例えば，日本語フォントのデフォルト値\command{ipaex}は
 IPAex明朝・IPAexゴシックに対応しています。
 \begin{table}[h]
@@ -226,7 +231,11 @@ IPAex明朝・IPAexゴシックに対応しています。
 \begin{verbatim}
     $ sudo kanji-config-updmap-sys --ja <family>
 \end{verbatim}
-を実行します（ここでもオプション \option{ja} は省略可能です）。
+を実行します。ここでもオプション \option{ja} は省略可能で，単に
+\begin{verbatim}
+    $ sudo kanji-config-updmap-sys <family>
+\end{verbatim}
+と実行しても同じ結果が得られます。
 
 同様に，現在の簡体中国語・繁体中国語・韓国語フォントの埋め込み設定はそれぞれ
 \begin{verbatim}
@@ -242,8 +251,8 @@ IPAex明朝・IPAexゴシックに対応しています。
 \subsection{利用可能なプリセット一覧}
 
 利用可能な \command{<family>} は以下のとおりです。
-実際に対応するフォントは，先ほどと同様に
-\file{ptex-fontmaps}の\file{README}を参照してください。
+実際に対応するフォントは，やはり\file{ptex-fontmaps}の
+\file{README}（本PDFの付録\ref{ptex-fontmaps-readme}にも掲載）を参照してください。
 このリストで，各値の末尾に付いている \command{(番号)} は，次節で説明する
 \command{auto}による自動選択の優先順位を表します。
 番号の前の \command{*} については，第\ref{jis2004}節で後述します。
@@ -394,7 +403,7 @@ JIS90字形とJIS2004字形の\textbf{どちらが出力されるかはフォン
 \appendix
 
 
-\section{\file{ptex-fontmaps}の\file{README}}
+\section{\file{ptex-fontmaps}の\file{README}}\label{ptex-fontmaps-readme}
 
 % \readline が和文文字をバイト列に変換しない e-pTeX 190908 以降が必要
 % https://github.com/texjporg/tex-jp-build/issues/88
