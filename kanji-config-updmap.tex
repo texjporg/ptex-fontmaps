@@ -202,22 +202,23 @@
 （第\ref{jis2004}節を参照）。
 % kanji-config-updmap 20200217.0 で status に variant も表示するようにした
 
-なお，\TL を公式インストーラでフルインストールした場合は，デフォルトで
-表\ref{tldefault}の設定が適用された状態になっています。
+なお，\TL を公式インストーラでフルインストールすると，デフォルトで
+表\ref{tldefault}の設定が適用された状態になります。
 それぞれの値が実際にどのフォントに対応しているかは，\file{ptex-fontmaps}の
 \file{README}（本PDFの付録\ref{ptex-fontmaps-readme}にも掲載）を参照してください。
-例えば，日本語フォントのデフォルト値\command{ipaex}は
-IPAex明朝・IPAexゴシックに対応しています。
+例えば，日本語フォントのデフォルト値\command{haranoaji}は
+原ノ味フォントに対応しており，さらにデフォルトはJIS2004字形です。
 \begin{table}[h]
   \centering
   \caption{\TL の埋め込みフォントのデフォルト値}\label{tldefault}
   \begin{tabular}{m{12zw}m{8zw}}
   \hline
-  変数名（言語）                  & デフォルト値      \\ \hline
-  \command{jaEmbed}（日本語）     & \command{ipaex}   \\
-  \command{scEmbed}（簡体中国語） & \command{arphic}  \\
-  \command{tcEmbed}（繁体中国語） & \command{arphic}  \\
-  \command{koEmbed}（韓国語）     & \command{baekmuk} \\ \hline
+  変数名（言語）                  & デフォルト値        \\ \hline
+  \command{jaEmbed}（日本語）     & \command{haranoaji} \\
+  \command{scEmbed}（簡体中国語） & \command{arphic}    \\
+  \command{tcEmbed}（繁体中国語） & \command{arphic}    \\
+  \command{koEmbed}（韓国語）     & \command{baekmuk}   \\
+  \command{jaVariant}（日本語）   & \command{-04}       \\ \hline
 \end{tabular}
 \end{table}
 
