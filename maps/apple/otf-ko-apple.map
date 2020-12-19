@@ -1,12 +1,32 @@
 
 % CID
+otf-ckml-h	Identity-H	AppleMyungjo.ttf/AK12
+otf-ckml-v	Identity-V	AppleMyungjo.ttf/AK12
 otf-ckmr-h	Identity-H	AppleMyungjo.ttf/AK12
 otf-ckmr-v	Identity-V	AppleMyungjo.ttf/AK12
+otf-ckmb-h	Identity-H	AppleMyungjo.ttf/AK12
+otf-ckmb-v	Identity-V	AppleMyungjo.ttf/AK12
 otf-ckgr-h	Identity-H	AppleGothic.ttf/AK12
 otf-ckgr-v	Identity-V	AppleGothic.ttf/AK12
+otf-ckgb-h	Identity-H	AppleGothic.ttf/AK12
+otf-ckgb-v	Identity-V	AppleGothic.ttf/AK12
+otf-ckge-h	Identity-H	AppleGothic.ttf/AK12
+otf-ckge-v	Identity-V	AppleGothic.ttf/AK12
+otf-ckmgr-h	Identity-H	AppleGothic.ttf/AK12
+otf-ckmgr-v	Identity-V	AppleGothic.ttf/AK12
 
 % Unicode
+otf-ukml-h	UniKS-UCS2-H	AppleMyungjo.ttf
+otf-ukml-v	UniKS-UCS2-V	AppleMyungjo.ttf
 otf-ukmr-h	UniKS-UCS2-H	AppleMyungjo.ttf
 otf-ukmr-v	UniKS-UCS2-V	AppleMyungjo.ttf
+otf-ukmb-h	UniKS-UCS2-H	AppleMyungjo.ttf
+otf-ukmb-v	UniKS-UCS2-V	AppleMyungjo.ttf
 otf-ukgr-h	UniKS-UCS2-H	AppleGothic.ttf
 otf-ukgr-v	UniKS-UCS2-V	AppleGothic.ttf
+otf-ukgb-h	UniKS-UCS2-H	AppleGothic.ttf
+otf-ukgb-v	UniKS-UCS2-V	AppleGothic.ttf
+otf-ukge-h	UniKS-UCS2-H	AppleGothic.ttf
+otf-ukge-v	UniKS-UCS2-V	AppleGothic.ttf
+otf-ukmgr-h	UniKS-UCS2-H	AppleGothic.ttf
+otf-ukmgr-v	UniKS-UCS2-V	AppleGothic.ttf

@@ -1,12 +1,32 @@
 
 % CID
+otf-ckml-h	Identity-H	!HYSMyeongJo-Medium
+otf-ckml-v	Identity-V	!HYSMyeongJo-Medium
 otf-ckmr-h	Identity-H	!HYSMyeongJo-Medium
 otf-ckmr-v	Identity-V	!HYSMyeongJo-Medium
+otf-ckmb-h	Identity-H	!HYSMyeongJo-Medium
+otf-ckmb-v	Identity-V	!HYSMyeongJo-Medium
 otf-ckgr-h	Identity-H	!HYGoThic-Medium
 otf-ckgr-v	Identity-V	!HYGoThic-Medium
+otf-ckgb-h	Identity-H	!HYGoThic-Medium
+otf-ckgb-v	Identity-V	!HYGoThic-Medium
+otf-ckge-h	Identity-H	!HYGoThic-Medium
+otf-ckge-v	Identity-V	!HYGoThic-Medium
+otf-ckmgr-h	Identity-H	!HYRGoThic-Medium
+otf-ckmgr-v	Identity-V	!HYRGoThic-Medium
 
 % Unicode
+otf-ukml-h	UniKS-UCS2-H	!HYSMyeongJo-Medium
+otf-ukml-v	UniKS-UCS2-V	!HYSMyeongJo-Medium
 otf-ukmr-h	UniKS-UCS2-H	!HYSMyeongJo-Medium
 otf-ukmr-v	UniKS-UCS2-V	!HYSMyeongJo-Medium
+otf-ukmb-h	UniKS-UCS2-H	!HYSMyeongJo-Medium
+otf-ukmb-v	UniKS-UCS2-V	!HYSMyeongJo-Medium
 otf-ukgr-h	UniKS-UCS2-H	!HYGoThic-Medium
 otf-ukgr-v	UniKS-UCS2-V	!HYGoThic-Medium
+otf-ukgb-h	UniKS-UCS2-H	!HYGoThic-Medium
+otf-ukgb-v	UniKS-UCS2-V	!HYGoThic-Medium
+otf-ukge-h	UniKS-UCS2-H	!HYGoThic-Medium
+otf-ukge-v	UniKS-UCS2-V	!HYGoThic-Medium
+otf-ukmgr-h	UniKS-UCS2-H	!HYRGoThic-Medium
+otf-ukmgr-v	UniKS-UCS2-V	!HYRGoThic-Medium

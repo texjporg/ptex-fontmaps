@@ -1,12 +1,32 @@
 
 % CID
+otf-ckml-h	Identity-H	h2mjsm.ttf/AK12 %!PS Myeongjo
+otf-ckml-v	Identity-V	h2mjsm.ttf/AK12 %!PS Myeongjo
 otf-ckmr-h	Identity-H	h2mjsm.ttf/AK12 %!PS Myeongjo
 otf-ckmr-v	Identity-V	h2mjsm.ttf/AK12 %!PS Myeongjo
+otf-ckmb-h	Identity-H	h2mjsm.ttf/AK12 %!PS Myeongjo
+otf-ckmb-v	Identity-V	h2mjsm.ttf/AK12 %!PS Myeongjo
 otf-ckgr-h	Identity-H	h2gtrm.ttf/AK12 %!PS Gothic
 otf-ckgr-v	Identity-V	h2gtrm.ttf/AK12 %!PS Gothic
+otf-ckgb-h	Identity-H	h2gtrm.ttf/AK12 %!PS Gothic
+otf-ckgb-v	Identity-V	h2gtrm.ttf/AK12 %!PS Gothic
+otf-ckge-h	Identity-H	h2gtrm.ttf/AK12 %!PS Gothic
+otf-ckge-v	Identity-V	h2gtrm.ttf/AK12 %!PS Gothic
+otf-ckmgr-h	Identity-H	h2drrm.ttf/AK12 %!PS RoundedGothic
+otf-ckmgr-v	Identity-V	h2drrm.ttf/AK12 %!PS RoundedGothic
 
 % Unicode
+otf-ukml-h	UniKS-UCS2-H	h2mjsm.ttf %!PS Myeongjo
+otf-ukml-v	UniKS-UCS2-V	h2mjsm.ttf %!PS Myeongjo
 otf-ukmr-h	UniKS-UCS2-H	h2mjsm.ttf %!PS Myeongjo
 otf-ukmr-v	UniKS-UCS2-V	h2mjsm.ttf %!PS Myeongjo
+otf-ukmb-h	UniKS-UCS2-H	h2mjsm.ttf %!PS Myeongjo
+otf-ukmb-v	UniKS-UCS2-V	h2mjsm.ttf %!PS Myeongjo
 otf-ukgr-h	UniKS-UCS2-H	h2gtrm.ttf %!PS Gothic
 otf-ukgr-v	UniKS-UCS2-V	h2gtrm.ttf %!PS Gothic
+otf-ukgb-h	UniKS-UCS2-H	h2gtrm.ttf %!PS Gothic
+otf-ukgb-v	UniKS-UCS2-V	h2gtrm.ttf %!PS Gothic
+otf-ukge-h	UniKS-UCS2-H	h2gtrm.ttf %!PS Gothic
+otf-ukge-v	UniKS-UCS2-V	h2gtrm.ttf %!PS Gothic
+otf-ukmgr-h	UniKS-UCS2-H	h2drrm.ttf %!PS RoundedGothic
+otf-ukmgr-v	UniKS-UCS2-V	h2drrm.ttf %!PS RoundedGothic
