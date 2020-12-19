@@ -1,12 +1,32 @@
 
 % CID
+otf-ckml-h	Identity-H	!HYSMyeongJo-Medium
+otf-ckml-v	Identity-V	!HYSMyeongJo-Medium
 otf-ckmr-h	Identity-H	!HYSMyeongJo-Medium
 otf-ckmr-v	Identity-V	!HYSMyeongJo-Medium
+otf-ckmb-h	Identity-H	!HYSMyeongJo-Medium
+otf-ckmb-v	Identity-V	!HYSMyeongJo-Medium
 otf-ckgr-h	Identity-H	!HYGoThic-Medium
 otf-ckgr-v	Identity-V	!HYGoThic-Medium
+otf-ckgb-h	Identity-H	!HYGoThic-Medium
+otf-ckgb-v	Identity-V	!HYGoThic-Medium
+otf-ckge-h	Identity-H	!HYGoThic-Medium
+otf-ckge-v	Identity-V	!HYGoThic-Medium
+otf-ckmgr-h	Identity-H	!HYRGoThic-Medium
+otf-ckmgr-v	Identity-V	!HYRGoThic-Medium
 
 % Unicode
+otf-ukml-h	unicode	NotoSerifCJKkr-Light.otf %!DVIPSFB !HYSMyeongJo-Medium-UniKS-UCS2-H
+otf-ukml-v	unicode	NotoSerifCJKkr-Light.otf -w 1 %!DVIPSFB !HYSMyeongJo-Medium-UniKS-UCS2-V
 otf-ukmr-h	unicode	NotoSerifCJKkr-Regular.otf %!DVIPSFB !HYSMyeongJo-Medium-UniKS-UCS2-H
 otf-ukmr-v	unicode	NotoSerifCJKkr-Regular.otf -w 1 %!DVIPSFB !HYSMyeongJo-Medium-UniKS-UCS2-V
-otf-ukgr-h	unicode	NotoSansCJKkr-Medium.otf %!DVIPSFB !HYGoThic-Medium-UniKS-UCS2-H
-otf-ukgr-v	unicode	NotoSansCJKkr-Medium.otf -w 1 %!DVIPSFB !HYGoThic-Medium-UniKS-UCS2-V
+otf-ukmb-h	unicode	NotoSerifCJKkr-Bold.otf %!DVIPSFB !HYSMyeongJo-Medium-UniKS-UCS2-H
+otf-ukmb-v	unicode	NotoSerifCJKkr-Bold.otf -w 1 %!DVIPSFB !HYSMyeongJo-Medium-UniKS-UCS2-V
+otf-ukgr-h	unicode	NotoSansCJKkr-Regular.otf %!DVIPSFB !HYGoThic-Medium-UniKS-UCS2-H
+otf-ukgr-v	unicode	NotoSansCJKkr-Regular.otf -w 1 %!DVIPSFB !HYGoThic-Medium-UniKS-UCS2-V
+otf-ukgb-h	unicode	NotoSansCJKkr-Bold.otf %!DVIPSFB !HYGoThic-Medium-UniKS-UCS2-H
+otf-ukgb-v	unicode	NotoSansCJKkr-Bold.otf -w 1 %!DVIPSFB !HYGoThic-Medium-UniKS-UCS2-V
+otf-ukge-h	unicode	NotoSansCJKkr-Black.otf %!DVIPSFB !HYGoThic-Medium-UniKS-UCS2-H
+otf-ukge-v	unicode	NotoSansCJKkr-Black.otf -w 1 %!DVIPSFB !HYGoThic-Medium-UniKS-UCS2-V
+otf-ukmgr-h	unicode	NotoSansCJKkr-Medium.otf %!DVIPSFB !HYRGoThic-Medium-UniKS-UCS2-H
+otf-ukmgr-v	unicode	NotoSansCJKkr-Medium.otf -w 1 %!DVIPSFB !HYRGoThic-Medium-UniKS-UCS2-V

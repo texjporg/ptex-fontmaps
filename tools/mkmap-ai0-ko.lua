@@ -5,23 +5,47 @@
 -- つまり，p(La)TeX は不可．dvips も不可．cid も不可．
 local foundry = {
    ['sourcehan-otc']   = { -- Source Han Sans/Serif, "OTC"
+      ml=':1:SourceHanSerif-Light.ttc',
       mr=':1:SourceHanSerif-Regular.ttc',
-      gr=':1:SourceHanSans-Medium.ttc',
+      mb=':1:SourceHanSerif-Bold.ttc',
+      gr=':1:SourceHanSans-Regular.ttc',
+      gru=':1:SourceHanSans-Medium.ttc',
+      gb=':1:SourceHanSans-Bold.ttc',
+      ge=':1:SourceHanSans-Heavy.ttc',
+      mgr=':1:SourceHanSans-Medium.ttc',
       {''},
    },
    ['sourcehan']   = { -- Source Han Sans/Serif, "Language-specific OTF"
+      ml='SourceHanSerifK-Light.otf',
       mr='SourceHanSerifK-Regular.otf',
-      gr='SourceHanSansK-Medium.otf',
+      mb='SourceHanSerifK-Bold.otf',
+      gr='SourceHanSansK-Regular.otf',
+      gru='SourceHanSansK-Medium.otf',
+      gb='SourceHanSansK-Bold.otf',
+      ge='SourceHanSansK-Heavy.otf',
+      mgr='SourceHanSansK-Medium.otf',
       {''},
    },
    ['noto-otc']   = { -- Noto Sans/Serif CJK, "OpenType/CFF Collection (OTC)"
+      ml=':1:NotoSerifCJK-Light.ttc',
       mr=':1:NotoSerifCJK-Regular.ttc',
-      gr=':1:NotoSansCJK-Medium.ttc',
+      mb=':1:NotoSerifCJK-Bold.ttc',
+      gr=':1:NotoSansCJK-Regular.ttc',
+      gru=':1:NotoSansCJK-Medium.ttc',
+      gb=':1:NotoSansCJK-Bold.ttc',
+      ge=':1:NotoSansCJK-Black.ttc',
+      mgr=':1:NotoSansCJK-Medium.ttc',
       {''},
    },
    ['noto']   = { -- Noto Sans/Serif CJK, "Language-specific OpenType/CFF (OTF)"
+      ml='NotoSerifCJKkr-Light.otf',
       mr='NotoSerifCJKkr-Regular.otf',
-      gr='NotoSansCJKkr-Medium.otf',
+      mb='NotoSerifCJKkr-Bold.otf',
+      gr='NotoSansCJKkr-Regular.otf',
+      gru='NotoSansCJKkr-Medium.otf',
+      gb='NotoSansCJKkr-Bold.otf',
+      ge='NotoSansCJKkr-Black.otf',
+      mgr='NotoSansCJKkr-Medium.otf',
       {''},
    },
 }
@@ -30,8 +54,13 @@ local foundry = {
 -- フォールバックとして noEmbed 相当の設定を追加する．
 local foundry_fallback = {
    ['noEmbed']   = {
+      fml='!HYSMyeongJo-Medium',
       fmr='!HYSMyeongJo-Medium',
+      fmb='!HYSMyeongJo-Medium',
       fgr='!HYGoThic-Medium',
+      fgru='!HYGoThic-Medium',
+      fgb='!HYGoThic-Medium',
+      fge='!HYGoThic-Medium',
       fmgr='!HYRGoThic-Medium',
       {'n'},
    },
@@ -43,18 +72,26 @@ local foundry_fallback = {
 -- テーブルサイズが 3 のとき，全て fallback の AK1 フォント用
 local maps = {
    ['uptex-ko-@'] = {
-      {'uphysmjm-#', '#', 'mr', 'fmr', 'UniKS-UTF16-#'},
-      {'uphygt-#',   '#', 'gr', 'fgr', 'UniKS-UTF16-#'},
+      {'uphysmjm-#', '#', 'mr',  'fmr',  'UniKS-UTF16-#'},
+      {'uphygt-#',   '#', 'gru', 'fgru', 'UniKS-UTF16-#'},
    },
    ['otf-ko-@'] = {
       '% CID',
+      {'otf-ckml-#', 'Identity-#',     'fml'},
       {'otf-ckmr-#', 'Identity-#',     'fmr'},
+      {'otf-ckmb-#', 'Identity-#',     'fmb'},
       {'otf-ckgr-#', 'Identity-#',     'fgr'},
-   -- {'otf-ckmgr-#','Identity-#',     'fmgr'},
+      {'otf-ckgb-#', 'Identity-#',     'fgb'},
+      {'otf-ckge-#', 'Identity-#',     'fge'},
+      {'otf-ckmgr-#','Identity-#',     'fmgr'},
       '% Unicode',
+      {'otf-ukml-#', '#', 'ml', 'fml', 'UniKS-UCS2-#'},
       {'otf-ukmr-#', '#', 'mr', 'fmr', 'UniKS-UCS2-#'},
+      {'otf-ukmb-#', '#', 'mb', 'fmb', 'UniKS-UCS2-#'},
       {'otf-ukgr-#', '#', 'gr', 'fgr', 'UniKS-UCS2-#'},
-   -- {'otf-ukmgr-#','#', 'mgr','fmgr','UniKS-UCS2-#'},
+      {'otf-ukgb-#', '#', 'gb', 'fgb', 'UniKS-UCS2-#'},
+      {'otf-ukge-#', '#', 'ge', 'fge', 'UniKS-UCS2-#'},
+      {'otf-ukmgr-#','#', 'mgr','fmgr','UniKS-UCS2-#'},
    },
 }
 

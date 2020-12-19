@@ -1,12 +1,32 @@
 
 % CID
+otf-ckml-h	Identity-H	!HYSMyeongJo-Medium
+otf-ckml-v	Identity-V	!HYSMyeongJo-Medium
 otf-ckmr-h	Identity-H	!HYSMyeongJo-Medium
 otf-ckmr-v	Identity-V	!HYSMyeongJo-Medium
+otf-ckmb-h	Identity-H	!HYSMyeongJo-Medium
+otf-ckmb-v	Identity-V	!HYSMyeongJo-Medium
 otf-ckgr-h	Identity-H	!HYGoThic-Medium
 otf-ckgr-v	Identity-V	!HYGoThic-Medium
+otf-ckgb-h	Identity-H	!HYGoThic-Medium
+otf-ckgb-v	Identity-V	!HYGoThic-Medium
+otf-ckge-h	Identity-H	!HYGoThic-Medium
+otf-ckge-v	Identity-V	!HYGoThic-Medium
+otf-ckmgr-h	Identity-H	!HYRGoThic-Medium
+otf-ckmgr-v	Identity-V	!HYRGoThic-Medium
 
 % Unicode
+otf-ukml-h	unicode	:1:NotoSerifCJK-Light.ttc %!DVIPSFB !HYSMyeongJo-Medium-UniKS-UCS2-H
+otf-ukml-v	unicode	:1:NotoSerifCJK-Light.ttc -w 1 %!DVIPSFB !HYSMyeongJo-Medium-UniKS-UCS2-V
 otf-ukmr-h	unicode	:1:NotoSerifCJK-Regular.ttc %!DVIPSFB !HYSMyeongJo-Medium-UniKS-UCS2-H
 otf-ukmr-v	unicode	:1:NotoSerifCJK-Regular.ttc -w 1 %!DVIPSFB !HYSMyeongJo-Medium-UniKS-UCS2-V
-otf-ukgr-h	unicode	:1:NotoSansCJK-Medium.ttc %!DVIPSFB !HYGoThic-Medium-UniKS-UCS2-H
-otf-ukgr-v	unicode	:1:NotoSansCJK-Medium.ttc -w 1 %!DVIPSFB !HYGoThic-Medium-UniKS-UCS2-V
+otf-ukmb-h	unicode	:1:NotoSerifCJK-Bold.ttc %!DVIPSFB !HYSMyeongJo-Medium-UniKS-UCS2-H
+otf-ukmb-v	unicode	:1:NotoSerifCJK-Bold.ttc -w 1 %!DVIPSFB !HYSMyeongJo-Medium-UniKS-UCS2-V
+otf-ukgr-h	unicode	:1:NotoSansCJK-Regular.ttc %!DVIPSFB !HYGoThic-Medium-UniKS-UCS2-H
+otf-ukgr-v	unicode	:1:NotoSansCJK-Regular.ttc -w 1 %!DVIPSFB !HYGoThic-Medium-UniKS-UCS2-V
+otf-ukgb-h	unicode	:1:NotoSansCJK-Bold.ttc %!DVIPSFB !HYGoThic-Medium-UniKS-UCS2-H
+otf-ukgb-v	unicode	:1:NotoSansCJK-Bold.ttc -w 1 %!DVIPSFB !HYGoThic-Medium-UniKS-UCS2-V
+otf-ukge-h	unicode	:1:NotoSansCJK-Black.ttc %!DVIPSFB !HYGoThic-Medium-UniKS-UCS2-H
+otf-ukge-v	unicode	:1:NotoSansCJK-Black.ttc -w 1 %!DVIPSFB !HYGoThic-Medium-UniKS-UCS2-V
+otf-ukmgr-h	unicode	:1:NotoSansCJK-Medium.ttc %!DVIPSFB !HYRGoThic-Medium-UniKS-UCS2-H
+otf-ukmgr-v	unicode	:1:NotoSansCJK-Medium.ttc -w 1 %!DVIPSFB !HYRGoThic-Medium-UniKS-UCS2-V
