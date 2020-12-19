@@ -1,12 +1,32 @@
 
 % CID
+otf-ccml-h	Identity-H	:0:simsun.ttc/AG14 %!PS SimSun
+otf-ccml-v	Identity-V	:0:simsun.ttc/AG14 %!PS SimSun
 otf-ccmr-h	Identity-H	:0:simsun.ttc/AG14 %!PS SimSun
 otf-ccmr-v	Identity-V	:0:simsun.ttc/AG14 %!PS SimSun
+otf-ccmb-h	Identity-H	:0:simsun.ttc/AG14 %!PS SimSun
+otf-ccmb-v	Identity-V	:0:simsun.ttc/AG14 %!PS SimSun
 otf-ccgr-h	Identity-H	simhei.ttf/AG14 %!PS SimHei
 otf-ccgr-v	Identity-V	simhei.ttf/AG14 %!PS SimHei
+otf-ccgb-h	Identity-H	simhei.ttf/AG14 %!PS SimHei
+otf-ccgb-v	Identity-V	simhei.ttf/AG14 %!PS SimHei
+otf-ccge-h	Identity-H	simhei.ttf/AG14 %!PS SimHei
+otf-ccge-v	Identity-V	simhei.ttf/AG14 %!PS SimHei
+otf-ccmgr-h	Identity-H	simhei.ttf/AG14 %!PS SimHei
+otf-ccmgr-v	Identity-V	simhei.ttf/AG14 %!PS SimHei
 
 % Unicode
+otf-ucml-h	UniGB-UCS2-H	:0:simsun.ttc %!PS SimSun
+otf-ucml-v	UniGB-UCS2-V	:0:simsun.ttc %!PS SimSun
 otf-ucmr-h	UniGB-UCS2-H	:0:simsun.ttc %!PS SimSun
 otf-ucmr-v	UniGB-UCS2-V	:0:simsun.ttc %!PS SimSun
+otf-ucmb-h	UniGB-UCS2-H	:0:simsun.ttc %!PS SimSun
+otf-ucmb-v	UniGB-UCS2-V	:0:simsun.ttc %!PS SimSun
 otf-ucgr-h	UniGB-UCS2-H	simhei.ttf %!PS SimHei
 otf-ucgr-v	UniGB-UCS2-V	simhei.ttf %!PS SimHei
+otf-ucgb-h	UniGB-UCS2-H	simhei.ttf %!PS SimHei
+otf-ucgb-v	UniGB-UCS2-V	simhei.ttf %!PS SimHei
+otf-ucge-h	UniGB-UCS2-H	simhei.ttf %!PS SimHei
+otf-ucge-v	UniGB-UCS2-V	simhei.ttf %!PS SimHei
+otf-ucmgr-h	UniGB-UCS2-H	simhei.ttf %!PS SimHei
+otf-ucmgr-v	UniGB-UCS2-V	simhei.ttf %!PS SimHei

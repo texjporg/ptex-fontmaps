@@ -1,12 +1,32 @@
 
 % CID
+otf-ccml-h	Identity-H	!STSong-Light
+otf-ccml-v	Identity-V	!STSong-Light
 otf-ccmr-h	Identity-H	!STSong-Light
 otf-ccmr-v	Identity-V	!STSong-Light
+otf-ccmb-h	Identity-H	!STSong-Light
+otf-ccmb-v	Identity-V	!STSong-Light
 otf-ccgr-h	Identity-H	!STHeiti-Regular
 otf-ccgr-v	Identity-V	!STHeiti-Regular
+otf-ccgb-h	Identity-H	!STHeiti-Regular
+otf-ccgb-v	Identity-V	!STHeiti-Regular
+otf-ccge-h	Identity-H	!STHeiti-Regular
+otf-ccge-v	Identity-V	!STHeiti-Regular
+otf-ccmgr-h	Identity-H	!STHeiti-Regular
+otf-ccmgr-v	Identity-V	!STHeiti-Regular
 
 % Unicode
+otf-ucml-h	UniGB-UCS2-H	!STSong-Light
+otf-ucml-v	UniGB-UCS2-V	!STSong-Light
 otf-ucmr-h	UniGB-UCS2-H	!STSong-Light
 otf-ucmr-v	UniGB-UCS2-V	!STSong-Light
+otf-ucmb-h	UniGB-UCS2-H	!STSong-Light
+otf-ucmb-v	UniGB-UCS2-V	!STSong-Light
 otf-ucgr-h	UniGB-UCS2-H	!STHeiti-Regular
 otf-ucgr-v	UniGB-UCS2-V	!STHeiti-Regular
+otf-ucgb-h	UniGB-UCS2-H	!STHeiti-Regular
+otf-ucgb-v	UniGB-UCS2-V	!STHeiti-Regular
+otf-ucge-h	UniGB-UCS2-H	!STHeiti-Regular
+otf-ucge-v	UniGB-UCS2-V	!STHeiti-Regular
+otf-ucmgr-h	UniGB-UCS2-H	!STHeiti-Regular
+otf-ucmgr-v	UniGB-UCS2-V	!STHeiti-Regular

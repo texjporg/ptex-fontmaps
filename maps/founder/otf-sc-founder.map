@@ -1,12 +1,32 @@
 
 % CID
+otf-ccml-h	Identity-H	FZSSK.TTF/AG14 %!PS FZSSK--GBK1-0
+otf-ccml-v	Identity-V	FZSSK.TTF/AG14 %!PS FZSSK--GBK1-0
 otf-ccmr-h	Identity-H	FZSSK.TTF/AG14 %!PS FZSSK--GBK1-0
 otf-ccmr-v	Identity-V	FZSSK.TTF/AG14 %!PS FZSSK--GBK1-0
+otf-ccmb-h	Identity-H	FZSSK.TTF/AG14 %!PS FZSSK--GBK1-0
+otf-ccmb-v	Identity-V	FZSSK.TTF/AG14 %!PS FZSSK--GBK1-0
 otf-ccgr-h	Identity-H	FZHTK.TTF/AG14 %!PS FZHTK--GBK1-0
 otf-ccgr-v	Identity-V	FZHTK.TTF/AG14 %!PS FZHTK--GBK1-0
+otf-ccgb-h	Identity-H	FZHTK.TTF/AG14 %!PS FZHTK--GBK1-0
+otf-ccgb-v	Identity-V	FZHTK.TTF/AG14 %!PS FZHTK--GBK1-0
+otf-ccge-h	Identity-H	FZHTK.TTF/AG14 %!PS FZHTK--GBK1-0
+otf-ccge-v	Identity-V	FZHTK.TTF/AG14 %!PS FZHTK--GBK1-0
+otf-ccmgr-h	Identity-H	FZHTK.TTF/AG14 %!PS FZHTK--GBK1-0
+otf-ccmgr-v	Identity-V	FZHTK.TTF/AG14 %!PS FZHTK--GBK1-0
 
 % Unicode
+otf-ucml-h	UniGB-UCS2-H	FZSSK.TTF %!PS FZSSK--GBK1-0
+otf-ucml-v	UniGB-UCS2-V	FZSSK.TTF %!PS FZSSK--GBK1-0
 otf-ucmr-h	UniGB-UCS2-H	FZSSK.TTF %!PS FZSSK--GBK1-0
 otf-ucmr-v	UniGB-UCS2-V	FZSSK.TTF %!PS FZSSK--GBK1-0
+otf-ucmb-h	UniGB-UCS2-H	FZSSK.TTF %!PS FZSSK--GBK1-0
+otf-ucmb-v	UniGB-UCS2-V	FZSSK.TTF %!PS FZSSK--GBK1-0
 otf-ucgr-h	UniGB-UCS2-H	FZHTK.TTF %!PS FZHTK--GBK1-0
 otf-ucgr-v	UniGB-UCS2-V	FZHTK.TTF %!PS FZHTK--GBK1-0
+otf-ucgb-h	UniGB-UCS2-H	FZHTK.TTF %!PS FZHTK--GBK1-0
+otf-ucgb-v	UniGB-UCS2-V	FZHTK.TTF %!PS FZHTK--GBK1-0
+otf-ucge-h	UniGB-UCS2-H	FZHTK.TTF %!PS FZHTK--GBK1-0
+otf-ucge-v	UniGB-UCS2-V	FZHTK.TTF %!PS FZHTK--GBK1-0
+otf-ucmgr-h	UniGB-UCS2-H	FZHTK.TTF %!PS FZHTK--GBK1-0
+otf-ucmgr-v	UniGB-UCS2-V	FZHTK.TTF %!PS FZHTK--GBK1-0

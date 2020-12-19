@@ -1,12 +1,32 @@
 
 % CID
+otf-ccml-h	Identity-H	uming.ttf/AG14 %!PS ShanHeiSun-Uni
+otf-ccml-v	Identity-V	uming.ttf/AG14 %!PS ShanHeiSun-Uni
 otf-ccmr-h	Identity-H	uming.ttf/AG14 %!PS ShanHeiSun-Uni
 otf-ccmr-v	Identity-V	uming.ttf/AG14 %!PS ShanHeiSun-Uni
+otf-ccmb-h	Identity-H	uming.ttf/AG14 %!PS ShanHeiSun-Uni
+otf-ccmb-v	Identity-V	uming.ttf/AG14 %!PS ShanHeiSun-Uni
 otf-ccgr-h	Identity-H	ukai.ttf/AG14 %!PS ZenKai-Uni
 otf-ccgr-v	Identity-V	ukai.ttf/AG14 %!PS ZenKai-Uni
+otf-ccgb-h	Identity-H	ukai.ttf/AG14 %!PS ZenKai-Uni
+otf-ccgb-v	Identity-V	ukai.ttf/AG14 %!PS ZenKai-Uni
+otf-ccge-h	Identity-H	ukai.ttf/AG14 %!PS ZenKai-Uni
+otf-ccge-v	Identity-V	ukai.ttf/AG14 %!PS ZenKai-Uni
+otf-ccmgr-h	Identity-H	ukai.ttf/AG14 %!PS ZenKai-Uni
+otf-ccmgr-v	Identity-V	ukai.ttf/AG14 %!PS ZenKai-Uni
 
 % Unicode
+otf-ucml-h	UniGB-UCS2-H	uming.ttf %!PS ShanHeiSun-Uni
+otf-ucml-v	UniGB-UCS2-V	uming.ttf %!PS ShanHeiSun-Uni
 otf-ucmr-h	UniGB-UCS2-H	uming.ttf %!PS ShanHeiSun-Uni
 otf-ucmr-v	UniGB-UCS2-V	uming.ttf %!PS ShanHeiSun-Uni
+otf-ucmb-h	UniGB-UCS2-H	uming.ttf %!PS ShanHeiSun-Uni
+otf-ucmb-v	UniGB-UCS2-V	uming.ttf %!PS ShanHeiSun-Uni
 otf-ucgr-h	UniGB-UCS2-H	ukai.ttf %!PS ZenKai-Uni
 otf-ucgr-v	UniGB-UCS2-V	ukai.ttf %!PS ZenKai-Uni
+otf-ucgb-h	UniGB-UCS2-H	ukai.ttf %!PS ZenKai-Uni
+otf-ucgb-v	UniGB-UCS2-V	ukai.ttf %!PS ZenKai-Uni
+otf-ucge-h	UniGB-UCS2-H	ukai.ttf %!PS ZenKai-Uni
+otf-ucge-v	UniGB-UCS2-V	ukai.ttf %!PS ZenKai-Uni
+otf-ucmgr-h	UniGB-UCS2-H	ukai.ttf %!PS ZenKai-Uni
+otf-ucmgr-v	UniGB-UCS2-V	ukai.ttf %!PS ZenKai-Uni

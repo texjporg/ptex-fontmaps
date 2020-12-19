@@ -1,12 +1,32 @@
 
 % CID
+otf-ccml-h	Identity-H	gbsn00lp.ttf/AG14 %!PS BousungEG-Light-GB
+otf-ccml-v	Identity-V	gbsn00lp.ttf/AG14 %!PS BousungEG-Light-GB
 otf-ccmr-h	Identity-H	gbsn00lp.ttf/AG14 %!PS BousungEG-Light-GB
 otf-ccmr-v	Identity-V	gbsn00lp.ttf/AG14 %!PS BousungEG-Light-GB
+otf-ccmb-h	Identity-H	gbsn00lp.ttf/AG14 %!PS BousungEG-Light-GB
+otf-ccmb-v	Identity-V	gbsn00lp.ttf/AG14 %!PS BousungEG-Light-GB
 otf-ccgr-h	Identity-H	gkai00mp.ttf/AG14 %!PS GBZenKai-Medium
 otf-ccgr-v	Identity-V	gkai00mp.ttf/AG14 %!PS GBZenKai-Medium
+otf-ccgb-h	Identity-H	gkai00mp.ttf/AG14 %!PS GBZenKai-Medium
+otf-ccgb-v	Identity-V	gkai00mp.ttf/AG14 %!PS GBZenKai-Medium
+otf-ccge-h	Identity-H	gkai00mp.ttf/AG14 %!PS GBZenKai-Medium
+otf-ccge-v	Identity-V	gkai00mp.ttf/AG14 %!PS GBZenKai-Medium
+otf-ccmgr-h	Identity-H	gkai00mp.ttf/AG14 %!PS GBZenKai-Medium
+otf-ccmgr-v	Identity-V	gkai00mp.ttf/AG14 %!PS GBZenKai-Medium
 
 % Unicode
+otf-ucml-h	UniGB-UCS2-H	gbsn00lp.ttf %!PS BousungEG-Light-GB
+otf-ucml-v	UniGB-UCS2-V	gbsn00lp.ttf %!PS BousungEG-Light-GB
 otf-ucmr-h	UniGB-UCS2-H	gbsn00lp.ttf %!PS BousungEG-Light-GB
 otf-ucmr-v	UniGB-UCS2-V	gbsn00lp.ttf %!PS BousungEG-Light-GB
+otf-ucmb-h	UniGB-UCS2-H	gbsn00lp.ttf %!PS BousungEG-Light-GB
+otf-ucmb-v	UniGB-UCS2-V	gbsn00lp.ttf %!PS BousungEG-Light-GB
 otf-ucgr-h	UniGB-UCS2-H	gkai00mp.ttf %!PS GBZenKai-Medium
 otf-ucgr-v	UniGB-UCS2-V	gkai00mp.ttf %!PS GBZenKai-Medium
+otf-ucgb-h	UniGB-UCS2-H	gkai00mp.ttf %!PS GBZenKai-Medium
+otf-ucgb-v	UniGB-UCS2-V	gkai00mp.ttf %!PS GBZenKai-Medium
+otf-ucge-h	UniGB-UCS2-H	gkai00mp.ttf %!PS GBZenKai-Medium
+otf-ucge-v	UniGB-UCS2-V	gkai00mp.ttf %!PS GBZenKai-Medium
+otf-ucmgr-h	UniGB-UCS2-H	gkai00mp.ttf %!PS GBZenKai-Medium
+otf-ucmgr-v	UniGB-UCS2-V	gkai00mp.ttf %!PS GBZenKai-Medium

@@ -1,12 +1,32 @@
 
 % CID
+otf-ccml-h	Identity-H	:0:uming.ttc/AG14 %!PS UMingCN
+otf-ccml-v	Identity-V	:0:uming.ttc/AG14 %!PS UMingCN
 otf-ccmr-h	Identity-H	:0:uming.ttc/AG14 %!PS UMingCN
 otf-ccmr-v	Identity-V	:0:uming.ttc/AG14 %!PS UMingCN
+otf-ccmb-h	Identity-H	:0:uming.ttc/AG14 %!PS UMingCN
+otf-ccmb-v	Identity-V	:0:uming.ttc/AG14 %!PS UMingCN
 otf-ccgr-h	Identity-H	:0:ukai.ttc/AG14 %!PS UKaiCN
 otf-ccgr-v	Identity-V	:0:ukai.ttc/AG14 %!PS UKaiCN
+otf-ccgb-h	Identity-H	:0:ukai.ttc/AG14 %!PS UKaiCN
+otf-ccgb-v	Identity-V	:0:ukai.ttc/AG14 %!PS UKaiCN
+otf-ccge-h	Identity-H	:0:ukai.ttc/AG14 %!PS UKaiCN
+otf-ccge-v	Identity-V	:0:ukai.ttc/AG14 %!PS UKaiCN
+otf-ccmgr-h	Identity-H	:0:ukai.ttc/AG14 %!PS UKaiCN
+otf-ccmgr-v	Identity-V	:0:ukai.ttc/AG14 %!PS UKaiCN
 
 % Unicode
+otf-ucml-h	UniGB-UCS2-H	:0:uming.ttc %!PS UMingCN
+otf-ucml-v	UniGB-UCS2-V	:0:uming.ttc %!PS UMingCN
 otf-ucmr-h	UniGB-UCS2-H	:0:uming.ttc %!PS UMingCN
 otf-ucmr-v	UniGB-UCS2-V	:0:uming.ttc %!PS UMingCN
+otf-ucmb-h	UniGB-UCS2-H	:0:uming.ttc %!PS UMingCN
+otf-ucmb-v	UniGB-UCS2-V	:0:uming.ttc %!PS UMingCN
 otf-ucgr-h	UniGB-UCS2-H	:0:ukai.ttc %!PS UKaiCN
 otf-ucgr-v	UniGB-UCS2-V	:0:ukai.ttc %!PS UKaiCN
+otf-ucgb-h	UniGB-UCS2-H	:0:ukai.ttc %!PS UKaiCN
+otf-ucgb-v	UniGB-UCS2-V	:0:ukai.ttc %!PS UKaiCN
+otf-ucge-h	UniGB-UCS2-H	:0:ukai.ttc %!PS UKaiCN
+otf-ucge-v	UniGB-UCS2-V	:0:ukai.ttc %!PS UKaiCN
+otf-ucmgr-h	UniGB-UCS2-H	:0:ukai.ttc %!PS UKaiCN
+otf-ucmgr-v	UniGB-UCS2-V	:0:ukai.ttc %!PS UKaiCN
