@@ -1,12 +1,32 @@
 
 % CID
+otf-ctml-h	Identity-H	!MSung-Light
+otf-ctml-v	Identity-V	!MSung-Light
 otf-ctmr-h	Identity-H	!MSung-Light
 otf-ctmr-v	Identity-V	!MSung-Light
+otf-ctmb-h	Identity-H	!MSung-Light
+otf-ctmb-v	Identity-V	!MSung-Light
 otf-ctgr-h	Identity-H	!MHei-Medium
 otf-ctgr-v	Identity-V	!MHei-Medium
+otf-ctgb-h	Identity-H	!MHei-Medium
+otf-ctgb-v	Identity-V	!MHei-Medium
+otf-ctge-h	Identity-H	!MHei-Medium
+otf-ctge-v	Identity-V	!MHei-Medium
+otf-ctmgr-h	Identity-H	!MHei-Medium
+otf-ctmgr-v	Identity-V	!MHei-Medium
 
 % Unicode
+otf-utml-h	unicode	NotoSerifCJKtc-Light.otf %!DVIPSFB !MSung-Light-UniCNS-UCS2-H
+otf-utml-v	unicode	NotoSerifCJKtc-Light.otf -w 1 %!DVIPSFB !MSung-Light-UniCNS-UCS2-V
 otf-utmr-h	unicode	NotoSerifCJKtc-Regular.otf %!DVIPSFB !MSung-Light-UniCNS-UCS2-H
 otf-utmr-v	unicode	NotoSerifCJKtc-Regular.otf -w 1 %!DVIPSFB !MSung-Light-UniCNS-UCS2-V
-otf-utgr-h	unicode	NotoSansCJKtc-Medium.otf %!DVIPSFB !MHei-Medium-UniCNS-UCS2-H
-otf-utgr-v	unicode	NotoSansCJKtc-Medium.otf -w 1 %!DVIPSFB !MHei-Medium-UniCNS-UCS2-V
+otf-utmb-h	unicode	NotoSerifCJKtc-Bold.otf %!DVIPSFB !MSung-Light-UniCNS-UCS2-H
+otf-utmb-v	unicode	NotoSerifCJKtc-Bold.otf -w 1 %!DVIPSFB !MSung-Light-UniCNS-UCS2-V
+otf-utgr-h	unicode	NotoSansCJKtc-Regular.otf %!DVIPSFB !MHei-Medium-UniCNS-UCS2-H
+otf-utgr-v	unicode	NotoSansCJKtc-Regular.otf -w 1 %!DVIPSFB !MHei-Medium-UniCNS-UCS2-V
+otf-utgb-h	unicode	NotoSansCJKtc-Bold.otf %!DVIPSFB !MHei-Medium-UniCNS-UCS2-H
+otf-utgb-v	unicode	NotoSansCJKtc-Bold.otf -w 1 %!DVIPSFB !MHei-Medium-UniCNS-UCS2-V
+otf-utge-h	unicode	NotoSansCJKtc-Black.otf %!DVIPSFB !MHei-Medium-UniCNS-UCS2-H
+otf-utge-v	unicode	NotoSansCJKtc-Black.otf -w 1 %!DVIPSFB !MHei-Medium-UniCNS-UCS2-V
+otf-utmgr-h	unicode	NotoSansCJKtc-Medium.otf %!DVIPSFB !MHei-Medium-UniCNS-UCS2-H
+otf-utmgr-v	unicode	NotoSansCJKtc-Medium.otf -w 1 %!DVIPSFB !MHei-Medium-UniCNS-UCS2-V
