@@ -1,12 +1,32 @@
 
 % CID
+otf-ctml-h	Identity-H	AdobeMingStd-Light.otf
+otf-ctml-v	Identity-V	AdobeMingStd-Light.otf
 otf-ctmr-h	Identity-H	AdobeMingStd-Light.otf
 otf-ctmr-v	Identity-V	AdobeMingStd-Light.otf
+otf-ctmb-h	Identity-H	AdobeMingStd-Light.otf
+otf-ctmb-v	Identity-V	AdobeMingStd-Light.otf
 otf-ctgr-h	Identity-H	AdobeFanHeitiStd-Bold.otf
 otf-ctgr-v	Identity-V	AdobeFanHeitiStd-Bold.otf
+otf-ctgb-h	Identity-H	AdobeFanHeitiStd-Bold.otf
+otf-ctgb-v	Identity-V	AdobeFanHeitiStd-Bold.otf
+otf-ctge-h	Identity-H	AdobeFanHeitiStd-Bold.otf
+otf-ctge-v	Identity-V	AdobeFanHeitiStd-Bold.otf
+otf-ctmgr-h	Identity-H	AdobeFanHeitiStd-Bold.otf
+otf-ctmgr-v	Identity-V	AdobeFanHeitiStd-Bold.otf
 
 % Unicode
+otf-utml-h	UniCNS-UCS2-H	AdobeMingStd-Light.otf
+otf-utml-v	UniCNS-UCS2-V	AdobeMingStd-Light.otf
 otf-utmr-h	UniCNS-UCS2-H	AdobeMingStd-Light.otf
 otf-utmr-v	UniCNS-UCS2-V	AdobeMingStd-Light.otf
+otf-utmb-h	UniCNS-UCS2-H	AdobeMingStd-Light.otf
+otf-utmb-v	UniCNS-UCS2-V	AdobeMingStd-Light.otf
 otf-utgr-h	UniCNS-UCS2-H	AdobeFanHeitiStd-Bold.otf
 otf-utgr-v	UniCNS-UCS2-V	AdobeFanHeitiStd-Bold.otf
+otf-utgb-h	UniCNS-UCS2-H	AdobeFanHeitiStd-Bold.otf
+otf-utgb-v	UniCNS-UCS2-V	AdobeFanHeitiStd-Bold.otf
+otf-utge-h	UniCNS-UCS2-H	AdobeFanHeitiStd-Bold.otf
+otf-utge-v	UniCNS-UCS2-V	AdobeFanHeitiStd-Bold.otf
+otf-utmgr-h	UniCNS-UCS2-H	AdobeFanHeitiStd-Bold.otf
+otf-utmgr-v	UniCNS-UCS2-V	AdobeFanHeitiStd-Bold.otf

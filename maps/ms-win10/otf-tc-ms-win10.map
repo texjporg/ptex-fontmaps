@@ -1,12 +1,32 @@
 
 % CID
+otf-ctml-h	Identity-H	:0:mingliu.ttc/AC14 %!PS MingLiU
+otf-ctml-v	Identity-V	:0:mingliu.ttc/AC14 %!PS MingLiU
 otf-ctmr-h	Identity-H	:0:mingliu.ttc/AC14 %!PS MingLiU
 otf-ctmr-v	Identity-V	:0:mingliu.ttc/AC14 %!PS MingLiU
+otf-ctmb-h	Identity-H	:0:mingliu.ttc/AC14 %!PS MingLiU
+otf-ctmb-v	Identity-V	:0:mingliu.ttc/AC14 %!PS MingLiU
 otf-ctgr-h	Identity-H	:0:msjh.ttc/AC14 %!PS MicrosoftJhengHeiRegular
 otf-ctgr-v	Identity-V	:0:msjh.ttc/AC14 %!PS MicrosoftJhengHeiRegular
+otf-ctgb-h	Identity-H	:0:msjh.ttc/AC14 %!PS MicrosoftJhengHeiRegular
+otf-ctgb-v	Identity-V	:0:msjh.ttc/AC14 %!PS MicrosoftJhengHeiRegular
+otf-ctge-h	Identity-H	:0:msjh.ttc/AC14 %!PS MicrosoftJhengHeiRegular
+otf-ctge-v	Identity-V	:0:msjh.ttc/AC14 %!PS MicrosoftJhengHeiRegular
+otf-ctmgr-h	Identity-H	:0:msjh.ttc/AC14 %!PS MicrosoftJhengHeiRegular
+otf-ctmgr-v	Identity-V	:0:msjh.ttc/AC14 %!PS MicrosoftJhengHeiRegular
 
 % Unicode
+otf-utml-h	UniCNS-UCS2-H	:0:mingliu.ttc %!PS MingLiU
+otf-utml-v	UniCNS-UCS2-V	:0:mingliu.ttc %!PS MingLiU
 otf-utmr-h	UniCNS-UCS2-H	:0:mingliu.ttc %!PS MingLiU
 otf-utmr-v	UniCNS-UCS2-V	:0:mingliu.ttc %!PS MingLiU
+otf-utmb-h	UniCNS-UCS2-H	:0:mingliu.ttc %!PS MingLiU
+otf-utmb-v	UniCNS-UCS2-V	:0:mingliu.ttc %!PS MingLiU
 otf-utgr-h	UniCNS-UCS2-H	:0:msjh.ttc %!PS MicrosoftJhengHeiRegular
 otf-utgr-v	UniCNS-UCS2-V	:0:msjh.ttc %!PS MicrosoftJhengHeiRegular
+otf-utgb-h	UniCNS-UCS2-H	:0:msjh.ttc %!PS MicrosoftJhengHeiRegular
+otf-utgb-v	UniCNS-UCS2-V	:0:msjh.ttc %!PS MicrosoftJhengHeiRegular
+otf-utge-h	UniCNS-UCS2-H	:0:msjh.ttc %!PS MicrosoftJhengHeiRegular
+otf-utge-v	UniCNS-UCS2-V	:0:msjh.ttc %!PS MicrosoftJhengHeiRegular
+otf-utmgr-h	UniCNS-UCS2-H	:0:msjh.ttc %!PS MicrosoftJhengHeiRegular
+otf-utmgr-v	UniCNS-UCS2-V	:0:msjh.ttc %!PS MicrosoftJhengHeiRegular
