@@ -8,6 +8,7 @@ make various Japanese/Chinese/Korean fonts available for (u)ptex and
 related programs and formats.
 
 The font maps were written by several people, including (in alphabetic order)
+  Masamichi Hosoda
   Hironori Kitagawa
   Norbert Preining
   Saito Shuzaburo
@@ -60,8 +61,8 @@ For following list of maps, the respective fonts are available for free
 but not shipped in TeX Live:
 
 * Japanese: moga-mobo, moga-mobo-ex, ume
-* Simplified Chinese: cjkunifonts, cjkunifonts-ttf
-* Traditional Chinese: cjkunifonts, cjkunifonts-ttf
+* Simplified Chinese: cjkunifonts, cjkunifonts-ttf, haranoaji
+* Traditional Chinese: cjkunifonts, cjkunifonts-ttf, haranoaji
 
 All other fonts are non-free.
 
@@ -280,6 +281,16 @@ Simplified Chinese
     uming.ttf
     ukai.ttf
 
+* haranoaji - Harano Aji Fonts CN
+       from https://github.com/trueroad/HaranoAjiFontsCN
+    HaranoAjiMinchoCN-Light.otf
+    HaranoAjiMinchoCN-Regular.otf
+    HaranoAjiMinchoCN-Bold.otf
+    HaranoAjiGothicCN-Regular.otf
+    HaranoAjiGothicCN-Medium.otf
+    HaranoAjiGothicCN-Bold.otf
+    HaranoAjiGothicCN-Heavy.otf
+
 Traditional Chinese
 ===================
 
@@ -314,6 +325,16 @@ Traditional Chinese
     uming.ttf
     ukai.ttf
 
+* haranoaji - Harano Aji Fonts TW
+       from https://github.com/trueroad/HaranoAjiFontsTW
+    HaranoAjiMinchoTW-Light.otf
+    HaranoAjiMinchoTW-Regular.otf
+    HaranoAjiMinchoTW-Bold.otf
+    HaranoAjiGothicTW-Regular.otf
+    HaranoAjiGothicTW-Medium.otf
+    HaranoAjiGothicTW-Bold.otf
+    HaranoAjiGothicTW-Heavy.otf
+
 Korean
 ======
 
@@ -343,6 +364,16 @@ Korean
 * solaris - Myeongjo and Gothic, bundled with Solaris 10/11
     h2mjsm.ttf
     h2gtrm.ttf
+
+* haranoaji - Harano Aji Fonts K1
+       from https://github.com/trueroad/HaranoAjiFontsK1
+    HaranoAjiMinchoK1-Light.otf
+    HaranoAjiMinchoK1-Regular.otf
+    HaranoAjiMinchoK1-Bold.otf
+    HaranoAjiGothicK1-Regular.otf
+    HaranoAjiGothicK1-Medium.otf
+    HaranoAjiGothicK1-Bold.otf
+    HaranoAjiGothicK1-Heavy.otf
 
 
 Copyright/License
