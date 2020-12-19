@@ -35,6 +35,7 @@ SC(60): founder: FZSSK.TTF
 SC(70): cjkunifonts: uming.ttc
 SC(75): cjkunifonts-ttf: uming.ttf
 SC(80): arphic: gbsn00lp.ttf
+SC(100): haranoaji: HaranoAjiMinchoCN-Regular.otf
 SC-AI0: sourcehan-otc: SourceHanSerif-Regular.ttc
 SC-AI0: sourcehan: SourceHanSerifSC-Regular.otf
 SC-AI0: noto-otc: NotoSerifCJK-Regular.ttc
@@ -47,6 +48,7 @@ TC(55): ms: msjh.ttf
 TC(70): cjkunifonts: uming.ttc
 TC(75): cjkunifonts-ttf: uming.ttf
 TC(80): arphic: bsmi00lp.ttf
+TC(100): haranoaji: HaranoAjiMinchoTW-Regular.otf
 TC-AI0: sourcehan-otc: SourceHanSerif-Regular.ttc
 TC-AI0: sourcehan: SourceHanSerifTC-Regular.otf
 TC-AI0: noto-otc: NotoSerifCJK-Regular.ttc
@@ -58,6 +60,7 @@ KO(60): ms: batang.ttc
 KO(70): solaris: h2mjsm.ttf
 KO(80): unfonts: UnBatang.ttf
 KO(90): baekmuk: dotum.ttf # slightly safer than batang.ttf
+KO(100): haranoaji: HaranoAjiMinchoK1-Regular.otf
 KO-AI0: sourcehan-otc: SourceHanSerif-Regular.ttc
 KO-AI0: sourcehan: SourceHanSerifK-Regular.otf
 KO-AI0: noto-otc: NotoSerifCJK-Regular.ttc

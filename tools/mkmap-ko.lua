@@ -85,6 +85,17 @@ local foundry = {
       mgr='h2drrm.ttf %!PS RoundedGothic',
       {''},
    },
+   ['haranoaji']   = {
+      ml='HaranoAjiMinchoK1-Light.otf',
+      mr='HaranoAjiMinchoK1-Regular.otf',
+      mb='HaranoAjiMinchoK1-Bold.otf',
+      gr='HaranoAjiGothicK1-Regular.otf',
+      gru='HaranoAjiGothicK1-Medium.otf',
+      gb='HaranoAjiGothicK1-Bold.otf',
+      ge='HaranoAjiGothicK1-Heavy.otf',
+      mgr='HaranoAjiGothicK1-Medium.otf',
+      {''},
+   },
 }
 
 local suffix = {

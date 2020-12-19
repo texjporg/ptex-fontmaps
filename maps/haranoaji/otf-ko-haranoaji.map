@@ -1,0 +1,32 @@
+
+% CID
+otf-ckml-h	Identity-H	HaranoAjiMinchoK1-Light.otf
+otf-ckml-v	Identity-V	HaranoAjiMinchoK1-Light.otf
+otf-ckmr-h	Identity-H	HaranoAjiMinchoK1-Regular.otf
+otf-ckmr-v	Identity-V	HaranoAjiMinchoK1-Regular.otf
+otf-ckmb-h	Identity-H	HaranoAjiMinchoK1-Bold.otf
+otf-ckmb-v	Identity-V	HaranoAjiMinchoK1-Bold.otf
+otf-ckgr-h	Identity-H	HaranoAjiGothicK1-Regular.otf
+otf-ckgr-v	Identity-V	HaranoAjiGothicK1-Regular.otf
+otf-ckgb-h	Identity-H	HaranoAjiGothicK1-Bold.otf
+otf-ckgb-v	Identity-V	HaranoAjiGothicK1-Bold.otf
+otf-ckge-h	Identity-H	HaranoAjiGothicK1-Heavy.otf
+otf-ckge-v	Identity-V	HaranoAjiGothicK1-Heavy.otf
+otf-ckmgr-h	Identity-H	HaranoAjiGothicK1-Medium.otf
+otf-ckmgr-v	Identity-V	HaranoAjiGothicK1-Medium.otf
+
+% Unicode
+otf-ukml-h	UniKS-UCS2-H	HaranoAjiMinchoK1-Light.otf
+otf-ukml-v	UniKS-UCS2-V	HaranoAjiMinchoK1-Light.otf
+otf-ukmr-h	UniKS-UCS2-H	HaranoAjiMinchoK1-Regular.otf
+otf-ukmr-v	UniKS-UCS2-V	HaranoAjiMinchoK1-Regular.otf
+otf-ukmb-h	UniKS-UCS2-H	HaranoAjiMinchoK1-Bold.otf
+otf-ukmb-v	UniKS-UCS2-V	HaranoAjiMinchoK1-Bold.otf
+otf-ukgr-h	UniKS-UCS2-H	HaranoAjiGothicK1-Regular.otf
+otf-ukgr-v	UniKS-UCS2-V	HaranoAjiGothicK1-Regular.otf
+otf-ukgb-h	UniKS-UCS2-H	HaranoAjiGothicK1-Bold.otf
+otf-ukgb-v	UniKS-UCS2-V	HaranoAjiGothicK1-Bold.otf
+otf-ukge-h	UniKS-UCS2-H	HaranoAjiGothicK1-Heavy.otf
+otf-ukge-v	UniKS-UCS2-V	HaranoAjiGothicK1-Heavy.otf
+otf-ukmgr-h	UniKS-UCS2-H	HaranoAjiGothicK1-Medium.otf
+otf-ukmgr-v	UniKS-UCS2-V	HaranoAjiGothicK1-Medium.otf

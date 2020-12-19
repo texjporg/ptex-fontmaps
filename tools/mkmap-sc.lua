@@ -121,6 +121,17 @@ local foundry = {
 --      mgr='STHeiti.ttf',
 --      {''},
 --   },
+   ['haranoaji']   = {
+      ml='HaranoAjiMinchoCN-Light.otf',
+      mr='HaranoAjiMinchoCN-Regular.otf',
+      mb='HaranoAjiMinchoCN-Bold.otf',
+      gr='HaranoAjiGothicCN-Regular.otf',
+      gru='HaranoAjiGothicCN-Medium.otf',
+      gb='HaranoAjiGothicCN-Bold.otf',
+      ge='HaranoAjiGothicCN-Heavy.otf',
+      mgr='HaranoAjiGothicCN-Medium.otf',
+      {''},
+   },
 }
 
 local suffix = {

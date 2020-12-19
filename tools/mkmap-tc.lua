@@ -97,6 +97,17 @@ local foundry = {
       mgr='LiHeiPro.ttf',
       {''},
    },
+   ['haranoaji']   = {
+      ml='HaranoAjiMinchoTW-Light.otf',
+      mr='HaranoAjiMinchoTW-Regular.otf',
+      mb='HaranoAjiMinchoTW-Bold.otf',
+      gr='HaranoAjiGothicTW-Regular.otf',
+      gru='HaranoAjiGothicTW-Medium.otf',
+      gb='HaranoAjiGothicTW-Bold.otf',
+      ge='HaranoAjiGothicTW-Heavy.otf',
+      mgr='HaranoAjiGothicTW-Medium.otf',
+      {''},
+   },
 }
 
 local suffix = {
