@@ -5,23 +5,47 @@
 -- つまり，p(La)TeX は不可．dvips も不可．cid も不可．
 local foundry = {
    ['sourcehan-otc']   = { -- Source Han Sans/Serif, "OTC"
+      ml=':2:SourceHanSerif-Light.ttc',
       mr=':2:SourceHanSerif-Regular.ttc',
-      gr=':2:SourceHanSans-Medium.ttc',
+      mb=':2:SourceHanSerif-Bold.ttc',
+      gr=':2:SourceHanSans-Regular.ttc',
+      gru=':2:SourceHanSans-Medium.ttc',
+      gb=':2:SourceHanSans-Bold.ttc',
+      ge=':2:SourceHanSans-Heavy.ttc',
+      mgr=':2:SourceHanSans-Medium.ttc',
       {''},
    },
    ['sourcehan']   = { -- Source Han Sans/Serif, "Language-specific OTF"
+      ml='SourceHanSerifSC-Light.otf',
       mr='SourceHanSerifSC-Regular.otf',
-      gr='SourceHanSansSC-Medium.otf',
+      mb='SourceHanSerifSC-Bold.otf',
+      gr='SourceHanSansSC-Regular.otf',
+      gru='SourceHanSansSC-Medium.otf',
+      gb='SourceHanSansSC-Bold.otf',
+      ge='SourceHanSansSC-Heavy.otf',
+      mgr='SourceHanSansSC-Medium.otf',
       {''},
    },
    ['noto-otc']   = { -- Noto Sans/Serif CJK, "OpenType/CFF Collection (OTC)"
+      ml=':2:NotoSerifCJK-Light.ttc',
       mr=':2:NotoSerifCJK-Regular.ttc',
-      gr=':2:NotoSansCJK-Medium.ttc',
+      mb=':2:NotoSerifCJK-Bold.ttc',
+      gr=':2:NotoSansCJK-Regular.ttc',
+      gru=':2:NotoSansCJK-Medium.ttc',
+      gb=':2:NotoSansCJK-Bold.ttc',
+      ge=':2:NotoSansCJK-Black.ttc',
+      mgr=':2:NotoSansCJK-Medium.ttc',
       {''},
    },
    ['noto']   = { -- Noto Sans/Serif CJK, "Language-specific OpenType/CFF (OTF)"
+      ml='NotoSerifCJKsc-Light.otf',
       mr='NotoSerifCJKsc-Regular.otf',
-      gr='NotoSansCJKsc-Medium.otf',
+      mb='NotoSerifCJKsc-Bold.otf',
+      gr='NotoSansCJKsc-Regular.otf',
+      gru='NotoSansCJKsc-Medium.otf',
+      gb='NotoSansCJKsc-Bold.otf',
+      ge='NotoSansCJKsc-Black.otf',
+      mgr='NotoSansCJKsc-Medium.otf',
       {''},
    },
 }
@@ -30,8 +54,14 @@ local foundry = {
 -- フォールバックとして noEmbed 相当の設定を追加する．
 local foundry_fallback = {
    ['noEmbed']   = {
+      fml='!STSong-Light',
       fmr='!STSong-Light',
+      fmb='!STSong-Light',
       fgr='!STHeiti-Regular',
+      fgru='!STHeiti-Regular',
+      fgb='!STHeiti-Regular',
+      fge='!STHeiti-Regular',
+      fmgr='!STHeiti-Regular',
       {'n'},
    },
 }
@@ -42,16 +72,26 @@ local foundry_fallback = {
 -- テーブルサイズが 3 のとき，全て fallback の AG1 フォント用
 local maps = {
    ['uptex-sc-@'] = {
-      {'upstsl-#', '#', 'mr', 'fmr', 'UniGB-UTF16-#'},
-      {'upstht-#', '#', 'gr', 'fgr', 'UniGB-UTF16-#'},
+      {'upstsl-#', '#', 'mr',  'fmr',  'UniGB-UTF16-#'},
+      {'upstht-#', '#', 'gru', 'fgru', 'UniGB-UTF16-#'},
    },
    ['otf-sc-@'] = {
       '% CID',
-      {'otf-ccmr-#', 'Identity-#',     'fmr'},
-      {'otf-ccgr-#', 'Identity-#',     'fgr'},
+      {'otf-ccml-#',  'Identity-#',     'fml'},
+      {'otf-ccmr-#',  'Identity-#',     'fmr'},
+      {'otf-ccmb-#',  'Identity-#',     'fmb'},
+      {'otf-ccgr-#',  'Identity-#',     'fgr'},
+      {'otf-ccgb-#',  'Identity-#',     'fgb'},
+      {'otf-ccge-#',  'Identity-#',     'fge'},
+      {'otf-ccmgr-#', 'Identity-#',     'fmgr'},
       '% Unicode',
-      {'otf-ucmr-#', '#', 'mr', 'fmr', 'UniGB-UCS2-#'},
-      {'otf-ucgr-#', '#', 'gr', 'fgr', 'UniGB-UCS2-#'},
+      {'otf-ucml-#',  '#', 'ml',  'fml',  'UniGB-UCS2-#'},
+      {'otf-ucmr-#',  '#', 'mr',  'fmr',  'UniGB-UCS2-#'},
+      {'otf-ucmb-#',  '#', 'mb',  'fmb',  'UniGB-UCS2-#'},
+      {'otf-ucgr-#',  '#', 'gr',  'fgr',  'UniGB-UCS2-#'},
+      {'otf-ucgb-#',  '#', 'gb',  'fgb',  'UniGB-UCS2-#'},
+      {'otf-ucge-#',  '#', 'ge',  'fge',  'UniGB-UCS2-#'},
+      {'otf-ucmgr-#', '#', 'mgr', 'fmgr', 'UniGB-UCS2-#'},
    },
 }
 

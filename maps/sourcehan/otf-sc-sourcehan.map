@@ -1,12 +1,32 @@
 
 % CID
+otf-ccml-h	Identity-H	!STSong-Light
+otf-ccml-v	Identity-V	!STSong-Light
 otf-ccmr-h	Identity-H	!STSong-Light
 otf-ccmr-v	Identity-V	!STSong-Light
+otf-ccmb-h	Identity-H	!STSong-Light
+otf-ccmb-v	Identity-V	!STSong-Light
 otf-ccgr-h	Identity-H	!STHeiti-Regular
 otf-ccgr-v	Identity-V	!STHeiti-Regular
+otf-ccgb-h	Identity-H	!STHeiti-Regular
+otf-ccgb-v	Identity-V	!STHeiti-Regular
+otf-ccge-h	Identity-H	!STHeiti-Regular
+otf-ccge-v	Identity-V	!STHeiti-Regular
+otf-ccmgr-h	Identity-H	!STHeiti-Regular
+otf-ccmgr-v	Identity-V	!STHeiti-Regular
 
 % Unicode
+otf-ucml-h	unicode	SourceHanSerifSC-Light.otf %!DVIPSFB !STSong-Light-UniGB-UCS2-H
+otf-ucml-v	unicode	SourceHanSerifSC-Light.otf -w 1 %!DVIPSFB !STSong-Light-UniGB-UCS2-V
 otf-ucmr-h	unicode	SourceHanSerifSC-Regular.otf %!DVIPSFB !STSong-Light-UniGB-UCS2-H
 otf-ucmr-v	unicode	SourceHanSerifSC-Regular.otf -w 1 %!DVIPSFB !STSong-Light-UniGB-UCS2-V
-otf-ucgr-h	unicode	SourceHanSansSC-Medium.otf %!DVIPSFB !STHeiti-Regular-UniGB-UCS2-H
-otf-ucgr-v	unicode	SourceHanSansSC-Medium.otf -w 1 %!DVIPSFB !STHeiti-Regular-UniGB-UCS2-V
+otf-ucmb-h	unicode	SourceHanSerifSC-Bold.otf %!DVIPSFB !STSong-Light-UniGB-UCS2-H
+otf-ucmb-v	unicode	SourceHanSerifSC-Bold.otf -w 1 %!DVIPSFB !STSong-Light-UniGB-UCS2-V
+otf-ucgr-h	unicode	SourceHanSansSC-Regular.otf %!DVIPSFB !STHeiti-Regular-UniGB-UCS2-H
+otf-ucgr-v	unicode	SourceHanSansSC-Regular.otf -w 1 %!DVIPSFB !STHeiti-Regular-UniGB-UCS2-V
+otf-ucgb-h	unicode	SourceHanSansSC-Bold.otf %!DVIPSFB !STHeiti-Regular-UniGB-UCS2-H
+otf-ucgb-v	unicode	SourceHanSansSC-Bold.otf -w 1 %!DVIPSFB !STHeiti-Regular-UniGB-UCS2-V
+otf-ucge-h	unicode	SourceHanSansSC-Heavy.otf %!DVIPSFB !STHeiti-Regular-UniGB-UCS2-H
+otf-ucge-v	unicode	SourceHanSansSC-Heavy.otf -w 1 %!DVIPSFB !STHeiti-Regular-UniGB-UCS2-V
+otf-ucmgr-h	unicode	SourceHanSansSC-Medium.otf %!DVIPSFB !STHeiti-Regular-UniGB-UCS2-H
+otf-ucmgr-v	unicode	SourceHanSansSC-Medium.otf -w 1 %!DVIPSFB !STHeiti-Regular-UniGB-UCS2-V

@@ -1,12 +1,32 @@
 
 % CID
+otf-ccml-h	Identity-H	!STSong-Light
+otf-ccml-v	Identity-V	!STSong-Light
 otf-ccmr-h	Identity-H	!STSong-Light
 otf-ccmr-v	Identity-V	!STSong-Light
+otf-ccmb-h	Identity-H	!STSong-Light
+otf-ccmb-v	Identity-V	!STSong-Light
 otf-ccgr-h	Identity-H	!STHeiti-Regular
 otf-ccgr-v	Identity-V	!STHeiti-Regular
+otf-ccgb-h	Identity-H	!STHeiti-Regular
+otf-ccgb-v	Identity-V	!STHeiti-Regular
+otf-ccge-h	Identity-H	!STHeiti-Regular
+otf-ccge-v	Identity-V	!STHeiti-Regular
+otf-ccmgr-h	Identity-H	!STHeiti-Regular
+otf-ccmgr-v	Identity-V	!STHeiti-Regular
 
 % Unicode
+otf-ucml-h	unicode	NotoSerifCJKsc-Light.otf %!DVIPSFB !STSong-Light-UniGB-UCS2-H
+otf-ucml-v	unicode	NotoSerifCJKsc-Light.otf -w 1 %!DVIPSFB !STSong-Light-UniGB-UCS2-V
 otf-ucmr-h	unicode	NotoSerifCJKsc-Regular.otf %!DVIPSFB !STSong-Light-UniGB-UCS2-H
 otf-ucmr-v	unicode	NotoSerifCJKsc-Regular.otf -w 1 %!DVIPSFB !STSong-Light-UniGB-UCS2-V
-otf-ucgr-h	unicode	NotoSansCJKsc-Medium.otf %!DVIPSFB !STHeiti-Regular-UniGB-UCS2-H
-otf-ucgr-v	unicode	NotoSansCJKsc-Medium.otf -w 1 %!DVIPSFB !STHeiti-Regular-UniGB-UCS2-V
+otf-ucmb-h	unicode	NotoSerifCJKsc-Bold.otf %!DVIPSFB !STSong-Light-UniGB-UCS2-H
+otf-ucmb-v	unicode	NotoSerifCJKsc-Bold.otf -w 1 %!DVIPSFB !STSong-Light-UniGB-UCS2-V
+otf-ucgr-h	unicode	NotoSansCJKsc-Regular.otf %!DVIPSFB !STHeiti-Regular-UniGB-UCS2-H
+otf-ucgr-v	unicode	NotoSansCJKsc-Regular.otf -w 1 %!DVIPSFB !STHeiti-Regular-UniGB-UCS2-V
+otf-ucgb-h	unicode	NotoSansCJKsc-Bold.otf %!DVIPSFB !STHeiti-Regular-UniGB-UCS2-H
+otf-ucgb-v	unicode	NotoSansCJKsc-Bold.otf -w 1 %!DVIPSFB !STHeiti-Regular-UniGB-UCS2-V
+otf-ucge-h	unicode	NotoSansCJKsc-Black.otf %!DVIPSFB !STHeiti-Regular-UniGB-UCS2-H
+otf-ucge-v	unicode	NotoSansCJKsc-Black.otf -w 1 %!DVIPSFB !STHeiti-Regular-UniGB-UCS2-V
+otf-ucmgr-h	unicode	NotoSansCJKsc-Medium.otf %!DVIPSFB !STHeiti-Regular-UniGB-UCS2-H
+otf-ucmgr-v	unicode	NotoSansCJKsc-Medium.otf -w 1 %!DVIPSFB !STHeiti-Regular-UniGB-UCS2-V
