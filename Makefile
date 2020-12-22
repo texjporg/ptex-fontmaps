@@ -2,7 +2,7 @@ DOCTARGET = kanji-config-updmap
 PDFTARGET = $(addsuffix .pdf,$(DOCTARGET))
 DVITARGET = $(addsuffix .dvi,$(DOCTARGET))
 KANJI = -kanji=utf8
-FONTMAP = -f ipaex.map -f uptex-ipaex.map
+FONTMAP = -f haranoaji.map -f uptex-haranoaji.map
 TEXMF = $(shell kpsewhich -var-value=TEXMFHOME)
 
 default: $(DVITARGET) maptarget

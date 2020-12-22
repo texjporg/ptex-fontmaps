@@ -366,14 +366,19 @@ Korean
 * baekmuk - Baekmuk-Batang and Baekmuk-Dotum
     batang.ttf
     dotum.ttf
+    gulim.ttf
 
 * unfonts - Unfonts-core bundle
     UnBatang.ttf
+    UnBatangBold.ttf
     UnDotum.ttf
+    UnDotumBold.ttf
+    UnDinaru.ttf
 
 * solaris - Myeongjo and Gothic, bundled with Solaris 10/11
     h2mjsm.ttf
     h2gtrm.ttf
+    h2drrm.ttf
 
 * haranoaji - Harano Aji Fonts K1
        from https://github.com/trueroad/HaranoAjiFontsK1
