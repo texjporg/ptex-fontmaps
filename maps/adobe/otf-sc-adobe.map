@@ -12,8 +12,8 @@ otf-ccgb-h	Identity-H	AdobeHeitiStd-Regular.otf
 otf-ccgb-v	Identity-V	AdobeHeitiStd-Regular.otf
 otf-ccge-h	Identity-H	AdobeHeitiStd-Regular.otf
 otf-ccge-v	Identity-V	AdobeHeitiStd-Regular.otf
-otf-ccmgr-h	Identity-H	AdobeHeitiStd-Regular.otf
-otf-ccmgr-v	Identity-V	AdobeHeitiStd-Regular.otf
+otf-ccmgr-h	Identity-H	AdobeKaitiStd-Regular.otf
+otf-ccmgr-v	Identity-V	AdobeKaitiStd-Regular.otf
 
 % Unicode
 otf-ucml-h	UniGB-UCS2-H	AdobeSongStd-Light.otf
@@ -28,5 +28,5 @@ otf-ucgb-h	UniGB-UCS2-H	AdobeHeitiStd-Regular.otf
 otf-ucgb-v	UniGB-UCS2-V	AdobeHeitiStd-Regular.otf
 otf-ucge-h	UniGB-UCS2-H	AdobeHeitiStd-Regular.otf
 otf-ucge-v	UniGB-UCS2-V	AdobeHeitiStd-Regular.otf
-otf-ucmgr-h	UniGB-UCS2-H	AdobeHeitiStd-Regular.otf
-otf-ucmgr-v	UniGB-UCS2-V	AdobeHeitiStd-Regular.otf
+otf-ucmgr-h	UniGB-UCS2-H	AdobeKaitiStd-Regular.otf
+otf-ucmgr-v	UniGB-UCS2-V	AdobeKaitiStd-Regular.otf

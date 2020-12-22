@@ -12,8 +12,8 @@ otf-ccgb-h	Identity-H	simhei.ttf/AG14 %!PS SimHei
 otf-ccgb-v	Identity-V	simhei.ttf/AG14 %!PS SimHei
 otf-ccge-h	Identity-H	simhei.ttf/AG14 %!PS SimHei
 otf-ccge-v	Identity-V	simhei.ttf/AG14 %!PS SimHei
-otf-ccmgr-h	Identity-H	simhei.ttf/AG14 %!PS SimHei
-otf-ccmgr-v	Identity-V	simhei.ttf/AG14 %!PS SimHei
+otf-ccmgr-h	Identity-H	simkai.ttf/AG14 %!PS KaiTi
+otf-ccmgr-v	Identity-V	simkai.ttf/AG14 %!PS KaiTi
 
 % Unicode
 otf-ucml-h	UniGB-UCS2-H	simsun.ttf %!PS SimSun
@@ -28,5 +28,5 @@ otf-ucgb-h	UniGB-UCS2-H	simhei.ttf %!PS SimHei
 otf-ucgb-v	UniGB-UCS2-V	simhei.ttf %!PS SimHei
 otf-ucge-h	UniGB-UCS2-H	simhei.ttf %!PS SimHei
 otf-ucge-v	UniGB-UCS2-V	simhei.ttf %!PS SimHei
-otf-ucmgr-h	UniGB-UCS2-H	simhei.ttf %!PS SimHei
-otf-ucmgr-v	UniGB-UCS2-V	simhei.ttf %!PS SimHei
+otf-ucmgr-h	UniGB-UCS2-H	simkai.ttf %!PS KaiTi
+otf-ucmgr-v	UniGB-UCS2-V	simkai.ttf %!PS KaiTi

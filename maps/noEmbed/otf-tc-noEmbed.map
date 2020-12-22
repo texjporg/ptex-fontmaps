@@ -4,29 +4,29 @@ otf-ctml-h	Identity-H	!MSung-Light
 otf-ctml-v	Identity-V	!MSung-Light
 otf-ctmr-h	Identity-H	!MSung-Light
 otf-ctmr-v	Identity-V	!MSung-Light
-otf-ctmb-h	Identity-H	!MSung-Light
-otf-ctmb-v	Identity-V	!MSung-Light
+otf-ctmb-h	Identity-H	!MSung-Medium
+otf-ctmb-v	Identity-V	!MSung-Medium
 otf-ctgr-h	Identity-H	!MHei-Medium
 otf-ctgr-v	Identity-V	!MHei-Medium
 otf-ctgb-h	Identity-H	!MHei-Medium
 otf-ctgb-v	Identity-V	!MHei-Medium
 otf-ctge-h	Identity-H	!MHei-Medium
 otf-ctge-v	Identity-V	!MHei-Medium
-otf-ctmgr-h	Identity-H	!MHei-Medium
-otf-ctmgr-v	Identity-V	!MHei-Medium
+otf-ctmgr-h	Identity-H	!MKai-Medium
+otf-ctmgr-v	Identity-V	!MKai-Medium
 
 % Unicode
 otf-utml-h	UniCNS-UCS2-H	!MSung-Light
 otf-utml-v	UniCNS-UCS2-V	!MSung-Light
 otf-utmr-h	UniCNS-UCS2-H	!MSung-Light
 otf-utmr-v	UniCNS-UCS2-V	!MSung-Light
-otf-utmb-h	UniCNS-UCS2-H	!MSung-Light
-otf-utmb-v	UniCNS-UCS2-V	!MSung-Light
+otf-utmb-h	UniCNS-UCS2-H	!MSung-Medium
+otf-utmb-v	UniCNS-UCS2-V	!MSung-Medium
 otf-utgr-h	UniCNS-UCS2-H	!MHei-Medium
 otf-utgr-v	UniCNS-UCS2-V	!MHei-Medium
 otf-utgb-h	UniCNS-UCS2-H	!MHei-Medium
 otf-utgb-v	UniCNS-UCS2-V	!MHei-Medium
 otf-utge-h	UniCNS-UCS2-H	!MHei-Medium
 otf-utge-v	UniCNS-UCS2-V	!MHei-Medium
-otf-utmgr-h	UniCNS-UCS2-H	!MHei-Medium
-otf-utmgr-v	UniCNS-UCS2-V	!MHei-Medium
+otf-utmgr-h	UniCNS-UCS2-H	!MKai-Medium
+otf-utmgr-v	UniCNS-UCS2-V	!MKai-Medium

@@ -63,6 +63,7 @@ but not shipped in TeX Live:
 * Japanese: moga-mobo, moga-mobo-ex, ume
 * Simplified Chinese: cjkunifonts, cjkunifonts-ttf, haranoaji
 * Traditional Chinese: cjkunifonts, cjkunifonts-ttf, haranoaji
+* Korean: haranoaji
 
 All other fonts are non-free.
 
@@ -252,22 +253,31 @@ Simplified Chinese
 * ms - SimSun and SimHei, shipped with Windows
     simsun.ttc
     simhei.ttf
+    simkai.ttf
 
 * ms-osx - SimSun and SimHei, shipped with Office for Mac
     simsun.ttf         (<= "SimSun.ttf")
     simhei.ttf         (<= "SimHei.ttf")
+    simkai.ttf         (<= "Kaiti.ttf")
 
 * adobe - by Adobe Systems, bundled with Adobe's software
     AdobeSongStd-Light.otf
     AdobeHeitiStd-Regular.otf
+    AdobeKaitiStd-Regular.otf
 
 * fandol - Fandol fonts by Fandol team (Clerk Ma and Jie Su)
     FandolSong-Regular.otf
+    FandolSong-Bold.otf
     FandolHei-Regular.otf
+    FandolHei-Bold.otf
+    FandolKai-Regular.otf
 
 * founder - by Beijing Founder Electronics, bundled with WPS Office Linux
     FZSSK.TTF
+    FZXBSK.TTF
+    FZXH1K.TTF
     FZHTK.TTF
+    FZKTK.TTF
 
 * arphic - BousungEG-Light-GB and GBZenKai-Medium
     gbsn00lp.ttf

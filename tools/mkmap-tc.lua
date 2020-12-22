@@ -5,12 +5,12 @@ local foundry = {
    ['noEmbed']   = {
       ml='!MSung-Light',
       mr='!MSung-Light',
-      mb='!MSung-Light',
+      mb='!MSung-Medium',
       gr='!MHei-Medium',
       gru='!MHei-Medium',
       gb='!MHei-Medium',
       ge='!MHei-Medium',
-      mgr='!MHei-Medium',
+      mgr='!MKai-Medium',
       {'n'},
    },
    ['adobe']   = {
