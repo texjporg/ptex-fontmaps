@@ -149,10 +149,10 @@ sub macosx_new {
     $macos_ver_major =~ s/^(\d+)\.(\d+).*/$1/;
     my $macos_ver_minor = $macos_ver;
     $macos_ver_minor =~ s/^(\d+)\.(\d+).*/$2/;
-    if ($macos_ver_major==10) {
-      if ($macos_ver_minor>=11) {
-        return 1;
-      }
+    if ($macos_ver_major==10 && $macos_ver_minor>=11) {
+      return 1; # macOS 10.11 (El Capitan) or later
+    } elsif ($macos_ver_major>=11) {
+      return 1; # macOS 11.0 (Big Sur) or later
     }
   }
   return 0;
