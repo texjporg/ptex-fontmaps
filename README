@@ -399,7 +399,7 @@ The (deprecated) file updmap-otf.sh and the (in perl rewritten version)
 kanji-config-updmap.pl are licensed under the following terms:
   Copyright 2004-2006 by KOBAYASHI Taizo
   Copyright 2011-2016 by PREINING Norbert
-  Copyright 2016-2020 by Japanese TeX Development Community
+  Copyright 2016-2021 by Japanese TeX Development Community
 Licensed under the GPL version 3 or any later version, 
 see the file for details.
 
