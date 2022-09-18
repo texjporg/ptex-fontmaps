@@ -38,6 +38,9 @@ Files
  * jisx0213-2004-8bit-std.txt
           "Mapping table between JIS X 0213:2004 8-bit code and Unicode"
 
+ * JISX0213-2004-{H,V}:    handwritten CMap file from jishojo package
+          by ttk (jishojo_004.tar.gz dated on 2006-12-03)
+          http://www.t-lab.opal.ne.jp/tex/jisx0213.html
  * jis-h04-httk.{tex,pdf}: comparison between 2004-H and JISX0213-2004-H
  * jis-v04-vttk.{tex,pdf}: comparison between 2004-V and JISX0213-2004-V
 
