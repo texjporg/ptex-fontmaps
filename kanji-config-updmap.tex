@@ -108,7 +108,7 @@
 \def\command#1{\texttt{#1}}
 \def\option#1{\texttt{-{}-#1}}
 \def\codechar#1{\ensuremath{\langle\mbox{\texttt{#1}}\rangle}}
-\def\TL{\TeX\ Live}
+\def\TL{\TeX~Live}
 \def\pTeX{p\kern-.15em\TeX}
 \def\upTeX{u\pTeX}
 
@@ -350,6 +350,11 @@ JIS90字形とJIS2004字形の\textbf{どちらが出力されるかはフォン
   \item 特定の文字が出力されるかどうかは，実際に使われるフォントに依ります。
         フォントに収録されていない文字は出力されませんし，
         JIS90字形かJIS2004字形のどちらか一方しか用意されていないフォントもあります。
+        また，組方向専用かな・ルビ用かな（\file{otf}パッケージが提供する機能）に
+        対応していないフォントもあります\footnote{例えば，\TL~2020以降のデフォルト
+        日本語フォント\command{haranoaji}は，2022年現在では
+        組方向専用かなの大半を搭載していますが，ルビ用かなは非搭載であり豆腐となります。}。
+        % \TL~2019以前のデフォルトであった\command{ipaex}では豆腐にならなかったらしい
   \item 複数のウェイトが利用可能かどうかは，プリセットに依ります。
         例えば，\command{ipaex}が利用するIPAexフォントは明朝とゴシック
         各1ウェイトのみ配布されており，細字の明朝や太字のゴシックは利用できません。
