@@ -434,7 +434,9 @@ local f
 local cmap_dec = require('cmapdec')
 
 kpse.set_program_name('luatex')
-dofile(kpse.find_file('lualibs-table.lua'))
+require "lualibs-lua"
+require "lualibs-lpeg"
+require "lualibs-table"
 
 do
 ----------------------------------------------------------------

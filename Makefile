@@ -5,8 +5,8 @@ KANJI = -kanji=utf8
 FONTMAP = -f haranoaji.map -f uptex-haranoaji.map
 TEXMF = $(shell kpsewhich -var-value=TEXMFHOME)
 
-default: $(DVITARGET) maptarget
-all: $(PDFTARGET) maptarget
+default: $(DVITARGET) maptarget cmap04
+all: $(PDFTARGET)
 
 .SUFFIXES: .tex .dvi .pdf
 .tex.dvi:
@@ -17,7 +17,7 @@ all: $(PDFTARGET) maptarget
 .dvi.pdf:
 	dvipdfmx $(FONTMAP) $<
 
-.PHONY: maptarget install clean
+.PHONY: maptarget cmap04 install clean
 maptarget:
 	if [ ! -d maps ]; then mkdir maps; fi
 	cd maps; texlua ../tools/mkmap-ja.lua
@@ -28,6 +28,10 @@ maptarget:
 	cd maps; texlua ../tools/mkmap-ai0-ko.lua
 	cd maps; texlua ../tools/mkmap-ai0-sc.lua
 	cd maps; texlua ../tools/mkmap-ai0-tc.lua
+cmap04:
+	cd jis04cmap_exp; texlua mk_jis_to_aj16_cid.lua
+	mv jis04cmap_exp/2004-H cmap/
+	mv jis04cmap_exp/2004-V cmap/
 install:
 	mkdir -p ${TEXMF}/doc/fonts/ptex-fontmaps
 	cp ./README ${TEXMF}/doc/fonts/ptex-fontmaps/
@@ -48,3 +52,4 @@ install:
 clean:
 	rm -f $(DVITARGET) $(PDFTARGET)
 	if [ -d maps ]; then cd maps; rm -rf *; fi
+	if [ -d cmap ]; then cd cmap; rm -f 2004-H 2004-V; fi

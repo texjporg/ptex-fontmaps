@@ -169,3 +169,5 @@ tests/*.pdf
 *.tfm
 *.vf
 examples/*.pdf
+jis04cmap_exp/2004-H
+jis04cmap_exp/2004-V
