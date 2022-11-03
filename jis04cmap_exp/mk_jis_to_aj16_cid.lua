@@ -250,21 +250,21 @@ local function mk_jis_cid_table(jis_uni, uni_cid)
    for jis, uni in pairs(jis_uni) do
       local c = uni_cid[uni]
       if c then
-	 if ((jis>=0x2900) and (jis<=0x2B7E)) then
-	    res[#res+1] = { jis, nonuni_cid[jis] or c}
-	 else
-	    -- それ以外の場合は全角化する
-	    res[#res+1] = { jis, nonuni_cid[jis] or (prop_to_full[c] or c)}
-	 end
+         if ((jis>=0x2900) and (jis<=0x2B7E)) then
+            res[#res+1] = { jis, nonuni_cid[jis] or c}
+         else
+            -- それ以外の場合は全角化する
+            res[#res+1] = { jis, nonuni_cid[jis] or (prop_to_full[c] or c)}
+         end
       end
    end
    table.sort(res, function (a,b) return a[1]<b[1] end)
    return res
 end
 
--- 
+--
 local function change_repr(t)
-   local res = {}   
+   local res = {}
    for i,v in pairs(t) do
       res[#res+1] = {i,v}
    end
@@ -276,7 +276,7 @@ end
 -- 出力処理
 do
    local buf, bufline, fh
-   
+
    local function flush()
       fh:write(tonumber(bufline) .. " begincidrange\n" .. buf .. "endcidrange\n")
       buf, bufline = "", 0
@@ -294,7 +294,7 @@ do
 ]])
       if wmode == 1 then
          local s = string.gsub('%%DocumentNeededResources: CMap ($NAME)\n', '$NAME', hname)
-	 fh:write(s)
+         fh:write(s)
       end
 
       fh:write([[
@@ -302,7 +302,7 @@ do
 ]])
       if wmode == 1 then
          local s = string.gsub('%%IncludeResource: CMap ($NAME)\n', '$NAME', hname)
-	 fh:write(s)
+         fh:write(s)
       end
 
       local s = string.gsub([[
@@ -329,9 +329,9 @@ begincmap
       fh:write(s)
       if wmode == 1 then
          s=string.gsub(
-		  string.gsub('\n/$NAME usecmap\n\n', '$NAME', fname),
-	          '-V', '-H')
-	 fh:write(s)
+                  string.gsub('\n/$NAME usecmap\n\n', '$NAME', fname),
+                  '-V', '-H')
+         fh:write(s)
       end
       s = string.gsub([[
 /CIDSystemInfo 3 dict dup begin
@@ -348,7 +348,7 @@ end def
 
       fh:write('\n/WMode ' .. wmode .. ' def\n\n')
       if wmode ==0 then
-	    fh:write(crange .. '\n')
+            fh:write(crange .. '\n')
       end
    end
 
@@ -371,23 +371,23 @@ end
       local fstr = "<%x> <%x> %" .. col_num .. "d"
       local i, outbi, outbc = 1, jis_cid[1][1], jis_cid[1][2]
       while i < #jis_cid do
-	 if jis_cid[i+1][2] == jis_cid[i][2] + 1 
-	    and jis_cid[i+1][1] == jis_cid[i][1] + 1 then
-	    oute = jis_cid[i+1][1]
-	 else 
-	    out(string.format(fstr, outbi, oute, outbc))
-	    outbi, oute, outbc = jis_cid[i+1][1], jis_cid[i+1][1], jis_cid[i+1][2]
-	 end
-	 i = i + 1
+         if jis_cid[i+1][2] == jis_cid[i][2] + 1
+            and jis_cid[i+1][1] == jis_cid[i][1] + 1 then
+            oute = jis_cid[i+1][1]
+         else
+            out(string.format(fstr, outbi, oute, outbc))
+            outbi, oute, outbc = jis_cid[i+1][1], jis_cid[i+1][1], jis_cid[i+1][2]
+         end
+         i = i + 1
       end
       out(string.format(fstr, outbi, jis_cid[#jis_cid][1], outbc))
-      flush(); 
-      out_footer(); 
+      flush();
+      out_footer();
       fh:close()
    end
 end
 
--- 
+--
 local function cleanup(new, old)
    table.sort(new, function (a,b) return a[1]<b[1] end)
    -- We can assume new and old are sorted.
@@ -396,8 +396,8 @@ local function cleanup(new, old)
    for _,v in ipairs(new) do
       for i = oi, ol do
          local w = old[i]
-	 if v[1] == w[1] and v[2] ~= w[2] then
-	    res [#res+1] = v; 
+         if v[1] == w[1] and v[2] ~= w[2] then
+            res [#res+1] = v;
             oi = i + 1; break
          elseif v[1]<w[1] then
             -- We don't need further search.
@@ -451,8 +451,8 @@ for lx in f:lines() do
       -- 全角幅優先
       uni = string.match(lx, 'Fullwidth: U%+(%x*)') or uni
       if jis and uni then
-	 uni = tonumber(uni,16)
-	 jis04_uni[jis] = uni
+         uni = tonumber(uni,16)
+         jis04_uni[jis] = uni
       end
    end
 end
@@ -480,7 +480,7 @@ replace(jis_cid_h04, 0x2926,  8059) -- COPYRIGHT SIGN
 replace(jis_cid_h04, 0x292A,  8060) -- REGISTERED SIGN
 replace(jis_cid_h04, 0x2933,  8185) -- VULGAR FRACTION ONE QUARTER
 replace(jis_cid_h04, 0x2934,  8184) -- VULGAR FRACTION ONE HALF
-replace(jis_cid_h04, 0x2935,  9783) -- VULGAR FRACTION THREE QUARTERS 
+replace(jis_cid_h04, 0x2935,  9783) -- VULGAR FRACTION THREE QUARTERS
 
 out_cmap('2004-H', '', jis_cid_h04, '', code_range_04, 0)
 
@@ -515,7 +515,7 @@ replace(jis_cid_v04, 0x2926,  8059) -- COPYRIGHT SIGN
 replace(jis_cid_v04, 0x292A,  8060) -- REGISTERED SIGN
 replace(jis_cid_v04, 0x2933,  8185) -- VULGAR FRACTION ONE QUARTER
 replace(jis_cid_v04, 0x2934,  8184) -- VULGAR FRACTION ONE HALF
-replace(jis_cid_v04, 0x2935,  9783) -- VULGAR FRACTION THREE QUARTERS 
+replace(jis_cid_v04, 0x2935,  9783) -- VULGAR FRACTION THREE QUARTERS
 
 
 out_cmap('2004-V', '2004-H', cleanup(jis_cid_v04, jis_cid_h04), '', code_range_04, 1)
@@ -534,8 +534,8 @@ end
 --       local uni = string.match(l, "^0x%x*%s*0x%x*%s*0x(%x*)")
 --       -- 全角幅優先
 --       if jis and uni then
--- 	 uni = tonumber(uni,16)
--- 	 jis90_uni[jis] = uni
+--          uni = tonumber(uni,16)
+--          jis90_uni[jis] = uni
 --       end
 --    end
 -- end

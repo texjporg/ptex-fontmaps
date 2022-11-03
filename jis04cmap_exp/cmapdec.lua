@@ -5,12 +5,12 @@ local function load_cid_char()
    local cid, ucs, ucsa
    line = fh:read("*l")
    while line do
-      if string.find(line, "end...?char") then 
-	 line = fh:read("*l"); return
+      if string.find(line, "end...?char") then
+         line = fh:read("*l"); return
       else -- WMA l is in the form "<%x+>%s%d+"
-	 ucs, cid = string.match(line, "<(%x+)>%s+<?(%x+)>?")
-	 cid = tonumber(cid); ucs = tonumber(ucs, 16); 
-	 tt[ucs] = cid
+         ucs, cid = string.match(line, "<(%x+)>%s+<?(%x+)>?")
+         cid = tonumber(cid); ucs = tonumber(ucs, 16);
+         tt[ucs] = cid
       end
       line = fh:read("*l")
    end
@@ -20,17 +20,17 @@ local function load_cid_range()
    local bucs, eucs, cid
    line = fh:read("*l")
    while line do
-        if string.find(line, "end...?range") then 
-	   line = fh:read("*l"); return
-	else -- WMA l is in the form "<%x+>%s+<%x+>"
-	   bucs, eucs, cid = string.match(line, "<(%x+)>%s+<(%x+)>%s+<?(%x+)>?")
-	   cid = tonumber(cid); 
-	   bucs = tonumber(bucs, 16); eucs = tonumber(eucs, 16)
-	   for ucs = bucs, eucs do
-	      tt[ucs], cid = cid, cid + 1
-	   end
-	end
-	line = fh:read("*l")
+        if string.find(line, "end...?range") then
+           line = fh:read("*l"); return
+        else -- WMA l is in the form "<%x+>%s+<%x+>"
+           bucs, eucs, cid = string.match(line, "<(%x+)>%s+<(%x+)>%s+<?(%x+)>?")
+           cid = tonumber(cid);
+           bucs = tonumber(bucs, 16); eucs = tonumber(eucs, 16)
+           for ucs = bucs, eucs do
+              tt[ucs], cid = cid, cid + 1
+           end
+        end
+        line = fh:read("*l")
      end
   end
 
@@ -40,14 +40,14 @@ local function open_cmap_file(cmap_name, out_table)
    line = fh:read("*l")
    while line do
       if string.find(line, "%x+%s+begin...?char") then
-	 load_cid_char()
+         load_cid_char()
       elseif string.find(line, "%x+%s+begin...?range") then
-	 load_cid_range()
+         load_cid_range()
       else
-	 line = fh:read("*l")
+         line = fh:read("*l")
       end
    end
-   fh:close(); 
+   fh:close();
    return tt
 end
 
