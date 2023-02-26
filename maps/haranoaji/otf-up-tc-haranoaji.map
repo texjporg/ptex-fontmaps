@@ -1,0 +1,16 @@
+
+% TEXT
+upatchminl-h	UniCNS-UTF16-H	HaranoAjiMinchoTW-Light.otf
+upatchminl-v	UniCNS-UTF16-V	HaranoAjiMinchoTW-Light.otf
+upatchminr-h	UniCNS-UTF16-H	HaranoAjiMinchoTW-Regular.otf
+upatchminr-v	UniCNS-UTF16-V	HaranoAjiMinchoTW-Regular.otf
+upatchminb-h	UniCNS-UTF16-H	HaranoAjiMinchoTW-Bold.otf
+upatchminb-v	UniCNS-UTF16-V	HaranoAjiMinchoTW-Bold.otf
+upatchgothr-h	UniCNS-UTF16-H	HaranoAjiGothicTW-Regular.otf
+upatchgothr-v	UniCNS-UTF16-V	HaranoAjiGothicTW-Regular.otf
+upatchgothb-h	UniCNS-UTF16-H	HaranoAjiGothicTW-Bold.otf
+upatchgothb-v	UniCNS-UTF16-V	HaranoAjiGothicTW-Bold.otf
+upatchgotheb-h	UniCNS-UTF16-H	HaranoAjiGothicTW-Heavy.otf
+upatchgotheb-v	UniCNS-UTF16-V	HaranoAjiGothicTW-Heavy.otf
+upatchmgothr-h	UniCNS-UTF16-H	HaranoAjiGothicTW-Medium.otf
+upatchmgothr-v	UniCNS-UTF16-V	HaranoAjiGothicTW-Medium.otf

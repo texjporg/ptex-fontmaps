@@ -1,0 +1,16 @@
+
+% TEXT
+upaschminl-h	UniGB-UTF16-H	:0:simsun.ttc %!PS SimSun
+upaschminl-v	UniGB-UTF16-V	:0:simsun.ttc %!PS SimSun
+upaschminr-h	UniGB-UTF16-H	:0:simsun.ttc %!PS SimSun
+upaschminr-v	UniGB-UTF16-V	:0:simsun.ttc %!PS SimSun
+upaschminb-h	UniGB-UTF16-H	:0:simsun.ttc %!PS SimSun
+upaschminb-v	UniGB-UTF16-V	:0:simsun.ttc %!PS SimSun
+upaschgothr-h	UniGB-UTF16-H	simhei.ttf %!PS SimHei
+upaschgothr-v	UniGB-UTF16-V	simhei.ttf %!PS SimHei
+upaschgothb-h	UniGB-UTF16-H	simhei.ttf %!PS SimHei
+upaschgothb-v	UniGB-UTF16-V	simhei.ttf %!PS SimHei
+upaschgotheb-h	UniGB-UTF16-H	simhei.ttf %!PS SimHei
+upaschgotheb-v	UniGB-UTF16-V	simhei.ttf %!PS SimHei
+upaschmgothr-h	UniGB-UTF16-H	simkai.ttf %!PS KaiTi
+upaschmgothr-v	UniGB-UTF16-V	simkai.ttf %!PS KaiTi
