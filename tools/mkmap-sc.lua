@@ -167,6 +167,16 @@ local maps = {
       {'otf-ucge-#',  'UniGB-UCS2-#', 'ge'},
       {'otf-ucmgr-#', 'UniGB-UCS2-#', 'mgr'},
    },
+   ['otf-up-sc-@'] = {
+      '% TEXT',
+      {'upaschminl-#',  'UniGB-UTF16-#', 'ml'},
+      {'upaschminr-#',  'UniGB-UTF16-#', 'mr'},
+      {'upaschminb-#',  'UniGB-UTF16-#', 'mb'},
+      {'upaschgothr-#', 'UniGB-UTF16-#', 'gr'},
+      {'upaschgothb-#', 'UniGB-UTF16-#', 'gb'},
+      {'upaschgotheb-#','UniGB-UTF16-#', 'ge'},
+      {'upaschmgothr-#','UniGB-UTF16-#', 'mgr'},
+   },
 }
 
 local jis2004_flag = 'n'

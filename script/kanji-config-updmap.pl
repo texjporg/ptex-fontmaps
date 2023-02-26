@@ -5,8 +5,8 @@
 # formerly known as updmap-setup-kanji
 #
 # Copyright 2004-2006 by KOBAYASHI R. Taizo for the shell version (updmap-otf)
-# Copyright 2011-2021 by PREINING Norbert
-# Copyright 2016-2021 by Japanese TeX Development Community
+# Copyright 2011-2023 by PREINING Norbert
+# Copyright 2016-2023 by Japanese TeX Development Community
 #
 # This file is licensed under GPL version 3 or any later version.
 # For copyright statements see end of file.
@@ -185,6 +185,7 @@ sub Usage {
       For Simplified Chinese, Traditional Chinese and Korean:
         uptex-<NN>-<family>.map (representative map file)
         otf-<NN>-<family>.map
+        otf-up-<NN>-<family>.map
        (NN being: sc, tc, ko)
 
   Please see the documentation of updmap for details (updmap --help).

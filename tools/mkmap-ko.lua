@@ -131,6 +131,16 @@ local maps = {
       {'otf-ukge-#', 'UniKS-UCS2-#', 'ge'},
       {'otf-ukmgr-#','UniKS-UCS2-#', 'mgr'},
    },
+   ['otf-up-ko-@'] = {
+      '% TEXT',
+      {'upakorminl-#',  'UniKS-UTF16-#', 'ml'},
+      {'upakorminr-#',  'UniKS-UTF16-#', 'mr'},
+      {'upakorminb-#',  'UniKS-UTF16-#', 'mb'},
+      {'upakorgothr-#', 'UniKS-UTF16-#', 'gr'},
+      {'upakorgothb-#', 'UniKS-UTF16-#', 'gb'},
+      {'upakorgotheb-#','UniKS-UTF16-#', 'ge'},
+      {'upakormgothr-#','UniKS-UTF16-#', 'mgr'},
+   },
 }
 
 local jis2004_flag = 'n'
