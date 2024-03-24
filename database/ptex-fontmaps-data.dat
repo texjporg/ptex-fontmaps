@@ -18,9 +18,9 @@ JA*(105): ms-osx: MS-Gothic.ttf
 JA(110): moga-mobo-ex: mogam.ttc
 JA(120): moga-mobo: mogam.ttc
 JA*(130): ipaex: ipaexm.ttf
-JA*(140): ipa: ipam.ttf
-JA*(150): ume: ume-tmo3.ttf
-JA*(160): canon: FGCCHMW3.TTC
+JA+*(140): ipa: ipam.ttf
+JA+*(150): ume: ume-tmo3.ttf
+JA+*(160): canon: FGCCHMW3.TTC
 JA-AI0: sourcehan-otc: SourceHanSerif-Regular.ttc
 JA-AI0: sourcehan: SourceHanSerif-Regular.otf
 JA-AI0: noto-otc: NotoSerifCJK-Regular.ttc

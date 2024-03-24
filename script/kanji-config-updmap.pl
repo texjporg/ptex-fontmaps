@@ -29,7 +29,8 @@ my $updmap = $updmap_real;
 
 my $dry_run = 0;
 my $opt_help = 0;
-my $opt_jis = 0;
+my $opt_jis90 = 0;
+my $opt_jis2004 = 0;
 my $opt_sys = 0;
 my $opt_user = 0;
 my $opt_old = 0;
@@ -44,7 +45,8 @@ my $opt_mode_ko;
 if (! GetOptions(
         "n|dry-run" => \$dry_run,
         "h|help" => \$opt_help,
-        "jis2004" => \$opt_jis,
+        "jis90"   => \$opt_jis90,
+        "jis2004" => \$opt_jis2004,
         "mode=s"   => \$opt_mode_one,
         "ja=s"     => \$opt_mode_ja,
         "sc=s"     => \$opt_mode_sc,
@@ -56,6 +58,10 @@ if (! GetOptions(
         "force"    => \$opt_force,
         "version"  => sub { print &version(); exit(0); }, ) ) {
   die "Try \"$0 --help\" for more information.\n";
+}
+
+if ($opt_jis90 && $opt_jis2004) {
+  die "Only one of --jis90 and --jis2004 can be used!";
 }
 
 if ($opt_mode_one) {
@@ -207,6 +213,7 @@ sub Usage {
     --mode=NN      Setup for Japanese (NN=ja), Korean (NN=ko),
                    Simplified Chinese (NN=sc), Traditional Chinese (NN=tc)
     --NN           Shorthand for --mode=NN
+    --jis90        Use JIS90 variants for default fonts of (u)pTeX
     --jis2004      Use JIS2004 variants for default fonts of (u)pTeX
     --sys          Run in sys mode, i.e., call updmap -sys
     --user         Run in user mode, i.e., call updmap -user or updmap,
@@ -255,15 +262,17 @@ sub ReadDatabase {
       next if ($l =~ m/^\s*$/); # skip empty line
       next if ($l =~ m/^\s*#/); # skip comment line
       $l =~ s/\s*#.*$//; # skip comment after '#'
-      if ($l =~ m/^JA\*\((\d+)\):\s*(.*):\s*(.*)$/) { # no -04 map
-        $representatives{'ja'}{$2}{'priority'} = $1;
-        $representatives{'ja'}{$2}{'file'} = $3;
-        $representatives{'ja'}{$2}{'nojis04'} = 1;
-        next;
-      }
-      if ($l =~ m/^JA\((\d+)\):\s*(.*):\s*(.*)$/) {
-        $representatives{'ja'}{$2}{'priority'} = $1;
-        $representatives{'ja'}{$2}{'file'} = $3;
+      if ($l =~ m/^JA(\+?\*?)\((\d+)\):\s*(.*):\s*(.*)$/) { # no -04 map
+        my $flag = $1;
+        my $family = $3;
+        $representatives{'ja'}{$family}{'priority'} = $2;
+        $representatives{'ja'}{$family}{'file'} = $4;
+        if ($flag =~ m/\+/) {
+          $representatives{'ja'}{$family}{'nojis90'} = 1;
+        }
+        if ($flag =~ m/\*/) {
+          $representatives{'ja'}{$family}{'nojis04'} = 1;
+        }
         next;
       }
       if ($l =~ m/^SC\((\d+)\):\s*(.*):\s*(.*)$/) {
@@ -440,11 +449,17 @@ sub SetupMapFile {
     print " for $opt_mode\n";
     system("$updmap --quiet --nomkmap --nohash --setoption ${opt_mode}Embed $rep");
     if ($opt_mode eq "ja") {
-      if ($opt_jis && $representatives{'ja'}{$rep}{'nojis04'}) {
-        print STDERR "WARNING: No -04 map available, option --jis2004 ignored!\n";
-        $opt_jis = 0;
+      if ($opt_jis90 && $representatives{'ja'}{$rep}{'nojis90'}) {
+        print STDERR "WARNING: No -90 map available, option --jis90 ignored!\n";
+        $opt_jis90 = 0;
       }
-      if ($opt_jis) {
+      if ($opt_jis2004 && $representatives{'ja'}{$rep}{'nojis04'}) {
+        print STDERR "WARNING: No -04 map available, option --jis2004 ignored!\n";
+        $opt_jis2004 = 0;
+      }
+      if ($opt_jis90) {
+        system("$updmap --quiet --nomkmap --nohash --setoption jaVariant -90");
+      } elsif ($opt_jis2004) {
         system("$updmap --quiet --nomkmap --nohash --setoption jaVariant -04");
       } else {
         system("$updmap --quiet --nomkmap --nohash --setoption jaVariant \"\"");
