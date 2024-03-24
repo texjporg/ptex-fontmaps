@@ -449,6 +449,15 @@ local function make_one_line(o, fd, s)
    end
 end
 
+local function mkdir(dirname)
+  if os.type == "windows" then
+    dirname = string.gsub(dirname, '/', '\\')
+    return os.execute('IF NOT EXIST ' .. dirname .. ' MKDIR ' .. dirname)
+  else
+    return os.execute('mkdir -p ' .. dirname)
+  end
+end
+
 for fd, v1 in pairs(foundry) do
    -- separate でないときは mln などのデータベースを省略してあるので ml などからコピー
    if not foundry[fd].separate then
@@ -464,8 +473,7 @@ for fd, v1 in pairs(foundry) do
    for _,s in pairs(v1[1]) do
       local dirname = fd .. suffix[s][2]
       print('jaEmbed: ' .. dirname)
-      -- Linux しか想定していない
-      os.execute('mkdir ' .. dirname .. ' &>/dev/null')
+      mkdir(dirname)
       for mnx, mcont in pairs(maps) do
          --if not string.match(mnx, '-04') or string.match(s, jis2004_flag) then
          -- フォントが OpenType (CID) の場合は、すべての map を作る
