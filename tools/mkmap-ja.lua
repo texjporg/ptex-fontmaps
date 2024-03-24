@@ -21,6 +21,7 @@ local foundry = {
    },
    ['ms']   = {
       noncid = true,
+      jis90ivs = true,
       ml=':0:msmincho.ttc %!PS MS-Mincho',
       mr=':0:msmincho.ttc %!PS MS-Mincho',
       mb=':0:msmincho.ttc %!PS MS-Mincho',
@@ -33,6 +34,7 @@ local foundry = {
    },
    ['ms-osx']   = {
       noncid = true,
+      jis90ivs = true,
       ml='MS-Mincho.ttf',
       mr='MS-Mincho.ttf',
       mb='MS-Mincho.ttf',
@@ -45,6 +47,7 @@ local foundry = {
    },
    ['bizud']   = {
       noncid = true,
+      jis90ivs = true,
       ml=':0:BIZ-UDMinchoM.ttc %!PS BIZ-UDMincho-Medium',
       mr=':0:BIZ-UDMinchoM.ttc %!PS BIZ-UDMincho-Medium',
       mb=':0:BIZ-UDMinchoM.ttc %!PS BIZ-UDMincho-Medium',
@@ -57,6 +60,7 @@ local foundry = {
    },
    ['yu-win']   = {
       noncid = true,
+      jis90ivs = true,
       ml='yuminl.ttf %!PS YuMincho-Light',
       mr='yumin.ttf %!PS YuMincho-Regular',
       mb='yumindb.ttf %!PS YuMincho-Demibold',
@@ -69,6 +73,7 @@ local foundry = {
    },
    ['yu-win10']   = {
       noncid = true,
+      jis90ivs = true,
       ml='yuminl.ttf %!PS YuMincho-Light',
       mr='yumin.ttf %!PS YuMincho-Regular',
       mb='yumindb.ttf %!PS YuMincho-Demibold',
@@ -105,6 +110,7 @@ local foundry = {
    },
    ['ipaex']   = {
       noncid = true,
+      jis90ivs = true,
       ml='ipaexm.ttf %!PS IPAexMincho',
       mr='ipaexm.ttf %!PS IPAexMincho',
       mb='ipaexm.ttf %!PS IPAexMincho',
@@ -297,7 +303,7 @@ local suffix = {
 -- '#' は 'h', 'v' に置換される
 -- '@' は jaEmbed の値に置換される
 local maps = {
-   ['ptex-@'] = {    -- pTeX 90JIS
+   ['ptex-@-90'] = {    -- pTeX 90JIS
       {'rml',  'H', 'mr'},
       {'rmlv', 'V', 'mr'},
       {'gbm',  'H', 'gru'},
@@ -309,7 +315,7 @@ local maps = {
       {'gbm',  '2004-H', 'grun'},
       {'gbmv', '2004-V', 'grun'},
    },
-   ['uptex-@'] = {   -- upTeX 90JIS
+   ['uptex-@-90'] = {   -- upTeX 90JIS
       {'urml',    'UniJIS-UTF16-H', 'mr'},
       {'urmlv',   'UniJIS-UTF16-V', 'mr'},
       {'ugbm',    'UniJIS-UTF16-H', 'gru'},
@@ -474,12 +480,30 @@ for fd, v1 in pairs(foundry) do
       local dirname = fd .. suffix[s][2]
       print('jaEmbed: ' .. dirname)
       mkdir(dirname)
+
+      -- デフォルトの map は、
+      -- フォントが OpenType (CID) の場合は、JIS90 用の設定で作る
+      -- フォントが TrueType の場合は、JIS2004 用の設定で作る
+      -- ただし TrueType でも separate なときは JIS90 用の設定で作る
+      if foundry[fd].noncid and not foundry[fd].separate then
+         maps['ptex-@'] = maps['ptex-@-04']
+         maps['uptex-@'] = maps['uptex-@-04']
+      else
+         maps['ptex-@'] = maps['ptex-@-90']
+         maps['uptex-@'] = maps['uptex-@-90']
+      end
+
       for mnx, mcont in pairs(maps) do
          --if not string.match(mnx, '-04') or string.match(s, jis2004_flag) then
          -- フォントが OpenType (CID) の場合は、すべての map を作る
-         -- フォントが TrueType の場合は、基本的に -04 以外の map を作る
-         -- ただし TrueType でも separate なときは -04 も作る
-         if not string.match(mnx, '-04') or not foundry[fd].noncid or foundry[fd].separate then
+         -- フォントが TrueType の場合は、基本的に -90, -04 以外の map を作る
+         -- ただし TrueType でも separate なときは -90, -04 も作る
+         -- ただし TrueType でも jis90ivs なときは -90 も作る
+         if not foundry[fd].noncid or
+            foundry[fd].separate or
+            foundry[fd].jis90ivs and string.match(mnx, '-90') or
+            not string.match(mnx, '-90') and not string.match(mnx, '-04') then
+
             local mapbase = gsub(mnx, '@', dirname)
             local f = io.open(dirname .. '/' .. mapbase .. '.map', 'w+')
             for _,x in ipairs(mcont) do

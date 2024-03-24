@@ -90,7 +90,7 @@ local foundry_fallback = {
 -- テーブルサイズが 5 のとき，4/5 番目は fallback の AJ1 フォント用
 -- テーブルサイズが 3 のとき，全て fallback の AJ1 フォント用
 local maps = {
-   ['ptex-@'] = {    -- pTeX 90JIS
+   ['ptex-@-90'] = {    -- pTeX 90JIS
       {'rml',  'H', 'fmr'},
       {'rmlv', 'V', 'fmr'},
       {'gbm',  'H', 'fgru'},
@@ -102,7 +102,7 @@ local maps = {
       {'gbm',  '2004-H', 'fgru'},
       {'gbmv', '2004-V', 'fgru'},
    },
-   ['uptex-@'] = {   -- upTeX 90JIS
+   ['uptex-@-90'] = {   -- upTeX 90JIS
       {'urml',    '-l jp90',      'mr',  'fmr',  'UniJIS-UTF16-H'},
       {'urmlv',   '-w 1 -l jp90', 'mr',  'fmr',  'UniJIS-UTF16-V'},
       {'ugbm',    '-l jp90',      'gru', 'fgru', 'UniJIS-UTF16-H'},
@@ -252,6 +252,10 @@ for fd, v1 in pairs(foundry) do
       local dirname = fd
       print('jaEmbed: ' .. dirname)
       mkdir(dirname)
+
+      maps['ptex-@'] = maps['ptex-@-90']
+      maps['uptex-@'] = maps['uptex-@-90']
+
       for mnx, mcont in pairs(maps) do
          if not string.match(mnx, '-04') or not foundry[fd].noncid or foundry[fd].separate then
             local mapbase = gsub(mnx, '@', dirname)
