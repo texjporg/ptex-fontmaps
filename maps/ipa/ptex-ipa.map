@@ -1,4 +1,4 @@
-rml	H	ipam.ttf %!PS IPAMincho
-rmlv	V	ipam.ttf %!PS IPAMincho
-gbm	H	ipag.ttf %!PS IPAGothic
-gbmv	V	ipag.ttf %!PS IPAGothic
+rml	2004-H	ipam.ttf %!PS IPAMincho
+rmlv	2004-V	ipam.ttf %!PS IPAMincho
+gbm	2004-H	ipag.ttf %!PS IPAGothic
+gbmv	2004-V	ipag.ttf %!PS IPAGothic

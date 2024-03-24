@@ -1,4 +1,4 @@
-rml	H	ipaexm.ttf %!PS IPAexMincho
-rmlv	V	ipaexm.ttf %!PS IPAexMincho
-gbm	H	ipaexg.ttf %!PS IPAexGothic
-gbmv	V	ipaexg.ttf %!PS IPAexGothic
+rml	2004-H	ipaexm.ttf %!PS IPAexMincho
+rmlv	2004-V	ipaexm.ttf %!PS IPAexMincho
+gbm	2004-H	ipaexg.ttf %!PS IPAexGothic
+gbmv	2004-V	ipaexg.ttf %!PS IPAexGothic
